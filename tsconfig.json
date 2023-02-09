@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // то, куда производится сборка
+    "noImplicitAny": true, // запрет на использование переменных без явного указания типа
+    "module": "ESNext", //типы модульной сборки
+    "target": "es5", // версия ecma-script, в которую код будет компилироваться
+    "jsx": "react-jsx",
+    "allowJs": true, // позволяет компилятору обрабатывать как ts, так и js файлы
+    "moduleResolution": "node", // определяет какие импорты будут
+    "baseUrl": ".", // для абсолютного импорта
+    "esModuleInterop": true, // позволяет вместо require (Common JS module)  использовать import
+    "allowSyntheticDefaultImports": true, // для поддержки дефолтных импортов, чтобы не писать *
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
