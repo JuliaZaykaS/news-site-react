@@ -8,6 +8,9 @@
     "allowJs": true, // позволяет компилятору обрабатывать как ts, так и js файлы
     "moduleResolution": "node", // определяет какие импорты будут
     "baseUrl": ".", // для абсолютного импорта
+    "paths":{
+      "*":["./src/*"] // все абсолютные импорты будут идти из папки src
+    },
     "esModuleInterop": true, // позволяет вместо require (Common JS module)  использовать import
     "allowSyntheticDefaultImports": true, // для поддержки дефолтных импортов, чтобы не писать *
   },

@@ -13,6 +13,7 @@ export default (env: BuildEnv) => {
     entry: path.resolve(__dirname, "src", "index.tsx"), // dirname - имя директории, где мы сейчас находимся, далее путь к папке и главному файлу
     build: path.resolve(__dirname, "build"), // путь, куда сборка должна происходить,
     html: path.resolve(__dirname, "public", "index.html"), // указываем, какой файл хтмл мы будет использовать в качестве шаблона,
+    src: path.resolve(__dirname, "src"), // путь к папке src
   };
 
   const mode = env.mode || "development";

@@ -30,7 +30,7 @@ export function buildWebpackConfig(
       // правила для файлов-лоадеров, предназначенных для файлов, которые выходят за рамки js (файлы изображений, css, ts и тп)
       rules: buildLoaders(options),
     },
-    resolve: buildResolves(),
+    resolve: buildResolves(options),
     devtool: isDev ? "inline-source-map" : undefined, // для понимания, в каком файле произошла ошибка
     devServer: isDev ? buildDevServer(options) : undefined, // настройки для сервера разработки
   };
