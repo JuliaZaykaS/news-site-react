@@ -4,6 +4,11 @@ import { BuildOptions } from "./types/config";
 
 //функция для конфигов по лоудерам
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
+
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -32,5 +37,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     use: "ts-loader",
     exclude: /node_modules/,
   };
-  return [typescriptLoader, cssLoaders];
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
+  return [fileLoader, svgLoader, typescriptLoader, cssLoaders];
 }
