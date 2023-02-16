@@ -11,16 +11,27 @@ import { classNames } from "shared/lib/classNames/classNames";
 import AppRouter from "./providers/router/ui/AppRouter";
 import { Navbar } from "widgets/Navbar";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { Sidebar } from "widgets/Sidebar/ui";
+import { useTranslation } from "react-i18next";
+
+const Component = () => {
+  const { t, i18n } = useTranslation();
+  return <div>{t("Тестовый пример")}</div>;
+};
 
 export const App = () => {
   const { theme } = useTheme();
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      {/* <button onClick={toggleTheme}>Toggle</button> */}
-      <ThemeSwitcher />
-      <Navbar />
-      <AppRouter />
+      <Suspense fallback={""}>
+        <Navbar />
+        <Component />
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   );
 };
