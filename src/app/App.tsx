@@ -14,11 +14,6 @@ import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { useTranslation } from "react-i18next";
 
-const Component = () => {
-  const { t, i18n } = useTranslation();
-  return <div>{t("Тестовый пример")}</div>;
-};
-
 export const App = () => {
   const { theme } = useTheme();
 
@@ -26,7 +21,7 @@ export const App = () => {
     <div className={classNames("app", {}, [theme])}>
       <Suspense fallback={""}>
         <Navbar />
-        <Component />
+
         <div className="content-page">
           <Sidebar />
           <AppRouter />

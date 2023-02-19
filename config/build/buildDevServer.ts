@@ -6,5 +6,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     port: options.port, // порт для разработки
     open: true, // свойство для автоматического открытия страницы приложения
     historyApiFallback: true, // для проксирования запросов с главной страницы приложения
+    hot: true, // для обновления страницы без перезагрузки
   };
 }
