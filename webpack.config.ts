@@ -1,9 +1,9 @@
 import path from "path"; // импортим модуль, т.к. пути на разных ОС составляются по разному
-import HtmlWebpackPlugin from "html-webpack-plugin"; // плагин для связи вебпака с хтмл файлом, в который будут подключаться скрипты автоматически
+// import HtmlWebpackPlugin from "html-webpack-plugin"; // плагин для связи вебпака с хтмл файлом, в который будут подключаться скрипты автоматически
 import webpack from "webpack"; //to access built-in plugins
-import { buildPlugins } from "./config/build/buildPlugins";
-import { buildLoaders } from "./config/build/buildLoaders";
-import { buildResolves } from "./config/build/buildResolves";
+// import { buildPlugins } from "./config/build/buildPlugins";
+// import { buildLoaders } from "./config/build/buildLoaders";
+// import { buildResolves } from "./config/build/buildResolves";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { BuildEnv, BuildPaths } from "./config/build/types/config";
 
