@@ -20,7 +20,6 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = (props) => {
       theme={ThemeButton.CLEAR}
       onClick={toggle}
     >
-      hhhh
       {t("Язык")}
     </Button>
   );

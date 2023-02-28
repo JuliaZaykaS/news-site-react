@@ -13,5 +13,6 @@
     "less",
     "postcss",
     "scss"
-]
+],
+"i18next.i18nPaths": "c:/Users/yu.zajka/Documents/ЛИЧНЫЕ ПРОЕКТЫ/production-progect/public/locales,c:/Users/yu.zajka/Documents/ЛИЧНЫЕ ПРОЕКТЫ/production-progect/src/shared/config/i18n"
 }

@@ -48,6 +48,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "react/prop-types": "warn",
     "i18next/no-literal-string": ["error", { markupOnly: true }],
+    "max-len": ["error", { ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,
