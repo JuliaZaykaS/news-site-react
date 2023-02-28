@@ -1,5 +1,5 @@
 // import React, { Suspense, useContext, useState } from "react";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 // import { Link, Route, Routes } from "react-router-dom";
 import "./styles/index.scss";
 
@@ -16,18 +16,24 @@ import { Sidebar } from "widgets/Sidebar/ui";
 // import { useTranslation } from "react-i18next";
 
 export const App = () => {
-    const { theme } = useTheme();
+  const { theme } = useTheme();
 
-    return (
-        <div className={classNames("app", {}, [theme])}>
-            <Suspense fallback={""}>
-                <Navbar />
+  //   useEffect(() => {
+  //     if (Math.random() < 0.5) {
+  //       throw new Error();
+  //     }
+  //   }, []);
 
-                <div className="content-page">
-                    <Sidebar />
-                    <AppRouter />
-                </div>
-            </Suspense>
+  return (
+    <div className={classNames("app", {}, [theme])}>
+      <Suspense fallback={""}>
+        <Navbar />
+
+        <div className="content-page">
+          <Sidebar />
+          <AppRouter />
         </div>
-    );
+      </Suspense>
+    </div>
+  );
 };
