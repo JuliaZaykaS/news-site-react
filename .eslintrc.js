@@ -47,10 +47,22 @@ module.exports = {
     "no-underscore-dangle": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "react/prop-types": "warn",
-    "i18next/no-literal-string": ["error", { markupOnly: true }],
+    "i18next/no-literal-string": [
+      "error",
+      { markupOnly: true, ignoreAttibute: ["data-testid"] },
+    ],
     "max-len": ["error", { ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    // позволяет для определенного вида файлов переопределить какие-то правила
+    {
+      files: ["**/src/**/*.test.{ts,tsx}"],
+      rules: {
+        "i18next/no-literal-string": "off", // отключаем переводы в тестовых файлах
+      },
+    },
+  ],
 };
