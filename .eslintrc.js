@@ -9,15 +9,16 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
     "plugin:i18next/recommended",
+    "plugin:storybook/recommended",
   ],
   parser: "@typescript-eslint/parser",
-
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
     // typescript-eslint/parser:
   },
+
   // parser: "@typescript-eslint/parser",
   plugins: ["react", "@typescript-eslint", "i18next"],
   // rules: {
@@ -32,7 +33,9 @@ module.exports = {
     // indent: [2, 4],
     "react/jsx-filename-extension": [
       2,
-      { extensions: [".js", ".jsx", ".tsx"] },
+      {
+        extensions: [".js", ".jsx", ".tsx"],
+      },
     ],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
@@ -45,13 +48,27 @@ module.exports = {
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "no-underscore-dangle": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        argsIgnorePattern: "^_",
+      },
+    ],
     "react/prop-types": "warn",
     "i18next/no-literal-string": [
       "error",
-      { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
+      {
+        markupOnly: true,
+        ignoreAttribute: ["data-testid", "to"],
+      },
     ],
-    "max-len": ["error", { ignoreComments: true, code: 100 }],
+    "max-len": [
+      "error",
+      {
+        ignoreComments: true,
+        code: 100,
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
