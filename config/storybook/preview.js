@@ -1,3 +1,6 @@
+import { addDecorator } from "@storybook/react";
+import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator/StyleDecorator.ts";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,4 +9,5 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};
+addDecorator(StyleDecorator);
