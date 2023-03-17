@@ -30,14 +30,17 @@ jobs:
        matrix:
          node-version: [ 17.x ]
   steps:
+
     # сначала устанавливаем Ноду нужной версии
+
     - uses: actions/checkout@v2
     - name: Staring Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
        node-version: ${{ matrix.node-version }}
 
-# теперь указываем скрипты
+    # теперь указываем скрипты
+
     - name: install modules
     run: npm install
     - name: build production project
