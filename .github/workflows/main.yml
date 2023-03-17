@@ -32,7 +32,6 @@ jobs:
 
    steps:
 
-    # сначала устанавливаем Ноду нужной версии
     - uses: actions/checkout@v2
     - name: Staring Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
