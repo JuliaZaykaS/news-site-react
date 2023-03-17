@@ -1,51 +1,36 @@
-
 # имя экшена
-
 name: linting, testing,building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
 # указываем, что при пуше и пул реквестах в главную ветку запускаем скрипты ниже
-
 on:
   push:
     branches: [main]
   pull_request:
-      branches: [main]
-
+    branches: [main]
 # пишем, какие скрипты выполнять
-
 jobs:
-
-# имя для группы скриптов
-
+  # имя для группы скриптов
   pipeline:
-
-# указываем , на какой ОС будут запускаться проверки
-
-   runs-on: ubuntu-latest
-
-# указываем версию Ноды
-
-   strategy:
-       matrix:
-         node-version: [ 17.x ]
-
-   steps:
-    - uses: actions/checkout@v2
-    - name: Staring Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-       node-version: ${{ matrix.node-version }}
-
-    # теперь указываем скрипты
-
-    - name: install modules
-    run: npm install
-    - name: build production project
-    run: npm run build:prod
-    - name: linting typescript
-    run: npm run lint:ts
-    - name: linting css
-    run: npm run lint:scss
-    - name: unit testing
-    run: npm run test:unit
+    # указываем , на какой ОС будут запускаться проверки
+    runs-on: ubuntu-latest
+    # указываем версию Ноды
+    strategy:
+      matrix:
+        node-version: [17.x]
+    # устанавливаем Ноду нужной версии
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      # теперь указываем скрипты
+      - name: install modules
+        run: npm install
+      - name: build production project
+        run: npm run build:prod
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting css
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
