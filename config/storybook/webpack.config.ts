@@ -14,7 +14,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, "..", "..", "src"),
   };
   // поместим в конфиг путь до проекта и расширения файлов, которые следует обработать
-  console.log("paths.src", paths.src);
+  // console.log("paths.src", paths.src);
 
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push(".ts", ".tsx");
@@ -24,6 +24,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   if (config.module) {
     // eslint-disable-next-line no-param-reassign
+    // config.module.rules = config.module.rules?.map((rule: RuleSetRule) => {
     config.module.rules = config.module.rules?.map((rule: RuleSetRule) => {
       if (/svg/.test(rule.test as string)) {
         return { ...rule, exclude: /\.svg$/i }; // Если правило связано с свг, то его берем
