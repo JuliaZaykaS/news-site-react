@@ -11,7 +11,7 @@ jobs:
   # имя для группы скриптов
   pipeline:
     # указываем , на какой ОС будут запускаться проверки
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     # указываем версию Ноды
     strategy:
       matrix:
