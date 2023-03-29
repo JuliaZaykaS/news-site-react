@@ -34,10 +34,10 @@ export const Navbar = ({ className }: NavbarProps) => {
         {t("Войти")}
       </Button>
       <Modal isOpen={isAuthModal} onClose={onToggleModal} theme={theme}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe magnam
-        nam odit veniam eius quod ratione, corporis dolor minus consequuntur
-        velit, repellat aliquam deleniti quaerat ullam? Vel consectetur iusto
-        mollitia.
+        {t(
+          // eslint-disable-next-line max-len
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe magnam nam odit veniam eius quod ratione, corporis dolor minus consequuntur velit, repellat aliquam deleniti quaerat ullam? Vel consectetur iusto mollitia."
+        )}
       </Modal>
     </div>
   );
