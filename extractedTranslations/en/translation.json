@@ -5,7 +5,8 @@
       "": ""
     }
   },
-
+  "decrement": "decrement",
+  "increment": "increment",
   "Войти": "",
   "Главная": "Главная",
   "Главная страница": "Main page",
@@ -15,6 +16,6 @@
   "Произошла непредвиденная ошибка": "An unexpected error occurred",
   "Страница не найдена": "Page not found",
   "Язык": "English",
-  "прибавить": "increment",
-  "убавить": "decrement"
+  "прибавить": "прибавить",
+  "убавить": "убавить"
 }

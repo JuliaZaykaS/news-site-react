@@ -16,13 +16,13 @@ interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
-  theme: Theme;
+  // theme: Theme;
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-  const { className, children, isOpen, onClose, theme } = props;
+  const { className, children, isOpen, onClose } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   // const timeRef = useRef<NodeJS.Timeout>();
@@ -70,7 +70,7 @@ export const Modal = (props: ModalProps) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [theme])}>
+      <div className={classNames(cls.modal, mods, [])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}
