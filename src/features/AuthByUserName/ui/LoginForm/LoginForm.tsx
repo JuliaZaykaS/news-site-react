@@ -2,6 +2,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
 import { Button } from "shared/ui/Button/ui/Button";
+import { Input } from "shared/ui/Input/ui/Input";
 
 interface LoginFormProps {
   className?: string;
@@ -13,8 +14,18 @@ export const LoginForm = (props: LoginFormProps) => {
 
   return (
     <div className={classNames(cls.loginForm, {}, [className])}>
-      <input type="text" className={cls.input} />
-      <input type="text" className={cls.input} />
+      <Input
+        type="text"
+        className={cls.input}
+        placeholder={t("Логин")}
+        autofocus
+      ></Input>
+      <Input
+        type="text"
+        className={cls.input}
+        placeholder={t("Пароль")}
+      ></Input>
+
       <Button className={cls.loginBtn}>{t("Войти")}</Button>
     </div>
   );
