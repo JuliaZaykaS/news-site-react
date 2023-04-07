@@ -23,3 +23,11 @@ Primary.args = {
   placeholder: "Type text",
   value: "123123",
 };
+export const Dark = Template.bind({});
+
+Dark.args = {
+  placeholder: "text",
+  value: "123123",
+};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
