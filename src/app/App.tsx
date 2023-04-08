@@ -14,10 +14,18 @@ import { Navbar } from "widgets/Navbar";
 // import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { Modal } from "shared/ui/Modal";
+import { useDispatch } from "react-redux";
+import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { userActions } from "entities/User";
 // import { useTranslation } from "react-i18next";
 
 export const App = () => {
   const { theme } = useTheme();
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   // const [isOpen, setIsOpen] = useState(false);
 
@@ -36,7 +44,7 @@ export const App = () => {
   //   }, []);
 
   return (
-    <div className={classNames("app", {}, [])}>
+    <div className={classNames("app", {}, [theme])}>
       <Suspense fallback={""}>
         <Navbar />
         {/* <button onClick={toggleModal}>toggle modal</button> */}

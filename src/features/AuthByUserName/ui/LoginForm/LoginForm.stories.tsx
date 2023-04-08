@@ -6,6 +6,7 @@ import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDeco
 
 import { LoginForm } from "./LoginForm";
 import { Theme } from "app/providers/ThemeProvider";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 export default {
   title: "features/LoginForm",
@@ -23,8 +24,28 @@ const Template: ComponentStory<typeof LoginForm> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    loginForm: { userName: "userName", password: "password" },
+  }),
+];
+
+export const withError = Template.bind({});
+withError.args = {};
+withError.decorators = [
+  StoreDecorator({
+    loginForm: { userName: "userName", password: "password", error: "error" },
+  }),
+];
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [
+  StoreDecorator({
+    loginForm: { isLoading: true },
+  }),
+];
 
 export const Dark = Template.bind({});
 
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator];

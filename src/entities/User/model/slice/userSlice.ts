@@ -1,12 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { UserSchema } from "../types/user";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { User, UserSchema } from "../types/user";
+import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 
 const initialState: UserSchema = {};
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    // записываем в стейт пользователя
+    setAuthData: (state, action: PayloadAction<User>) => {
+      state.authData = action.payload;
+    },
+    // достаем данные о пользователе из локал сторадж
+    initAuthData: (state) => {
+      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+      if (user) {
+        state.authData = JSON.parse(user);
+      }
+    },
+    // разлогиниваемся
+    logout: (state) => {
+      state.authData = undefined;
+      localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
