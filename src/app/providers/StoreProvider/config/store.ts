@@ -2,7 +2,8 @@ import { ReducersMapObject, configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "entities/Counter";
 import { StateSchema } from "./StateSchema";
 import { userReducer } from "entities/User";
-import { loginReducer } from "features/AuthByUserName";
+// import { loginReducer } from "features/AuthByUserName";
+import { createReducerManager } from "./reducerManager";
 
 // базовая функция
 // export default configureStore({
@@ -14,11 +15,19 @@ export function createReduxStore(initialState?: StateSchema) {
   const rootRedusers: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
-    loginForm: loginReducer,
+    // loginForm: loginReducer,
   };
-  return configureStore<StateSchema>({
+
+  const reducerManager = createReducerManager(rootRedusers);
+
+  const store = configureStore<StateSchema>({
     reducer: rootRedusers,
     devTools: __IS_DEV__, // отключаем девтулзы для продакшена
     preloadedState: initialState,
   });
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  store.reducerManager = reducerManager;
+  return store;
 }
