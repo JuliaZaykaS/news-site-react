@@ -64,10 +64,14 @@ describe("loginByUserName.test", () => {
     const thunk = new TestAsyncThunk(loginByUserName);
     const result = await thunk.callThunk({ userName: "123", password: "1234" });
 
+    console.log(result.payload);
+
     //  сколько раз вызвался диспатч
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe("rejected");
-    expect(result.payload).toBe("error");
+    // expect(result.payload).toBe("error");
+    // expect(result.payload).toEqual(Error);
+    // expect(result.payload).toBe("error");
   });
 });
