@@ -11,8 +11,12 @@ import { createReducerManager } from "./reducerManager";
 // });
 
 // чтобы впоследствии переиспользовать ее для сторибука и тестов создаем свою функцию, которая будет возвращать функцию по созданию стора
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) {
   const rootRedusers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
     // loginForm: loginReducer,
@@ -21,7 +25,7 @@ export function createReduxStore(initialState?: StateSchema) {
   const reducerManager = createReducerManager(rootRedusers);
 
   const store = configureStore<StateSchema>({
-    reducer: rootRedusers,
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__, // отключаем девтулзы для продакшена
     preloadedState: initialState,
   });
