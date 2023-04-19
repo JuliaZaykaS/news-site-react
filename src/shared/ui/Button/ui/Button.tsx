@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode, memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Button.module.scss";
 
@@ -21,9 +21,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean; // квадратная ли кнопка
   size?: ButtonSize; // возможность определять размеры кнопки
   disabled?: boolean; // кнопка активна или нет
+  children?: ReactNode;
 }
 
-export const Button = (props: ButtonProps) => {
+// eslint-disable-next-line react/display-name
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
@@ -50,4 +52,4 @@ export const Button = (props: ButtonProps) => {
       {children}
     </button>
   );
-};
+});

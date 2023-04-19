@@ -18,9 +18,11 @@ import {
   DynamicModuleLoader,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducerList = {
@@ -29,9 +31,10 @@ const initialReducers: ReducerList = {
 
 // eslint-disable-next-line react/display-name
 const LoginForm = memo((props: LoginFormProps) => {
-  const { className } = props;
+  const { className, onSuccess } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   // const store = useStore() as ReduxStoreWithManager;
 
   const userName = useSelector(getLoginUserName);
@@ -66,9 +69,12 @@ const LoginForm = memo((props: LoginFormProps) => {
     [dispatch]
   );
 
-  const onLoginBtnClick = useCallback(() => {
-    dispatch(loginByUserName({ userName, password }));
-  }, [dispatch, password, userName]);
+  const onLoginBtnClick = useCallback(async () => {
+    const result = await dispatch(loginByUserName({ userName, password }));
+    if (result.meta.requestStatus === "fulfilled") {
+      onSuccess();
+    }
+  }, [onSuccess, dispatch, password, userName]);
 
   return (
     <DynamicModuleLoader

@@ -5,7 +5,7 @@ import { AppLink } from "shared/ui/AppLink";
 import { AppLinkTheme } from "shared/ui/AppLink/ui/AppLink";
 
 import { useTranslation } from "react-i18next";
-import { useCallback, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { Modal } from "shared/ui/Modal";
 import { useTheme } from "app/providers/ThemeProvider";
 import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
@@ -17,7 +17,8 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+// eslint-disable-next-line react/display-name
+export const Navbar = memo(({ className }: NavbarProps) => {
   // const { theme } = useTheme();
 
   const { t } = useTranslation();
@@ -68,4 +69,4 @@ export const Navbar = ({ className }: NavbarProps) => {
       )}
     </div>
   );
-};
+});

@@ -35,3 +35,6 @@ export function createReduxStore(
   store.reducerManager = reducerManager;
   return store;
 }
+
+// export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];

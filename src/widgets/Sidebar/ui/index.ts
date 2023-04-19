@@ -1,2 +1,3 @@
 import { Sidebar } from "./Sidebar/Sidebar";
-export { Sidebar };
+import { SidebarItem } from "./SidebarItem/SidebarItem";
+export { Sidebar, SidebarItem };
