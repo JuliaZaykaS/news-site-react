@@ -7,9 +7,8 @@ import { Sidebar } from "./Sidebar";
 
 describe("Sidebar", () => {
   test("render in document", () => {
-    // const SidebarWithTranslation = withTranslation()(Sidebar);
-
-    // render(<SidebarWithTranslation />);
+    const SidebarWithTranslation = withTranslation()(Sidebar);
+    render(<SidebarWithTranslation />);
     componentRender(<Sidebar />);
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
   });
@@ -17,7 +16,6 @@ describe("Sidebar", () => {
     componentRender(<Sidebar />);
     const toggleBtn = screen.getByTestId("sidebar-toggle");
     fireEvent.click(toggleBtn);
-
     expect(screen.getByTestId("sidebar")).toHaveClass("collapsed");
   });
 });

@@ -10,6 +10,7 @@ export interface BuildPaths {
 export interface BuildEnv {
   mode: BuildMode;
   port: number;
+  apiUrl: string;
 }
 
 export interface BuildOptions {
@@ -17,4 +18,5 @@ export interface BuildOptions {
   paths: BuildPaths; // пути к файлам
   isDev: boolean; // true если продакшн
   port: number; // порт, на котором происходит разработка
+  apiUrl: string; // для выбора baseUrl (если прод или разработка)
 }
