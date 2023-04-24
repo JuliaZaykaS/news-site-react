@@ -6,7 +6,7 @@ type Mods = Record<string, boolean | string>;
 export function classNames(
   cls: string,
   mods: Mods = {}, // доп опции (? или ставить {} )
-  additional: string[] = [] // доп опции (? или ставить [] )
+  additional: Array<string | undefined> = [] // доп опции (? или ставить [] )
 ): string {
   return [
     cls,

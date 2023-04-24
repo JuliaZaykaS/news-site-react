@@ -37,6 +37,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     test: /\.tsx?$/, // для TS
     use: "ts-loader",
     exclude: /node_modules/,
+    options: {
+      transpileOnly: true,
+    },
   };
 
   const fileLoader = {
