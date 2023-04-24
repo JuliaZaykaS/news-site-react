@@ -1,4 +1,3 @@
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import AboutPage from "./AboutPage";
@@ -16,9 +15,7 @@ export default {
 } as ComponentMeta<typeof AboutPage>;
 
 // const Template: ComponentStory<typeof AboutPage> = (args) => (
-const Template: ComponentStory<typeof AboutPage> = (args: object) => (
-  <AboutPage {...args} />
-);
+const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 export const Normal = Template.bind({});
 

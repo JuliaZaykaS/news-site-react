@@ -25,19 +25,17 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([keyName, reducer]: ReducerListEntry) => {
-      store.reducerManager.add(keyName, reducer);
+    Object.entries(reducers).forEach(([keyName, reducer]) => {
+      store.reducerManager.add(keyName as StateSchemaKey, reducer);
       dispatch({ type: `@INIT ${keyName}` });
     });
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(
-          ([keyName, reducer]: ReducerListEntry) => {
-            store.reducerManager.remove(keyName);
-            dispatch({ type: `@DESTROY ${keyName}` });
-          }
-        );
+        Object.entries(reducers).forEach(([keyName, reducer]) => {
+          store.reducerManager.remove(keyName as StateSchemaKey);
+          dispatch({ type: `@DESTROY ${keyName}` });
+        });
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
