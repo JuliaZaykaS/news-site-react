@@ -21,7 +21,6 @@ interface ProfilePageProps {
 
 const ProfilePage = (props: ProfilePageProps) => {
   const { className } = props;
-  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
 
@@ -32,7 +31,6 @@ const ProfilePage = (props: ProfilePageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.profilePage, {}, [className])}>
-        {/* {t("Страница профиля")} */}
         <ProfileCard></ProfileCard>
       </div>
     </DynamicModuleLoader>

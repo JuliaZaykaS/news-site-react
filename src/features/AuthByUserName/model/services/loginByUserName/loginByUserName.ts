@@ -15,7 +15,7 @@ export const loginByUserName = createAsyncThunk<
   LoginByUserNameProps,
   ThunkConfig<string>
 >("login/loginByUserName", async ({ userName, password }, thunkAPI) => {
-  const { dispatch, rejectWithValue, extra } = thunkAPI;
+  const { extra, dispatch, rejectWithValue } = thunkAPI;
   try {
     const response = await extra.api.post<User>("/login", {
       userName,
@@ -32,6 +32,6 @@ export const loginByUserName = createAsyncThunk<
     return response.data;
   } catch (error) {
     // return thunkAPI.rejectWithValue(i18n.t("Неверный логин или пароль"));
-    return rejectWithValue(error);
+    return rejectWithValue(`${error}`);
   }
 });
