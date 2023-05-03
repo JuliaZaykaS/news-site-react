@@ -1,4 +1,4 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { Mods, classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
 import { useSelector } from "react-redux";
 import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
@@ -10,7 +10,12 @@ import { Input } from "shared/ui/Input/ui/Input";
 import { Text, TextAlign, TextTheme } from "shared/ui/Text";
 import { Profile } from "../../model/types/profile";
 import { Loader } from "shared/ui/Loader";
-import { Country, Currency } from "shared/const/common";
+
+import { Avatar } from "shared/ui/Avatar";
+
+import { useMemo } from "react";
+import { Currency, CurrencySelect } from "entities/Currency";
+import { Country, CountrySelect } from "entities/Country";
 
 interface ProfileCardProps {
   className?: string;
@@ -18,14 +23,14 @@ interface ProfileCardProps {
   isLoading?: boolean;
   error?: string;
   readonly?: boolean;
-  onChangeFirstName: (value?: string) => void;
-  onChangeLastName: (value?: string) => void;
-  onChangeAge: (value: string) => void;
-  onChangeCurrency: (value?: Currency) => void;
-  onChangeCountry: (value?: Country) => void;
-  onChangeCity: (value?: string) => void;
-  onChangeAvatar: (value?: string) => void;
-  onChangeUserName: (value?: string) => void;
+  onChangeFirstName?: (value?: string) => void;
+  onChangeLastName?: (value?: string) => void;
+  onChangeAge?: (value: string) => void;
+  onChangeCurrency?: (currency?: Currency) => void;
+  onChangeCountry?: (country?: Country) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
+  onChangeUserName?: (value?: string) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -46,10 +51,31 @@ export const ProfileCard = (props: ProfileCardProps) => {
   } = props;
   const { t } = useTranslation("profile");
 
+  const mods: Mods = {
+    [cls.editing]: !readonly,
+  };
+
+  // const countryOptions = useMemo(
+  //   () =>
+  //     Object.entries(Country).map((val) => ({
+  //       value: val[0],
+  //       content: val[1],
+  //     })),
+  //   []
+  // );
+  // const currencyOptions = useMemo(
+  //   () =>
+  //     Object.entries(Currency).map((val) => ({
+  //       value: val[0],
+  //       content: val[1],
+  //     })),
+  //   []
+  // );
+
   if (isLoading) {
     return (
       <div
-        className={classNames(cls.profileCard, {}, [className, cls.loading])}
+        className={classNames(cls.profileCard, mods, [className, cls.loading])}
       >
         <Loader />
       </div>
@@ -58,7 +84,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error) {
     return (
-      <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+      <div
+        className={classNames(cls.profileCard, mods, [className, cls.error])}
+      >
         <Text
           theme={TextTheme.ERROR}
           title={t("Произошла ошибка при загрузке профиля")}
@@ -70,8 +98,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
   }
 
   return (
-    <div className={classNames(cls.profileCard, {}, [className])}>
+    <div className={classNames(cls.profileCard, mods, [className])}>
       <div className={cls.data}>
+        {data?.avatar && (
+          <div className={cls.avatarWrapper}>
+            <Avatar src={data?.avatar} alt={data?.username} />
+          </div>
+        )}
         <Input
           value={data?.first}
           placeholder={t("Ваше имя")}
@@ -106,11 +139,32 @@ export const ProfileCard = (props: ProfileCardProps) => {
         />
         <Input
           value={data?.username}
-          placeholder={t("Тип пользователя")}
+          placeholder={t("Имя пользователя")}
           className={cls.input}
           onChange={onChangeUserName}
           readonly={readonly}
           type={"text"}
+        />
+        <Input
+          value={data?.avatar}
+          placeholder={t("Аватар")}
+          className={cls.input}
+          onChange={onChangeAvatar}
+          readonly={readonly}
+          type={"text"}
+        />
+
+        <CurrencySelect
+          value={data?.currency}
+          onChange={onChangeCurrency}
+          readonly={readonly}
+          className={cls.input}
+        />
+        <CountrySelect
+          value={data?.country}
+          onChange={onChangeCountry}
+          readonly={readonly}
+          className={cls.input}
         />
       </div>
     </div>

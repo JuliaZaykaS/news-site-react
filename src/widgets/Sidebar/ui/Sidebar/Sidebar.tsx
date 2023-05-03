@@ -51,34 +51,7 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
       >
         {collapsed ? ">" : "<"}
       </Button>
-      <div className={cls.items}>
-        {itemsList}
-        {/* <AppLink
-          to={RoutePath.main}
-          className={cls.item}
-          theme={AppLinkTheme.INVERTED}
-        >
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t("Главная")}</span>
-        </AppLink>
-
-        <AppLink
-          to={RoutePath.about}
-          theme={AppLinkTheme.INVERTED}
-          className={cls.item}
-        >
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t("О сайте")}</span>
-        </AppLink>
-        <AppLink
-          to={RoutePath.profile}
-          theme={AppLinkTheme.INVERTED}
-          className={cls.item}
-        >
-          <ProfileIcon className={cls.icon} />
-          <span className={cls.link}>{t("Профиль")}</span>
-        </AppLink> */}
-      </div>
+      <div className={cls.items}>{itemsList}</div>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={cls.language} short={collapsed} />

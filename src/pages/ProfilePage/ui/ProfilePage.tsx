@@ -18,6 +18,8 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -65,14 +67,14 @@ const ProfilePage = (props: ProfilePageProps) => {
     [dispatch]
   );
   const onChangeCurrency = useCallback(
-    (value?: string) => {
-      // dispatch(profileActions.updateProfile({ currency: value }));
+    (value?: Currency) => {
+      dispatch(profileActions.updateProfile({ currency: value }));
     },
     [dispatch]
   );
   const onChangeCountry = useCallback(
-    (value?: string) => {
-      // dispatch(profileActions.updateProfile({ country: value }));
+    (value?: Country) => {
+      dispatch(profileActions.updateProfile({ country: value }));
     },
     [dispatch]
   );

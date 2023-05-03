@@ -6,6 +6,8 @@ import { AppLinkTheme } from "shared/ui/AppLink/ui/AppLink";
 import { SidebarItemType } from "../../model/items";
 import { useTranslation } from "react-i18next";
 import { memo } from "react";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "entities/User";
 
 interface SidebarItemProps {
   item: SidebarItemType;
@@ -16,8 +18,12 @@ interface SidebarItemProps {
 export const SidebarItem = memo((props: SidebarItemProps) => {
   const { t } = useTranslation();
   //   return <div className={classNames(cls.sidebarItem, {}, [className])}></div>;
-  const { path, Icon, text } = props.item;
-  const { collapsed } = props;
+  const { collapsed, item } = props;
+  const { path, Icon, text } = item;
+  const isAuth = useSelector(getUserAuthData);
+  if (item.authOnly && !isAuth) {
+    return null;
+  }
   return (
     <AppLink
       to={path}
