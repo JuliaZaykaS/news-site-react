@@ -10,6 +10,7 @@ import {
   getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
+  getProfileValidateErrors,
   profileActions,
   profileReducer,
 } from "entities/Profile";
@@ -20,6 +21,8 @@ import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
+import { Text, TextTheme } from "shared/ui/Text";
+import { ValidateProfileErrors } from "entities/Profile/model/types/profile";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -31,6 +34,7 @@ interface ProfilePageProps {
 
 const ProfilePage = (props: ProfilePageProps) => {
   const { className } = props;
+  const { t } = useTranslation("profile");
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
@@ -38,6 +42,14 @@ const ProfilePage = (props: ProfilePageProps) => {
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors);
+  const validateErrorsTranslates = {
+    [ValidateProfileErrors.SERVER_ERROR]: t("Ошибка сервера"),
+    [ValidateProfileErrors.INCORRECT_AGE]: t("Некорректно указан возраст"),
+    [ValidateProfileErrors.INCORRECT_CITY]: t("Некорректное название города"),
+    [ValidateProfileErrors.INCORRECT_USER_DATA]: t("Имя и фамилия обязательны"),
+    [ValidateProfileErrors.NO_DATA]: t("Данные не указаны"),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -97,10 +109,21 @@ const ProfilePage = (props: ProfilePageProps) => {
     [dispatch]
   );
 
+  const validateErrorsMarkup = validateErrors?.map((error, index) => {
+    return (
+      <Text
+        theme={TextTheme.ERROR}
+        text={validateErrorsTranslates[error]}
+        key={index}
+      />
+    );
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.profilePage, {}, [className])}>
         <ProfilePageHeader />
+        {validateErrors?.length && validateErrorsMarkup}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

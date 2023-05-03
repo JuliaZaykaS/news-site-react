@@ -9,6 +9,7 @@ import { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProfileReadonly";
 import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
 import { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
+import { getProfileValidateErrors } from "./model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 
 export {
   Profile,
@@ -24,4 +25,5 @@ export {
   ProfileCard,
   getProfileReadonly,
   getProfileForm,
+  getProfileValidateErrors,
 };
