@@ -19,4 +19,5 @@ export interface BuildOptions {
   isDev: boolean; // true если продакшн
   port: number; // порт, на котором происходит разработка
   apiUrl: string; // для выбора baseUrl (если прод или разработка)
+  project: "storybook" | "jest" | "frontend"; // для разделения сред разработки, чтобы не отправлять запросы на сервер или др действия там, где они не нужны
 }

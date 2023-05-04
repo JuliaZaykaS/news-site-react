@@ -52,7 +52,9 @@ const ProfilePage = (props: ProfilePageProps) => {
   };
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== "storybook") {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstName = useCallback(
@@ -69,8 +71,6 @@ const ProfilePage = (props: ProfilePageProps) => {
   );
   const onChangeAge = useCallback(
     (value?: string) => {
-      console.log(value);
-
       const regex = /^(?:1(?:00?|\d)|[2-5]\d|[0-9]\d?)$/;
       const newValue = value && regex.exec(value);
 
