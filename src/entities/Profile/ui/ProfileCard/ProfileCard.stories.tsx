@@ -38,37 +38,29 @@ Primary.args = {
     avatar: avatar,
   },
 };
-// Primary.decorators = [
-//   //   StoreDecorator({
-//   //     loginForm: { userName: "userName", password: "password" },
-//   //   }),
-// ];
 
 export const WithError = Template.bind({});
 WithError.args = {
   error: "true",
 };
-// WithError.decorators = [
-//   StoreDecorator({
-//     loginForm: { userName: "userName", password: "password", error: "error" },
-//   }),
-// ];
+
 export const Loading = Template.bind({});
 Loading.args = {
   isLoading: true,
 };
-// Loading.decorators = [
-//   StoreDecorator({
-//     loginForm: { isLoading: true },
-//   }),
-// ];
 
 export const Dark = Template.bind({});
 
-Dark.args = {};
-Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  //   StoreDecorator({
-  //     loginForm: { userName: "userName", password: "password", error: "error" },
-  //   }),
-];
+Dark.args = {
+  data: {
+    first: "Юлия",
+    lastname: "Зай",
+    age: 33,
+    currency: Currency.EUR,
+    country: Country.RUSSIA,
+    city: "Moscow",
+    username: "admin",
+    avatar: avatar,
+  },
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
