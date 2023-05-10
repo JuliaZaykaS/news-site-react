@@ -64,3 +64,19 @@ Dark.args = {
   },
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Orange = Template.bind({});
+
+Orange.args = {
+  data: {
+    first: "Юлия",
+    lastname: "Зай",
+    age: 33,
+    currency: Currency.EUR,
+    country: Country.RUSSIA,
+    city: "Moscow",
+    username: "admin",
+    avatar: avatar,
+  },
+};
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

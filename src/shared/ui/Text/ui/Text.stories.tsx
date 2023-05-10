@@ -40,6 +40,13 @@ Dark.args = {
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Orange = Template.bind({});
+Orange.args = {
+  title: "Title Lorem ipsum dolor sit amet, consectetur adipiscing",
+  text: "text description lorem ipsum dolor sit amet, consectetur adip",
+};
+
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const Error = Template.bind({});
 Error.args = {

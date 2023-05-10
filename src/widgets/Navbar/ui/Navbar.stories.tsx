@@ -37,22 +37,31 @@ Dark.decorators = [
     loginForm: { userName: "userName", password: "password" },
   }),
 ];
-// export const LightWithAuth = Template.bind({});
+export const Orange = Template.bind({});
 
-// LightWithAuth.args = {};
-// LightWithAuth.decorators = [
-//   ThemeDecorator(Theme.LIGHT),
-//   StoreDecorator({
-//     loginForm: { userName: "userName", password: "password" },
-//   }),
-// ];
+Orange.args = {};
+Orange.decorators = [
+  ThemeDecorator(Theme.ORANGE),
+  StoreDecorator({
+    loginForm: { userName: "userName", password: "password" },
+  }),
+];
+export const LightWithAuth = Template.bind({});
 
-// export const DarkWithAuth = Template.bind({});
+LightWithAuth.args = {};
+LightWithAuth.decorators = [
+  ThemeDecorator(Theme.LIGHT),
+  StoreDecorator({
+    user: { authData: {} },
+  }),
+];
 
-// DarkWithAuth.args = {};
-// DarkWithAuth.decorators = [
-//   ThemeDecorator(Theme.DARK),
-//   StoreDecorator({
-//     loginForm: { userName: "userName", password: "password" },
-//   }),
-// ];
+export const DarkWithAuth = Template.bind({});
+
+DarkWithAuth.args = {};
+DarkWithAuth.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    user: { authData: {} },
+  }),
+];

@@ -33,3 +33,12 @@ Dark.args = {
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Orange = Template.bind({});
+
+Orange.args = {
+  children:
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe magnam nam odit veniam eius quod ratione, corporis dolor minus consequuntur velit, repellat aliquam deleniti quaerat ullam? Vel consectetur iusto mollitia.",
+  isOpen: true,
+};
+
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

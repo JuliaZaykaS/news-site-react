@@ -24,3 +24,7 @@ export const Inverted = Template.bind({});
 Inverted.args = {};
 
 Inverted.decorators = [ThemeDecorator(Theme.DARK)];
+export const Orange = Template.bind({});
+Orange.args = {};
+
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

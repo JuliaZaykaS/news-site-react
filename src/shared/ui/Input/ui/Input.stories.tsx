@@ -31,3 +31,11 @@ Dark.args = {
 };
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Orange = Template.bind({});
+
+Orange.args = {
+  placeholder: "text",
+  value: "123123",
+};
+
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

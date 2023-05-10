@@ -64,3 +64,23 @@ Dark.decorators = [
     },
   }),
 ];
+export const Orange = Template.bind({});
+Orange.args = {};
+
+Orange.decorators = [
+  ThemeDecorator(Theme.ORANGE),
+  StoreDecorator({
+    profile: {
+      formData: {
+        first: "Юлия",
+        lastname: "Зай",
+        age: 33,
+        currency: Currency.EUR,
+        country: Country.RUSSIA,
+        city: "Moscow",
+        username: "admin",
+        avatar: avatar,
+      },
+    },
+  }),
+];

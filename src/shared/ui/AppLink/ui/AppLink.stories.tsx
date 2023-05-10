@@ -47,12 +47,19 @@ PrimaryDark.args = {
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const PrimaryOrange = Template.bind({});
+PrimaryOrange.args = {
+  children: "Text",
+  theme: AppLinkTheme.PRIMARY,
+};
+PrimaryOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
 export const InvertedDark = Template.bind({});
 InvertedDark.args = {
   children: "Text",
   theme: AppLinkTheme.INVERTED,
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+InvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const RedDark = Template.bind({});
 RedDark.args = {

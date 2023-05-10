@@ -14,8 +14,27 @@ export function useTheme(): useThemeResult {
   }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-    console.log("🚀 ~ file: useTheme.tsx:13 ~ toggleTheme ~ theme:", theme);
+    // const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+    let newTheme: Theme;
+    switch (theme) {
+      case Theme.DARK:
+        newTheme = Theme.LIGHT;
+
+        break;
+      case Theme.ORANGE:
+        newTheme = Theme.DARK;
+
+        break;
+      case Theme.LIGHT:
+        newTheme = Theme.ORANGE;
+
+        break;
+
+      default:
+        newTheme = Theme.LIGHT;
+        break;
+    }
+    // console.log("🚀 ~ file: useTheme.tsx:13 ~ toggleTheme ~ theme:", theme);
     setTheme?.(newTheme);
     // document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);

@@ -54,3 +54,12 @@ Dark.decorators = [
     loginForm: { userName: "userName", password: "password", error: "error" },
   }),
 ];
+export const Orange = Template.bind({});
+
+Orange.args = {};
+Orange.decorators = [
+  ThemeDecorator(Theme.ORANGE),
+  StoreDecorator({
+    loginForm: { userName: "userName", password: "password", error: "error" },
+  }),
+];
