@@ -123,6 +123,7 @@ const ProfilePage = (props: ProfilePageProps) => {
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.profilePage, {}, [className])}>
         <ProfilePageHeader />
+
         {validateErrors?.length && validateErrorsMarkup}
         <ProfileCard
           data={formData}

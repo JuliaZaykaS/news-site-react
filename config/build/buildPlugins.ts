@@ -4,6 +4,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"; // плагин 
 // import path from "path";
 import webpack from "webpack";
 import { BuildOptions } from "./types/config";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 // функция для подключения и конфигурации плагинов
 export function buildPlugins({
@@ -28,6 +29,7 @@ export function buildPlugins({
     }),
   ];
   if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления страницы без перезагрузки
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false })); // анализ размера бандла
   }
