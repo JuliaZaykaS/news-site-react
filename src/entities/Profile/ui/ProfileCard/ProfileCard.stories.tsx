@@ -10,7 +10,9 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { ProfileCard } from "./ProfileCard";
 // import avatar from "shared/assets/tests/example.png";
-const avatar = "static/media/src/shared/assets/tests/example.png";
+// const avatar = "static/media/src/shared/assets/tests/example.png";
+const avatar =
+  "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg";
 
 export default {
   title: "entities/ProfileCard",
@@ -32,7 +34,7 @@ Primary.args = {
     first: "Юлия",
     lastname: "Зай",
     age: 33,
-    currency: Currency.EUR,
+    currency: Currency.RUB,
     country: Country.RUSSIA,
     city: "Moscow",
     username: "admin",
