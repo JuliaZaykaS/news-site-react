@@ -9,7 +9,9 @@ import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDeco
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { ProfileCard } from "./ProfileCard";
-import avatar from "shared/assets/tests/example.png";
+// import avatar from "shared/assets/tests/example.png";
+const avatar =
+  "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg";
 
 export default {
   title: "entities/ProfileCard",
