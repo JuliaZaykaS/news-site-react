@@ -12,16 +12,6 @@ import { PageLoader } from "widgets/PageLoader";
 import { RequireAuth } from "./RequireAuth";
 
 const AppRouter = () => {
-  const isAuth = useSelector(getUserAuthData);
-
-  // const routes = useMemo(() => {
-  //   return Object.values(routeConfig).filter((el) => {
-  //     if (el.authOnly && !isAuth) {
-  //       return false;
-  //     }
-  //     return true;
-  //   });
-  // }, [isAuth]);
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const { element, path } = route;
     const pageElement = (
