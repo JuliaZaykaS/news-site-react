@@ -14,15 +14,17 @@ import { Navbar } from "widgets/Navbar";
 // import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { Sidebar } from "widgets/Sidebar/ui";
 import { Modal } from "shared/ui/Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
-import { userActions } from "entities/User";
+import { getUserInited, userActions } from "entities/User";
 // import { useTranslation } from "react-i18next";
 
 export const App = () => {
   const { theme } = useTheme();
 
   const dispatch = useDispatch();
+
+  const inited = useSelector(getUserInited);
   useEffect(() => {
     dispatch(userActions.initAuthData());
   }, [dispatch]);
@@ -51,7 +53,7 @@ export const App = () => {
 
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div>
