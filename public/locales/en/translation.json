@@ -20,5 +20,7 @@
   "Имя пользователя": "User name",
   "Аватар": "Avatar",
   "Валюта": "Currency",
-  "Страна": "Country"
+  "Страна": "Country",
+  "Статья не найдена": "Article not found",
+  "Произошла ошибка при загрузке статьи": "An error occurred while loading the article"
 }
