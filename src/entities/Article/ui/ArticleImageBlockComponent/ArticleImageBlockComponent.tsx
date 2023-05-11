@@ -1,21 +1,27 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleImageBlockComponent.module.scss";
+import { ArticleDetailsImageBlock } from "../../model/types/article";
+import { Text, TextAlign } from "shared/ui/Text";
 
 interface ArticleImageBlockComponentProps {
   className?: string;
+  block: ArticleDetailsImageBlock;
 }
+// eslint-disable-next-line react/display-name
+export const ArticleImageBlockComponent = memo(
+  (props: ArticleImageBlockComponentProps) => {
+    const { className, block } = props;
+    const { t } = useTranslation();
 
-export const ArticleImageBlockComponent = (
-  props: ArticleImageBlockComponentProps
-) => {
-  const { className } = props;
-  const { t } = useTranslation();
-
-  return (
-    <div
-      className={classNames(cls.articleImageBlockComponent, {}, [className])}
-    ></div>
-  );
-};
+    return (
+      <div
+        className={classNames(cls.articleImageBlockComponent, {}, [className])}
+      >
+        <img src={block?.src} alt={block?.title} className={cls.img} />
+        {block?.title && <Text text={block.title} align={TextAlign.CENTER} />}
+      </div>
+    );
+  }
+);

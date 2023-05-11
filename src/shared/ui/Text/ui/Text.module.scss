@@ -1,11 +1,12 @@
 .title {
-    font: var(--font-l);
+    // font: var(--font-l);
     color: var(--primary-color);
 }
 
 .textContent {
     color: var(--secondary-color);
-    font: var(--font-line-m);
+
+    // font: var(--font-line-m);
 }
 
 .error {
@@ -28,4 +29,24 @@
 
 .right {
     text-align: right;
+}
+
+.size_m {
+    .title {
+        font: var(--font-l);
+    }
+
+    .textContent {
+        font: var(--font-line-m);
+    }
+}
+
+.size_l {
+    .title {
+        font: var(--font-xl);
+    }
+
+    .textContent {
+        font: var(--font-line-l);
+    }
 }

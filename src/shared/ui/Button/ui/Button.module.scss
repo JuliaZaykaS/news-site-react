@@ -4,6 +4,9 @@
     padding: 6px 15px;
 
     // color: var(--secondary-color);
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .clear,

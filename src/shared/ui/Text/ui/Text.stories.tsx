@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import "app/styles/index.scss";
 import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "app/providers/ThemeProvider";
-import { Text, TextTheme } from "./Text";
+import { Text, TextSize, TextTheme } from "./Text";
 
 export default {
   title: "shared/Text",
@@ -53,4 +53,11 @@ Error.args = {
   title: "Title Lorem ipsum dolor sit amet, consectetur adipiscing",
   text: "text description lorem ipsum dolor sit amet, consectetur adip",
   theme: TextTheme.ERROR,
+};
+
+export const Size_L = Template.bind({});
+Size_L.args = {
+  title: "Title Lorem ipsum dolor sit amet, consectetur adipiscing",
+  text: "text description lorem ipsum dolor sit amet, consectetur adip",
+  size: TextSize.L,
 };

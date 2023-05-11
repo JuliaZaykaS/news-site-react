@@ -13,10 +13,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
   const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
-  console.log(
-    "🚀 ~ file: ArticleDetailsPage.tsx:16 ~ ArticleDetailsPage ~ articleId:",
-    id
-  );
+
   if (!id) {
     return (
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
