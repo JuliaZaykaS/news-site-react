@@ -19,8 +19,8 @@ export const buildBabelLoader = (options: BuildOptions) => {
               nsSeparator: "~",
             },
           ],
-          [isDev && require.resolve("react-refresh/babel")].filter(Boolean),
-        ],
+          isDev && require.resolve("react-refresh/babel"),
+        ].filter(Boolean),
       },
     },
   };
