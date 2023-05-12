@@ -1,23 +1,11 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import ArticleDetailsPage from "./ArticleDetailsPage";
+import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
 import {
   Article,
   ArticleDetailsBlockType,
+  ArticleDetailsSchema,
   ArticleDetailsType,
-} from "entities/Article/model/types/article";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
-
-export default {
-  title: "pages/ArticleDetailsPage",
-  component: ArticleDetailsPage,
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-  <ArticleDetailsPage {...args} />
-);
+} from "../types/article";
+import { articleDetailsReducer } from "./articleDetailsSlice";
 
 const article: Article = {
   id: "1",
@@ -61,6 +49,35 @@ const article: Article = {
   ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({ articleDetails: { data: article } })];
+describe("articleDetailsSlice.test", () => {
+  test("test get article service pending", () => {
+    const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: false,
+    };
+
+    expect(
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.pending
+      )
+    ).toEqual({
+      isLoading: true,
+    });
+  });
+
+  test("test get article service fullfiled", () => {
+    const state: DeepPartial<ArticleDetailsSchema> = {
+      isLoading: true,
+    };
+
+    expect(
+      articleDetailsReducer(
+        state as ArticleDetailsSchema,
+        fetchArticleById.fulfilled(article, "1", "", "")
+      )
+    ).toEqual({
+      isLoading: false,
+      data: article,
+    });
+  });
+});
