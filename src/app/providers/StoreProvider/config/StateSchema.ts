@@ -11,6 +11,7 @@ import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUserName";
+import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { To, NavigateOptions } from "react-router-dom";
 
 //  пример
@@ -26,6 +27,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 // типы для названий редьюсеров

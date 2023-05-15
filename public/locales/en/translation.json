@@ -22,5 +22,7 @@
   "Валюта": "Currency",
   "Страна": "Country",
   "Статья не найдена": "Article not found",
-  "Произошла ошибка при загрузке статьи": "An error occurred while loading the article"
+  "Произошла ошибка при загрузке статьи": "An error occurred while loading the article",
+  "Комментарии к статье": "Comments to the article",
+  "Комментарии отсутствуют": "No comments"
 }

@@ -1,5 +1,5 @@
 import type { Profile, ProfileSchema } from "./model/types/profile";
-import { profileReducer, profileActions } from "./model/slice/profileSlice";
+import { profileReducer, profileActions } from "./model/slices/profileSlice";
 import { getProfileFirstName } from "./model/selectors/getProfileFirstName/getProfileFirstName";
 import { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
 import { getProfileError } from "./model/selectors/getProfileError/getProfileError";

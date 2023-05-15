@@ -2,7 +2,7 @@ export { Article, ArticleDetailsSchema } from "./model/types/article";
 export {
   articleDetailsActions,
   articleDetailsReducer,
-} from "./model/slice/articleDetailsSlice";
+} from "./model/slices/articleDetailsSlice";
 export { fetchArticleById } from "./model/services/fetchArticleById/fetchArticleById";
 export {
   getArticleDetailsError,

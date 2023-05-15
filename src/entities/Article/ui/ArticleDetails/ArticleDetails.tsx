@@ -6,7 +6,7 @@ import {
   DynamicModuleLoader,
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsReducer } from "../../model/slice/articleDetailsSlice";
+import { articleDetailsReducer } from "../../model/slices/articleDetailsSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import eyeIcon from "shared/assets/icons/eye.svg";
