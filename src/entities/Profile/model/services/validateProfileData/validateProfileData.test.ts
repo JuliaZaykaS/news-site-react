@@ -4,6 +4,7 @@ import { Country } from "entities/Country";
 import { ValidateProfileErrors } from "../../types/profile";
 
 const data = {
+  id: "1",
   first: "Юлия",
   lastname: "Зай",
   age: 33,

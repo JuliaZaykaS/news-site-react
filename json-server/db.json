@@ -34,7 +34,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -115,6 +117,36 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ляля",
+      "id": "KJRRqSu"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "рррр",
+      "id": "bhQLOl-"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "пппааввы",
+      "id": "o3jUOiB"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hi",
+      "id": "Zv47o6P"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello",
+      "id": "zzk0gLh"
     }
   ],
   "users": [
@@ -132,14 +164,28 @@
       "role": "USER"
     }
   ],
-  "profile": {
-    "first": "Юлия",
-    "lastname": "Зай",
-    "age": 33,
-    "currency": "EUR",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Юлия",
+      "lastname": "Зай",
+      "age": 33,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Таня",
+      "lastname": "Сиv",
+      "age": 61,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Samara",
+      "username": "user",
+      "avatar": "https://cdn-icons-png.flaticon.com/256/7603/7603099.png"
+    }
+  ]
 }

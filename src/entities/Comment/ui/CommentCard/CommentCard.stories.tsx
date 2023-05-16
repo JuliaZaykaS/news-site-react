@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CommentCard } from "./CommentCard";
 
 export default {
-  title: "shared/CommentCard",
+  title: "entities/CommentCard",
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: "color" },
@@ -14,4 +14,25 @@ const Template: ComponentStory<typeof CommentCard> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+  comment: {
+    id: "1",
+    text: "Lorem ipsum dolor sit amet",
+    user: {
+      id: "1",
+      username: "Vasya",
+      avatar: "https://cdn-icons-png.flaticon.com/256/7603/7603099.png",
+    },
+  },
+  isLoading: false,
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  comment: {
+    id: "1",
+    text: "Lorem ipsum dolor sit amet",
+    user: { id: "1", username: "Vasya" },
+  },
+  isLoading: true,
+};

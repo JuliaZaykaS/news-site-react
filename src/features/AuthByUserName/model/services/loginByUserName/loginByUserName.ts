@@ -6,7 +6,7 @@ import i18n from "shared/config/i18n/i18n";
 import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
 
 interface LoginByUserNameProps {
-  userName: string;
+  username: string;
   password: string;
 }
 
@@ -14,11 +14,11 @@ export const loginByUserName = createAsyncThunk<
   User,
   LoginByUserNameProps,
   ThunkConfig<string>
->("login/loginByUserName", async ({ userName, password }, thunkAPI) => {
+>("login/loginByUserName", async ({ username, password }, thunkAPI) => {
   const { extra, dispatch, rejectWithValue } = thunkAPI;
   try {
     const response = await extra.api.post<User>("/login", {
-      userName,
+      username,
       password,
     });
     if (!response.data) {

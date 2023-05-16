@@ -5,6 +5,7 @@ import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { ValidateProfileErrors } from "../../types/profile";
 
 const data = {
+  id: "1",
   first: "Юлия",
   lastname: "Зай",
   age: 33,

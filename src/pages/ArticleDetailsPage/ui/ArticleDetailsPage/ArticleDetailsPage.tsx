@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleDetailsPage.module.scss";
@@ -19,6 +19,9 @@ import { getArticleDetailsCommentsIsLoading } from "../../model/selectors/commen
 import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { AddNewCommentForm } from "features/addNewCommentForm";
+// eslint-disable-next-line max-len
+import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -40,6 +43,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
+
   if (!id) {
     return (
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
@@ -49,10 +59,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
         <ArticleDetails articleId={id} />
         <Text title={t("Комментарии к статье")} className={cls.commentTitle} />
+        <AddNewCommentForm onSendComment={onSendComment} />
         <CommentsList comments={comments} isLoading={commentsIsLoading} />
       </div>
     </DynamicModuleLoader>

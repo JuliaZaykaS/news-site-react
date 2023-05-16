@@ -37,7 +37,7 @@ const LoginForm = memo((props: LoginFormProps) => {
   const dispatch = useAppDispatch();
   // const store = useStore() as ReduxStoreWithManager;
 
-  const userName = useSelector(getLoginUserName);
+  const username = useSelector(getLoginUserName);
   const password = useSelector(getLoginUserPassword);
   const error = useSelector(getLoginUserError);
   const isLoading = useSelector(getLoginUserIsLoading);
@@ -70,11 +70,11 @@ const LoginForm = memo((props: LoginFormProps) => {
   );
 
   const onLoginBtnClick = useCallback(async () => {
-    const result = await dispatch(loginByUserName({ userName, password }));
+    const result = await dispatch(loginByUserName({ username, password }));
     if (result.meta.requestStatus === "fulfilled") {
       onSuccess();
     }
-  }, [onSuccess, dispatch, password, userName]);
+  }, [onSuccess, dispatch, password, username]);
 
   return (
     <DynamicModuleLoader
@@ -94,7 +94,7 @@ const LoginForm = memo((props: LoginFormProps) => {
           placeholder={t("Логин")}
           autofocus
           onChange={onLoginChange}
-          value={userName}
+          value={username}
         ></Input>
         <Input
           type="text"
