@@ -1,3 +1,5 @@
+import { User } from "entities/User";
+
 export enum ArticleDetailsBlockType {
   TEXT = "TEXT",
   CODE = "CODE",
@@ -7,6 +9,11 @@ export enum ArticleDetailsType {
   IT = "IT",
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",
+}
+
+export enum ArticleViewType {
+  LIST = "LIST",
+  GRID = "GRID",
 }
 
 export interface ArticleDetailsBlockBase {
@@ -41,6 +48,7 @@ export interface Article {
   createdAt: string;
   type: ArticleDetailsType[];
   blocks: ArticleDetailsBlock[];
+  user: User;
 }
 
 export interface ArticleDetailsSchema {

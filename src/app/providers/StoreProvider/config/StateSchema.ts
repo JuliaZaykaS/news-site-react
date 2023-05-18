@@ -13,6 +13,7 @@ import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUserName";
 import { AddNewCommentFormSchema } from "features/addNewCommentForm";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { To, NavigateOptions } from "react-router-dom";
 
 //  пример
@@ -30,6 +31,7 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 // типы для названий редьюсеров

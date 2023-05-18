@@ -8,7 +8,7 @@ import {
 } from "../../model/types/article";
 
 export default {
-  title: "entities/ArticleDetails",
+  title: "entities/Article/ArticleDetails",
   component: ArticleDetails,
   argTypes: {
     backgroundColor: { control: "color" },
@@ -27,6 +27,11 @@ const article: Article = {
   views: 1022,
   createdAt: "26.02.2022",
   type: [ArticleDetailsType.IT],
+  user: {
+    id: "1",
+    username: "admin",
+    // avatar: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+  },
   blocks: [
     {
       id: "1",

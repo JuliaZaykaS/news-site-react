@@ -1,4 +1,8 @@
-export { Article, ArticleDetailsSchema } from "./model/types/article";
+export {
+  Article,
+  ArticleDetailsSchema,
+  ArticleViewType,
+} from "./model/types/article";
 export {
   articleDetailsActions,
   articleDetailsReducer,
