@@ -17,7 +17,9 @@ const getSkeletons = (view: ArticleViewType) =>
   new Array(view === ArticleViewType.GRID ? 9 : 3)
     .fill(0)
     .map((item, index) => {
-      <ArticleListItemSkeleton view={view} key={index} className={cls.card} />;
+      return (
+        <ArticleListItemSkeleton view={view} key={index} className={cls.card} />
+      );
     });
 
 // eslint-disable-next-line react/display-name
@@ -25,13 +27,13 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
   const { className, articles, isLoading, view = ArticleViewType.GRID } = props;
   const { t } = useTranslation();
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
+  //       {getSkeletons(view)}
+  //     </div>
+  //   );
+  // }
   const renderArticles = (article: Article) => {
     return (
       <ArticlesListItem
@@ -46,6 +48,7 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
   return (
     <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
       {articles.length > 0 ? articles.map(renderArticles) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });
