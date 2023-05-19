@@ -43,6 +43,8 @@ export interface ReducerManager {
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
+  // true - вмонтирован, false - демонтирован
+  // getMountedReducers: OptionalRecord<StateSchemaKey, boolean>;
 }
 
 // тип для редьюсер-менеджера
@@ -53,7 +55,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 //  типы для инстанс апи
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate?: (to: To, options?: NavigateOptions) => void;
+  // navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

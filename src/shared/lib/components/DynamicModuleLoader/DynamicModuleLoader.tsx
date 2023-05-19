@@ -21,13 +21,19 @@ interface DynamicModuleLoaderProps {
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
   const { children, reducers, removeAfterUnmount = true } = props;
+
   const dispatch = useDispatch();
   const store = useStore() as ReduxStoreWithManager;
+  const mountedReducers = store.reducerManager.getReducerMap();
 
   useEffect(() => {
     Object.entries(reducers).forEach(([keyName, reducer]) => {
-      store.reducerManager.add(keyName as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${keyName}` });
+      const mounted = mountedReducers[keyName as StateSchemaKey];
+      // добавляем новый редюьсер только если его нет
+      if (!mounted) {
+        store.reducerManager.add(keyName as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${keyName}` });
+      }
     });
 
     return () => {

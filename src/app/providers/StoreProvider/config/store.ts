@@ -21,8 +21,8 @@ import { NavigateOptions, To } from "react-router-dom";
 // чтобы впоследствии переиспользовать ее для сторибука и тестов создаем свою функцию, которая будет возвращать функцию по созданию стора
 export function createReduxStore(
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void
+  asyncReducers?: ReducersMapObject<StateSchema>
+  // navigate?: (to: To, options?: NavigateOptions) => void
 ) {
   const rootRedusers: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -33,7 +33,8 @@ export function createReduxStore(
 
   const reducerManager = createReducerManager(rootRedusers);
 
-  const extraArg: ThunkExtraArg = { api: $api, navigate };
+  // const extraArg: ThunkExtraArg = { api: $api, navigate };
+  const extraArg: ThunkExtraArg = { api: $api };
 
   // const store = configureStore<StateSchema>({
   const store = configureStore({

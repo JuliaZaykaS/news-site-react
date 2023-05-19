@@ -24,3 +24,4 @@ type DeepPartial<T> = T extends object
       [P in keyof T]?: DeepPartial<T[P]>;
     }
   : T;
+type OptionalRecord<K extends string | number | symbol, T> = { [P in K]?: T };
