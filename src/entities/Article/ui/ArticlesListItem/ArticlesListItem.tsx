@@ -28,7 +28,7 @@ interface ArticlesListItemProps {
 // eslint-disable-next-line react/display-name
 export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
   const { className, article, view } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
   const navigate = useNavigate();
 
   const types = <Text text={article.type.join(", ")} className={cls.types} />;

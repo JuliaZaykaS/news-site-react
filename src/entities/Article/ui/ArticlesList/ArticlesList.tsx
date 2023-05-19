@@ -25,7 +25,7 @@ const getSkeletons = (view: ArticleViewType) =>
 // eslint-disable-next-line react/display-name
 export const ArticlesList = memo((props: ArticlesListProps) => {
   const { className, articles, isLoading, view = ArticleViewType.GRID } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation("article");
 
   // if (isLoading) {
   //   return (

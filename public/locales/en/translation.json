@@ -21,18 +21,5 @@
   "Аватар": "Avatar",
   "Валюта": "Currency",
   "Страна": "Country",
-  "Статья не найдена": "Article not found",
-  "Произошла ошибка при загрузке статьи": "An error occurred while loading the article",
-  "Комментарии к статье": "Comments to the article",
-  "Комментарии отсутствуют": "No comments",
-  "Введите текст комментария": "Enter your comment text",
-  "Отправить": "Submit ",
-  "Читать далее": {
-    "": {
-      "": {
-        "": "Read more..."
-      }
-    }
-  },
-  "Назад к списку": "Back to list"
+  "Статьи": "Articles"
 }

@@ -30,21 +30,4 @@ export const fetchNextArticlePage = createAsyncThunk<
       })
     );
   }
-  //   try {
-  //     const response = await extra.api.get<Article[]>(`/articles`, {
-  //       params: {
-  //         _expand: "user",
-  //         // по документации бекенда
-  //         _limit: limit,
-  //         _page: page,
-  //       },
-  //     });
-  //     if (!response.data) {
-  //       throw new Error();
-  //     }
-
-  //     return response.data;
-  //   } catch (error) {
-  //     return rejectWithValue(`${error}`);
-  //   }
 });
