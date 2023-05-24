@@ -24,7 +24,7 @@ import {
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
 import { ArticleViewSelector } from "../ArticleViewSelector/ArticleViewSelector";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page";
 import { fetchNextArticlePage } from "pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage";
 import { Text } from "shared/ui/Text";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";

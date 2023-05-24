@@ -15,6 +15,7 @@ import { AddNewCommentFormSchema } from "features/addNewCommentForm";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { To, NavigateOptions } from "react-router-dom";
+import { ScrollPositionSaveSchema } from "widgets/Page";
 
 //  пример
 // export interface CounterState {
@@ -24,6 +25,7 @@ import { To, NavigateOptions } from "react-router-dom";
 export interface StateSchema {
   counter: CounterSchema; // пример
   user: UserSchema;
+  scrollPositionSave: ScrollPositionSaveSchema;
 
   // асинхронные редьюсеры
   loginForm?: LoginSchema;

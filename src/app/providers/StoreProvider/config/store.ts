@@ -12,6 +12,7 @@ import { userReducer } from "entities/User";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
 import { NavigateOptions, To } from "react-router-dom";
+import { scrollPositionSaveReducer } from "widgets/Page";
 
 // базовая функция
 // export default configureStore({
@@ -28,6 +29,7 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollPositionSave: scrollPositionSaveReducer,
     // loginForm: loginReducer,
   };
 
