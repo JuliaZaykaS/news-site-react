@@ -21,5 +21,13 @@
   "Аватар": "Avatar",
   "Валюта": "Currency",
   "Страна": "Country",
-  "Статьи": "Articles"
+  "Статьи": "Articles",
+  "Сортировать ПО": "Sort by",
+  "Поиск": "Search",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "по": "by",
+  "названию": "title",
+  "просмотрам": "views",
+  "дате публикации": "created date"
 }

@@ -28,6 +28,7 @@ import { Page } from "widgets/Page";
 import { fetchNextArticlePage } from "pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage";
 import { Text } from "shared/ui/Text";
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 
 interface ArticlesPageProps {
   className?: string;
@@ -60,12 +61,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     // }
   });
 
-  const onChangeView = useCallback(
-    (view: ArticleViewType) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
+  // const onChangeView = useCallback(
+  //   (view: ArticleViewType) => {
+  //     dispatch(articlesPageActions.setView(view));
+  //   },
+  //   [dispatch]
+  // );
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
@@ -73,8 +74,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
   content = (
     <>
-      <ArticleViewSelector view={view} onViewClick={onChangeView} />
-      <ArticlesList articles={articles} isLoading={isLoading} view={view} />
+      {/* <ArticleViewSelector view={view} onViewClick={onChangeView} /> */}
+      <ArticlesPageFilters />
+      <ArticlesList
+        articles={articles}
+        isLoading={isLoading}
+        view={view}
+        className={cls.list}
+      />
     </>
   );
 

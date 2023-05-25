@@ -2,22 +2,21 @@ import { Mods, classNames } from "shared/lib/classNames/classNames";
 import cls from "./Select.module.scss";
 import { ChangeEvent, memo, useMemo } from "react";
 
-export interface SelectOptions {
-  value: string;
+export interface SelectOptions<T extends string> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options: SelectOptions[];
+  options: SelectOptions<T>[];
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const { className, label, options, value, onChange, readonly } = props;
   const mods: Mods = {};
 
@@ -30,7 +29,7 @@ export const Select = memo((props: SelectProps) => {
   }, [options]);
 
   const onChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   return (
@@ -46,4 +45,4 @@ export const Select = memo((props: SelectProps) => {
       </select>
     </div>
   );
-});
+};
