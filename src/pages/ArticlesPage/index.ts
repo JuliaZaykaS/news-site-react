@@ -3,3 +3,4 @@ export { ArticlesPageAsync as ArticlesPage } from "./ui/ArticlesPage/ArticlesPag
 export { ArticlesPageSchema } from "./model/types/articlesPageSchema";
 
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
+export { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";

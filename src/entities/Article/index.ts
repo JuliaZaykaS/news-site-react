@@ -3,6 +3,7 @@ export {
   ArticleDetailsSchema,
   ArticleViewType,
   ArticleSortField,
+  ArticleDetailsType,
 } from "./model/types/article";
 export {
   articleDetailsActions,

@@ -12,6 +12,7 @@ export enum ArticleDetailsBlockType {
   IMAGE = "IMAGE",
 }
 export enum ArticleDetailsType {
+  ALL = "ALL",
   IT = "IT",
   SCIENCE = "SCIENCE",
   ECONOMICS = "ECONOMICS",

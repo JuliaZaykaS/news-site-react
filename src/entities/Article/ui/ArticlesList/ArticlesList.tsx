@@ -5,6 +5,8 @@ import cls from "./ArticlesList.module.scss";
 import { Article, ArticleViewType } from "../../model/types/article";
 import { ArticlesListItem } from "../ArticlesListItem/ArticlesListItem";
 import { ArticleListItemSkeleton } from "../ArticlesListItem/ArticleListItemSkeleton";
+import { Text } from "shared/ui/Text";
+import { TextSize } from "shared/ui/Text/ui/Text";
 
 interface ArticlesListProps {
   className?: string;
@@ -44,6 +46,14 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
       />
     );
   };
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
+        <Text title={t("Статьи не найдены")} size={TextSize.L} />
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>

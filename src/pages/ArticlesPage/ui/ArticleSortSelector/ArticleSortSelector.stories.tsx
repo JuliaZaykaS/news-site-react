@@ -1,8 +1,9 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ArticleSortSelector } from "./ArticleSortSelector";
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 
 export default {
-  title: "shared/ArticleSortSelector",
+  title: "pages/ArticlesPage/ArticleSortSelector",
   component: ArticleSortSelector,
   argTypes: {
     backgroundColor: { control: "color" },
@@ -15,3 +16,4 @@ const Template: ComponentStory<typeof ArticleSortSelector> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
+// Normal.decorators = [StoreDecorator({})];

@@ -1,5 +1,10 @@
 import { Dictionary, EntityAdapter } from "@reduxjs/toolkit";
-import { Article, ArticleSortField, ArticleViewType } from "entities/Article";
+import {
+  Article,
+  ArticleDetailsType,
+  ArticleSortField,
+  ArticleViewType,
+} from "entities/Article";
 
 import { SortOrder } from "shared/types";
 
@@ -19,6 +24,8 @@ export interface ArticlesPageSchema {
   order: SortOrder;
   sort: ArticleSortField;
   search: string;
+
+  type: ArticleDetailsType;
 
   _inited: boolean; // инициализировались ли страницы
 }
