@@ -12,7 +12,8 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUserName";
 import { AddNewCommentFormSchema } from "features/addNewCommentForm";
-import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
+import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
+
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { To, NavigateOptions } from "react-router-dom";
 import { ScrollPositionSaveSchema } from "widgets/Page";
@@ -31,10 +32,12 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
   addNewCommentForm?: AddNewCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
 }
+// articleDetailsComments?: ArticleDetailsCommentsSchema;
+// articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema;
 
 // типы для названий редьюсеров
 export type StateSchemaKey = keyof StateSchema;

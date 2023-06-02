@@ -21,17 +21,32 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { AddNewCommentForm } from "features/addNewCommentForm";
 // eslint-disable-next-line max-len
-import { addCommentForArticle } from "pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle";
+import { addCommentForArticle } from "../../model/services/addCommentForArticle/addCommentForArticle";
 import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Page } from "widgets/Page";
+import {
+  articleDetailsPageRecommendationsReducer,
+  getArticleRecommendations,
+} from "../../model/slices/articleDetailsPageRecommendationsSlice";
+import {
+  getArticleDetailsRecommendationsIsError,
+  getArticleDetailsRecommendationsIsLoading,
+} from "pages/ArticleDetailsPage/model/selectors/recommendations";
+import { TextSize } from "shared/ui/Text/ui/Text";
+import { ArticlesList } from "entities/Article/ui/ArticlesList/ArticlesList";
+// eslint-disable-next-line max-len
+import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
+import { articleDetailsPageReducer } from "../../model/slices";
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers: ReducerList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  // articleDetailsComments: articleDetailsCommentsReducer,
+  // articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -42,9 +57,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const navigate = useNavigate();
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(
+    getArticleDetailsRecommendationsIsLoading
+  );
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   const onSendComment = useCallback(
@@ -73,7 +93,22 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           {t("Назад к списку")}
         </Button>
         <ArticleDetails articleId={id} />
-        <Text title={t("Комментарии к статье")} className={cls.commentTitle} />
+        <Text
+          title={t("Рекомендации")}
+          className={cls.commentTitle}
+          size={TextSize.L}
+        />
+        <ArticlesList
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          className={cls.recommendations}
+          target={"_blank"}
+        />
+        <Text
+          title={t("Комментарии к статье")}
+          className={cls.commentTitle}
+          size={TextSize.L}
+        />
         <AddNewCommentForm onSendComment={onSendComment} />
         <CommentsList comments={comments} isLoading={commentsIsLoading} />
       </Page>

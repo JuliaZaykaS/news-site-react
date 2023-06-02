@@ -6,6 +6,7 @@ import { articleDetailsReducer } from "entities/Article";
 import { profileReducer } from "entities/Profile";
 import { loginReducer } from "features/AuthByUserName/model/slice/loginSlice";
 import { addNewCommentFormReducer } from "features/addNewCommentForm/model/slices/addNewCommentFormSlice";
+import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
 import { articleDetailsCommentsReducer } from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
 import { ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
@@ -13,7 +14,8 @@ const defaultAsyncReducers: ReducerList = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  // articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
   addNewCommentForm: addNewCommentFormReducer,
 };
 

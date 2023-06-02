@@ -16,7 +16,8 @@ const commentsAdapter = createEntityAdapter<Comment>({
 // создаем селектор для получения нормальзованных данный из стейта
 export const getArticleDetailsComments =
   commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsComments || commentsAdapter.getInitialState()
+    (state) =>
+      state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
   );
 
 const articleDetailsCommentsSlice = createSlice({

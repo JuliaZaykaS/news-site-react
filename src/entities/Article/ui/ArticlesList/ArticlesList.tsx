@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticlesList.module.scss";
@@ -13,6 +13,7 @@ interface ArticlesListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleViewType;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleViewType) =>
@@ -26,7 +27,13 @@ const getSkeletons = (view: ArticleViewType) =>
 
 // eslint-disable-next-line react/display-name
 export const ArticlesList = memo((props: ArticlesListProps) => {
-  const { className, articles, isLoading, view = ArticleViewType.GRID } = props;
+  const {
+    className,
+    articles,
+    isLoading,
+    view = ArticleViewType.GRID,
+    target,
+  } = props;
   const { t } = useTranslation("article");
 
   // if (isLoading) {
@@ -43,6 +50,7 @@ export const ArticlesList = memo((props: ArticlesListProps) => {
         view={view}
         className={cls.card}
         key={article.id}
+        target={target}
       />
     );
   };
