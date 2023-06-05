@@ -71,7 +71,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   // );
 
   const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextArticlePage());
+    if (__PROJECT__ !== "storybook") {
+      dispatch(fetchNextArticlePage());
+    }
   }, [dispatch]);
 
   content = (

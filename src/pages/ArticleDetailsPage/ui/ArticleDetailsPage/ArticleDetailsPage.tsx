@@ -38,6 +38,7 @@ import { ArticlesList } from "entities/Article/ui/ArticlesList/ArticlesList";
 // eslint-disable-next-line max-len
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { articleDetailsPageReducer } from "../../model/slices";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -54,7 +55,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { t } = useTranslation("article");
   const { id } = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
@@ -74,10 +75,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     [dispatch]
   );
 
-  const onBackToArticlesListClick = useCallback(() => {
-    navigate(RoutePath.articles);
-  }, [navigate]);
-
   if (!id) {
     return (
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
@@ -89,9 +86,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-        <Button theme={ButtonTheme.OUTLINE} onClick={onBackToArticlesListClick}>
-          {t("Назад к списку")}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
         <Text
           title={t("Рекомендации")}

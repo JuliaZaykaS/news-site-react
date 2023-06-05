@@ -18,7 +18,7 @@ import { ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicMo
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { ProfilePageHeader } from "../ProfilePageHeader/ProfilePageHeader";
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text";
