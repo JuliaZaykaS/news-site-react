@@ -14,6 +14,8 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, "build"), // путь, куда сборка должна происходить,
     html: path.resolve(__dirname, "public", "index.html"), // указываем, какой файл хтмл мы будет использовать в качестве шаблона,
     src: path.resolve(__dirname, "src"), // путь к папке src
+    locales: path.resolve(__dirname, "public", "locales"), // путь к папке с переводами
+    buildLocales: path.resolve(__dirname, "build", "locales"), // путь к папке для переводов в продакшн
   };
 
   const mode = env.mode || "development";

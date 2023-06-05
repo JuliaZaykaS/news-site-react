@@ -13,5 +13,21 @@
     }
   },
   "Назад к списку": "Back to list",
-  "Ошибка при загрузке статей": "Error loading articles"
+  "Ошибка при загрузке статей": "Error loading articles",
+  "Сортировать ПО": "Sort by",
+  "Поиск": "Search",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "по": "by",
+  "названию": "title",
+  "просмотрам": "views",
+  "дате публикации": "created date",
+  "Экономика": "Economics",
+  "Все": "All",
+  "Айти": "IT",
+  "Наука": "Science",
+  "Статьи не найдены": "Articles not found",
+  "Рекомендации": "Recommendations",
+  "Редактирование статьи": "Edit article",
+  "Создание новой статьи": "Create new article"
 }

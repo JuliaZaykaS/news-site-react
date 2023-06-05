@@ -5,6 +5,8 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"; // плагин 
 import webpack from "webpack";
 import { BuildOptions } from "./types/config";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
+import path from "path";
 
 // функция для подключения и конфигурации плагинов
 export function buildPlugins({
@@ -26,6 +28,10 @@ export function buildPlugins({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
+    }),
+    new CopyPlugin({
+      // для перемещения переводов в сборку
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
   ];
   if (isDev) {
