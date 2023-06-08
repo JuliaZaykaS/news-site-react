@@ -1,6 +1,6 @@
-// .articlesList {
-
-// }
+.articlesList {
+    height: 100%;
+}
 
 .LIST {
     .card {
@@ -12,4 +12,39 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+}
+
+.itemsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 30px;
+}
+
+.skeleton {
+    padding-bottom: 30px;
+}
+
+.itemContainer {
+    // padding: 0.5rem;
+    // width: 33%;
+    width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin-right: 30px;
+
+    // flex: none;
+    // align-content: stretch;
+    // box-sizing: border-box;
+
+    @media (max-width: 1024px) {
+        width: 50%;
+    }
+
+    @media (max-width: 300px) {
+        width: 100%;
+    }
 }

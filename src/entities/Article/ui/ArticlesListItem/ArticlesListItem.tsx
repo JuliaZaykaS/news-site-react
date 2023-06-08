@@ -19,17 +19,19 @@ import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleT
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { AppLink } from "shared/ui/AppLink";
+import { ARTICLE_LIST_ITEM_INDEX } from "shared/const/localstorage";
 
 interface ArticlesListItemProps {
   className?: string;
   article: Article;
   view: ArticleViewType;
   target?: HTMLAttributeAnchorTarget;
+  index?: number;
 }
 
 // eslint-disable-next-line react/display-name
 export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
-  const { className, article, view, target } = props;
+  const { className, article, view, target, index } = props;
   const { t } = useTranslation("article");
   // const navigate = useNavigate();
 
@@ -41,6 +43,9 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     </>
   );
 
+  const onBtnClick = () => {
+    sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX, JSON.stringify(index));
+  };
   // const onReadMoreClick = useCallback(() => {
   //   navigate(RoutePath.article_details + article.id);
   // }, [article.id, navigate]);
@@ -79,7 +84,7 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
               to={RoutePath.article_details + article.id}
               target={target}
             >
-              <Button theme={ButtonTheme.OUTLINE}>
+              <Button theme={ButtonTheme.OUTLINE} onClick={onBtnClick}>
                 {t("Читать далее...")}
               </Button>
             </AppLink>
@@ -93,6 +98,7 @@ export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
 
   return (
     <AppLink
+      onClick={onBtnClick}
       target={target}
       to={RoutePath.article_details + article.id}
       className={classNames(cls.articlesListItem, {}, [className, cls[view]])}
