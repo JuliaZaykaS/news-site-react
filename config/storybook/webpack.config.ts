@@ -12,6 +12,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: "",
     entry: "",
     src: path.resolve(__dirname, "..", "..", "src"),
+    locales: "",
+    buildLocales: "",
   };
   // поместим в конфиг путь до проекта и расширения файлов, которые следует обработать
   // console.log("paths.src", paths.src);
