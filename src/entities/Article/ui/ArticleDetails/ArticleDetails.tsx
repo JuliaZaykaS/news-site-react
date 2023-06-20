@@ -31,6 +31,7 @@ import {
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -121,27 +122,30 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (article) {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <HStack justify={"center"} max className={cls.avatarWrapper}>
           <Avatar
             src={article?.img}
             alt={article?.title}
             className={cls.avatar}
             size={200}
           />
-        </div>
+        </HStack>
+        <VStack gap={"4"} max>
+
         <Text
           title={article?.title}
           text={article?.subtitle}
           size={TextSize.L}
         />
-        <div className={cls.articleInfo}>
+        <HStack gap={"8"} className={cls.articleInfo}>
           <Icon Svg={eyeIcon} className={cls.icon} />
           <Text text={String(article?.views)} />
-        </div>
-        <div className={cls.articleInfo}>
+        </HStack>
+        <HStack gap={"8" } className={cls.articleInfo}>
           <Icon Svg={calendarIcon} className={cls.icon} />
           <Text text={article?.createdAt} />
-        </div>
+        </HStack>
+        </VStack>
         {/* <div className={cls.block}></div> */}
         {article?.blocks.map(renderBlocks)}
       </>
@@ -150,9 +154,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetails, {}, [className])}>
+      <VStack gap={"16" } className={classNames(cls.articleDetails, {}, [className])}>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

@@ -26,6 +26,7 @@ import { ValidateProfileErrors } from "entities/Profile/model/types/profile";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useParams } from "react-router-dom";
 import { Page } from "widgets/Page";
+import { VStack } from "shared/ui/Stack";
 
 const reducers: ReducerList = {
   profile: profileReducer,
@@ -126,6 +127,8 @@ const ProfilePage = (props: ProfilePageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.profilePage, {}, [className])}>
+        <VStack gap={"16"} max>
+
         <ProfilePageHeader />
 
         {validateErrors?.length && validateErrorsMarkup}
@@ -143,6 +146,7 @@ const ProfilePage = (props: ProfilePageProps) => {
           onChangeAvatar={onChangeAvatar}
           onChangeUserName={onChangeUserName}
         />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

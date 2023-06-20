@@ -39,6 +39,7 @@ import { ArticlesList } from "entities/Article/ui/ArticlesList/ArticlesList";
 import { fetchArticleRecommendations } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -86,6 +87,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+        <VStack gap={"16"} max>
+
         <ArticleDetailsPageHeader />
         <ArticleDetails articleId={id} />
         <Text
@@ -106,6 +109,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         />
         <AddNewCommentForm onSendComment={onSendComment} />
         <CommentsList comments={comments} isLoading={commentsIsLoading} />
+       </VStack>
       </Page>
     </DynamicModuleLoader>
   );

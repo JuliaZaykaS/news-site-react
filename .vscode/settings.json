@@ -14,5 +14,11 @@
     "postcss",
     "scss"
 ],
-"i18next.i18nPaths": "c:/Users/yu.zajka/Documents/ЛИЧНЫЕ ПРОЕКТЫ/production-progect/public/locales,c:/Users/yu.zajka/Documents/ЛИЧНЫЕ ПРОЕКТЫ/production-progect/src/shared/config/i18n"
+"i18next.i18nPaths": "c:/Users/yu.zajka/Documents/ЛИЧНЫЕ ПРОЕКТЫ/production-progect/public/locales,c:/Users/yu.zajka/Documents/ЛИЧНЫЕ ПРОЕКТЫ/production-progect/src/shared/config/i18n",
+"editor.defaultFormatter": "vscode.typescript-language-features",
+"editor.formatOnSave": true,
+"editor.formatOnPaste": true,
+"[typescript]": {
+  "editor.defaultFormatter": "vscode.typescript-language-features"
+}
 }

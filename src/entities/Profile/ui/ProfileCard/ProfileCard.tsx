@@ -16,6 +16,7 @@ import { Avatar } from "shared/ui/Avatar";
 import { useMemo } from "react";
 import { Currency, CurrencySelect } from "entities/Currency";
 import { Country, CountrySelect } from "entities/Country";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ProfileCardProps {
   className?: string;
@@ -74,18 +75,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <div
-        className={classNames(cls.profileCard, mods, [className, cls.loading])}
+      <HStack justify={"center"} max className={classNames(cls.profileCard, mods, [className, cls.loading])}
       >
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div
-        className={classNames(cls.profileCard, mods, [className, cls.error])}
+      <HStack justify={"center"} max className={classNames(cls.profileCard, mods, [className, cls.error])}
       >
         <Text
           theme={TextTheme.ERROR}
@@ -93,17 +92,17 @@ export const ProfileCard = (props: ProfileCardProps) => {
           text={t("Попробуйте обновить страницу")}
           align={TextAlign.CENTER}
         />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <div className={classNames(cls.profileCard, mods, [className])}>
-      <div className={cls.data}>
+    <VStack max gap={"8"} className={classNames(cls.profileCard, mods, [className])}>
+      {/* <div className={cls.data}> */}
         {data?.avatar && (
-          <div className={cls.avatarWrapper}>
+          <HStack justify={"center"} max className={cls.avatarWrapper}>
             <Avatar src={data?.avatar} alt={data?.username} />
-          </div>
+          </HStack>
         )}
         <Input
           value={data?.first}
@@ -166,7 +165,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
           readonly={readonly}
           className={cls.input}
         />
-      </div>
-    </div>
+      {/* </div> */}
+    </VStack>
   );
 };
