@@ -2,15 +2,14 @@
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
-import { ReactNode } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, HtmlHTMLAttributes, ReactNode } from 'react';
 
 export type FlexJustify = "center" | "between" | "start" | "end"
 export type FlexAlign = "start" | "center" | "end"
 export type FlexDirection = "column" | "row"
 export type FlexGap = "4" | "8" | "16" | "32"
 
-
-export interface FlexProps {
+export interface FlexProps{
    className?: string;
    children: ReactNode;
    justify?: FlexJustify;
@@ -18,6 +17,7 @@ export interface FlexProps {
    direction: FlexDirection;
    gap?: FlexGap;
    max?: boolean;
+   tag?: keyof HTMLElementTagNameMap;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -44,23 +44,39 @@ const gapClasses: Record<FlexGap, string> = {
 
 }
 
+type TagType = "div" | "section" | "header" | "nav" | "footer" | "aside" | "main"
+
+const mapTagType: Record<string, TagType> = {
+div: "div",
+section: "section",
+header: "header",
+nav: "nav",
+footer: "footer",
+aside: "aside",
+main: "main",
+
+}
+
 
 
 export const Flex = (props: FlexProps) => {
-   const { className, children, justify = "start", align = "center", direction = "row", gap, max } = props;
+   const { className, children, justify = "start", align = "center", direction = "row", gap, max, tag = "div"} = props;
    const { t } = useTranslation()
 
    const classes = [className, justifyClasses[justify], alignClasses[align], directionClasses[direction],
-      gap && gapClasses[gap]
-   ]
+   gap && gapClasses[gap]
+]
 
-   const mods: Mods = {
-[cls.max]:max
+const mods: Mods = {
+   [cls.max]: max
 }
 
+   const Tag = mapTagType[tag];
+
    return (
-      <div className={classNames(cls.flex, mods, classes)}>
+      <Tag className={classNames(cls.flex, mods, classes)}>
          {children}
-      </div>
+      </Tag>
+
    );
 }

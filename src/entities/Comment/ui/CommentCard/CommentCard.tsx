@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./CommentCard.module.scss";
 import { Comment } from "../../model/types/comment";
+
 import { Avatar } from "shared/ui/Avatar";
 import { Text } from "shared/ui/Text";
 import { Skeleton } from "shared/ui/Skeleton";

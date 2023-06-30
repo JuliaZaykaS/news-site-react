@@ -51,7 +51,7 @@ export const Sidebar: React.FC<SidebarProps> = memo((props) => {
         {collapsed ? ">" : "<"}
       </Button>
       {/* <nav className={cls.items}>{itemsList}</nav> */}
-      <VStack gap={ "8"} className={cls.items}>{itemsList}</VStack>
+      <VStack tag={"nav"} gap={ "8"} className={cls.items}>{itemsList}</VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={cls.language} short={collapsed} />
