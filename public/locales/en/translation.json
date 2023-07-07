@@ -23,7 +23,8 @@
   "Страна": "Country",
   "Статьи": "Articles",
   "Редактировать": "Edit",
-
   "Создать статью": "Create article",
-  "Cognitive News app": "Cognitive News app"
+  "Cognitive News app": "Cognitive News app",
+  "Укажите страну": "Choose country",
+  "Укажите валюту": "Choose currency"
 }
