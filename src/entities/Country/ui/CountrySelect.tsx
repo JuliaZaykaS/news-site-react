@@ -51,7 +51,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
       label={t("Страна")}
       onChange={onChangeSelect}
       readonly={readonly}
-      direction="top"
+      direction="top-right"
 
     />
   );

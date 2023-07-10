@@ -14,10 +14,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, userActions } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Avatar } from "shared/ui/Avatar";
 
 interface NavbarProps {
   className?: string;
 }
+
+
 
 // eslint-disable-next-line react/display-name
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -42,6 +46,19 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(false);
   }, [dispatch]);
 
+
+  const navbarItems = [
+    {
+      content: t("Профиль"),
+      href: RoutePath.profile + authData?.id,
+    },
+    {
+      content: t("Выйти"),
+      onClick: onLogout,
+    },
+
+  ]
+
   if (authData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
@@ -57,13 +74,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         >
           {t("Создать статью")}
         </AppLink>
-        <Button
-          theme={ButtonTheme.CLEAR_INVERTED}
-          className={cls.links}
-          onClick={onLogout}
-        >
-          {t("Выйти")}
-        </Button>
+
+        <Dropdown
+          items={navbarItems}
+          trigger={<Avatar src={authData.avatar || ""} alt={authData.username} size={30} />}
+          className={cls.dropdown}
+          direction={"bottom-left"}
+        />
+
       </header>
     );
   }

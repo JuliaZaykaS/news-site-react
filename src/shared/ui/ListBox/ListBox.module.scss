@@ -17,13 +17,25 @@
     border-radius: 12px;
     box-shadow: 4px 4px 8px var(--listbox-bg);
 
-    &.top {
+    &.top-right {
+        bottom: 100%;
+        left: 0;
+    }
+
+    &.top-left {
+        right: 0;
         bottom: 100%;
     }
 
-    // &.bottom{
+    &.bottom-right {
+        top: 100%;
+        left: 0;
+    }
 
-    // }
+    &.bottom-left {
+        top: 100%;
+        right: 0;
+    }
 }
 
 .item {
