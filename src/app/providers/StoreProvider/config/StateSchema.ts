@@ -16,6 +16,7 @@ import { ArticleDetailsPageSchema } from "pages/ArticleDetailsPage";
 
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { To, NavigateOptions } from "react-router-dom";
+import { rtkApi } from "shared/api/rtkApi";
 import { ScrollPositionSaveSchema } from "widgets/Page";
 
 //  пример
@@ -27,6 +28,7 @@ export interface StateSchema {
   counter: CounterSchema; // пример
   user: UserSchema;
   scrollPositionSave: ScrollPositionSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // асинхронные редьюсеры
   loginForm?: LoginSchema;

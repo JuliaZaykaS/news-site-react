@@ -40,6 +40,7 @@ import { fetchArticleRecommendations } from "../../model/services/fetchArticleRe
 import { articleDetailsPageReducer } from "../../model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { VStack } from "shared/ui/Stack";
+import { ArticleRecommendationsList } from "features/articleRecommendationsList";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -59,14 +60,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   // const navigate = useNavigate();
   const comments = useSelector(getArticleDetailsComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
-  const recommendations = useSelector(getArticleRecommendations.selectAll);
-  const recommendationsIsLoading = useSelector(
-    getArticleDetailsRecommendationsIsLoading
-  );
+
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
-    dispatch(fetchArticleRecommendations());
+    // dispatch(fetchArticleRecommendations());
   });
 
   const onSendComment = useCallback(
@@ -90,18 +88,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <VStack gap={"16"} max>
 
         <ArticleDetailsPageHeader />
-        <ArticleDetails articleId={id} />
-        <Text
-          title={t("Рекомендации")}
-          className={cls.commentTitle}
-          size={TextSize.L}
-        />
-        <ArticlesList
-          articles={recommendations}
-          isLoading={recommendationsIsLoading}
-          className={cls.recommendations}
-          target={"_blank"}
-        />
+          <ArticleDetails articleId={id} />
+          <ArticleRecommendationsList/>
+
         <Text
           title={t("Комментарии к статье")}
           className={cls.commentTitle}

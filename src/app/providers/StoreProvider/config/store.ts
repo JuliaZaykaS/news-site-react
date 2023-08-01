@@ -13,6 +13,7 @@ import { createReducerManager } from "./reducerManager";
 import { $api } from "shared/api/api";
 import { NavigateOptions, To } from "react-router-dom";
 import { scrollPositionSaveReducer } from "widgets/Page";
+import { rtkApi } from "shared/api/rtkApi";
 
 // базовая функция
 // export default configureStore({
@@ -31,6 +32,7 @@ export function createReduxStore(
     user: userReducer,
     scrollPositionSave: scrollPositionSaveReducer,
     // loginForm: loginReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootRedusers);
@@ -48,7 +50,7 @@ export function createReduxStore(
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
