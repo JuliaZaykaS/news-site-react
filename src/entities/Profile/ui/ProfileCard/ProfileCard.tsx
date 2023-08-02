@@ -1,9 +1,9 @@
 import { Mods, classNames } from "shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
 import { useSelector } from "react-redux";
-import { getProfileData } from "../../model/selectors/getProfileData/getProfileData";
-import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
-import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
+import { getProfileData } from "../../../../features/editableProfileCard/model/selectors/getProfileData/getProfileData";
+// import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
+// import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { Input } from "shared/ui/Input/ui/Input";

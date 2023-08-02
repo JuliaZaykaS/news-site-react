@@ -3,9 +3,10 @@ import { ReducersMapObject } from "@reduxjs/toolkit";
 import { Story } from "@storybook/react";
 import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
 import { articleDetailsReducer } from "entities/Article";
-import { profileReducer } from "entities/Profile";
+
 import { loginReducer } from "features/AuthByUserName/model/slice/loginSlice";
 import { addNewCommentFormReducer } from "features/addNewCommentForm/model/slices/addNewCommentFormSlice";
+import { profileReducer } from "features/editableProfileCard/model/slices/profileSlice";
 import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
 import { articleDetailsCommentsReducer } from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
 import { ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";

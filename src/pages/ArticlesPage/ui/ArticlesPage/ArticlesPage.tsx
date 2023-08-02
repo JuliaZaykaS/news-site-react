@@ -9,27 +9,21 @@ import {
   ReducerList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
-  articlesPageActions,
+
   articlesPageReducer,
-  getArticles,
+
 } from "../../model/slices/articlesPageSlice";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
-import { useSelector } from "react-redux";
-import {
-  getArticlesPageError,
-  getArticlesPageInited,
-  getArticlesPageIsLoading,
-  getArticlesPageView,
-} from "../../model/selectors/articlesPageSelectors";
-import { ArticleViewSelector } from "../ArticleViewSelector/ArticleViewSelector";
+
 import { Page } from "widgets/Page";
 import { fetchNextArticlePage } from "pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage";
-import { Text } from "shared/ui/Text";
+
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
+import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
+
 
 interface ArticlesPageProps {
   className?: string;
@@ -43,13 +37,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   const { className } = props;
   const { t } = useTranslation("article");
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlesPageError);
-  const view = useSelector(getArticlesPageView);
-  // const inited = useSelector(getArticlesPageInited);
+
   const [searchParams] = useSearchParams();
-  let content;
+
 
   useInitialEffect(() => {
     dispatch(initArticlesPage(searchParams));
@@ -63,12 +53,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     // }
   });
 
-  // const onChangeView = useCallback(
-  //   (view: ArticleViewType) => {
-  //     dispatch(articlesPageActions.setView(view));
-  //   },
-  //   [dispatch]
-  // );
+
 
   const onLoadNextPart = useCallback(() => {
     if (__PROJECT__ !== "storybook") {
@@ -76,24 +61,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
   }, [dispatch]);
 
-  content = (
-    <>
-      {/* <ArticleViewSelector view={view} onViewClick={onChangeView} /> */}
-      <ArticlesPageFilters />
-      <ArticlesList
-        articles={articles}
-        isLoading={isLoading}
-        view={view}
-        className={cls.list}
-      />
-    </>
-  );
 
-  if (error) {
-    return (content = (
-      <Text title={t("Ошибка при загрузке статей")} text={error} />
-    ));
-  }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
@@ -101,7 +69,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         className={classNames(cls.articlesPage, {}, [className])}
         onScrollEnd={onLoadNextPart}
       >
-        {content}
+
+
+          <ArticlesPageFilters />
+        <ArticleInfiniteList className={ cls.list} />
+
       </Page>
     </DynamicModuleLoader>
   );

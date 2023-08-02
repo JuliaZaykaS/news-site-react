@@ -5,7 +5,7 @@ import { Article, ArticleDetailsType } from "entities/Article";
 import { ArticleDetailsBlockType } from "entities/Article/model/types/article";
 
 export default {
-  title: "pages/ArticleDetailsPageHeader",
+  title: "pages/ArticleDetailsPage/ArticleDetailsPageHeader",
   component: ArticleDetailsPageHeader,
   argTypes: {
     backgroundColor: { control: "color" },
