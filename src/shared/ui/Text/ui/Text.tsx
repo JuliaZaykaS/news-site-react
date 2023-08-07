@@ -23,9 +23,9 @@ export enum TextSize {
 type HeaderTagType = "h1" | "h2" | "h3" | "h4"
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-[TextSize.S]: "h4",
-[TextSize.M]: "h3",
-[TextSize.L]: "h2",
+  [TextSize.S]: "h4",
+  [TextSize.M]: "h3",
+  [TextSize.L]: "h2",
 
 }
 
@@ -36,6 +36,8 @@ interface TextProps {
   theme?: TextTheme;
   align?: TextAlign;
   size?: TextSize;
+
+  "data-testid"?: string;
 }
 
 // eslint-disable-next-line react/display-name
@@ -47,9 +49,10 @@ export const Text = memo((props: TextProps) => {
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
     size = TextSize.M,
+    "data-testid": dataTestId = "Text",
   } = props;
 
-const HeaderTag = mapSizeToHeaderTag[size]
+  const HeaderTag = mapSizeToHeaderTag[size]
 
   return (
     <div
@@ -60,8 +63,8 @@ const HeaderTag = mapSizeToHeaderTag[size]
         cls[size],
       ])}
     >
-      {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-      {text && <p className={cls.textContent}>{text}</p>}
+      {title && <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>{title}</HeaderTag>}
+      {text && <p className={cls.textContent} data-testid={`${dataTestId}.Paragraph`}>{text}</p>}
     </div>
   );
 });
