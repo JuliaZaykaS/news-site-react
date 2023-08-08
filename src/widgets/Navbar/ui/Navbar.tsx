@@ -11,7 +11,7 @@ import { useTheme } from "app/providers/ThemeProvider";
 import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
 import { LoginModal } from "features/AuthByUserName";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, userActions } from "entities/User";
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
 import { Dropdown } from "shared/ui/Dropdown/Dropdown";
@@ -31,6 +31,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
+  const isAdmin =  useSelector(isUserAdmin)
+  const isManager =  useSelector(isUserManager)
 
   const onCloseModal = useCallback(() => {
     // setIsAuthModal((isAuthModal) => !isAuthModal);
@@ -46,8 +48,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(false);
   }, [dispatch]);
 
+  const isAdminPanelAvaliable = isAdmin || isManager
+
 
   const navbarItems = [
+   ...(isAdminPanelAvaliable ?[ {
+      content: t("Админка"),
+      href: RoutePath.admin_panel,
+    }]: []),
     {
       content: t("Профиль"),
       href: RoutePath.profile + authData?.id,
