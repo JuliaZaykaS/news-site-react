@@ -9,13 +9,14 @@ import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDeco
 import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { ProfileCard } from "./ProfileCard";
+import { Profile } from "../../model/types/profile";
 // import avatar from "shared/assets/tests/example.png";
 // const avatar = "static/media/src/shared/assets/tests/example.png";
 const avatar =
   "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg";
 
 export default {
-  title: "entities/ProfileCard",
+  title: "entities/Profile/ProfileCard",
   component: ProfileCard,
 
   argTypes: {
@@ -29,9 +30,8 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => (
 
 export const Primary = Template.bind({});
 
-Primary.args = {
-  data: {
-    first: "Юлия",
+const profile: Profile = {
+   first: "Юлия",
     lastname: "Зай",
     age: 33,
     currency: Currency.RUB,
@@ -39,7 +39,10 @@ Primary.args = {
     city: "Moscow",
     username: "admin",
     avatar: avatar,
-  },
+}
+
+Primary.args = {
+  data: profile,
 };
 
 export const WithError = Template.bind({});
@@ -55,31 +58,13 @@ Loading.args = {
 export const Dark = Template.bind({});
 
 Dark.args = {
-  data: {
-    first: "Юлия",
-    lastname: "Зай",
-    age: 33,
-    currency: Currency.EUR,
-    country: Country.RUSSIA,
-    city: "Moscow",
-    username: "admin",
-    avatar: avatar,
-  },
+  data: profile,
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 
 Orange.args = {
-  data: {
-    first: "Юлия",
-    lastname: "Зай",
-    age: 33,
-    currency: Currency.EUR,
-    country: Country.RUSSIA,
-    city: "Moscow",
-    username: "admin",
-    avatar: avatar,
-  },
+  data: profile,
 };
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

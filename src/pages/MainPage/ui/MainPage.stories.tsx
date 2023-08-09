@@ -14,6 +14,7 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
+  decorators:[StoreDecorator({})]
 } as ComponentMeta<typeof MainPage>;
 
 const Template: ComponentStory<typeof MainPage> = () => (
@@ -23,13 +24,13 @@ const Template: ComponentStory<typeof MainPage> = () => (
 );
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+// Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Orange = Template.bind({});
 Orange.args = {};
 
-Orange.decorators = [ThemeDecorator(Theme.ORANGE), StoreDecorator({})];
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

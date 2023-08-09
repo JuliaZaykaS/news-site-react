@@ -11,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators:[StoreDecorator({})]
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
@@ -21,4 +22,4 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <A
 export const Normal = Template.bind({});
 Normal.args = {
 };
-Normal.decorators = [StoreDecorator({})];
+

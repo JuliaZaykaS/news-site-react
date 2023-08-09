@@ -1,4 +1,5 @@
-import { render } from "react-dom";
+
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./app/App";
 
@@ -10,8 +11,13 @@ import "app/styles/index.scss";
 import { StoreProvider } from "app/providers/StoreProvider";
 import { ThemeProvider } from "app/providers/ThemeProvider";
 
-render(
-  <BrowserRouter>
+const container = document.getElementById('root');
+// const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+if (!container) {
+  throw new Error("Root not found")
+}
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render( <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
@@ -19,6 +25,6 @@ render(
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+  </BrowserRouter>);
+
+

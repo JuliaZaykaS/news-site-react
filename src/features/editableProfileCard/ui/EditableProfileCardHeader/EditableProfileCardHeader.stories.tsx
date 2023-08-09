@@ -11,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof EditableProfileCardHeader>;
 
 const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
@@ -19,4 +20,4 @@ export const Normal = Template.bind({});
 Normal.args = {
 
 };
-Normal.decorators = [StoreDecorator({})];
+// Normal.decorators = [StoreDecorator({})];

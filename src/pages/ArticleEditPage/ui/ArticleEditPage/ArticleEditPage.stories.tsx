@@ -10,6 +10,7 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
+  decorators:[StoreDecorator({})]
 } as ComponentMeta<typeof ArticleEditPage>;
 
 const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
@@ -27,4 +28,4 @@ const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
 
 export const Create = Template.bind({});
 Create.args = {};
-Create.decorators = [StoreDecorator({})];
+// Create.decorators = [StoreDecorator({})];
