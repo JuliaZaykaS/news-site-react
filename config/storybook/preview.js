@@ -2,6 +2,7 @@ import { addDecorator } from "@storybook/react";
 import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator/StyleDecorator.tsx";
 import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator.tsx";
 import { RouterDecorator } from "../../src/shared/config/storybook/RouterDecorator/RouterDecorator.tsx";
+import { SuspenseDecorator } from "../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx";
 // import { TranslationDecorator } from "../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator.tsx";
 import { Theme } from "../../src/app/providers/ThemeProvider";
 
@@ -18,3 +19,4 @@ addDecorator(StyleDecorator);
 // addDecorator(TranslationDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
+addDecorator(SuspenseDecorator);

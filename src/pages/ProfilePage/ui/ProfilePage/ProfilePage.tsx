@@ -24,9 +24,9 @@ const ProfilePage = (props: ProfilePageProps) => {
 
 
 
-  if (!id) {
-    return <Text text={t("Профиль не найден") } />
-  }
+  // if (!id) {
+  //   return <Text text={t("Профиль не найден") } />
+  // }
 
   return (
 

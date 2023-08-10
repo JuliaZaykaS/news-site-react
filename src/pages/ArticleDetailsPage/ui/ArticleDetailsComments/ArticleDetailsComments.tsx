@@ -16,7 +16,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 
 interface ArticleDetailsCommentsProps {
    className?: string;
-   articleId: string;
+   articleId?: string;
 }
 
 // eslint-disable-next-line react/display-name
@@ -43,7 +43,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
    );
 
    return (
-      <VStack gap={"8"} className={classNames("", {}, [className])}>
+      <VStack gap={"8"} max className={classNames("", {}, [className])}>
          <Text
             title={t("Комментарии к статье")}
             size={TextSize.L}

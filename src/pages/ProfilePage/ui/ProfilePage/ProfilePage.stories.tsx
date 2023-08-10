@@ -9,6 +9,7 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 // import avatar from "shared/assets/tests/example.png";
 import ProfilePage from "./ProfilePage";
+import { Profile } from "entities/Profile";
 const avatar =
   "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg";
 
@@ -26,14 +27,8 @@ const Template: ComponentStory<typeof ProfilePage> = (args: object) => (
   <ProfilePage {...args} />
 );
 
-export const Normal = Template.bind({});
-
-Normal.args = {};
-Normal.decorators = [
-  StoreDecorator({
-    profile: {
-      formData: {
-        first: "Юлия",
+const profile: Profile = {
+  first: "Юлия",
         lastname: "Зай",
         age: 33,
         currency: Currency.EUR,
@@ -41,7 +36,15 @@ Normal.decorators = [
         city: "Moscow",
         username: "admin",
         avatar: avatar,
-      },
+}
+
+export const Normal = Template.bind({});
+
+Normal.args = {};
+Normal.decorators = [
+  StoreDecorator({
+    profile: {
+      formData: profile,
     },
   }),
 ];
@@ -53,16 +56,7 @@ Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
     profile: {
-      formData: {
-        first: "Юлия",
-        lastname: "Зай",
-        age: 33,
-        currency: Currency.EUR,
-        country: Country.RUSSIA,
-        city: "Moscow",
-        username: "admin",
-        avatar: avatar,
-      },
+      formData: profile,
     },
   }),
 ];
@@ -73,16 +67,7 @@ Orange.decorators = [
   ThemeDecorator(Theme.ORANGE),
   StoreDecorator({
     profile: {
-      formData: {
-        first: "Юлия",
-        lastname: "Зай",
-        age: 33,
-        currency: Currency.EUR,
-        country: Country.RUSSIA,
-        city: "Moscow",
-        username: "admin",
-        avatar: avatar,
-      },
+      formData: profile,
     },
   }),
 ];
