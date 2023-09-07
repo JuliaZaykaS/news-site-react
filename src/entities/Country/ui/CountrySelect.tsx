@@ -3,7 +3,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Select } from "shared/ui/Select";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo } from "react";
-import { Country } from "../model/types/country";
+import { Country } from "../model/consts/country";
 import { ListBox } from "shared/ui/ListBox/ListBox";
 
 interface CountrySelectProps {

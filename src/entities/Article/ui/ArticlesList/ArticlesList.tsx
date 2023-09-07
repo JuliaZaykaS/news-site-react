@@ -2,11 +2,12 @@ import { HTMLAttributeAnchorTarget, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticlesList.module.scss";
-import { Article, ArticleViewType } from "../../model/types/article";
+import { Article} from "../../model/types/article";
 import { ArticlesListItem } from "../ArticlesListItem/ArticlesListItem";
 import { ArticleListItemSkeleton } from "../ArticlesListItem/ArticleListItemSkeleton";
 import { Text } from "shared/ui/Text";
 import { TextSize } from "shared/ui/Text/ui/Text";
+import { ArticleViewType } from "../../model/consts/articleConsts";
 
 interface ArticlesListProps {
   className?: string;

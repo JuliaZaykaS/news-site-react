@@ -4,10 +4,12 @@ import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticlesListItem.module.scss";
 import {
   Article,
-  ArticleDetailsBlockType,
   ArticleDetailsTextBlock,
-  ArticleViewType,
 } from "../../model/types/article";
+import {
+  ArticleDetailsBlockType,
+  ArticleViewType,
+} from "../../model/consts/articleConsts";
 import { ArticlesList } from "../ArticlesList/ArticlesList";
 import { Text } from "shared/ui/Text";
 import { Icon } from "shared/ui/Icon";

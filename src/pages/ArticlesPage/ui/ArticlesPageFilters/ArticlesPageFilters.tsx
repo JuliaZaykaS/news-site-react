@@ -10,7 +10,7 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { ArticleSortField, ArticleViewType } from "entities/Article";
+import { ArticleDetailsType, ArticleSortField, ArticleViewType } from "entities/Article";
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticleViewSelector } from "../ArticleViewSelector/ArticleViewSelector";
@@ -21,7 +21,7 @@ import { ArticleSortSelector } from "../ArticleSortSelector/ArticleSortSelector"
 import { SortOrder } from "shared/types";
 import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
-import { ArticleDetailsType } from "entities/Article/model/types/article";
+
 import { ArticleTypeTabs } from "../ArticleTypeTabs/ArticleTypeTabs";
 import { TabItem } from "shared/ui/Tabs/Tabs";
 

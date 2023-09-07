@@ -25,13 +25,14 @@ import { Avatar } from "shared/ui/Avatar";
 import { Icon } from "shared/ui/Icon";
 import { TextSize } from "shared/ui/Text/ui/Text";
 import {
-  ArticleDetailsBlock,
+
   ArticleDetailsBlockType,
-} from "../../model/types/article";
+} from "../../model/consts/articleConsts";
 import { ArticleCodeBlockComponent } from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { HStack, VStack } from "shared/ui/Stack";
+import { ArticleDetailsBlock } from "../../model/types/article";
 
 interface ArticleDetailsProps {
   className?: string;

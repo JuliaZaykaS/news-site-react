@@ -13,7 +13,8 @@
     },
     "esModuleInterop": true, // позволяет вместо require (Common JS module)  использовать import
     "allowSyntheticDefaultImports": true, // для поддержки дефолтных импортов, чтобы не писать *
-    "strict": true // строгий режим
+    "strict": true, // строгий режим
+    "isolatedModules":true // для компиляции TS через отличные от его родного плагины (н-р, Babel)
   },
   "ts-node": {
     "compilerOptions": {

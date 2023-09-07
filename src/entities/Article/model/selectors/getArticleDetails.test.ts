@@ -4,11 +4,9 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from "./getArticleDetails";
-import {
-  Article,
-  ArticleDetailsBlockType,
-  ArticleDetailsType,
-} from "../types/article";
+import { ArticleDetailsType, ArticleDetailsBlockType } from "../consts/articleConsts";
+import { Article } from "../types/article";
+
 
 describe("getArticleDetails.test", () => {
   test("should return article", () => {

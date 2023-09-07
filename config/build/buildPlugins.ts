@@ -7,6 +7,7 @@ import { BuildOptions } from "./types/config";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import path from "path";
+import CircularDependencyPlugin from "circular-dependency-plugin";
 
 // функция для подключения и конфигурации плагинов
 export function buildPlugins({
@@ -33,11 +34,20 @@ export function buildPlugins({
       // для перемещения переводов в сборку
       patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
+
   ];
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления страницы без перезагрузки
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false })); // анализ размера бандла
+    plugins.push(new CircularDependencyPlugin({
+      // exclude detection of files based on a RegExp
+      exclude: /node_modules/,
+
+      // add errors to webpack instead of warnings
+      failOnError: true,
+
+    })); // анализ кольцевых зависимостей
   }
   // return [
   //   new HtmlWebpackPlugin({

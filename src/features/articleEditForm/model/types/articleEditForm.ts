@@ -1,4 +1,4 @@
-// export interface ArticleEditForm {}
+// export interface ArticleEditForm { }
 
 export interface ArticleEditFormSchema {
   isLoading: boolean;

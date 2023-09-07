@@ -2,10 +2,14 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ArticlesListItem } from "./ArticlesListItem";
 import {
   Article,
+
+} from "../../model/types/article";
+import {
+
   ArticleDetailsBlockType,
   ArticleDetailsType,
   ArticleViewType,
-} from "entities/Article/model/types/article";
+} from "../../model/consts/articleConsts";
 
 export default {
   title: "entities/Article/ArticlesListItem",

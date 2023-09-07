@@ -3,9 +3,9 @@ import { ArticleDetails } from "./ArticleDetails";
 import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
 import {
   Article,
-  ArticleDetailsBlockType,
-  ArticleDetailsType,
+
 } from "../../model/types/article";
+import { ArticleDetailsBlockType, ArticleDetailsType } from "../../model/consts/articleConsts";
 
 export default {
   title: "entities/Article/ArticleDetails",

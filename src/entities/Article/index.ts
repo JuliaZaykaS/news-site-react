@@ -1,9 +1,13 @@
 export {
-  Article,
-  ArticleDetailsSchema,
   ArticleViewType,
   ArticleSortField,
   ArticleDetailsType,
+  ArticleDetailsBlockType,
+} from "./model/consts/articleConsts";
+export type {
+  Article,
+  ArticleDetailsSchema,
+
 } from "./model/types/article";
 export {
   articleDetailsActions,
