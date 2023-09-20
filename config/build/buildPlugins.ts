@@ -8,6 +8,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import path from "path";
 import CircularDependencyPlugin from "circular-dependency-plugin";
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 // функция для подключения и конфигурации плагинов
 export function buildPlugins({
@@ -33,6 +34,16 @@ export function buildPlugins({
     new CopyPlugin({
       // для перемещения переводов в сборку
       patterns: [{ from: paths.locales, to: paths.buildLocales }],
+    }),
+
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
     }),
 
   ];
