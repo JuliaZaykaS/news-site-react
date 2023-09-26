@@ -14,12 +14,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User";
 import { Text, TextTheme } from "shared/ui/Text";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
-// import { Dropdown } from "shared/ui/Popups/ui/Dropdown/Dropdown";
-// import { Avatar } from "shared/ui/Avatar";
+
 import { HStack } from "shared/ui/Stack";
 
 import { NotificationButton } from "features/NotificationButton";
 import { AvatarDropdown } from "features/AvatarDropdown";
+
 
 
 interface NavbarProps {
@@ -38,6 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   // const dispatch = useDispatch();
   // const isAdmin = useSelector(isUserAdmin)
   // const isManager = useSelector(isUserManager)
+
 
   const onCloseModal = useCallback(() => {
     // setIsAuthModal((isAuthModal) => !isAuthModal);
@@ -89,16 +90,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         </AppLink>
         <HStack gap="16" className={cls.actions}>
           <NotificationButton />
-
           <AvatarDropdown/>
 
-
-          {/* <Dropdown
-            items={navbarItems}
-            trigger={<Avatar src={authData.avatar || ""} alt={authData.username} size={30} />}
-            // className={cls.dropdown}
-            direction={"bottom-left"}
-          /> */}
         </HStack>
 
 

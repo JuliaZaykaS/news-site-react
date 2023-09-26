@@ -10,6 +10,8 @@ import {
 import { Mods, classNames } from "shared/lib/classNames/classNames";
 import { Portal } from "shared/ui/Portal/Portal";
 import cls from "./Modal.module.scss";
+import { Overlay } from "shared/ui/Overlay/Overlay";
+import { useTheme } from "app/providers/ThemeProvider";
 
 interface ModalProps {
   className?: string;
@@ -29,6 +31,9 @@ export const Modal = (props: ModalProps) => {
   const [isMounted, setIsMounted] = useState(false);
   // const timeRef = useRef<NodeJS.Timeout>();
   const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+
+   const { theme } = useTheme();
+
 
   useEffect(() => {
     if (isOpen) {
@@ -56,9 +61,9 @@ export const Modal = (props: ModalProps) => {
     [closeHandler]
   );
 
-  const onContentClick = (e: MouseEvent) => {
-    e.stopPropagation();
-  };
+  // const onContentClick = (e: MouseEvent) => {
+  //   e.stopPropagation();
+  // };
 
   useEffect(() => {
     if (isOpen) {
@@ -83,12 +88,18 @@ export const Modal = (props: ModalProps) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [])}>
-        <div className={cls.overlay} onClick={closeHandler}>
-          <div className={cls.content} onClick={onContentClick}>
+      {/* <div className={classNames(cls.modal, mods, [])}> */}
+      <div className={classNames(cls.modal, mods, [className, theme, "app_modal"])}>
+        {/* <div className={cls.overlay} onClick={closeHandler}> */}
+        {/* <Overlay onClose={closeHandler}> */}
+        <Overlay onClose={closeHandler} />
+
+          {/* <div className={cls.content} onClick={onContentClick}> */}
+          <div className={cls.content}>
             {children}
           </div>
-        </div>
+        {/* </Overlay> */}
+        {/* </div> */}
       </div>
     </Portal>
   );
