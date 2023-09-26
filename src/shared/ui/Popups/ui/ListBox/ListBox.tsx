@@ -4,9 +4,11 @@ import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import cls from './ListBox.module.scss';
 
 import { Listbox as HListbox } from '@headlessui/react'
-import { Button } from '../Button/ui/Button';
-import { HStack } from '../Stack';
+import { Button } from '../../../Button/ui/Button';
+import { HStack } from '../../../Stack';
 import { DropdownDirection } from 'shared/types/ui';
+import popupCls from "../../styles/popup.module.scss"
+
 
 
 
@@ -36,7 +38,7 @@ export const ListBox = (props: ListBoxProps) => {
    const { t } = useTranslation()
 
    const optionsClasses = [
-      cls[direction]
+      popupCls[direction]
    ]
 
 
@@ -54,7 +56,7 @@ export const ListBox = (props: ListBoxProps) => {
          <HListbox
             disabled={readonly}
             as={"div"}
-            className={classNames(cls.listBox, {}, [className])}
+            className={classNames(cls.listbox, {}, [className, popupCls.popup])}
             value={value}
             onChange={onChange}
          >
@@ -74,7 +76,7 @@ export const ListBox = (props: ListBoxProps) => {
                      {({ active, selected }) => (
 
                         <li
-                           className={classNames(cls.item, { [cls.active]: active, [cls.disabled]: item.disabled }, [])}
+                           className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: item.disabled }, [])}
                         >
                            {selected && "✓ "}
 
