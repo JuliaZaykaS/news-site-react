@@ -14,6 +14,7 @@ import { Overlay } from "shared/ui/Overlay/Overlay";
 import { useTheme } from "app/providers/ThemeProvider";
 import { useModal } from "shared/lib/hooks/useModal/useModal";
 
+
 interface ModalProps {
   className?: string;
   children?: ReactNode;
