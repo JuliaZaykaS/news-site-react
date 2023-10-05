@@ -1,6 +1,6 @@
 import { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticlesPageFilters.module.scss";
 import { useSelector } from "react-redux";
 import {
@@ -10,20 +10,20 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors";
-import { ArticleDetailsType, ArticleSortField, ArticleViewType } from "entities/Article";
+import { ArticleDetailsType, ArticleSortField, ArticleViewType } from "@/entities/Article";
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticleViewSelector } from "../ArticleViewSelector/ArticleViewSelector";
-import { Select } from "shared/ui/Select";
-import { Card } from "shared/ui/Card/Card";
-import { Input } from "shared/ui/Input/ui/Input";
+import { Select } from "@/shared/ui/Select";
+import { Card } from "@/shared/ui/Card/Card";
+import { Input } from "@/shared/ui/Input/ui/Input";
 import { ArticleSortSelector } from "../ArticleSortSelector/ArticleSortSelector";
-import { SortOrder } from "shared/types";
-import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
-import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
+import { SortOrder } from "@/shared/types";
+import { fetchArticlesList } from "@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
+import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 
 import { ArticleTypeTabs } from "../ArticleTypeTabs/ArticleTypeTabs";
-import { TabItem } from "shared/ui/Tabs/Tabs";
+import { TabItem } from "@/shared/ui/Tabs/Tabs";
 
 interface ArticlesPageFiltersProps {
   className?: string;

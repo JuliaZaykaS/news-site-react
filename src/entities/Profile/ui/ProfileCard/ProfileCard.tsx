@@ -1,22 +1,22 @@
-import { Mods, classNames } from "shared/lib/classNames/classNames";
+import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ProfileCard.module.scss";
 import { useSelector } from "react-redux";
 import { getProfileData } from "../../../../features/editableProfileCard/model/selectors/getProfileData/getProfileData";
 // import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 // import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
-import { Input } from "shared/ui/Input/ui/Input";
-import { Text, TextAlign, TextTheme } from "shared/ui/Text";
+import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
+import { Input } from "@/shared/ui/Input/ui/Input";
+import { Text, TextAlign, TextTheme } from "@/shared/ui/Text";
 import { Profile } from "../../model/types/profile";
-import { Loader } from "shared/ui/Loader";
+import { Loader } from "@/shared/ui/Loader";
 
-import { Avatar } from "shared/ui/Avatar";
+import { Avatar } from "@/shared/ui/Avatar";
 
 import { useMemo } from "react";
-import { Currency, CurrencySelect } from "entities/Currency";
-import { Country, CountrySelect } from "entities/Country";
-import { HStack, VStack } from "shared/ui/Stack";
+import { Currency, CurrencySelect } from "@/entities/Currency";
+import { Country, CountrySelect } from "@/entities/Country";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 interface ProfileCardProps {
   className?: string;

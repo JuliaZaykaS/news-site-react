@@ -1,15 +1,15 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
-import { Input } from "shared/ui/Input/ui/Input";
+import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
+import { Input } from "@/shared/ui/Input/ui/Input";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { memo, useCallback, useEffect } from "react";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 // import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUserName } from "../../model/services/loginByUserName/loginByUserName";
-import { Text, TextTheme } from "shared/ui/Text";
-import { ReduxStoreWithManager } from "app/providers/StoreProvider";
+import { Text, TextTheme } from "@/shared/ui/Text";
+import { ReduxStoreWithManager } from "@/app/providers/StoreProvider";
 import { getLoginUserName } from "../../model/selectors/getUserName/getLoginUserName";
 import { getLoginUserPassword } from "../../model/selectors/getUserPassword/getLoginUserPassword";
 import { getLoginUserIsLoading } from "../../model/selectors/getUserIsLoading/getLoginUserIsLoading";
@@ -17,8 +17,8 @@ import { getLoginUserError } from "../../model/selectors/getUserError/getLoginUs
 import {
   DynamicModuleLoader,
   ReducerList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 interface LoginFormProps {
   className?: string;

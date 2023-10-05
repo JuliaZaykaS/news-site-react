@@ -1,24 +1,24 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./AddNewCommentForm.module.scss";
-import { Input } from "shared/ui/Input/ui/Input";
-import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
+import { Input } from "@/shared/ui/Input/ui/Input";
+import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
 import { useSelector } from "react-redux";
 import {
   getNewCommentFormError,
   getNewCommentFormText,
 } from "../../model/selectors/addNewCommentFormSelectors";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {
   addNewCommentFormActions,
   addNewCommentFormReducer,
-} from "features/addNewCommentForm/model/slices/addNewCommentFormSlice";
+} from "@/features/addNewCommentForm/model/slices/addNewCommentFormSlice";
 import {
   DynamicModuleLoader,
   ReducerList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { HStack } from "shared/ui/Stack";
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { HStack } from "@/shared/ui/Stack";
 
 interface AddNewCommentFormProps {
   className?: string;

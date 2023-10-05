@@ -1,15 +1,15 @@
 /* eslint-disable react/display-name */
 import { ReducersMapObject } from "@reduxjs/toolkit";
 import { Story } from "@storybook/react";
-import { StateSchema, StoreProvider } from "app/providers/StoreProvider";
-import { articleDetailsReducer } from "entities/Article";
+import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
+import { articleDetailsReducer } from "@/entities/Article";
 
-import { loginReducer } from "features/AuthByUserName/model/slice/loginSlice";
-import { addNewCommentFormReducer } from "features/addNewCommentForm/model/slices/addNewCommentFormSlice";
-import { profileReducer } from "features/editableProfileCard/model/slices/profileSlice";
-import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
-import { articleDetailsCommentsReducer } from "pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
-import { ReducerList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { loginReducer } from "@/features/AuthByUserName/model/slice/loginSlice";
+import { addNewCommentFormReducer } from "@/features/addNewCommentForm/model/slices/addNewCommentFormSlice";
+import { profileReducer } from "@/features/editableProfileCard/model/slices/profileSlice";
+import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slices";
+import { articleDetailsCommentsReducer } from "@/pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
+import { ReducerList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 const defaultAsyncReducers: ReducerList = {
   loginForm: loginReducer,

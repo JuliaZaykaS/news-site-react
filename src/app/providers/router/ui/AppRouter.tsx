@@ -1,14 +1,14 @@
 // import { AboutPage } from "pages/AboutPage";
 // import { MainPage } from "pages/MainPage";
-import { getUserAuthData } from "entities/User";
+import { getUserAuthData } from "@/entities/User";
 import { Suspense, useCallback, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import {
   AppRoutesProps,
   routeConfig,
-} from "shared/config/routeConfig/routeConfig";
-import { PageLoader } from "widgets/PageLoader";
+} from "@/shared/config/routeConfig/routeConfig";
+import { PageLoader } from "@/widgets/PageLoader";
 import { RequireAuth } from "./RequireAuth";
 
 const AppRouter = () => {

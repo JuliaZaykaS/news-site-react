@@ -5,15 +5,15 @@ import {
   configureStore,
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
-import { counterReducer } from "entities/Counter";
+import { counterReducer } from "@/entities/Counter";
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
-import { userReducer } from "entities/User";
+import { userReducer } from "@/entities/User";
 // import { loginReducer } from "features/AuthByUserName";
 import { createReducerManager } from "./reducerManager";
-import { $api } from "shared/api/api";
+import { $api } from "@/shared/api/api";
 import { NavigateOptions, To } from "react-router-dom";
-import { scrollPositionSaveReducer } from "widgets/Page";
-import { rtkApi } from "shared/api/rtkApi";
+import { scrollPositionSaveReducer } from "@/widgets/Page";
+import { rtkApi } from "@/shared/api/rtkApi";
 
 // базовая функция
 // export default configureStore({

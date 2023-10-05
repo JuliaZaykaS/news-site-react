@@ -49,8 +49,16 @@ export default {
   moduleNameMapper: {
     // "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
     //   "<rootDir>/__mocks__/fileMock.js",
+    // '^@/(.*)$': '<rootDir>src/$1',
     "\\.(s?css)$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // для обаботки свг-иконок
+    // "^@/**/\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // для обаботки свг-иконок
+    '^@/shared(.*)$': '<rootDir>/src/shared$1',
+    '^@/entities(.*)$': '<rootDir>/src/entities$1',
+    '^@/features(.*)$': '<rootDir>/src/features$1',
+    '^@/widgets(.*)$': '<rootDir>/src/widgets$1',
+    '^@/pages(.*)$': '<rootDir>/src/pages$1',
+    '^@/app(.*)$': '<rootDir>/src/app$1',
   },
 
   // A set of global variables that need to be available in all test environments

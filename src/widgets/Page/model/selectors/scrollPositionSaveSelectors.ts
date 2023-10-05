@@ -1,5 +1,5 @@
 import { Selector, createSelector } from "@reduxjs/toolkit";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import { ScrollPositionSchema } from "../types/ScrollPositionSave";
 
 export const getScrollPosition = (state: StateSchema): ScrollPositionSchema => {

@@ -1,10 +1,10 @@
 import { Fragment, ReactNode, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Dropdown.module.scss';
 import { Menu } from '@headlessui/react'
 import { Button, ButtonTheme } from '../../../Button/ui/Button';
-import { DropdownDirection } from 'shared/types/ui';
+import { DropdownDirection } from '@/shared/types/ui';
 import { AppLink } from '../../../AppLink';
 import popupCls from "../../styles/popup.module.scss"
 

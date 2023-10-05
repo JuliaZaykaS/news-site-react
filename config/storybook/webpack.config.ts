@@ -20,7 +20,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push(".ts", ".tsx");
-
+  // config.resolve?.alias = { ...config?.resolve?.alias, '@': paths.src }
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  config!.resolve!.alias = { '@': path.resolve(__dirname, '..', '..', 'src') }
   // добавляем лоадеры в сторибук
   config.module?.rules?.push(buildCssLoaders(true)); // для стилей
 

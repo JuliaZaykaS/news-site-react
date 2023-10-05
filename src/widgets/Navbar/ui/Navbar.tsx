@@ -1,24 +1,24 @@
 // import { Link } from "react-router-dom";
 import cls from "./Navbar.module.scss";
-import { classNames } from "shared/lib/classNames/classNames";
-import { AppLink } from "shared/ui/AppLink";
-import { AppLinkTheme } from "shared/ui/AppLink/ui/AppLink";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { AppLink } from "@/shared/ui/AppLink";
+import { AppLinkTheme } from "@/shared/ui/AppLink/ui/AppLink";
 
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useState } from "react";
-import { Modal } from "shared/ui/Modal";
-import { useTheme } from "app/providers/ThemeProvider";
-import { Button, ButtonTheme } from "shared/ui/Button/ui/Button";
-import { LoginModal } from "features/AuthByUserName";
+import { Modal } from "@/shared/ui/Modal";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
+import { LoginModal } from "@/features/AuthByUserName";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User";
-import { Text, TextTheme } from "shared/ui/Text";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/entities/User";
+import { Text, TextTheme } from "@/shared/ui/Text";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 
-import { HStack } from "shared/ui/Stack";
+import { HStack } from "@/shared/ui/Stack";
 
-import { NotificationButton } from "features/NotificationButton";
-import { AvatarDropdown } from "features/AvatarDropdown";
+import { NotificationButton } from "@/features/NotificationButton";
+import { AvatarDropdown } from "@/features/AvatarDropdown";
 
 
 

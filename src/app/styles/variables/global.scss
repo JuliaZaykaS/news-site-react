@@ -28,7 +28,9 @@
     --sidebar-width-collapsed: 80px;
 
     // z-index
-    --modal-z-index: 10;
+    // --modal-z-index: 10;
+    --modal-z-index: 1000;
+    --overlay-z-index: 100;
     // --sidebar-btn-z-index: 10000;
     --sidebar-btn-z-index: 10;
     --modal-minor-z-index: -1;

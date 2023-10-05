@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/app/providers/ThemeProvider";
 import { Avatar } from "./Avatar";
 // import AvatarImg from "./avatar-example.avif";
-import AvatarImg from "shared/assets/tests/example.png";
+import AvatarImg from "@/shared/assets/tests/example.png";
 
 export default {
   title: "shared/Avatar",

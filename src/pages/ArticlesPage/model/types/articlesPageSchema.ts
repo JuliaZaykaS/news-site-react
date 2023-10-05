@@ -4,9 +4,9 @@ import {
   ArticleDetailsType,
   ArticleSortField,
   ArticleViewType,
-} from "entities/Article";
+} from "@/entities/Article";
 
-import { SortOrder } from "shared/types";
+import { SortOrder } from "@/shared/types";
 
 // export interface ArticleDetailsCommentsSchema extends EntityAdapter<Comment> {
 export interface ArticlesPageSchema {

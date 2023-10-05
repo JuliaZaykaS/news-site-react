@@ -1,5 +1,5 @@
 import { Dictionary, EntityAdapter } from "@reduxjs/toolkit";
-import { Article } from "entities/Article";
+import { Article } from "@/entities/Article";
 
 // export interface ArticleDetailsCommentsSchema extends EntityAdapter<Comment> {
 export interface ArticleDetailsPageRecommendationsSchema {

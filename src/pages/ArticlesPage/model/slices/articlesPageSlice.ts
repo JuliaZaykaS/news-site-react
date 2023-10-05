@@ -3,17 +3,17 @@ import {
   createEntityAdapter,
   createSlice,
 } from "@reduxjs/toolkit";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 import { ArticlesPageSchema } from "../types/articlesPageSchema";
 import {
   Article,
   ArticleDetailsType,
   ArticleSortField,
   ArticleViewType,
-} from "entities/Article";
+} from "@/entities/Article";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
-import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from "shared/const/localstorage";
-import { SortOrder } from "shared/types";
+import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
+import { SortOrder } from "@/shared/types";
 
 const articlesAdapter = createEntityAdapter<Article>({
   // Assume IDs are stored in a field other than `comment.id`

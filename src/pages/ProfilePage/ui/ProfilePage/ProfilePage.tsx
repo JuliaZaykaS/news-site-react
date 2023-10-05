@@ -1,14 +1,14 @@
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ProfilePage.module.scss";
 import { useTranslation } from "react-i18next";
 
 import { useParams } from "react-router-dom";
-import { Page } from "widgets/Page";
+import { Page } from "@/widgets/Page";
 
-import { EditableProfileCard } from "features/editableProfileCard";
+import { EditableProfileCard } from "@/features/editableProfileCard";
 
 
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 
 
 

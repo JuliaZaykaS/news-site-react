@@ -1,8 +1,8 @@
-import { StateSchema } from "app/providers/StoreProvider/config/StateSchema";
+import { StateSchema } from "@/app/providers/StoreProvider/config/StateSchema";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Button } from "shared/ui/Button/ui/Button";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Button } from "@/shared/ui/Button/ui/Button";
 import { getCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 import { counterActions } from "../model/slice/counterSlice";
 

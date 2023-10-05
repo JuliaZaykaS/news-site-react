@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { fetchProfileData } from "../../../../features/editableProfileCard/model/services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 import { ProfileSchema } from "../types/editableProfileCardSchema";
-import { Profile } from "entities/Profile";
+import { Profile } from "@/entities/Profile";
 
 const initialState: ProfileSchema = {
   readonly: true,

@@ -3,10 +3,10 @@ import ArticleDetailsPage from "./ArticleDetailsPage";
 import {
   Article,
 
-} from "entities/Article";
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator";
-import { ArticleDetailsType } from "entities/Article";
-import { ArticleDetailsBlockType } from "entities/Article";
+} from "@/entities/Article";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { ArticleDetailsType } from "@/entities/Article";
+import { ArticleDetailsBlockType } from "@/entities/Article";
 
 export default {
   title: "pages/ArticleDetailsPage/ArticleDetailsPage",

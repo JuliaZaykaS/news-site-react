@@ -1,15 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { withTranslation } from "react-i18next";
-import { componentRender } from "shared/lib/tests/componentRender/componentRender";
+import { componentRender } from "@/shared/lib/tests/componentRender/componentRender";
 // eslint-disable-next-line max-len
-import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import { renderWithTranslation } from "@/shared/lib/tests/renderWithTranslation/renderWithTranslation";
 import { EditableProfileCard } from "./EditableProfileCard";
-import { Profile } from "entities/Profile";
-import { Country } from "entities/Country";
-import { Currency } from "entities/Currency";
+import { Profile } from "@/entities/Profile";
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
 import { profileReducer } from "../../model/slices/profileSlice";
 import userEvent from "@testing-library/user-event";
-import { $api } from "shared/api/api";
+import { $api } from "@/shared/api/api";
 
 const profile: Profile = {
   id: "1",

@@ -9,7 +9,7 @@
     "moduleResolution": "node", // определяет какие импорты будут
     "baseUrl": ".", // для абсолютного импорта
     "paths": {
-      "*": ["./src/*"] // все абсолютные импорты будут идти из папки src
+      "@/*": ["./src/*"] // все абсолютные импорты будут идти из папки src
     },
     "esModuleInterop": true, // позволяет вместо require (Common JS module)  использовать import
     "allowSyntheticDefaultImports": true, // для поддержки дефолтных импортов, чтобы не писать *

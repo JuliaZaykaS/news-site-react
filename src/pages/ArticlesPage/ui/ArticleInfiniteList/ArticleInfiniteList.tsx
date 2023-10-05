@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { ArticlesList } from 'entities/Article/ui/ArticlesList/ArticlesList';
-import { getArticlesPageIsLoading, getArticlesPageError, getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { ArticlesList } from '@/entities/Article/ui/ArticlesList/ArticlesList';
+import { getArticlesPageIsLoading, getArticlesPageError, getArticlesPageView } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
 
-import {  getArticles } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import {  getArticles } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useSelector } from 'react-redux';
 
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Text } from "shared/ui/Text";
+import { Text } from "@/shared/ui/Text";
 
 
 

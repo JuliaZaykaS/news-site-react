@@ -8,6 +8,8 @@ export function buildResolves(options: BuildOptions): ResolveOptions {
         preferAbsolute: true, //аюсолютные пути в приоритете
         modules: [options.paths.src, "node_modules"], // папки, из которых нужно учитывать абсолютные импорты
         mainFiles: ["index"], // для каждого модуля главным файлом будет считаться index
-        alias: {}, //какой знак указывать при абсолютном импорте, если пустой объект, то без спец знаков
+        alias: {
+            '@': options.paths.src,
+        }, //какой знак указывать при абсолютном импорте, если пустой объект, то без спец знаков
     };
 }
