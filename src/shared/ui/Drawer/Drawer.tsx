@@ -7,7 +7,7 @@ import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 
 interface DrawerProps {
    className?: string;
@@ -21,7 +21,7 @@ interface DrawerProps {
 const height = window.innerHeight - 100
 
 // eslint-disable-next-line react/display-name
-export const DrawerContent = memo((props: DrawerProps) => {
+const DrawerContent = memo((props: DrawerProps) => {
    const { className, children, isOpen, onClose, lazy } = props;
    const { Spring, Gesture } = useAnimationLibs()
 
@@ -112,10 +112,16 @@ export const DrawerContent = memo((props: DrawerProps) => {
    );
 })
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
    const { isLoaded } = useAnimationLibs()
    if (!isLoaded) {
       return null
    }
    return <DrawerContent {...props} />
-})
+}
+export const Drawer = (props: DrawerProps) => {
+
+   return (<AnimationProvider>
+      <DrawerAsync {...props} />
+   </AnimationProvider>)
+}
