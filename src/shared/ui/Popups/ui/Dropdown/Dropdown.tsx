@@ -37,7 +37,7 @@ export const Dropdown = (props: DropdownProps) => {
    return (
 
       <Menu as={"div"} className={classNames(cls.dropdown, {}, [className, popupCls.popup])}>
-         <Menu.Button className={popupCls.trigger}>
+         <Menu.Button as={"div"} className={popupCls.trigger}>
             {trigger}
          </Menu.Button>
          {/* <Menu.Items className={classNames(cls.menu, {}, [cls[direction]])}> */}
@@ -50,6 +50,7 @@ export const Dropdown = (props: DropdownProps) => {
                      onClick={item.onClick}
                      type={"button"}
                      disabled={item.disabled}
+                     key={`dropdown-key-${index}`}
                   >
                      {item.content}
                   </Button>
@@ -57,7 +58,11 @@ export const Dropdown = (props: DropdownProps) => {
 
                if (item.href) {
                   return (
-                     <Menu.Item as={AppLink } to={item.href} key={index} disabled={item.disabled} >
+                     <Menu.Item
+                        as={AppLink}
+                        to={item.href}
+                        key={`dropdown-key-${index}`}
+                        disabled={item.disabled} >
                      {content}
 
                   </Menu.Item>
