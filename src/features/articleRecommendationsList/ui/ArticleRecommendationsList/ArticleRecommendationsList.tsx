@@ -13,6 +13,7 @@ interface ArticleRecommendationsListProps {
 }
 
 
+// eslint-disable-next-line react/display-name
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const { className } = props;
     const { t } = useTranslation("article");

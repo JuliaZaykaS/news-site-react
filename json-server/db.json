@@ -785,5 +785,51 @@
       "description": "произошло 3 событие",
       "userId": "1"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 2,
+      "feedback": "Хорошая статья",
+      "articleId": "2",
+      "userId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "L4wWNa4"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 4,
+      "feedback": "chgfhhhhjghj",
+      "id": "GBSSmBO"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 3,
+      "feedback": "Хороший человек",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хороший человек",
+      "userId": "2",
+      "profileId": "1"
+    }
   ]
 }

@@ -1,12 +1,10 @@
 export interface Rating {
+    id: string,
+    rate: number,
+    feedback?: string,
 
 }
 
-export interface RatingSchema {
 
-    isLoading: boolean;
-    error?: string;
-
-}
 
 

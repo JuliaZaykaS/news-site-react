@@ -16,6 +16,7 @@ import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { ArticleRating } from "@/features/articleRating";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -39,6 +40,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   //     </Page>
   //   );
   // }
+  if (!id) {
+    // return "error"
+    return null
+  }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -47,6 +52,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
           <ArticleDetailsPageHeader />
           <ArticleDetails articleId={id} />
+          <ArticleRating articleId={id}/>
           <ArticleRecommendationsList />
           <ArticleDetailsComments articleId={id} />
         </VStack>

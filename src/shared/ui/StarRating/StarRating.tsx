@@ -20,7 +20,7 @@ export const StarRating = memo((props: StarRatingProps) => {
    const { className, onSelect, size = 30, selectedStars = 0 } = props;
    const { t } = useTranslation()
    const [isHovered, setIsHovered] = useState(false)
-   const [currentStarsCount, setCurrentStarsCount] = useState(0)
+   const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars)
    const [isSelected, setIsSelected] = useState(Boolean(selectedStars))
 
    const mods: Mods = {
