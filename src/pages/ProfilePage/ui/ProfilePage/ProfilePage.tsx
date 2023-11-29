@@ -9,6 +9,11 @@ import { EditableProfileCard } from "@/features/editableProfileCard";
 
 
 import { Text } from "@/shared/ui/Text";
+import { ProfileRating } from "@/features/profileRating";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
+import { getProfileData } from "@/entities/Profile";
+
 
 
 
@@ -22,17 +27,30 @@ const ProfilePage = (props: ProfilePageProps) => {
 
   const { id } = useParams<{ id: string }>();
 
+  const userData = useSelector(getUserAuthData)
+  const profileData = useSelector(getProfileData)
 
 
-  // if (!id) {
-  //   return <Text text={t("Профиль не найден") } />
-  // }
+  let profileRatingContent
+
+  if (!id) {
+    return <Text text={t("Профиль не найден") } />
+  }
+
+  if (userData?.id !== id && profileData) {
+    profileRatingContent = (<ProfileRating profileId={id}/>)
+  }
+
+
+
 
   return (
 
       <Page className={classNames(cls.profilePage, {}, [className])}>
 
-        <EditableProfileCard id= {id} />
+      <EditableProfileCard id={id} />
+      {/* {userData?.id !== id && <ProfileRating profileId={id} />} */}
+      {profileRatingContent}
 
       </Page>
 

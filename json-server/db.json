@@ -826,10 +826,24 @@
     },
     {
       "id": "2",
-      "rate": 4,
+      "rate": 0,
       "feedback": "Хороший человек",
       "userId": "2",
-      "profileId": "1"
+      "profileId": "2"
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 5,
+      "feedback": "Самый адекватный пользователь",
+      "id": "OCf4AAU"
+    },
+    {
+      "userId": "2",
+      "profileId": "1",
+      "rate": 4,
+      "feedback": "",
+      "id": "r0v3qz6"
     }
   ]
 }
