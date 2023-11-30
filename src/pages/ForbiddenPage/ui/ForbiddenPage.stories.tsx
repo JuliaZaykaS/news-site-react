@@ -3,7 +3,7 @@ import { ForbiddenPage } from './ForbiddenPage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-   title: 'shared/ForbiddenPage',
+   title: 'pages/ForbiddenPage',
    component: ForbiddenPage,
    argTypes: {
       backgroundColor: { control: 'color' },

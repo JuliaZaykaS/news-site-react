@@ -10,7 +10,7 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
    className?: string;
-   articleId: string;
+   articleId?: string;
 }
 
 // eslint-disable-next-line react/display-name

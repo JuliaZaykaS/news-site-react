@@ -40,10 +40,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   //     </Page>
   //   );
   // }
-  if (!id) {
-    // return "error"
-    return null
-  }
+  // if (!id) {
+  //   // return "error"
+  //   return null
+  // }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
