@@ -19,7 +19,7 @@ import { Card } from "@/shared/ui/Card/Card";
 import { Input } from "@/shared/ui/Input/ui/Input";
 import { ArticleSortSelector } from "../ArticleSortSelector/ArticleSortSelector";
 import { SortOrder } from "@/shared/types";
-import { fetchArticlesList } from "@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList";
+import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 
 import { ArticleTypeTabs } from "../ArticleTypeTabs/ArticleTypeTabs";

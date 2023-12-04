@@ -62,7 +62,19 @@ module.exports = {
       "error",
       {
         markupOnly: true,
-        ignoreAttribute: ["data-testid", "to", "target", "direction", "justify", "align", "gap", "tag", "as"],
+        ignoreAttribute: [
+          "data-testId",
+          "data-testid",
+          "to",
+          "target",
+          "direction",
+          "justify",
+          "align",
+          "gap",
+          "tag",
+          "as",
+          "border"
+        ],
       },
     ],
     "max-len": [
@@ -75,7 +87,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
     // "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
     // "eslint-plugin-juliaz/path-checker":"error",// неверные пути внутри модуля
-    "juliaz/path-checker":2,// неверные пути внутри модуля
+    // "juliaz/path-checker": [2, {alias:"@"} ],// неверные пути внутри модуля
+    "juliaz/path-checker": [2, {alias:"@"} ],// неверные пути внутри модуля
   },
   globals: {
     __IS_DEV__: true,

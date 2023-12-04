@@ -8,11 +8,13 @@ import {
   MutableRefObject,
 } from "react";
 import { Mods, classNames } from "@/shared/lib/classNames/classNames";
-import { Portal } from "@/shared/ui/Portal/Portal";
+
 import cls from "./Modal.module.scss";
-import { Overlay } from "@/shared/ui/Overlay/Overlay";
+
 import { useTheme } from "@/app/providers/ThemeProvider";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";
+import { Portal } from "../../Portal/Portal";
+import { Overlay } from "../../Overlay/Overlay";
 
 
 interface ModalProps {

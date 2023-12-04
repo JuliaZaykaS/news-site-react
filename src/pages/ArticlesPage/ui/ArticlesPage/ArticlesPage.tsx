@@ -17,7 +17,7 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitial
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 import { Page } from "@/widgets/Page";
-import { fetchNextArticlePage } from "@/pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage";
+import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage/fetchNextArticlePage";
 
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";

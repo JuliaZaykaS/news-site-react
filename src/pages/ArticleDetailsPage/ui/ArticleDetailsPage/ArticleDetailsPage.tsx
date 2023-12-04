@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleDetailsPage.module.scss";
@@ -12,6 +12,7 @@ import {
 import { Page } from "@/widgets/Page";
 
 import { articleDetailsPageReducer } from "../../model/slices";
+// import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";

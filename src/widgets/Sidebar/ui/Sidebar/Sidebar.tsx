@@ -17,7 +17,7 @@ interface SidebarProps {
 }
 
 // eslint-disable-next-line react/display-name
-export const Sidebar: React.FC<SidebarProps> = memo((props) => {
+export const Sidebar = memo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
   // const { t } = useTranslation();

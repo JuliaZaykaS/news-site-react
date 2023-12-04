@@ -20,7 +20,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { profileActions, profileReducer } from '../../model/slices/profileSlice';
 import { ValidateProfileErrors } from '../../model/types/editableProfileCardSchema';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { ReducerList, DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from '@/shared/ui/Stack';

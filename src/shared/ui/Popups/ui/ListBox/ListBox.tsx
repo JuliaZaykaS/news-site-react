@@ -76,7 +76,10 @@ export const ListBox = (props: ListBoxProps) => {
                      {({ active, selected }) => (
 
                         <li
-                           className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: item.disabled }, [])}
+                           className={
+                              classNames(cls.item,
+                                 { [popupCls.active]: active, [popupCls.disabled]: item.disabled },
+                                 [])}
                         >
                            {selected && "✓ "}
 
