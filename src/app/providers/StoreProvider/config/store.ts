@@ -11,7 +11,7 @@ import { userReducer } from "@/entities/User";
 // import { loginReducer } from "features/AuthByUserName";
 import { createReducerManager } from "./reducerManager";
 import { $api } from "@/shared/api/api";
-import { NavigateOptions, To } from "react-router-dom";
+// import { NavigateOptions, To } from "react-router-dom";
 import { scrollPositionSaveReducer } from "@/widgets/Page";
 import { rtkApi } from "@/shared/api/rtkApi";
 

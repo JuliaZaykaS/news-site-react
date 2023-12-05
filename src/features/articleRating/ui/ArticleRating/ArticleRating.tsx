@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+// import { classNames } from '@/shared/lib/classNames/classNames';
 import { RatingCard } from '@/entities/Rating';
 import { useAddArticleRating, useGetArticleRating } from '../../api/articleRatingApi';
 import { useSelector } from 'react-redux';

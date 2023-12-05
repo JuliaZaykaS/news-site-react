@@ -6,7 +6,7 @@ import { Input } from "@/shared/ui/Input/ui/Input";
 import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
 import { useSelector } from "react-redux";
 import {
-  getNewCommentFormError,
+  // getNewCommentFormError,
   getNewCommentFormText,
 } from "../../model/selectors/addNewCommentFormSelectors";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";

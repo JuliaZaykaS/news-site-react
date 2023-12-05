@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from "storybook-addon-mock";
 

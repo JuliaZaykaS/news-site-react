@@ -16,7 +16,7 @@ import { ProfileSchema } from "@/features/editableProfileCard";
 import { ArticleDetailsPageSchema } from "@/pages/ArticleDetailsPage";
 
 import { ArticlesPageSchema } from "@/pages/ArticlesPage";
-import { To, NavigateOptions } from "react-router-dom";
+// import { To, NavigateOptions } from "react-router-dom";
 import { rtkApi } from "@/shared/api/rtkApi";
 import { ScrollPositionSaveSchema } from "@/widgets/Page";
 

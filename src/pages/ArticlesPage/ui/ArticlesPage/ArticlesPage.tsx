@@ -2,8 +2,8 @@ import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticlesPage.module.scss";
-import { ArticlesList } from "@/entities/Article/ui/ArticlesList/ArticlesList";
-import { Article, ArticleViewType } from "@/entities/Article";
+// import { ArticlesList } from "@/entities/Article/ui/ArticlesList/ArticlesList";
+// import { Article, ArticleViewType } from "@/entities/Article";
 import {
   DynamicModuleLoader,
   ReducerList,

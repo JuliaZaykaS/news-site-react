@@ -1,4 +1,5 @@
-import { Profile } from "@/entities/Profile/model/types/profile";
+import { Profile } from "@/entities/Profile";
+
 
 export interface ProfileSchema {
     profile?: Profile;

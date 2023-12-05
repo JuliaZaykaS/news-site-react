@@ -1,8 +1,8 @@
 // import { AboutPage } from "pages/AboutPage";
 // import { MainPage } from "pages/MainPage";
-import { getUserAuthData } from "@/entities/User";
-import { Suspense, useCallback, useMemo } from "react";
-import { useSelector } from "react-redux";
+// import { getUserAuthData } from "@/entities/User";
+import { Suspense, useCallback } from "react";
+// import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import {
   AppRoutesProps,
