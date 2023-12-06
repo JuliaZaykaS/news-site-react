@@ -89,7 +89,10 @@ module.exports = {
     // "eslint-plugin-juliaz/path-checker":"error",// неверные пути внутри модуля
     // "juliaz/path-checker": [2, {alias:"@"} ],// неверные пути внутри модуля
     "juliaz/path-checker": [2, {alias:"@"} ],// неверные пути внутри модуля
-    "juliaz/public-api-imports": [2, {alias:"@"} ],// неверный импорт (не из паблик апи)
+    "juliaz/public-api-imports": [2, {
+      alias: "@",
+      testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
+    }],// неверный импорт (не из паблик апи)
   },
   globals: {
     __IS_DEV__: true,

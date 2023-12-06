@@ -5,16 +5,11 @@ import { Story } from "@storybook/react";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { articleDetailsReducer } from "@/entities/Article";
 
-// eslint-disable-next-line juliaz/public-api-imports
-import { loginReducer } from "@/features/AuthByUserName/model/slice/loginSlice";
-// eslint-disable-next-line juliaz/public-api-imports
-import { addNewCommentFormReducer } from "@/features/addNewCommentForm/model/slices/addNewCommentFormSlice";
-// eslint-disable-next-line juliaz/public-api-imports
-import { profileReducer } from "@/features/editableProfileCard/model/slices/profileSlice";
-// eslint-disable-next-line juliaz/public-api-imports
-import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/model/slices";
-// import { articleDetailsCommentsReducer } from "@/pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
 import { ReducerList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { loginReducer } from "@/features/AuthByUserName/testing";
+import { addNewCommentFormReducer } from "@/features/addNewCommentForm/testing";
+import { profileReducer } from "@/features/editableProfileCard/testing";
+import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/testing";
 
 const defaultAsyncReducers: ReducerList = {
   loginForm: loginReducer,
