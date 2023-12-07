@@ -8,7 +8,8 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useSelector } from 'react-redux';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
+
 
 interface AvatarDropdownProps {
    className?: string;

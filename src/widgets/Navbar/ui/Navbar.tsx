@@ -13,12 +13,13 @@ import { LoginModal } from "@/features/AuthByUserName";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/entities/User";
 import { Text, TextTheme } from "@/shared/ui/Text";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+
 
 import { HStack } from "@/shared/ui/Stack";
 
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
+import { RoutePath } from "@/shared/const/router";
 
 
 

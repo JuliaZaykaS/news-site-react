@@ -19,8 +19,9 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 // import { useNavigate } from "react-router-dom";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+
 import { AppLink } from "@/shared/ui/AppLink";
+import { RoutePath } from "@/shared/const/router";
 
 interface ArticlesListItemProps {
   className?: string;

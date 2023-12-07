@@ -1,7 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./SidebarItem.module.scss";
 import { AppLink } from "@/shared/ui/AppLink";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+
 import { AppLinkTheme } from "@/shared/ui/AppLink/ui/AppLink";
 import { SidebarItemType } from "../../model/types/sidebar";
 import { useTranslation } from "react-i18next";
