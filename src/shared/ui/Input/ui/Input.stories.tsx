@@ -1,9 +1,9 @@
-import React from "react";
+// import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+// eslint-disable-next-line juliaz/layer-imports
 import "@/app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/app/providers/ThemeProvider";
+import { Theme } from "@/shared/const/theme";
 import { Input } from "./Input";
 
 export default {

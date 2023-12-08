@@ -6,12 +6,11 @@ import { AppLinkTheme } from "@/shared/ui/AppLink/ui/AppLink";
 
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useState } from "react";
-import { Modal } from "@/shared/ui/Modal";
-import { useTheme } from "@/app/providers/ThemeProvider";
+
 import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
 import { LoginModal } from "@/features/AuthByUserName";
-import { useDispatch, useSelector } from "react-redux";
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/entities/User";
+import {  useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
 import { Text, TextTheme } from "@/shared/ui/Text";
 
 

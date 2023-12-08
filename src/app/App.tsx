@@ -7,9 +7,9 @@ import { Suspense, useEffect} from "react";
 
 // import { MainPage } from "pages/MainPage";
 
-import { useTheme } from "@/app/providers/ThemeProvider";
+
 import { classNames } from "@/shared/lib/classNames/classNames";
-import AppRouter from "@/app/providers/router/ui/AppRouter";
+
 import { Navbar } from "@/widgets/Navbar";
 // import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
@@ -18,6 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { getUserInited, userActions } from "@/entities/User";
 import { Sidebar } from "@/widgets/Sidebar";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+import { AppRouter } from "./providers/router";
 // import { useTranslation } from "react-i18next";
 
 export const App = () => {

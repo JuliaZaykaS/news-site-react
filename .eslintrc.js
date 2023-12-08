@@ -93,6 +93,10 @@ module.exports = {
       alias: "@",
       testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
     }],// неверный импорт (не из паблик апи)
+    "juliaz/layer-imports": [2, {
+      alias: "@",
+      ignoreImportPatterns: ["**/StoreProvider", "**/testing"]
+    }],// неверный импорт (не из паблик апи)
   },
   globals: {
     __IS_DEV__: true,

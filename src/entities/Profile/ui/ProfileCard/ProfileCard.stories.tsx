@@ -1,15 +1,16 @@
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+// eslint-disable-next-line juliaz/layer-imports
 import "@/app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 
-import { Theme } from "@/app/providers/ThemeProvider";
+
 // import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
 import { ProfileCard } from "./ProfileCard";
 import { Profile } from "../../model/types/profile";
+import { Theme } from "@/shared/const/theme";
 // import avatar from "shared/assets/tests/example.png";
 // const avatar = "static/media/src/shared/assets/tests/example.png";
 const avatar =
