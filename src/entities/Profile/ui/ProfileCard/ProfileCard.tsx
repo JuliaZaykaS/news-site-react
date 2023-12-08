@@ -6,7 +6,7 @@ import cls from "./ProfileCard.module.scss";
 // import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useTranslation } from "react-i18next";
 // import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
-import { Input } from "@/shared/ui/Input/ui/Input";
+import { Input } from "@/shared/ui/Input";
 import { Text, TextAlign, TextTheme } from "@/shared/ui/Text";
 import { Profile } from "../../model/types/profile";
 import { Loader } from "@/shared/ui/Loader";

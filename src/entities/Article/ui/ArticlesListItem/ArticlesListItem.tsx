@@ -14,9 +14,9 @@ import {
 import { Text } from "@/shared/ui/Text";
 import { Icon } from "@/shared/ui/Icon";
 import EyeIcon from "@/shared/assets/icons/eye.svg";
-import { Card } from "@/shared/ui/Card/Card";
+import { Card } from "@/shared/ui/Card";
 import { Avatar } from "@/shared/ui/Avatar";
-import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 // import { useNavigate } from "react-router-dom";
 

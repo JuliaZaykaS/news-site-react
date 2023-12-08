@@ -23,7 +23,7 @@ import { Text, TextAlign } from "@/shared/ui/Text";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { Avatar } from "@/shared/ui/Avatar";
 import { Icon } from "@/shared/ui/Icon";
-import { TextSize } from "@/shared/ui/Text/ui/Text";
+import { TextSize } from "@/shared/ui/Text";
 import {
 
   ArticleDetailsBlockType,

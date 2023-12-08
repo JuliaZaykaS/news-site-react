@@ -2,12 +2,12 @@
 import cls from "./Navbar.module.scss";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { AppLink } from "@/shared/ui/AppLink";
-import { AppLinkTheme } from "@/shared/ui/AppLink/ui/AppLink";
+import { AppLinkTheme } from "@/shared/ui/AppLink";
 
 import { useTranslation } from "react-i18next";
 import { memo, useCallback, useState } from "react";
 
-import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { LoginModal } from "@/features/AuthByUserName";
 import {  useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
