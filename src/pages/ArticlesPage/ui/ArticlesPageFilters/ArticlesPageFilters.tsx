@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticlesPageFilters.module.scss";
@@ -14,7 +14,6 @@ import { ArticleDetailsType, ArticleSortField, ArticleViewType } from "@/entitie
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { ArticleViewSelector } from "../ArticleViewSelector/ArticleViewSelector";
-import { Select } from "@/shared/ui/Select";
 import { Card } from "@/shared/ui/Card";
 import { Input } from "@/shared/ui/Input";
 import { ArticleSortSelector } from "../ArticleSortSelector/ArticleSortSelector";
@@ -23,7 +22,6 @@ import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchA
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 
 import { ArticleTypeTabs } from "../ArticleTypeTabs/ArticleTypeTabs";
-import { TabItem } from "@/shared/ui/Tabs";
 
 interface ArticlesPageFiltersProps {
   className?: string;

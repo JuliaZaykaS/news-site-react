@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode, memo, useRef, UIEvent } from "react";
+import { MutableRefObject, ReactNode, useRef, UIEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Page.module.scss";

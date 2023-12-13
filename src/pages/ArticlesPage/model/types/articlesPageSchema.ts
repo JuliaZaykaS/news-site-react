@@ -1,4 +1,4 @@
-import { Dictionary, EntityAdapter } from "@reduxjs/toolkit";
+import { Dictionary } from "@reduxjs/toolkit";
 import {
   Article,
   ArticleDetailsType,

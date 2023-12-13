@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
-import { DetailedHTMLProps, HTMLAttributes, HtmlHTMLAttributes, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 export type FlexJustify = "center" | "between" | "start" | "end"
 export type FlexAlign = "start" | "center" | "end"

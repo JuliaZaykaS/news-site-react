@@ -1,8 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { withTranslation } from "react-i18next";
+import { screen } from "@testing-library/react";
 import { componentRender } from "@/shared/lib/tests/componentRender/componentRender";
 // eslint-disable-next-line max-len
-import { renderWithTranslation } from "@/shared/lib/tests/renderWithTranslation/renderWithTranslation";
 import { EditableProfileCard } from "./EditableProfileCard";
 import { Profile } from "@/entities/Profile";
 import { Country } from "@/entities/Country";

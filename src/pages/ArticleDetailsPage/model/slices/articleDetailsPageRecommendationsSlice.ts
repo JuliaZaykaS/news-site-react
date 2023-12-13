@@ -1,5 +1,4 @@
 import {
-  PayloadAction,
   createEntityAdapter,
   createSlice,
 } from "@reduxjs/toolkit";

@@ -1,7 +1,5 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './ProfileRating.module.scss';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { useAddArticleRating, useGetArticleRating } from '../../api/profileRatingApi';

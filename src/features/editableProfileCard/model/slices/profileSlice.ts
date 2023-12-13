@@ -1,6 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import {
   fetchProfileData
 } from "../../../../features/editableProfileCard/model/services/fetchProfileData/fetchProfileData";

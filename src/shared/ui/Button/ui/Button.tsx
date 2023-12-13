@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ForwardedRef, ReactNode, forwardRef, memo } from "react";
+import { ButtonHTMLAttributes, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Button.module.scss";
 

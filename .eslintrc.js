@@ -23,7 +23,7 @@ module.exports = {
   },
 
   // parser: "@typescript-eslint/parser",
-  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks", "eslint-plugin-juliaz"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks", "eslint-plugin-juliaz", "unused-imports"],
   // rules: {
   //   // "react/jsx-indent": [2, 4, { indentLogicalExpressions: true }],
   //   "react/jsx-indent": [2, 4],
@@ -87,8 +87,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error", // Проверяем правила хуков
     // "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
     // "eslint-plugin-juliaz/path-checker":"error",// неверные пути внутри модуля
-    // "juliaz/path-checker": [2, {alias:"@"} ],// неверные пути внутри модуля
-    "juliaz/path-checker": [2, {alias:"@"} ],// неверные пути внутри модуля
+    "juliaz/path-checker": [2, { alias: "@" }],// неверные пути внутри модуля
+    "juliaz/path-checker": [2, { alias: "@" }],// неверные пути внутри модуля
     "juliaz/public-api-imports": [2, {
       alias: "@",
       testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
@@ -97,6 +97,7 @@ module.exports = {
       alias: "@",
       ignoreImportPatterns: ["**/StoreProvider", "**/testing"]
     }],// неверный импорт (не из паблик апи)
+    "unused-imports/no-unused-imports": "error", // неиспользуемые импорты
   },
   globals: {
     __IS_DEV__: true,

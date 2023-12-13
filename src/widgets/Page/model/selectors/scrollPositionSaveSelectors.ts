@@ -1,4 +1,4 @@
-import { Selector, createSelector } from "@reduxjs/toolkit";
+import { createSelector } from "@reduxjs/toolkit";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { ScrollPositionSchema } from "../types/ScrollPositionSave";
 

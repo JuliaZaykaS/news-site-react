@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 // import { articleEditForm, articleEditFormSchema } from "../types/articleEditForm";
 import { ArticleEditFormSchema } from "../types/articleEditForm";
 
