@@ -13,7 +13,7 @@ interface ThemeSwitcherProps {
 }
 
 // eslint-disable-next-line react/display-name
-export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = memo((props) => {
+export const ThemeSwitcher = memo((props:ThemeSwitcherProps) => {
   const { className } = props;
   const { theme, toggleTheme } = useTheme();
   return (

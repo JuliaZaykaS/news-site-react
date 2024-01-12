@@ -20,7 +20,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
    const userData = useSelector(getUserAuthData)
 
-   const { data, isLoading } = useGetArticleRating({ userId: userData?.id ?? "", articleId })
+   const { data, isLoading } = useGetArticleRating({ userId: userData?.id ?? "", articleId:articleId ?? '' })
    const [addArticleRating] = useAddArticleRating()
 
    const rating = data?.[0]
@@ -28,7 +28,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
    const handleAddArticleRating = useCallback((starsCount: number, feedback?: string) => {
       try {
 
-         addArticleRating({ userId: userData?.id ?? "", articleId, rate: starsCount, feedback })
+         addArticleRating({ userId: userData?.id ?? "", articleId:articleId ?? '', rate: starsCount, feedback })
       } catch (error) {
          console.log(error);
 
