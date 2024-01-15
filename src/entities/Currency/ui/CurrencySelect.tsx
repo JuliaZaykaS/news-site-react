@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo } from "react";
 import { Currency } from "../model/consts/currency";
 import { ListBox } from "@/shared/ui/Popups";
+import { typedMemo } from "@/shared/const/memo";
 
 interface CurrencySelectProps {
   className?: string;
@@ -13,8 +14,8 @@ interface CurrencySelectProps {
   readonly?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const CurrencySelect = memo((props: CurrencySelectProps) => {
+
+export const CurrencySelect = typedMemo((props: CurrencySelectProps) => {
   const { className, value, onChange, readonly } = props;
   const { t } = useTranslation();
 

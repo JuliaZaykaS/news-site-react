@@ -5,14 +5,15 @@ import { Card } from "@/shared/ui/Card";
 import cls from "./ArticlesListItem.module.scss";
 import { ArticleViewType } from "../../model/consts/articleConsts";
 import { Skeleton } from "@/shared/ui/Skeleton";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleListItemSkeletonProps {
   className?: string;
   view: ArticleViewType;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticleListItemSkeleton = memo(
+
+export const ArticleListItemSkeleton = typedMemo(
   (props: ArticleListItemSkeletonProps) => {
     const { className, view } = props;
 

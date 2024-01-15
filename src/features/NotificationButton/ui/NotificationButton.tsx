@@ -10,14 +10,15 @@ import { NotificationsList } from '@/entities/Notification';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from '@/shared/ui/Drawer';
+import { typedMemo } from '@/shared/const/memo';
 
 
 interface NotificationButtonProps {
    className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const NotificationButton = memo((props: NotificationButtonProps) => {
+
+export const NotificationButton = typedMemo((props: NotificationButtonProps) => {
    const { className } = props;
    // const { t } = useTranslation()
    const isMobile = useDevice()

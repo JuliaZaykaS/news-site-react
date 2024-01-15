@@ -11,6 +11,7 @@ import { Input } from '@/shared/ui/Input';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from '@/shared/ui/Drawer';
+import { typedMemo } from '@/shared/const/memo';
 
 interface RatingCardProps {
    className?: string;
@@ -22,8 +23,8 @@ interface RatingCardProps {
    rate?: number;
 }
 
-// eslint-disable-next-line react/display-name
-export const RatingCard = memo((props: RatingCardProps) => {
+
+export const RatingCard = typedMemo((props: RatingCardProps) => {
    const { className, title, feedbackTitle, onCancel, onAccept, hasFeedback, rate = 0 } = props;
    const { t } = useTranslation()
    const [isModalOpen, setIsModalOpen] = useState(false)

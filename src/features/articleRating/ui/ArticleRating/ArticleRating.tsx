@@ -6,6 +6,7 @@ import { useAddArticleRating, useGetArticleRating } from '../../api/articleRatin
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { typedMemo } from '@/shared/const/memo';
 
 
 export interface ArticleRatingProps {
@@ -13,8 +14,8 @@ export interface ArticleRatingProps {
    articleId?: string;
 }
 
-// eslint-disable-next-line react/display-name
-const ArticleRating = memo((props: ArticleRatingProps) => {
+
+const ArticleRating = typedMemo((props: ArticleRatingProps) => {
    const { className, articleId } = props;
    const { t } = useTranslation()
 

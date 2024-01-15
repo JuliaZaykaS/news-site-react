@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Icon.module.scss";
+import { typedMemo } from "@/shared/const/memo";
 
 interface IconProps extends React.SVGProps<SVGSVGElement>{
   className?: string;
@@ -9,8 +10,8 @@ interface IconProps extends React.SVGProps<SVGSVGElement>{
   inverted?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const Icon = memo((props: IconProps) => {
+
+export const Icon = typedMemo((props: IconProps) => {
   const { className, Svg, inverted, ...otherProps } = props;
 
 return <Svg

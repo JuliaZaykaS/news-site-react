@@ -2,6 +2,7 @@ import { CSSProperties, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Skeleton.module.scss";
+import { typedMemo } from "@/shared/const/memo";
 
 interface SkeletonProps {
   className?: string;
@@ -10,8 +11,8 @@ interface SkeletonProps {
   border?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const Skeleton = memo((props: SkeletonProps) => {
+
+export const Skeleton = typedMemo((props: SkeletonProps) => {
   const { className, height, width, border } = props;
   const { t } = useTranslation();
   const styles: CSSProperties = {

@@ -7,6 +7,7 @@ import ListIcon from "@/shared/assets/icons/list.svg";
 import { ArticleViewType } from "@/entities/Article";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { Icon } from "@/shared/ui/Icon";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleViewSelectorProps {
   className?: string;
@@ -25,8 +26,8 @@ const viewTypes = [
   },
 ];
 
-// eslint-disable-next-line react/display-name
-export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
+
+export const ArticleViewSelector = typedMemo((props: ArticleViewSelectorProps) => {
   const { className, view, onViewClick } = props;
   const { t } = useTranslation();
 

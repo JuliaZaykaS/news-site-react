@@ -8,6 +8,7 @@ import { ArticleListItemSkeleton } from "../ArticlesListItem/ArticleListItemSkel
 import { Text } from "@/shared/ui/Text";
 import { TextSize } from "@/shared/ui/Text";
 import { ArticleViewType } from "../../model/consts/articleConsts";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticlesListProps {
   className?: string;
@@ -26,8 +27,7 @@ const getSkeletons = (view: ArticleViewType) =>
       );
     });
 
-// eslint-disable-next-line react/display-name
-export const ArticlesList = memo((props: ArticlesListProps) => {
+export const ArticlesList = typedMemo((props: ArticlesListProps) => {
   const {
     className,
     articles,

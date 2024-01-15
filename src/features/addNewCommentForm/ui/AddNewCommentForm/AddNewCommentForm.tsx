@@ -19,6 +19,7 @@ import {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { HStack } from "@/shared/ui/Stack";
+import { typedMemo } from "@/shared/const/memo";
 
 interface AddNewCommentFormProps {
   className?: string;
@@ -29,8 +30,8 @@ const reducers: ReducerList = {
   addNewCommentForm: addNewCommentFormReducer,
 };
 
-// eslint-disable-next-line react/display-name
-const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
+
+const AddNewCommentForm = typedMemo((props: AddNewCommentFormProps) => {
   const { className, onSendComment } = props;
   const { t } = useTranslation();
   const text = useSelector(getNewCommentFormText);

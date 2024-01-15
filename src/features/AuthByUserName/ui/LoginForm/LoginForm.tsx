@@ -19,6 +19,7 @@ import {
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { typedMemo } from "@/shared/const/memo";
 
 interface LoginFormProps {
   className?: string;
@@ -29,8 +30,8 @@ const initialReducers: ReducerList = {
   loginForm: loginReducer,
 };
 
-// eslint-disable-next-line react/display-name
-const LoginForm = memo((props: LoginFormProps) => {
+
+const LoginForm = typedMemo((props: LoginFormProps) => {
   const { className, onSuccess } = props;
   const { t } = useTranslation();
   // const dispatch = useDispatch();

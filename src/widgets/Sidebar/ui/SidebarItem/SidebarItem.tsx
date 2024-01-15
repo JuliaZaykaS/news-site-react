@@ -8,14 +8,15 @@ import { useTranslation } from "react-i18next";
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { getUserAuthData } from "@/entities/User";
+import { typedMemo } from "@/shared/const/memo";
 
 interface SidebarItemProps {
   item: SidebarItemType;
   collapsed: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const SidebarItem = memo((props: SidebarItemProps) => {
+
+export const SidebarItem = typedMemo((props: SidebarItemProps) => {
   const { t } = useTranslation();
   //   return <div className={classNames(cls.sidebarItem, {}, [className])}></div>;
   const { collapsed, item } = props;

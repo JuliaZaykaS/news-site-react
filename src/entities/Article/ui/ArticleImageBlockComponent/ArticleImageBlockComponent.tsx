@@ -4,13 +4,14 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleImageBlockComponent.module.scss";
 import { ArticleDetailsImageBlock } from "../../model/types/article";
 import { Text, TextAlign } from "@/shared/ui/Text";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleImageBlockComponentProps {
   className?: string;
   block: ArticleDetailsImageBlock;
 }
-// eslint-disable-next-line react/display-name
-export const ArticleImageBlockComponent = memo(
+
+export const ArticleImageBlockComponent = typedMemo(
   (props: ArticleImageBlockComponentProps) => {
     const { className, block } = props;
     const { t } = useTranslation();

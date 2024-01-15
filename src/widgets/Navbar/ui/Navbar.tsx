@@ -19,6 +19,7 @@ import { HStack } from "@/shared/ui/Stack";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
 import { RoutePath } from "@/shared/const/router";
+import { typedMemo } from "@/shared/const/memo";
 
 
 
@@ -28,8 +29,8 @@ interface NavbarProps {
 
 
 
-// eslint-disable-next-line react/display-name
-export const Navbar = memo(({ className }: NavbarProps) => {
+
+export const Navbar = typedMemo(({ className }: NavbarProps) => {
   // const { theme } = useTheme();
 
   const { t } = useTranslation();

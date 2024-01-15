@@ -5,6 +5,7 @@ import cls from './Popover.module.scss';
 import { Popover as HPopover } from '@headlessui/react'
 import { DropdownDirection } from '@/shared/types/ui';
 import popupCls from "../../styles/popup.module.scss"
+import { typedMemo } from '@/shared/const/memo';
 
 
 interface PopoverProps {
@@ -14,8 +15,8 @@ interface PopoverProps {
   children: ReactNode;
 }
 
-// eslint-disable-next-line react/display-name
-export const Popover = memo((props: PopoverProps) => {
+
+export const Popover = typedMemo((props: PopoverProps) => {
   const { className, trigger, direction = "bottom-right", children } = props;
   const { t } = useTranslation()
 

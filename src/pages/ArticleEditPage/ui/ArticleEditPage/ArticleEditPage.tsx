@@ -5,13 +5,14 @@ import cls from "./ArticleEditPage.module.scss";
 import { Page } from "@/widgets/Page";
 import { Text } from "@/shared/ui/Text";
 import { useParams } from "react-router-dom";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleEditPageProps {
   className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-const ArticleEditPage = memo((props: ArticleEditPageProps) => {
+
+const ArticleEditPage = typedMemo((props: ArticleEditPageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();

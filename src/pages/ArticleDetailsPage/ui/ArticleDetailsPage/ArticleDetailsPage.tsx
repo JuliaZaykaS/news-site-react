@@ -18,6 +18,7 @@ import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList";
 import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
 import { ArticleRating } from "@/features/articleRating";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -62,4 +63,4 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   );
 };
 
-export default memo(ArticleDetailsPage);
+export default typedMemo(ArticleDetailsPage);

@@ -10,13 +10,14 @@ import { getCanEditArticle } from "../../model/selectors/article";
 import { getArticleDetailsData } from "@/entities/Article";
 import { HStack } from "@/shared/ui/Stack";
 import { RoutePath } from "@/shared/const/router";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticleDetailsPageHeader = memo(
+
+export const ArticleDetailsPageHeader = typedMemo(
   (props: ArticleDetailsPageHeaderProps) => {
     const { className } = props;
     const { t } = useTranslation("article");

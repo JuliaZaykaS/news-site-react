@@ -9,14 +9,15 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { RoutePath } from '@/shared/const/router';
+import { typedMemo } from '@/shared/const/memo';
 
 
 interface AvatarDropdownProps {
    className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
+
+export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
    const { className } = props;
    const { t } = useTranslation()
    //  const dispatch = useDispatch();

@@ -22,13 +22,14 @@ import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchA
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 
 import { ArticleTypeTabs } from "../ArticleTypeTabs/ArticleTypeTabs";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticlesPageFiltersProps {
   className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
+
+export const ArticlesPageFilters = typedMemo((props: ArticlesPageFiltersProps) => {
   const { className } = props;
   const { t } = useTranslation("article");
   const dispatch = useAppDispatch();

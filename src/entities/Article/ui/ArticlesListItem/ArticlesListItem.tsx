@@ -22,6 +22,7 @@ import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleT
 
 import { AppLink } from "@/shared/ui/AppLink";
 import { RoutePath } from "@/shared/const/router";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticlesListItemProps {
   className?: string;
@@ -30,8 +31,8 @@ interface ArticlesListItemProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticlesListItem = memo((props: ArticlesListItemProps) => {
+
+export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
   const { className, article, view, target } = props;
   const { t } = useTranslation("article");
   // const navigate = useNavigate();

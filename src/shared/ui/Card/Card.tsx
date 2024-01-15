@@ -2,6 +2,7 @@ import { HTMLAttributes, ReactNode, memo } from "react";
 
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Card.module.scss";
+import { typedMemo } from "@/shared/const/memo";
 
 export enum CardTheme {
   NORMAL = "normal",
@@ -14,8 +15,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   max?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const Card = memo((props: CardProps) => {
+
+export const Card = typedMemo((props: CardProps) => {
   const {
     className,
     children,

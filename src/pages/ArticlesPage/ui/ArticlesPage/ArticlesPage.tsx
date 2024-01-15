@@ -23,6 +23,7 @@ import { initArticlesPage } from "../../model/services/initArticlesPage/initArti
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
 import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
+import { typedMemo } from "@/shared/const/memo";
 
 
 interface ArticlesPageProps {
@@ -79,4 +80,4 @@ const ArticlesPage = (props: ArticlesPageProps) => {
   );
 };
 
-export default memo(ArticlesPage);
+export default typedMemo(ArticlesPage);

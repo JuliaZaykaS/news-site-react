@@ -4,6 +4,7 @@ import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import { Icon } from '../Icon';
 import StarIcon from "../../assets/icons/star.svg"
+import { typedMemo } from '@/shared/const/memo';
 
 interface StarRatingProps {
    className?: string;
@@ -15,8 +16,8 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5]
 
-// eslint-disable-next-line react/display-name
-export const StarRating = memo((props: StarRatingProps) => {
+
+export const StarRating = typedMemo((props: StarRatingProps) => {
    const { className, onSelect, size = 30, selectedStars = 0 } = props;
    const { t } = useTranslation()
    const [isHovered, setIsHovered] = useState(false)

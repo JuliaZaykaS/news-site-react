@@ -6,13 +6,14 @@ import { useNotifications } from '../../api/notificationApi';
 import { VStack } from '@/shared/ui/Stack';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { typedMemo } from '@/shared/const/memo';
 
 interface NotificationsListProps {
    className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const NotificationsList = memo((props: NotificationsListProps) => {
+
+export const NotificationsList = typedMemo((props: NotificationsListProps) => {
    const { className } = props;
    // const { t } = useTranslation()
 

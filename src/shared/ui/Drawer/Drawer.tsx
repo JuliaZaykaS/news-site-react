@@ -9,6 +9,7 @@ import { Overlay } from '../Overlay/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { typedMemo } from '@/shared/const/memo';
 
 interface DrawerProps {
    className?: string;
@@ -21,8 +22,8 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100
 
-// eslint-disable-next-line react/display-name
-const DrawerContent = memo((props: DrawerProps) => {
+
+const DrawerContent = typedMemo((props: DrawerProps) => {
    const { className, children, isOpen, onClose, lazy } = props;
    const { Spring, Gesture } = useAnimationLibs()
 

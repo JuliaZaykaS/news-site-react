@@ -33,6 +33,7 @@ import { ArticleImageBlockComponent } from "../ArticleImageBlockComponent/Articl
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { ArticleDetailsBlock } from "../../model/types/article";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleDetailsProps {
   className?: string;
@@ -42,8 +43,8 @@ interface ArticleDetailsProps {
 const reducers: ReducerList = {
   articleDetails: articleDetailsReducer,
 };
-// eslint-disable-next-line react/display-name
-export const ArticleDetails = memo((props: ArticleDetailsProps) => {
+
+export const ArticleDetails = typedMemo((props: ArticleDetailsProps) => {
   const { className, articleId } = props;
   const { t } = useTranslation("article");
   const dispatch = useAppDispatch();

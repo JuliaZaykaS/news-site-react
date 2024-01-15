@@ -6,6 +6,7 @@ import { Comment } from "../../model/types/comment";
 import { Text } from "@/shared/ui/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { VStack } from "@/shared/ui/Stack";
+import { typedMemo } from "@/shared/const/memo";
 
 interface CommentsListProps {
   className?: string;
@@ -14,8 +15,8 @@ interface CommentsListProps {
   error?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const CommentsList = memo((props: CommentsListProps) => {
+
+export const CommentsList = typedMemo((props: CommentsListProps) => {
   const { className, comments, isLoading, error } = props;
   const { t } = useTranslation();
 

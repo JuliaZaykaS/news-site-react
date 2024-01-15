@@ -12,6 +12,7 @@ import { TextSize, Text } from '@/shared/ui/Text';
 import { VStack } from '@/shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { typedMemo } from '@/shared/const/memo';
 
 
 interface ArticleDetailsCommentsProps {
@@ -19,8 +20,8 @@ interface ArticleDetailsCommentsProps {
    articleId?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
+
+export const ArticleDetailsComments = typedMemo((props: ArticleDetailsCommentsProps) => {
    const { className, articleId } = props;
    const { t } = useTranslation("article")
    const dispatch = useAppDispatch();

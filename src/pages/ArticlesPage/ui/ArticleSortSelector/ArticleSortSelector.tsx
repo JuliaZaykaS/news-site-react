@@ -5,6 +5,7 @@ import cls from "./ArticleSortSelector.module.scss";
 import { Select, SelectOptions } from "@/shared/ui/Select";
 import { ArticleSortField } from "@/entities/Article";
 import { SortOrder } from "@/shared/types";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -14,8 +15,8 @@ interface ArticleSortSelectorProps {
   onChangeSort: (newSort: ArticleSortField) => void;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
+
+export const ArticleSortSelector = typedMemo((props: ArticleSortSelectorProps) => {
   const { className, sort, order, onChangeOrder, onChangeSort } = props;
   const { t } = useTranslation("article");
 
@@ -63,13 +64,13 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   return (
     <div className={classNames(cls.articleSortSelector, {}, [className])}>
-      <Select
+      <Select<ArticleSortField>
         label={t("Сортировать ПО")}
         options={sortOptions}
         onChange={onChangeSort}
         value={sort}
       />
-      <Select
+      <Select<SortOrder>
         label={t("по")}
         options={orderOptions}
         onChange={onChangeOrder}

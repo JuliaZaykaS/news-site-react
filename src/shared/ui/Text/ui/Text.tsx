@@ -1,6 +1,7 @@
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Text.module.scss";
 import { memo } from "react";
+import { typedMemo } from "@/shared/const/memo";
 
 export enum TextTheme {
   PRIMARY = "primary",
@@ -40,8 +41,8 @@ interface TextProps {
   "data-testid"?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const Text = memo((props: TextProps) => {
+
+export const Text = typedMemo((props: TextProps) => {
   const {
     className,
     title,

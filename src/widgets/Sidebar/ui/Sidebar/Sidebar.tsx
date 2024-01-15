@@ -11,13 +11,14 @@ import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { useSelector } from "react-redux";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems";
 import { VStack } from "@/shared/ui/Stack";
+import { typedMemo } from "@/shared/const/memo";
 
 interface SidebarProps {
   className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const Sidebar = memo((props: SidebarProps) => {
+
+export const Sidebar = typedMemo((props: SidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
   // const { t } = useTranslation();

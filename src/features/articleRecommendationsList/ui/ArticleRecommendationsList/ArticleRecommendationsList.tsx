@@ -7,14 +7,15 @@ import { Text, TextSize } from "@/shared/ui/Text";
 
 import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendationsList } from '../../api/articleReccomendationsApi';
+import { typedMemo } from '@/shared/const/memo';
 
 interface ArticleRecommendationsListProps {
     className?: string;
 }
 
 
-// eslint-disable-next-line react/display-name
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
+
+export const ArticleRecommendationsList = typedMemo((props: ArticleRecommendationsListProps) => {
     const { className } = props;
     const { t } = useTranslation("article");
 

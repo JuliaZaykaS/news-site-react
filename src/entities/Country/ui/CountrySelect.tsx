@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { memo, useCallback, useMemo } from "react";
 import { Country } from "../model/consts/country";
 import { ListBox } from "@/shared/ui/Popups";
+import { typedMemo } from "@/shared/const/memo";
 
 interface CountrySelectProps {
   className?: string;
@@ -13,8 +14,8 @@ interface CountrySelectProps {
   readonly?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const CountrySelect = memo((props: CountrySelectProps) => {
+
+export const CountrySelect = typedMemo((props: CountrySelectProps) => {
   const { className, value, onChange, readonly } = props;
   const { t } = useTranslation();
 

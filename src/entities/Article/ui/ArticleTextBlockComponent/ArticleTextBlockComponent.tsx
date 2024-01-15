@@ -4,14 +4,15 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleTextBlockComponent.module.scss";
 import { ArticleDetailsTextBlock } from "../../model/types/article";
 import { Text } from "@/shared/ui/Text";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleTextBlockComponentProps {
   className?: string;
   block: ArticleDetailsTextBlock;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticleTextBlockComponent = memo(
+
+export const ArticleTextBlockComponent = typedMemo(
   (props: ArticleTextBlockComponentProps) => {
     const { className, block } = props;
     const { t } = useTranslation();

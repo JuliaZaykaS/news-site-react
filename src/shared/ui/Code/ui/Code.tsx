@@ -7,14 +7,15 @@ import copyIcon from "@/shared/assets/icons/copy.svg";
 // import { Icon } from "@/shared/ui/Icon";
 import { Button, ButtonTheme } from "../../Button/ui/Button";
 import { Icon } from "../../Icon";
+import { typedMemo } from "@/shared/const/memo";
 
 interface CodeProps {
   className?: string;
   textCode: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const Code = memo((props: CodeProps) => {
+
+export const Code = typedMemo((props: CodeProps) => {
   const { className, textCode } = props;
 
   const onCopy = useCallback(() => {

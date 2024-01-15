@@ -11,6 +11,7 @@ import { AppLink } from "@/shared/ui/AppLink";
 
 import { VStack } from "@/shared/ui/Stack";
 import { RoutePath } from "@/shared/const/router";
+import { typedMemo } from "@/shared/const/memo";
 
 interface CommentCardProps {
   className?: string;
@@ -18,8 +19,8 @@ interface CommentCardProps {
   isLoading?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const CommentCard = memo((props: CommentCardProps) => {
+
+export const CommentCard = typedMemo((props: CommentCardProps) => {
   const { className, comment, isLoading } = props;
   const { t } = useTranslation();
 

@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { typedMemo } from "@/shared/const/memo";
 
 //  если атрибуты совпадают со стандартными, то чтобы переопределить типы для стандартных атрибутов используем конструкцию Omit, где вторым аргументом указываем переопределяемые атрибуты
 type HTMLInputProps = Omit<
@@ -25,8 +26,7 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean;
 }
 
-// eslint-disable-next-line react/display-name
-export const Input = memo((props: InputProps) => {
+export const Input = typedMemo((props: InputProps) => {
   const {
     className,
     type = "text",

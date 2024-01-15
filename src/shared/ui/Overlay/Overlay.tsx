@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Overlay.module.scss';
+import { typedMemo } from '@/shared/const/memo';
 
 interface OverlayProps {
    className?: string;
@@ -9,8 +10,8 @@ interface OverlayProps {
 
 }
 
-// eslint-disable-next-line react/display-name
-export const Overlay = memo((props: OverlayProps) => {
+
+export const Overlay = typedMemo((props: OverlayProps) => {
    const { className, onClose } = props;
    const { t } = useTranslation()
 

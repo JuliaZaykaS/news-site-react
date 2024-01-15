@@ -7,13 +7,14 @@ import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { memo } from "react";
 import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 
-// eslint-disable-next-line react/display-name
-export const ThemeSwitcher = memo((props:ThemeSwitcherProps) => {
+
+export const ThemeSwitcher = typedMemo((props:ThemeSwitcherProps) => {
   const { className } = props;
   const { theme, toggleTheme } = useTheme();
   return (

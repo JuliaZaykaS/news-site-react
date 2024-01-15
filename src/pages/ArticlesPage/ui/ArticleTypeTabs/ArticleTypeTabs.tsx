@@ -4,6 +4,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { ArticleDetailsType } from "@/entities/Article";
 import { TabItem, Tabs } from "@/shared/ui/Tabs";
+import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -11,8 +12,8 @@ interface ArticleTypeTabsProps {
   onChangeTabType: (types: ArticleDetailsType) => void;
 }
 
-// eslint-disable-next-line react/display-name
-export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
+
+export const ArticleTypeTabs = typedMemo((props: ArticleTypeTabsProps) => {
   const { className, value, onChangeTabType } = props;
   const { t } = useTranslation("article");
 

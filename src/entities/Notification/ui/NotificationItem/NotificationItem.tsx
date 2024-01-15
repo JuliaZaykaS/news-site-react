@@ -6,14 +6,15 @@ import { Notification } from '../../model/types/Notification';
 import { Card, CardTheme } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
 import { AppLink } from '@/shared/ui/AppLink';
+import { typedMemo } from '@/shared/const/memo';
 
 interface NotificationItemProps {
    className?: string;
    item: Notification
 }
 
-// eslint-disable-next-line react/display-name
-export const NotificationItem = memo((props: NotificationItemProps) => {
+
+export const NotificationItem = typedMemo((props: NotificationItemProps) => {
    const { className, item } = props;
    const { t } = useTranslation()
 

@@ -5,14 +5,15 @@ import { getUserAuthData } from '@/entities/User';
 import { useAddArticleRating, useGetArticleRating } from '../../api/profileRatingApi';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { RatingCard } from '@/entities/Rating';
+import { typedMemo } from '@/shared/const/memo';
 
 export interface ProfileRatingProps {
    className?: string;
    profileId: string;
 }
 
-// eslint-disable-next-line react/display-name
-const ProfileRating = memo((props: ProfileRatingProps) => {
+
+const ProfileRating = typedMemo((props: ProfileRatingProps) => {
    const { className, profileId } = props;
    const { t } = useTranslation()
    const userData = useSelector(getUserAuthData)

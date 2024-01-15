@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Tabs.module.scss";
 import { Card, CardTheme } from "../Card/Card";
+import { typedMemo } from "@/shared/const/memo";
 
 export interface TabItem {
   value: string;
@@ -16,8 +17,8 @@ interface TabsProps {
   onTabClick: (tab: TabItem) => void;
 }
 
-// eslint-disable-next-line react/display-name
-export const Tabs = memo((props: TabsProps) => {
+
+export const Tabs = typedMemo((props: TabsProps) => {
   const { className, tabs, value, onTabClick } = props;
   const { t } = useTranslation();
 

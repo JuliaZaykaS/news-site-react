@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { Text } from "@/shared/ui/Text";
+import { typedMemo } from '@/shared/const/memo';
 
 
 
@@ -22,8 +23,8 @@ interface ArticleInfiniteListProps {
 }
 
 
-// eslint-disable-next-line react/display-name
-export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
+
+export const ArticleInfiniteList = typedMemo((props: ArticleInfiniteListProps) => {
    const { className } = props;
    const { t } = useTranslation("article")
    const dispatch = useAppDispatch();

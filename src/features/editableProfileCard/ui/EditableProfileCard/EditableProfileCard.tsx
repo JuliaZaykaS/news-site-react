@@ -24,6 +24,7 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { ReducerList, DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from '@/shared/ui/Stack';
+import { typedMemo } from '@/shared/const/memo';
 
 
 interface EditableProfileCardProps {
@@ -36,8 +37,8 @@ const reducers: ReducerList = {
 };
 
 
-// eslint-disable-next-line react/display-name
-export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
+
+export const EditableProfileCard = typedMemo((props: EditableProfileCardProps) => {
     const { className, id } = props;
     const { t } = useTranslation("profile");
     const dispatch = useAppDispatch();
