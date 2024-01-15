@@ -111,7 +111,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeFirstName}
         readonly={readonly}
         type={"text"}
-        data-testId={"ProfileCard.FirstName"}
+        data-testid={"ProfileCard.FirstName"}
       />
       <Input
         value={data?.lastname}
@@ -120,7 +120,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeLastName}
         readonly={readonly}
         type={"text"}
-        data-testId={"ProfileCard.LastName"}
+        data-testid={"ProfileCard.LastName"}
 
       />
       <Input
@@ -130,7 +130,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeAge}
         readonly={readonly}
         type={"text"}
-        data-testId={"ProfileCard.Age"}
+        data-testid={"ProfileCard.Age"}
 
       />
       <Input
@@ -140,7 +140,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeCity}
         readonly={readonly}
         type={"text"}
-        data-testId={"ProfileCard.City"}
+        data-testid={"ProfileCard.City"}
 
       />
       <Input
@@ -150,7 +150,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeUserName}
         readonly={readonly}
         type={"text"}
-        data-testId={"ProfileCard.Username"}
+        data-testid={"ProfileCard.Username"}
 
       />
       <Input
@@ -160,7 +160,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeAvatar}
         readonly={readonly}
         type={"text"}
-        data-testId={"ProfileCard.Avatar"}
+        data-testid={"ProfileCard.Avatar"}
 
       />
 
@@ -169,7 +169,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeCurrency}
         readonly={readonly}
         className={cls.input}
-        data-testId={"ProfileCard.Currency"}
+        data-testid={"ProfileCard.Currency"}
 
       />
       <CountrySelect
@@ -177,7 +177,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChange={onChangeCountry}
         readonly={readonly}
         className={cls.input}
-        data-testId={"ProfileCard.Country"}
+        data-testid={"ProfileCard.Country"}
 
       />
       {/* </div> */}
