@@ -718,6 +718,12 @@
       "userId": "1",
       "text": "hfghfdhg",
       "id": "ZXvlYNp"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "рврапр",
+      "id": "sOMmOIB"
     }
   ],
   "users": [
@@ -753,7 +759,7 @@
       "first": "Юлия",
       "lastname": "Зай",
       "age": 33,
-      "currency": "USD",
+      "currency": "RUB",
       "country": "RUSSIA",
       "city": "Moscow",
       "username": "admin",

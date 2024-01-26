@@ -8,7 +8,7 @@ import { Avatar } from "@/shared/ui/Avatar";
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useSelector } from 'react-redux';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
 
 
@@ -40,11 +40,11 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
    const navbarItems = [
     ...(isAdminPanelAvaliable ? [{
       content: t("Админка"),
-      href: RoutePath.admin_panel,
+      href: getRouteAdminPanel(),
     }] : []),
     {
       content: t("Профиль"),
-      href: RoutePath.profile + authData?.id,
+      href: authData && getRouteProfile(authData.id),
     },
     {
       content: t("Выйти"),

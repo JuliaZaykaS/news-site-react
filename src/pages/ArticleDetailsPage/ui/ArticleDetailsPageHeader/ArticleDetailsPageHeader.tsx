@@ -9,7 +9,7 @@ import { getCanEditArticle } from "../../model/selectors/article";
 // import { getUserAuthData } from "entities/User";
 import { getArticleDetailsData } from "@/entities/Article";
 import { HStack } from "@/shared/ui/Stack";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticleEdit, getRouteArticles } from "@/shared/const/router";
 import { typedMemo } from "@/shared/const/memo";
 
 interface ArticleDetailsPageHeaderProps {
@@ -27,11 +27,13 @@ export const ArticleDetailsPageHeader = typedMemo(
     const isCanEdit = useSelector(getCanEditArticle);
 
     const onBackToArticlesListClick = useCallback(() => {
-      navigate(RoutePath.articles);
+      navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-      navigate(`${RoutePath.article_edit}${article?.id}/edit`);
+      if (article) {
+        navigate(getRouteArticleEdit(article.id));
+      }
     }, [article?.id, navigate]);
 
     return (

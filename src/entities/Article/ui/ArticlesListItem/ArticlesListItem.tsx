@@ -21,7 +21,7 @@ import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleT
 // import { useNavigate } from "react-router-dom";
 
 import { AppLink } from "@/shared/ui/AppLink";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteArticleDetails } from "@/shared/const/router";
 import { typedMemo } from "@/shared/const/memo";
 
 interface ArticlesListItemProps {
@@ -80,7 +80,7 @@ export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
           )}
           <div className={cls.footer}>
             <AppLink
-              to={RoutePath.article_details + article.id}
+              to={getRouteArticleDetails(article.id)}
               target={target}
             >
               <Button theme={ButtonTheme.OUTLINE}>
@@ -98,7 +98,7 @@ export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={RoutePath.article_details + article.id}
+      to={getRouteArticleDetails(article.id)}
       className={classNames(cls.articlesListItem, {}, [className, cls[view]])}
     >
       <Card className={cls.card}>
