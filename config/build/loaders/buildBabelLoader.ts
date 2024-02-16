@@ -8,6 +8,7 @@ interface BuildBabelLoaderProps extends BuildOptions {
 
 export const buildBabelLoader = (options: BuildBabelLoaderProps) => {
   const { isDev, isTsx } = options;
+  const isProd = !isDev;
   return {
     // test: /\.(js|jsx|ts|tsx)$/,
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
@@ -16,16 +17,17 @@ export const buildBabelLoader = (options: BuildBabelLoaderProps) => {
     use: {
       loader: "babel-loader",
       options: {
+        cacheDirectory: true,
         presets: ["@babel/preset-env"],
         plugins: [
-          [
-            "i18next-extract",
-            {
-              locales: ["ru", "en"], // Массив языков
-              keyAsDefaultValue: true, // автоматически будет в качестве значения поставлять ключ
-              nsSeparator: "~",
-            },
-          ],
+          // [
+          //   "i18next-extract",
+          //   {
+          //     locales: ["ru", "en"], // Массив языков
+          //     keyAsDefaultValue: true, // автоматически будет в качестве значения поставлять ключ
+          //     nsSeparator: "~",
+          //   },
+          // ],
           [
             "@babel/plugin-transform-runtime"
           ],
@@ -34,7 +36,7 @@ export const buildBabelLoader = (options: BuildBabelLoaderProps) => {
           }],
 
           isDev && require.resolve("react-refresh/babel"),
-          isTsx && [babelRemovePropsPlugin(), { props: ["data-testid"] }],
+          isTsx && isProd && [babelRemovePropsPlugin(), { props: ["data-testid"] }],
         ].filter(Boolean),
       },
     },

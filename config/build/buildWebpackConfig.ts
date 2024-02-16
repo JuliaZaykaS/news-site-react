@@ -32,7 +32,7 @@ export function buildWebpackConfig(
       rules: buildLoaders(options),
     },
     resolve: buildResolves(options),
-    devtool: isDev ? "inline-source-map" : undefined, // для понимания, в каком файле произошла ошибка
+    devtool: isDev ? "eval-cheap-module-source-map" : undefined, // для понимания, в каком файле произошла ошибка
     devServer: isDev ? buildDevServer(options) : undefined, // настройки для сервера разработки
   };
 }

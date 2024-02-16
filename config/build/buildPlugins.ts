@@ -16,24 +16,19 @@ export function buildPlugins({
   apiUrl,
   project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
+  const isProd = !isDev;
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html, // указываем, какой файл хтмл мы будет использовать в качестве шаблона  для работы с хтмл
     }),
     new webpack.ProgressPlugin(), // для отслеживания прогресса сборки
-    new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash:8].css",
-      chunkFilename: "css/[name].[contenthash:8].css",
-    }),
+
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
     }),
-    new CopyPlugin({
-      // для перемещения переводов в сборку
-      patterns: [{ from: paths.locales, to: paths.buildLocales }],
-    }),
+
 
     new ForkTsCheckerWebpackPlugin({
       typescript: {
@@ -58,6 +53,16 @@ export function buildPlugins({
       failOnError: true,
 
     })); // анализ кольцевых зависимостей
+  }
+  if (isProd) {
+    plugins.push(new MiniCssExtractPlugin({
+      filename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[name].[contenthash:8].css",
+    }));
+    plugins.push(new CopyPlugin({
+      // для перемещения переводов в сборку
+      patterns: [{ from: paths.locales, to: paths.buildLocales }],
+    }))
   }
   // return [
   //   new HtmlWebpackPlugin({
