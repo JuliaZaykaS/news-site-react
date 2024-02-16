@@ -13,16 +13,19 @@ import {
 import { ArticleDetailsType, ArticleSortField, ArticleViewType } from "@/entities/Article";
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { ArticleViewSelector } from "../ArticleViewSelector/ArticleViewSelector";
+
 import { Card } from "@/shared/ui/Card";
 import { Input } from "@/shared/ui/Input";
-import { ArticleSortSelector } from "../ArticleSortSelector/ArticleSortSelector";
+
 import { SortOrder } from "@/shared/types";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 
-import { ArticleTypeTabs } from "../ArticleTypeTabs/ArticleTypeTabs";
+
 import { typedMemo } from "@/shared/const/memo";
+import { ArticleSortSelector } from "@/features/ArticleSortSelector";
+import { ArticleTypeTabs } from "@/features/ArticleTypeTabs";
+import { ArticleViewSelector } from "@/features/ArticleViewSelector";
 
 interface ArticlesPageFiltersProps {
   className?: string;
