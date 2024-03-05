@@ -63,7 +63,7 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
          <Dropdown
             className={classNames(cls.avatarDropdown, {}, [className])}
             items={navbarItems}
-            trigger={<Avatar src={authData.avatar || ""} alt={authData.username} size={30} />}
+            trigger={<Avatar src={authData.avatar || ""} alt={authData.username} size={30} fallbackInverted/>}
             // className={cls.dropdown}
             direction={"bottom-left"}
           />
