@@ -29,6 +29,9 @@
     "link": "npm link eslint-plugin-juliaz --force",
     "postinstall": "rimraf ./node_modules/.cache"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -93,6 +96,7 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.0",
+    "lint-staged": "^15.2.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.12.0",
