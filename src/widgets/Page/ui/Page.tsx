@@ -11,7 +11,7 @@ import { getScrollPositionByPath } from "../model/selectors/scrollPositionSaveSe
 import { useSelector } from "react-redux";
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle";
-import { TestProps } from "@/shared/types/test";
+import { TestProps } from "@/shared/types/testTypes";
 
 interface PageProps extends TestProps {
   className?: string;
