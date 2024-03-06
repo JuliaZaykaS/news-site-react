@@ -15,7 +15,10 @@ const AdminPanelPage = typedMemo((props: AdminPanelPageProps) => {
    const { t } = useTranslation()
 
    return (
-      <Page className={classNames(cls.adminPanelPage, {}, [className])}>
+      <Page
+         className={classNames(cls.adminPanelPage, {}, [className])}
+         data-testid={"AdminPanelPage"}
+      >
          {t("Админ панель")}
       </Page>
    );

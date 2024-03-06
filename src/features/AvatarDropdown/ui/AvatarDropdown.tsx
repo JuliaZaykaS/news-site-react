@@ -24,14 +24,14 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
     const dispatch = useAppDispatch();
   const isAdmin = useSelector(isUserAdmin)
    const isManager = useSelector(isUserManager)
-   const [isAuthModal, setIsAuthModal] = useState(false);
+  //  const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
 
 
 
      const onLogout = useCallback(() => {
     dispatch(userActions.logout());
-    setIsAuthModal(false);
+    // setIsAuthModal(false);
   }, [dispatch]);
 
 

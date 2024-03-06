@@ -13,7 +13,7 @@ import {
 } from "@/entities/Article";
 import { fetchArticlesList } from "../services/fetchArticlesList/fetchArticlesList";
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sortOrder";
 
 const articlesAdapter = createEntityAdapter<Article>({
   // Assume IDs are stored in a field other than `comment.id`

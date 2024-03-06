@@ -7,7 +7,7 @@ import { RatingCard } from "@/entities/Rating";
 const MainPage = () => {
   const { t } = useTranslation("main");
 
-  return <Page>
+  return <Page data-testid={"MainPage"}>
     {t("Главная страница")}
    <RatingCard hasFeedback/>
 

@@ -6,7 +6,7 @@ import {
   ArticleViewType,
 } from "@/entities/Article";
 
-import { SortOrder } from "@/shared/types";
+import { SortOrder } from "@/shared/types/sortOrder";
 
 // export interface ArticleDetailsCommentsSchema extends EntityAdapter<Comment> {
 export interface ArticlesPageSchema {
