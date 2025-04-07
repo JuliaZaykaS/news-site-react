@@ -3,11 +3,12 @@
 
 
 // const initialState: articleRatingSchema = {
+export const initialState = {
 
-//     isLoading: false,
-//     error: undefined,
+    isLoading: false,
+    error: undefined,
 
-// };
+};
 
 // export const articleRatingSlice = createSlice({
 //     name: "articleRating",

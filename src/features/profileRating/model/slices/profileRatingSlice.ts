@@ -3,11 +3,12 @@
 
 
 // const initialState: profileRatingSchema = {
+export const initialState = {
 
-//     isLoading: false,
-//     error: undefined,
+    isLoading: false,
+    error: undefined,
 
-// };
+};
 
 // export const profileRatingSlice = createSlice({
 //     name: "profileRating",

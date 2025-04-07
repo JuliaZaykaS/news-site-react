@@ -2,11 +2,11 @@
 
 // }
 
-// export interface ArticleRatingSchema {
+export interface ArticleRatingSchema {
 
-//     isLoading: boolean;
-//     error ?: string;
+    isLoading: boolean;
+    error?: string;
 
-// }
+}
 
 

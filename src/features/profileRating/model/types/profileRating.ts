@@ -2,11 +2,11 @@
 
 // }
 
-// export interface ProfileRatingSchema {
+export interface ProfileRatingSchema {
 
-//     isLoading: boolean;
-//     error?: string;
+    isLoading: boolean;
+    error?: string;
 
-// }
+}
 
 

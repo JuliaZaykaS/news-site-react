@@ -3,7 +3,7 @@ import { AddNewCommentForm } from '@/features/addNewCommentForm';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleDetailsComments } from '../../model/slices/articleDetailsCommentsSlice';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -49,7 +49,9 @@ export const ArticleDetailsComments = typedMemo((props: ArticleDetailsCommentsPr
             title={t("Комментарии к статье")}
             size={TextSize.L}
          />
-         <AddNewCommentForm onSendComment={onSendComment} />
+         {/* <Suspense fallback="Идет загрузка"> */}
+            <AddNewCommentForm onSendComment={onSendComment} />
+         {/* </Suspense> */}
          <CommentsList comments={comments} isLoading={commentsIsLoading} />
       </VStack>
    );
