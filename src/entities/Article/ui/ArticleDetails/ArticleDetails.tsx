@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleDetails.module.scss";
@@ -6,7 +6,7 @@ import {
   DynamicModuleLoader,
   ReducerList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsReducer } from "../../model/slices/articleDetailsSlice";
+import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById";
 import eyeIcon from "@/shared/assets/icons/eye.svg";
@@ -35,6 +35,7 @@ import { HStack, VStack } from "@/shared/ui/Stack";
 import { ArticleDetailsBlock } from "../../model/types/article";
 import { typedMemo } from "@/shared/const/memo";
 
+// import { articleDetailsReducer } from "../../model/slices/articleDetailsSlice";
 interface ArticleDetailsProps {
   className?: string;
   articleId?: string;

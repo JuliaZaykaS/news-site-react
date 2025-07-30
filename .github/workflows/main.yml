@@ -1,3 +1,51 @@
+# # имя экшена
+# name: linting, testing,building
+# # указываем, что при пуше и пул реквестах в главную ветку запускаем скрипты ниже
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+# # пишем, какие скрипты выполнять
+# jobs:
+#   # имя для группы скриптов
+#   pipeline:
+#     # указываем , на какой ОС будут запускаться проверки
+#     runs-on: ubuntu-latest
+#     # указываем версию Ноды
+#     strategy:
+#       matrix:
+#         node-version: [17.x]
+#     # устанавливаем Ноду нужной версии
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Staring Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       # теперь указываем скрипты
+#       - name: install modules
+#         run: npm ci --force
+
+#       - name: build production project
+#         run: npm run build:prod
+#         if: always()
+#       - name: linting typescript
+#         run: npm run lint:ts
+#         if: always()
+#       - name: linting css
+#         run: npm run lint:scss
+#         if: always()
+#       - name: unit testing
+#         run: npm run test:unit
+#         if: always()
+#       - name: build storybook
+#         run: npm run storybook:build
+#         if: always()
+#       - name: screenshot testing
+#         run: npm run test:ui:ci
+#         if: always()
+
 name: linting, testing, building
 on:
   push:

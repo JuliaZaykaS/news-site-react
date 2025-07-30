@@ -88,16 +88,16 @@ module.exports = {
     // "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
     // "eslint-plugin-juliaz/path-checker":"error",// неверные пути внутри модуля
 
-    // "juliaz/path-checker": [2, { alias: "@" }],// неверные пути внутри модуля
-    // "juliaz/path-checker": [2, { alias: "@" }],// неверные пути внутри модуля
-    // "juliaz/public-api-imports": [2, {
-    //   alias: "@",
-    //   testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
-    // }],// неверный импорт (не из паблик апи)
-    // "juliaz/layer-imports": [2, {
-    //   alias: "@",
-    //   ignoreImportPatterns: ["**/StoreProvider", "**/testing"]
-    // }],// неверный импорт (не из паблик апи)
+    "juliaz/path-checker": [2, { alias: "@" }],// неверные пути внутри модуля
+    "juliaz/path-checker": [2, { alias: "@" }],// неверные пути внутри модуля
+    "juliaz/public-api-imports": [2, {
+      alias: "@",
+      testFilesPatterns: ["**/*.test.*", "**/*.stories.*", "**/StoreDecorator.tsx"]
+    }],// неверный импорт (не из паблик апи)
+    "juliaz/layer-imports": [2, {
+      alias: "@",
+      ignoreImportPatterns: ["**/StoreProvider", "**/testing"]
+    }],// неверный импорт (не из паблик апи)
 
     "unused-imports/no-unused-imports": "error", // неиспользуемые импорты
   },
