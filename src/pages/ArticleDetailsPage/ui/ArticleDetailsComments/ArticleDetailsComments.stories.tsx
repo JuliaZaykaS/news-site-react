@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
@@ -9,9 +9,9 @@ export default {
       backgroundColor: { control: 'color' },
    },
    decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof ArticleDetailsComments>;
+} as Meta<typeof ArticleDetailsComments>;
 
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: StoryFn<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

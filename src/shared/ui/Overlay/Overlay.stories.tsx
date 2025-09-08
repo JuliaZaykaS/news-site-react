@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
+
 import { Overlay } from './Overlay';
 
 export default {
@@ -7,9 +8,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof Overlay>;
+} as Meta<typeof Overlay>;
 
-const Template: ComponentStory<typeof Overlay> = (args) => <Overlay { ...args } />;
+const Template: StoryFn<typeof Overlay> = (args) => <Overlay { ...args } />;
 
 export const Normal = Template.bind({});
 Normal.args = {

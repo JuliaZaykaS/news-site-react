@@ -1,5 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { Meta, StoryFn } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
@@ -11,9 +10,9 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof EditableProfileCardHeader>;
+} as Meta<typeof EditableProfileCardHeader>;
 
-const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
+const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

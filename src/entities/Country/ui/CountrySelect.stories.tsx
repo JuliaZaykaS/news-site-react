@@ -1,5 +1,5 @@
 
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn} from "@storybook/react";
 import { CountrySelect } from "./CountrySelect";
 
 export default {
@@ -11,11 +11,11 @@ export default {
   },
     decorators: [
       // Story => <div style={{ padding: 200 }}><Story /></div>
-      (StoryComponent: Story) => <div style={{ padding: 300 }}><StoryComponent /></div>
+      (Story) => <div style={{ padding: 300 }}><Story /></div>
    ]
-} as ComponentMeta<typeof CountrySelect>;
+} as Meta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => (
+const Template: StoryFn<typeof CountrySelect> = (args) => (
   <CountrySelect {...args} />
 );
 

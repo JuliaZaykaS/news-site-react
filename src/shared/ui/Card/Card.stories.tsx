@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Card } from "./Card";
 import { Text } from "../Text";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -10,9 +10,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -30,3 +30,4 @@ Orange.args = {
   children: <Text title={"title"} text={"text"} />,
 };
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+

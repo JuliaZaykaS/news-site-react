@@ -1,6 +1,5 @@
-
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from "storybook-addon-mock";
+import { Meta, StoryFn } from '@storybook/react';
+import { http, HttpResponse } from 'msw';
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -12,10 +11,10 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({}), withMock]
-} as ComponentMeta<typeof ArticleRecommendationsList>;
+    decorators: [StoreDecorator({})]
+} as Meta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
 
 const article: Article = {
     id: '1',
@@ -35,12 +34,28 @@ Normal.args = {
 };
 
 Normal.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/articles?_limit=3`  ,
-            method: 'GET',
-            status: 200,
-            response: [
+    // mockData: [
+    //     {
+    //         url: `${__API__}/articles?_limit=3`  ,
+    //         method: 'GET',
+    //         status: 200,
+            // response: [
+            //     {
+            //     ...article, id: "1"
+            //     },
+            //     {
+            //     ...article, id: "2"
+            //     },
+            //     {
+            //     ...article, id: "3"
+            //     },
+            // ],
+    //     },
+    // ],
+    msw: {
+         handlers: [
+           http.get(`${__API__}/articles?_limit=3`, () => {
+             return HttpResponse.json([
                 {
                 ...article, id: "1"
                 },
@@ -50,8 +65,9 @@ Normal.parameters = {
                 {
                 ...article, id: "3"
                 },
-            ],
-        },
-    ],
+            ], { status: 200 });
+           }),
+         ],
+       },
 };
 

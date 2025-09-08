@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import ArticleDetailsPage from "./ArticleDetailsPage";
 import {
   Article,
@@ -14,9 +14,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof ArticleDetailsPage>;
+} as Meta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+const Template: StoryFn<typeof ArticleDetailsPage> = (args) => (
   <ArticleDetailsPage {...args} />
 );
 
@@ -70,3 +70,4 @@ const article: Article = {
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({ articleDetails: { data: article } })];
+

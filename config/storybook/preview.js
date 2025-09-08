@@ -1,10 +1,14 @@
-import { addDecorator } from "@storybook/react";
-import { StyleDecorator } from "../../src/shared/config/storybook/StyleDecorator/StyleDecorator.tsx";
-import { ThemeDecorator } from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator.tsx";
-import { RouterDecorator } from "../../src/shared/config/storybook/RouterDecorator/RouterDecorator.tsx";
-import { SuspenseDecorator } from "../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx";
+import { StyleDecorator } from "@/shared/config/storybook/StyleDecorator/StyleDecorator.tsx";
+import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator.tsx";
+import { SuspenseDecorator } from "@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx";
 // import { TranslationDecorator } from "../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator.tsx";
-import { Theme } from "../../src/shared/const/theme.ts";
+import { Theme } from "@/shared/const/theme.ts";
+import '@/app/styles/index.scss';
+
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+
+
+initialize();
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -24,8 +28,25 @@ export const parameters = {
     ],
   },
 };
-addDecorator(StyleDecorator);
+// addDecorator(StyleDecorator);
 // addDecorator(TranslationDecorator);
 // addDecorator(ThemeDecorator(Theme.LIGHT));
-addDecorator(RouterDecorator);
-addDecorator(SuspenseDecorator);
+// addDecorator(RouterDecorator);
+// addDecorator(SuspenseDecorator);
+
+export const decorators = [
+  StyleDecorator,
+  RouterDecorator,
+  SuspenseDecorator,
+  mswDecorator,
+  // (Story, context) => {
+  //   const mockData = context.parameters.mockData?.map((mock: any) => ({
+  //     ...mock,
+  //     url: `${__API__}${mock.url}`, // добавляем базовый путь
+  //   }));
+
+  //   context.parameters.mockData = mockData;
+
+  //   return <Story />;
+  // },
+];

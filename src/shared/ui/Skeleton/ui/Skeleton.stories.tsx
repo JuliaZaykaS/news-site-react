@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryFn } from '@storybook/react';
 import { Skeleton } from "./Skeleton";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import { Theme } from "@/shared/const/theme";
@@ -9,9 +9,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Skeleton>;
+} as Meta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => (
+const Template: StoryFn<typeof Skeleton> = (args) => (
   <Skeleton {...args} />
 );
 

@@ -6,6 +6,7 @@ import cls from "./ThemeSwitcher.module.scss";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { memo } from "react";
 import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
+// import { ReactComponent as ThemeIcon } from "@/shared/assets/icons/theme-icon.svg";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { typedMemo } from "@/shared/const/memo";
 

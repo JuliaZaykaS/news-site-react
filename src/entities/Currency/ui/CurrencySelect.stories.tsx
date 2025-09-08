@@ -1,5 +1,5 @@
 
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 // import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 // import { Theme } from "@/app/providers/ThemeProvider";
@@ -14,13 +14,14 @@ export default {
   },
      decorators: [
       // Story => <div style={{ padding: 200 }}><Story /></div>
-      (StoryComponent: Story) => <div style={{ padding: 200 }}><StoryComponent /></div>
+      (Story) => <div style={{ padding: 200 }}><Story /></div>
    ]
-} as ComponentMeta<typeof CurrencySelect>;
+} as Meta<typeof CurrencySelect>;
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => (
+const Template: StoryFn<typeof CurrencySelect> = (args) => (
   <CurrencySelect {...args} />
 );
 
 export const Primary = Template.bind({});
 Primary.args = {};
+

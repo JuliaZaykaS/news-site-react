@@ -1,5 +1,5 @@
-// import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryFn } from '@storybook/react';
+
 // eslint-disable-next-line juliaz/layer-imports
 import "@/app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -13,9 +13,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Input>;
+} as Meta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});
 

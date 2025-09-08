@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryFn } from '@storybook/react';
 
 // import "app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -13,9 +13,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Navbar>;
+} as Meta<typeof Navbar>;
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
+const Template: StoryFn<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
 

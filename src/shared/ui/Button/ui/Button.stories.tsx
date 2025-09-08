@@ -1,5 +1,5 @@
 // import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 // eslint-disable-next-line juliaz/layer-imports
@@ -14,9 +14,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Button>;
+} as Meta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 
@@ -116,3 +116,5 @@ Disabled.args = {
   theme: ButtonTheme.OUTLINE,
   disabled: true,
 };
+
+

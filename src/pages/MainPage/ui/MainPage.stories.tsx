@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import MainPage from "./MainPage";
 // eslint-disable-next-line juliaz/layer-imports
@@ -15,9 +15,9 @@ export default {
     backgroundColor: { control: "color" },
   },
   decorators:[StoreDecorator({})]
-} as ComponentMeta<typeof MainPage>;
+} as Meta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = () => (
+const Template: StoryFn<typeof MainPage> = () => (
   // const Template: ComponentStory<typeof MainPage> = (args) => (
   // <MainPage {...args} />
   <MainPage />

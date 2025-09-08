@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 // eslint-disable-next-line juliaz/layer-imports
 import "@/app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -15,9 +15,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof LoginForm>;
+} as Meta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => (
+const Template: StoryFn<typeof LoginForm> = (args) => (
   <LoginForm {...args} />
 );
 
@@ -63,3 +63,4 @@ Orange.decorators = [
     loginForm: { userName: "userName", password: "password", error: "error" },
   }),
 ];
+

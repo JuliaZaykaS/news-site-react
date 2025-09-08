@@ -6,10 +6,20 @@ import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
-
+        // svgr({
+        //     exportAsDefault: true
+        // }),
         svgr({
-            exportAsDefault: true
+            // Если хотите автоматический импорт без суффикса:
+            include: "**/*.svg",
+            svgrOptions: {
+                exportType: "default",
+                ref: true,
+                svgo: false,
+                titleProp: true,
+            },
         }),
+
         react(),],
     resolve: {
         alias: [{
@@ -24,4 +34,22 @@ export default defineConfig({
     }
 })
 
+// import svgr from '@svgr/rollup';
 
+// svgr({
+//     // exportType: 'named',
+//     exportType: 'default',
+//     // svgoConfig: {
+//     //     plugins: [
+//     //         {
+//     //             name: 'preset-default',
+//     //             params: {
+//     //                 overrides: {
+//     //                     removeViewBox: false,
+//     //                     cleanupIds: false,
+//     //                 },
+//     //             },
+//     //         },
+//     //     ],
+//     // },
+// }),

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { ArticleDetailsPageHeader } from "./ArticleDetailsPageHeader";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 import { Article, ArticleDetailsType } from "@/entities/Article";
@@ -10,9 +10,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof ArticleDetailsPageHeader>;
+} as Meta<typeof ArticleDetailsPageHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
+const Template: StoryFn<typeof ArticleDetailsPageHeader> = (args) => (
   <ArticleDetailsPageHeader {...args} />
 );
 

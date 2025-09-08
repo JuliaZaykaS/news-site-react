@@ -1,4 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryFn } from '@storybook/react';
+
 
 // import "app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -12,9 +13,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof PageError>;
+} as Meta<typeof PageError>;
 
-const Template: ComponentStory<typeof PageError> = (args) => (
+const Template: StoryFn<typeof PageError> = (args) => (
   <PageError {...args} />
 );
 

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { NotificationButton } from './NotificationButton';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
@@ -9,12 +9,11 @@ export default {
       backgroundColor: { control: 'color' },
    },
    decorators: [
-
-      (StoryComponent: Story) => <div style={{ marginLeft: "90%" }}><StoryComponent /></div>
+      (Story) => <div style={{ marginLeft: "90%" }}><Story /></div>
    ]
-} as ComponentMeta<typeof NotificationButton>;
+} as Meta<typeof NotificationButton>;
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton { ...args } />;
+const Template: StoryFn<typeof NotificationButton> = (args) => <NotificationButton { ...args } />;
 
 export const Normal = Template.bind({});
 Normal.args = {

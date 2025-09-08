@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
 
 export default {
@@ -7,12 +7,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof NotificationItem>;
+} as Meta<typeof NotificationItem>;
 
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
-
-
-
+const Template: StoryFn<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -20,10 +17,9 @@ Normal.args = {
       id: "1",
       title: "Заголовок",
       description: "текст текст текст",
-
    }
-
 };
+
 export const WithHref = Template.bind({});
 WithHref.args = {
    item: {
@@ -31,7 +27,5 @@ WithHref.args = {
       title: "Заголовок",
       description: "текст текст текст",
       href: "#"
-
    }
-
 };

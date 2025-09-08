@@ -1,7 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
+
 import { NotificationsList } from './NotificationsList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import withMock from 'storybook-addon-mock';
+import { http, HttpResponse } from 'msw';
 
 export default {
    title: 'entities/Notification/NotificationsList',
@@ -9,12 +10,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-   decorators: [withMock]
+} as Meta<typeof NotificationsList>;
 
-} as ComponentMeta<typeof NotificationsList>;
-
-const Template: ComponentStory<typeof NotificationsList> = (args) => <NotificationsList { ...args } />;
-
+const Template: StoryFn<typeof NotificationsList> = (args) => <NotificationsList { ...args } />;
 
 const items = [
    {
@@ -46,16 +44,25 @@ Normal.args = {
 Normal.decorators = [StoreDecorator({})];
 
 Normal.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/notifications`  ,
-            method: 'GET',
-            status: 200,
-          response:
-             items
+    // mockData: [
+    //     {
+    //         url: `${__API__}/notifications`  ,
+    //         method: 'GET',
+    //         status: 200,
+    //       response:
+    //          items
 
-            ,
-        },
-    ],
+    //         ,
+    //     },
+  // ],
+  msw: {
+      handlers: [
+        http.get(`${__API__}/notifications`, () => {
+          return HttpResponse.json(items, { status: 200 });
+        }),
+      ],
+    },
 };
+
+
 

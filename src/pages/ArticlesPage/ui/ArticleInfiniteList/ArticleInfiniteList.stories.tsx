@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 // import withMock from "storybook-addon-mock";
@@ -11,9 +11,9 @@ export default {
       backgroundColor: { control: 'color' },
    },
    decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof ArticleInfiniteList>;
+} as Meta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
+const Template: StoryFn<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
 
 
 // const article: Article = {
@@ -51,4 +51,6 @@ Normal.args = {
 //    //    },
 //    // ]
 // })];
+
+
 

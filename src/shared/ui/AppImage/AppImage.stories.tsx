@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { AppImage } from './AppImage';
 
 export default {
@@ -7,11 +7,12 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof AppImage>;
+} as Meta<typeof AppImage>;
 
-const Template: ComponentStory<typeof AppImage> = (args) => <AppImage { ...args } />;
+const Template: StoryFn<typeof AppImage> = (args) => <AppImage { ...args } />;
 
 export const Normal = Template.bind({});
 Normal.args = {
 
 };
+

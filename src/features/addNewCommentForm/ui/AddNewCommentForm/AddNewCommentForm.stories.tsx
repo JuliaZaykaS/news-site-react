@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import AddNewCommentForm from "./AddNewCommentForm";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 // import { action } from "storybook/actions";
@@ -10,9 +10,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof AddNewCommentForm>;
+} as Meta<typeof AddNewCommentForm>;
 
-const Template: ComponentStory<typeof AddNewCommentForm> = (args) => (
+const Template: StoryFn<typeof AddNewCommentForm> = (args) => (
   <AddNewCommentForm {...args} />
 );
 

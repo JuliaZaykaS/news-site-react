@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import ArticleEditPage from "./ArticleEditPage";
 import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 // import { ArticleDetailsBlockType } from "entities/Article/model/types/article";
@@ -10,9 +10,9 @@ export default {
     backgroundColor: { control: "color" },
   },
   decorators:[StoreDecorator({})]
-} as ComponentMeta<typeof ArticleEditPage>;
+} as Meta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
+const Template: StoryFn<typeof ArticleEditPage> = (args) => (
   <ArticleEditPage {...args} />
 );
 

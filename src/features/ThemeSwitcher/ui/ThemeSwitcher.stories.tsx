@@ -1,5 +1,5 @@
 
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { ThemeSwitcher } from "./ThemeSwitcher";
 // eslint-disable-next-line juliaz/layer-imports
@@ -14,9 +14,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof ThemeSwitcher>;
+} as Meta<typeof ThemeSwitcher>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
+const Template: StoryFn<typeof ThemeSwitcher> = (args) => (
   <ThemeSwitcher {...args} />
 );
 

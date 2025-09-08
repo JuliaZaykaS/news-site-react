@@ -1,5 +1,5 @@
-// import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import type { Meta, StoryFn } from '@storybook/react';
+
 // eslint-disable-next-line juliaz/layer-imports
 import "@/app/styles/index.scss";
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
@@ -13,9 +13,9 @@ export default {
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof Modal>;
+} as Meta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: StoryFn<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Primary = Template.bind({});
 

@@ -1,5 +1,5 @@
 // import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { NotFoundPage } from "./NotFoundPage";
 // eslint-disable-next-line juliaz/layer-imports
@@ -16,14 +16,13 @@ export default {
     backgroundColor: { control: "color" },
   },
   decorators:[StoreDecorator({})]
-} as ComponentMeta<typeof NotFoundPage>;
+} as Meta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+const Template: StoryFn<typeof NotFoundPage> = (args) => (
   <NotFoundPage {...args} />
 );
 
 export const Normal = Template.bind({});
-
 Normal.args = {};
 // Normal.decorators = [StoreDecorator({})];
 

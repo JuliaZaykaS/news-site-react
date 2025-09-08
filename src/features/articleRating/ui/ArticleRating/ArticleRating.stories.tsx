@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import  ArticleRating  from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import withMock from 'storybook-addon-mock';
+import { http, HttpResponse } from 'msw';
 
 export default {
    title: 'features/ArticleRating',
@@ -9,10 +9,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-   decorators: [withMock]
-} as ComponentMeta<typeof ArticleRating>;
+} as Meta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating { ...args } />;
+const Template: StoryFn<typeof ArticleRating> = (args) => <ArticleRating { ...args } />;
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -26,19 +25,26 @@ Normal.decorators = [StoreDecorator({
 ];
 
 Normal.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`  ,
-            method: 'GET',
-            status: 200,
-          response: [
-             {
-                  rate: 4
-               }
+   //  mockData: [
+   //      {
+   //          url: `${__API__}/article-ratings?userId=1&articleId=1`  ,
+   //          method: 'GET',
+   //          status: 200,
+   //        response: [
+   //           {
+   //                rate: 4
+   //             }
 
-            ],
-        },
-    ],
+   //          ],
+   //      },
+   //  ],
+     msw: {
+         handlers: [
+           http.get(`${__API__}/article-ratings?userId=1&articleId=1`, () => {
+             return HttpResponse.json([{rate: 4}], { status: 200 });
+           }),
+         ],
+       },
 };
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {
@@ -52,17 +58,24 @@ WithoutRate.decorators = [StoreDecorator({
 ];
 
 WithoutRate.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/article-ratings?userId=1&articleId=1`  ,
-            method: 'GET',
-            status: 200,
-          response: [
-             {
-                  rate: 0
-               }
+   //  mockData: [
+   //      {
+   //          url: `${__API__}/article-ratings?userId=1&articleId=1`  ,
+   //          method: 'GET',
+   //          status: 200,
+   //        response: [
+   //           {
+   //                rate: 0
+   //             }
 
-            ],
-        },
-    ],
+   //          ],
+   //      },
+   //  ],
+     msw: {
+         handlers: [
+           http.get(`${__API__}/article-ratings?userId=1&articleId=1`, () => {
+             return HttpResponse.json([{rate: 0}], { status: 200 });
+           }),
+         ],
+       },
 };

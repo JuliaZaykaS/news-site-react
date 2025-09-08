@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import AboutPage from "./AboutPage";
 // eslint-disable-next-line juliaz/layer-imports
@@ -16,10 +16,9 @@ export default {
     backgroundColor: { control: "color" },
   },
   decorators:[StoreDecorator({})]
-} as ComponentMeta<typeof AboutPage>;
+} as Meta<typeof AboutPage>;
 
-// const Template: ComponentStory<typeof AboutPage> = (args) => (
-const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
+const Template: StoryFn<typeof AboutPage> = () => <AboutPage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
@@ -33,3 +32,4 @@ export const Orange = Template.bind({});
 Orange.args = {};
 
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from "@/shared/const/theme";
@@ -12,11 +12,11 @@ export default {
    },
    decorators: [
       // Story => <div style={{ padding: 200 }}><Story /></div>
-      (StoryComponent: Story) => <div style={{ padding: 200 }}><StoryComponent /></div>
+      (Story) => <div style={{ padding: 200 }}><Story /></div>
    ]
-} as ComponentMeta<typeof ListBox>;
+} as Meta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
 
 const items: ListBoxItem[] = [
    { value: 'RUB', content: "RUB", disabled: false },
