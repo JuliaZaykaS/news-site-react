@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { Input } from "@/shared/ui/Input";
 import { useSelector} from "react-redux";
-import { memo, useCallback} from "react";
+import { useCallback} from "react";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 // import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUserName } from "../../model/services/loginByUserName/loginByUserName";

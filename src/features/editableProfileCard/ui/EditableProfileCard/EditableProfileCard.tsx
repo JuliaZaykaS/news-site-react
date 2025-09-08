@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 

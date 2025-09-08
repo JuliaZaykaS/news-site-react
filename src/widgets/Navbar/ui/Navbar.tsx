@@ -5,7 +5,7 @@ import { AppLink } from "@/shared/ui/AppLink";
 import { AppLinkTheme } from "@/shared/ui/AppLink";
 
 import { useTranslation } from "react-i18next";
-import { memo, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { LoginModal } from "@/features/AuthByUserName";

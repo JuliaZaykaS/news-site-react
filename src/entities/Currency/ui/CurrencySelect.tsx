@@ -2,7 +2,7 @@
 // import cls from "./CurrencySelect.module.scss";
 // import { Select } from "@/shared/ui/Select";
 import { useTranslation } from "react-i18next";
-import { memo, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Currency } from "../model/consts/currency";
 import { ListBox } from "@/shared/ui/Popups";
 import { typedMemo } from "@/shared/const/memo";

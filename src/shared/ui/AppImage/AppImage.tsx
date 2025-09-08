@@ -1,4 +1,4 @@
-import { ImgHTMLAttributes, ReactElement, memo, useLayoutEffect, useState } from 'react';
+import { ImgHTMLAttributes, ReactElement, useLayoutEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 

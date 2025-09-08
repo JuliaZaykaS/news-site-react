@@ -2,7 +2,6 @@ import { Mods, classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Input.module.scss";
 import {
   InputHTMLAttributes,
-  memo,
   useEffect,
   useRef,
   useState,
