@@ -4,6 +4,16 @@
 npm install - устанавливаем зависимости
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
+## Вход в приложение [news-site-react.netlify.app](https://news-site-react.netlify.app/)
+роль Админ
+логин admin
+пароль 123
+
+роль Юзер
+логин user
+пароль 123
+
+Backend развернут с помощью json-server
 
 ----
 
