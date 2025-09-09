@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { Tabs } from "./Tabs";
 // import { action } from "storybook/actions";
 import { action } from "@storybook/addon-actions";
 
-const meta: Meta<typeof Tabs> = {
+const meta = {
   title: "shared/Tabs",
   component: Tabs,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-};
+} as Meta<typeof Tabs>;
 
 export default meta;
 
-type Story = StoryObj<typeof Tabs>;
+// type Story = StoryFn<typeof Tabs>;
 
-export const Normal: Story = {
+export const Normal = {
   args: {
     tabs: [
       {

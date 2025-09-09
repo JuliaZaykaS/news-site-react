@@ -1,7 +1,7 @@
 
 /* eslint-disable react/display-name */
 // import { ReducersMapObject } from "@reduxjs/toolkit";
-import { Story } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 // import { articleDetailsReducer } from "@/entities/Article";
 
@@ -26,7 +26,7 @@ export const StoreDecorator =
     state: DeepPartial<StateSchema>,
     asyncReducers?: ReducerList // доп редьюсеры для конкретной стори
   ) =>
-  (StoryComponent: Story) =>
+  (StoryComponent: StoryFn) =>
     (
       <StoreProvider
         initialState={state as StateSchema}
