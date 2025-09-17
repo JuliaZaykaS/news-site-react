@@ -59,7 +59,11 @@ export const RatingCard = typedMemo((props: RatingCardProps) => {
       <>
 
          <Text title={feedbackTitle} />
-         <Input placeholder={t("Ваш отзыв")} value={feedback} onChange={setFeedback} />
+         <Input
+            placeholder={t("Ваш отзыв")}
+            value={feedback} onChange={setFeedback}
+            data-testid={"RatingCard.Input"}
+         />
       </>
 
 
@@ -67,7 +71,11 @@ export const RatingCard = typedMemo((props: RatingCardProps) => {
 
 
    return (
-      <Card max className={classNames(cls.ratingCard, {}, [className])}>
+      <Card
+         max
+         className={classNames(cls.ratingCard, {}, [className])}
+         data-testid={"RatingCard"}
+      >
          <VStack align={"center"} gap={"8"} max>
             <Text title={starsCount ? t("Спасибо за оценку") : title} />
             <StarRating selectedStars={starsCount } size={40} onSelect={onSelectStars} />
@@ -86,10 +94,18 @@ export const RatingCard = typedMemo((props: RatingCardProps) => {
                   <VStack gap={"32"} max>
                      {modalContent}
                      <HStack max gap={"16"} justify={"end"}>
-                        <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCloseBtnClick}>
+                        <Button
+                           theme={ButtonTheme.OUTLINE_RED}
+                           onClick={onCloseBtnClick}
+                           data-testid={"RatingCard.Close"}
+                        >
                            {t("Закрыть")}
                         </Button>
-                        <Button onClick={onSendBtnClick}>
+                        <Button
+                           onClick={onSendBtnClick}
+                           data-testid={"RatingCard.Send"}
+
+                        >
                            {t("Отправить")}
                         </Button>
 

@@ -1,3 +1,10 @@
 import { lazy } from "react";
+import ArticlesPage from "./ArticlesPage";
 
-export const ArticlesPageAsync = lazy(() => import("./ArticlesPage"));
+const isTest = __VITE_TEST__
+export const ArticlesPageAsync = isTest
+? ArticlesPage // статический import для тестов
+: lazy(() => import('./ArticlesPage'))
+
+// export const ArticlesPageAsync = lazy(() => import("./ArticlesPage"));
+// export default ArticlesPage

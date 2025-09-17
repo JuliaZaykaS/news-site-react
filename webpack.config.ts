@@ -18,10 +18,11 @@ export default (env: BuildEnv) => {
     buildLocales: path.resolve(__dirname, "build", "locales"), // путь к папке для переводов в продакшн
   };
 
-  const mode = env.mode || "development";
+  const mode = env?.mode || "development";
   const isDev = mode === "development";
-  const PORT = env.port || 3000;
-  const apiUrl = env.apiUrl || "http://localhost:8000";
+  const PORT = env?.port || 3000;
+  // const PORT = env?.port || 5173; // для cypress
+  const apiUrl = env?.apiUrl || "http://localhost:8000";
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,

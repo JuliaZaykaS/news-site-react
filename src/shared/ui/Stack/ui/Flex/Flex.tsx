@@ -60,7 +60,17 @@ main: "main",
 
 
 export const Flex = (props: FlexProps) => {
-   const { className, children, justify = "start", align = "center", direction = "row", gap, max, tag = "div"} = props;
+   const {
+      className,
+      children,
+      justify = "start",
+      align = "center",
+      direction = "row",
+      gap,
+      max,
+      tag = "div",
+      ...otherProps
+   } = props;
    const { t } = useTranslation()
 
    const classes = [className, justifyClasses[justify], alignClasses[align], directionClasses[direction],
@@ -74,7 +84,10 @@ const mods: Mods = {
    const Tag = mapTagType[tag];
 
    return (
-      <Tag className={classNames(cls.flex, mods, classes)}>
+      <Tag
+         className={classNames(cls.flex, mods, classes)}
+         {...otherProps}
+      >
          {children}
       </Tag>
 

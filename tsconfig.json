@@ -24,6 +24,6 @@
   "include": [
     "./config/jest/setupTests.ts", // для @testing-library/jest-dom
     "src",
-
+    "vite-env.d.ts",
   ]
 }

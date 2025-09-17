@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticlesList.module.scss";
-import { Article} from "../../model/types/article";
+import { Article } from "../../model/types/article";
 import { ArticlesListItem } from "../ArticlesListItem/ArticlesListItem";
 import { ArticleListItemSkeleton } from "../ArticlesListItem/ArticleListItemSkeleton";
 import { Text } from "@/shared/ui/Text";
@@ -58,14 +58,19 @@ export const ArticlesList = typedMemo((props: ArticlesListProps) => {
 
   if (!isLoading && !articles.length) {
     return (
-      <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
+      <div
+        className={classNames(cls.articlesList, {}, [className, cls[view]])}
+
+      >
         <Text title={t("Статьи не найдены")} size={TextSize.L} />
       </div>
     );
   }
 
   return (
-    <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
+    <div
+      className={classNames(cls.articlesList, {}, [className, cls[view]])}
+    data-testId={'ArticlesList'}>
       {articles.length > 0 ? articles.map(renderArticles) : null}
       {isLoading && getSkeletons(view)}
     </div>

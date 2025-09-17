@@ -25,7 +25,12 @@ export const CommentCard = typedMemo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <VStack gap={"8"} max className={classNames(cls.commentCard, {}, [className, cls.loading])}
+      <VStack
+        gap={"8"}
+        max
+        className={classNames(cls.commentCard, {}, [className, cls.loading])
+        }
+      data-testid={"CommentCard.Loading"}
       >
         <div className={cls.header}>
           <Skeleton width={30} height={30} border={"50%"} />
@@ -39,7 +44,12 @@ export const CommentCard = typedMemo((props: CommentCardProps) => {
   if (!comment) return null;
 
   return (
-    <VStack gap={"8"} max className={classNames(cls.commentCard, {}, [className])}>
+    <VStack
+      gap={"8"}
+      max
+      className={classNames(cls.commentCard, {}, [className])}
+      data-testid={"CommentCard.Content"}
+    >
       <AppLink
         className={cls.header}
         to={getRouteProfile(comment.user.id)}

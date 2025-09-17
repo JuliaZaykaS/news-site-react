@@ -58,6 +58,7 @@ export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
     return (
       <div
         className={classNames(cls.articlesListItem, {}, [className, cls[view]])}
+        data-testId={'ArticlesListItem'}
       >
         <Card className={cls.card}>
           <div className={cls.header}>
@@ -77,7 +78,7 @@ export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
             src={article.img}
             alt={article.title}
             className={cls.img}
-            fallback={<Skeleton width={'100%'} height={250}/>}
+            fallback={<Skeleton width={'100%'} height={250} />}
           />
           {textBlock && (
             <ArticleTextBlockComponent
@@ -107,6 +108,7 @@ export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
       target={target}
       to={getRouteArticleDetails(article.id)}
       className={classNames(cls.articlesListItem, {}, [className, cls[view]])}
+      data-testId={'ArticlesListItem'}
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
@@ -114,7 +116,7 @@ export const ArticlesListItem = typedMemo((props: ArticlesListItemProps) => {
             src={article.img}
             alt={article.title}
             className={cls.img}
-            fallback={<Skeleton width={200} height={200}/>}
+            fallback={<Skeleton width={200} height={200} />}
           />
           <Text text={article.createdAt} className={cls.date} />
         </div>

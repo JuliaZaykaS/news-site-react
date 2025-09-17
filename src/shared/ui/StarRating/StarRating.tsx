@@ -71,6 +71,8 @@ export const StarRating = typedMemo((props: StarRatingProps) => {
                onMouseLeave={onLeave}
                onMouseEnter={onHover(starNum)}
                onClick={onClick(starNum)}
+               data-testid={`StarIcon.${starNum}`}
+               data-selected={currentStarsCount>=starNum}
             />
          ))}
 

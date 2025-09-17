@@ -52,15 +52,27 @@ const AddNewCommentForm = typedMemo((props: AddNewCommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack justify={"between"} max className={classNames(cls.addNewCommentForm, {}, [className])}>
+      <HStack
+        justify={"between"}
+        max
+        className={classNames(cls.addNewCommentForm, {}, [className])}
+        data-testid={"AddNewCommentForm"}
+      >
         <Input
           placeholder={t("Введите текст комментария")}
           value={text}
           onChange={onInputChange}
           className={cls.input}
           type={"text"}
+          data-testid={"AddNewCommentForm.Input"}
+
         />
-        <Button theme={ButtonTheme.OUTLINE} onClick={onSendForm}>
+        <Button
+          theme={ButtonTheme.OUTLINE}
+          onClick={onSendForm}
+          data-testid={"AddNewCommentForm.Button"}
+
+        >
           {t("Отправить")}
         </Button>
       </HStack>
