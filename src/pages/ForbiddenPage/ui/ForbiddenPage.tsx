@@ -5,20 +5,19 @@ import { Page } from '@/widgets/Page';
 import { typedMemo } from '@/shared/const/memo';
 
 interface ForbiddenPageProps {
-   className?: string;
+    className?: string;
 }
 
-
 export const ForbiddenPage = typedMemo((props: ForbiddenPageProps) => {
-   const { className } = props;
-   const { t } = useTranslation()
+    const { className } = props;
+    const { t } = useTranslation();
 
-   return (
-      <Page
-         className={classNames(cls.forbiddenPage, {}, [className])}
-         data-testid={"ForbiddenPage"}
-      >
-         {t("У вас нет доступа к этой странице")}
-      </Page>
-   );
-})
+    return (
+        <Page
+            className={classNames(cls.forbiddenPage, {}, [className])}
+            data-testid={'ForbiddenPage'}
+        >
+            {t('У вас нет доступа к этой странице')}
+        </Page>
+    );
+});

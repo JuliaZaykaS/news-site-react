@@ -6,5 +6,5 @@ export type ScrollPositionSchema = Record<string, number>;
 // }
 
 export interface ScrollPositionSaveSchema {
-  scroll: ScrollPositionSchema;
+    scroll: ScrollPositionSchema;
 }

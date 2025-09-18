@@ -1,84 +1,71 @@
-import { useCallback } from "react";
-import { useTranslation } from "react-i18next";
-import { classNames } from "@/shared/lib/classNames/classNames";
-import cls from "./ArticlesPage.module.scss";
+import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './ArticlesPage.module.scss';
 // import { ArticlesList } from "@/entities/Article/ui/ArticlesList/ArticlesList";
 // import { Article, ArticleViewType } from "@/entities/Article";
 import {
-  DynamicModuleLoader,
-  ReducerList,
-} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-  articlesPageReducer,
+import { Page } from '@/widgets/Page';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 
-} from "../../model/slices/articlesPageSlice";
-import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-
-import { Page } from "@/widgets/Page";
-import { fetchNextArticlePage } from "../../model/services/fetchNextArticlePage/fetchNextArticlePage";
-
-import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
-import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
-import { useSearchParams } from "react-router-dom";
-import { ArticleInfiniteList } from "../ArticleInfiniteList/ArticleInfiniteList";
-import { typedMemo } from "@/shared/const/memo";
-
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { typedMemo } from '@/shared/const/memo';
 
 interface ArticlesPageProps {
-  className?: string;
+    className?: string;
 }
 
 const reducers: ReducerList = {
-  articlesPage: articlesPageReducer,
+    articlesPage: articlesPageReducer,
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
-  const { className } = props;
-  const { t } = useTranslation("article");
-  const dispatch = useAppDispatch();
+    const { className } = props;
+    const { t } = useTranslation('article');
+    const dispatch = useAppDispatch();
 
-  const [searchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
+    useInitialEffect(() => {
+        dispatch(initArticlesPage(searchParams));
+        // if (!inited) {
+        //   dispatch(articlesPageActions.initState());
+        //   dispatch(
+        //     fetchArticlesList({
+        //       page: 1,
+        //     })
+        //   );
+        // }
+    });
 
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-    // if (!inited) {
-    //   dispatch(articlesPageActions.initState());
-    //   dispatch(
-    //     fetchArticlesList({
-    //       page: 1,
-    //     })
-    //   );
-    // }
-  });
+    const onLoadNextPart = useCallback(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchNextArticlePage());
+        }
+    }, [dispatch]);
 
-
-
-  const onLoadNextPart = useCallback(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchNextArticlePage());
-    }
-  }, [dispatch]);
-
-
-
-  return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        className={classNames(cls.articlesPage, {}, [className])}
-        onScrollEnd={onLoadNextPart}
-        data-testid="ArticlesPage"
-      >
-
-
-          <ArticlesPageFilters />
-        <ArticleInfiniteList className={ cls.list} />
-
-      </Page>
-    </DynamicModuleLoader>
-  );
+    return (
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            <Page
+                className={classNames(cls.articlesPage, {}, [className])}
+                onScrollEnd={onLoadNextPart}
+                data-testid="ArticlesPage"
+            >
+                <ArticlesPageFilters />
+                <ArticleInfiniteList className={cls.list} />
+            </Page>
+        </DynamicModuleLoader>
+    );
 };
 
 export default typedMemo(ArticlesPage);

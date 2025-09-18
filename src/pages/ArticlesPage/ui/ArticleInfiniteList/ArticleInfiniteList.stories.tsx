@@ -3,18 +3,18 @@ import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 // import withMock from "storybook-addon-mock";
 
-
 export default {
-   title: 'pages/ArticlesPage/ArticleInfiniteList',
-   component: ArticleInfiniteList,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-   decorators: [StoreDecorator({})]
+    title: 'pages/ArticlesPage/ArticleInfiniteList',
+    component: ArticleInfiniteList,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleInfiniteList>;
 
-const Template: StoryFn<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
-
+const Template: StoryFn<typeof ArticleInfiniteList> = (args) => (
+    <ArticleInfiniteList {...args} />
+);
 
 // const article: Article = {
 //    id: '1',
@@ -29,9 +29,7 @@ const Template: StoryFn<typeof ArticleInfiniteList> = (args) => <ArticleInfinite
 // }
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
 // Normal.decorators = [StoreDecorator({
 //    articlesPage: {
 //       ids: ["1"],
@@ -51,6 +49,3 @@ Normal.args = {
 //    //    },
 //    // ]
 // })];
-
-
-

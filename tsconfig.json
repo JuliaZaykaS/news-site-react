@@ -1,29 +1,29 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/", // то, куда производится сборка
-    "noImplicitAny": true, // запрет на использование переменных без явного указания типа
-    "module": "ESNext", //типы модульной сборки
-    "target": "es5", // версия ecma-script, в которую код будет компилироваться
-    "jsx": "react-jsx",
-    "allowJs": true, // позволяет компилятору обрабатывать как ts, так и js файлы
-    "moduleResolution": "node", // определяет какие импорты будут
-    "baseUrl": ".", // для абсолютного импорта
-    "paths": {
-      "@/*": ["./src/*"] // все абсолютные импорты будут идти из папки src
-    },
-    "esModuleInterop": true, // позволяет вместо require (Common JS module)  использовать import
-    "allowSyntheticDefaultImports": true, // для поддержки дефолтных импортов, чтобы не писать *
-    "strict": true, // строгий режим
-    "isolatedModules":true, // для компиляции TS через отличные от его родного плагины (н-р, Babel)
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
-    }
-  },
-  "include": [
-    "./config/jest/setupTests.ts", // для @testing-library/jest-dom
-    "src",
-    "vite-env.d.ts",
-  ]
+        "outDir": "./dist/", // то, куда производится сборка
+        "noImplicitAny": true, // запрет на использование переменных без явного указания типа
+        "module": "ESNext", //типы модульной сборки
+        "target": "es5", // версия ecma-script, в которую код будет компилироваться
+        "jsx": "react-jsx",
+        "allowJs": true, // позволяет компилятору обрабатывать как ts, так и js файлы
+        "moduleResolution": "node", // определяет какие импорты будут
+        "baseUrl": ".", // для абсолютного импорта
+        "paths": {
+            "@/*": ["./src/*"] // все абсолютные импорты будут идти из папки src
+        },
+        "esModuleInterop": true, // позволяет вместо require (Common JS module)  использовать import
+        "allowSyntheticDefaultImports": true, // для поддержки дефолтных импортов, чтобы не писать *
+        "strict": true, // строгий режим
+        "isolatedModules": true // для компиляции TS через отличные от его родного плагины (н-р, Babel)
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "include": [
+        "./config/jest/setupTests.ts", // для @testing-library/jest-dom
+        "src",
+        "vite-env.d.ts"
+    ]
 }

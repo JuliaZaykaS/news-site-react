@@ -1,27 +1,30 @@
 import { Meta, StoryFn } from '@storybook/react';
-import  ProfileRating  from './ProfileRating';
+import ProfileRating from './ProfileRating';
 import { http, HttpResponse } from 'msw';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-   title: 'features/ProfileRating',
-   component: ProfileRating,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
+    title: 'features/ProfileRating',
+    component: ProfileRating,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as Meta<typeof ProfileRating>;
 
-const Template: StoryFn<typeof ProfileRating> = (args) => <ProfileRating { ...args } />;
+const Template: StoryFn<typeof ProfileRating> = (args) => (
+    <ProfileRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
-profileId: "2"
+    profileId: '2',
 };
-Normal.decorators = [StoreDecorator({
-   user: {
-   authData: {id: "1",}
-   }
-})
+Normal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
 ];
 
 Normal.parameters = {
@@ -37,24 +40,25 @@ Normal.parameters = {
 
     //         ],
     //     },
-  // ],
-  msw: {
+    // ],
+    msw: {
         handlers: [
-          http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-            return HttpResponse.json([{rate: 4}], { status: 200 });
-          }),
+            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
+                return HttpResponse.json([{ rate: 4 }], { status: 200 });
+            }),
         ],
-      },
+    },
 };
 export const WithoutRate = Template.bind({});
 WithoutRate.args = {
-profileId: "1"
+    profileId: '1',
 };
-WithoutRate.decorators = [StoreDecorator({
-   user: {
-   authData: {id: "1",}
-   }
-})
+WithoutRate.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
 ];
 
 WithoutRate.parameters = {
@@ -70,12 +74,12 @@ WithoutRate.parameters = {
 
     //         ],
     //     },
-  // ],
-  msw: {
+    // ],
+    msw: {
         handlers: [
-          http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-            return HttpResponse.json([{rate: 0}], { status: 200 });
-          }),
+            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
+                return HttpResponse.json([{ rate: 0 }], { status: 200 });
+            }),
         ],
-      },
+    },
 };

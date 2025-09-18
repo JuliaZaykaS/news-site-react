@@ -1,21 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 // import { articleEditForm, articleEditFormSchema } from "../types/articleEditForm";
-import { ArticleEditFormSchema } from "../types/articleEditForm";
-
+import { ArticleEditFormSchema } from '../types/articleEditForm';
 
 const initialState: ArticleEditFormSchema = {
-
     isLoading: false,
     error: undefined,
-
 };
 
 export const articleEditFormSlice = createSlice({
-    name: "articleEditForm",
+    name: 'articleEditForm',
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: (builder) => {
         //         builder
         //             .addCase(fetchProfileData.pending, (state) => {
@@ -26,7 +21,6 @@ export const articleEditFormSlice = createSlice({
         //                 fetchProfileData.fulfilled,
         //                 (state, action: PayloadAction < Article Edit Form >) => {
         //     state.isLoading = false;
-
         //     state.profile = action.payload;
         // }
         //           )
@@ -34,7 +28,6 @@ export const articleEditFormSlice = createSlice({
         //     state.isLoading = false;
         //     state.error = action.payload;
         // });
-
     },
 });
 

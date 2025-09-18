@@ -1,44 +1,42 @@
 import type { Meta, StoryFn } from '@storybook/react';
 // import "app/styles/index.scss";
-import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/shared/const/theme";
-import { Sidebar } from "./Sidebar";
-import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { Sidebar } from './Sidebar';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-  title: "widgets/Sidebar",
-  component: Sidebar,
+    title: 'widgets/Sidebar',
+    component: Sidebar,
 
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as Meta<typeof Sidebar>;
 
-const Template: StoryFn<typeof Sidebar> = (args) => (
-  <Sidebar {...args} />
-);
+const Template: StoryFn<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const Light = Template.bind({});
 
 Light.args = {};
 Light.decorators = [
-  ThemeDecorator(Theme.LIGHT),
-  StoreDecorator({ user: { authData: {} } }),
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ user: { authData: {} } }),
 ];
 
 export const Dark = Template.bind({});
 
 Dark.args = {};
 Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ user: { authData: {} } }),
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ user: { authData: {} } }),
 ];
 export const Orange = Template.bind({});
 
 Orange.args = {};
 Orange.decorators = [
-  ThemeDecorator(Theme.ORANGE),
-  StoreDecorator({ user: { authData: {} } }),
+    ThemeDecorator(Theme.ORANGE),
+    StoreDecorator({ user: { authData: {} } }),
 ];
 
 export const NoAuth = Template.bind({});

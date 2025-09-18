@@ -5,22 +5,21 @@ import { Page } from '@/widgets/Page';
 import { typedMemo } from '@/shared/const/memo';
 
 interface AdminPanelPageProps {
-   className?: string;
+    className?: string;
 }
 
-
 const AdminPanelPage = typedMemo((props: AdminPanelPageProps) => {
-   const { className } = props;
-   const { t } = useTranslation()
+    const { className } = props;
+    const { t } = useTranslation();
 
-   return (
-      <Page
-         className={classNames(cls.adminPanelPage, {}, [className])}
-         data-testid={"AdminPanelPage"}
-      >
-         {t("Админ панель")}
-      </Page>
-   );
-})
+    return (
+        <Page
+            className={classNames(cls.adminPanelPage, {}, [className])}
+            data-testid={'AdminPanelPage'}
+        >
+            {t('Админ панель')}
+        </Page>
+    );
+});
 
-export default AdminPanelPage
+export default AdminPanelPage;

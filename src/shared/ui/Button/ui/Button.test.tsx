@@ -1,14 +1,14 @@
-import { render, screen } from "@testing-library/react";
-import { Button, ButtonTheme } from "./Button";
+import { render, screen } from '@testing-library/react';
+import { Button, ButtonTheme } from './Button';
 
-describe("Button", () => {
-  test("render in document", () => {
-    render(<Button>TEST</Button>);
-    expect(screen.getByText("TEST")).toBeInTheDocument();
-  });
-  test("use theme clear", () => {
-    render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
-    expect(screen.getByText("TEST")).toHaveClass("clear");
-    screen.debug(); // для отображения результата в консоли
-  });
+describe('Button', () => {
+    test('render in document', () => {
+        render(<Button>TEST</Button>);
+        expect(screen.getByText('TEST')).toBeInTheDocument();
+    });
+    test('use theme clear', () => {
+        render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
+        expect(screen.getByText('TEST')).toHaveClass('clear');
+        screen.debug(); // для отображения результата в консоли
+    });
 });

@@ -1,37 +1,35 @@
-
 /* eslint-disable react/display-name */
 // import { ReducersMapObject } from "@reduxjs/toolkit";
-import { StoryFn } from "@storybook/react";
-import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
+import { StoryFn } from '@storybook/react';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 // import { articleDetailsReducer } from "@/entities/Article";
 
-import { ReducerList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { loginReducer } from "@/features/AuthByUserName/testing";
-import { addNewCommentFormReducer } from "@/features/addNewCommentForm/testing";
-import { profileReducer } from "@/features/editableProfileCard/testing";
-import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/testing";
-import { articleDetailsReducer } from "@/entities/Article/testing";
+import { ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { loginReducer } from '@/features/AuthByUserName/testing';
+import { addNewCommentFormReducer } from '@/features/addNewCommentForm/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articleDetailsReducer } from '@/entities/Article/testing';
 
 const defaultAsyncReducers: ReducerList = {
-  loginForm: loginReducer,
-  profile: profileReducer,
-  articleDetails: articleDetailsReducer,
-  // articleDetailsComments: articleDetailsCommentsReducer,
-  articleDetailsPage: articleDetailsPageReducer,
-  addNewCommentForm: addNewCommentFormReducer,
+    loginForm: loginReducer,
+    profile: profileReducer,
+    articleDetails: articleDetailsReducer,
+    // articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
+    addNewCommentForm: addNewCommentFormReducer,
 };
 
 export const StoreDecorator =
-  (
-    state: DeepPartial<StateSchema>,
-    asyncReducers?: ReducerList // доп редьюсеры для конкретной стори
-  ) =>
-  (StoryComponent: StoryFn) =>
     (
-      <StoreProvider
-        initialState={state as StateSchema}
-        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-      >
-        <StoryComponent />
-      </StoreProvider>
+        state: DeepPartial<StateSchema>,
+        asyncReducers?: ReducerList, // доп редьюсеры для конкретной стори
+    ) =>
+    (StoryComponent: StoryFn) => (
+        <StoreProvider
+            initialState={state as StateSchema}
+            asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+        >
+            <StoryComponent />
+        </StoreProvider>
     );

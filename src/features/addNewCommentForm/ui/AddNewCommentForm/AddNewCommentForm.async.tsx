@@ -1,3 +1,3 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-export const AddNewCommentFormAsync = lazy(() => import("./AddNewCommentForm"));
+export const AddNewCommentFormAsync = lazy(() => import('./AddNewCommentForm'));

@@ -9,13 +9,13 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as Meta<typeof EditableProfileCardHeader>;
 
-const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
+const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => (
+    <EditableProfileCardHeader {...args} />
+);
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
+Normal.args = {};
 // Normal.decorators = [StoreDecorator({})];

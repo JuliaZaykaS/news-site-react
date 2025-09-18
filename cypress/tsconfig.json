@@ -1,23 +1,14 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    // "sourceMap": true,
-    "types": [
-      "cypress",
-      "node"
-    ],
-    "allowJs": true,
-    "isolatedModules": true,
-    "sourceMap": false,
-    "inlineSourceMap": true
-  },
-  "extends": "../tsconfig.json",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-  ]
+    "compilerOptions": {
+        "target": "es6",
+        "lib": ["es6", "dom"],
+        // "sourceMap": true,
+        "types": ["cypress", "node"],
+        "allowJs": true,
+        "isolatedModules": true,
+        "sourceMap": false,
+        "inlineSourceMap": true
+    },
+    "extends": "../tsconfig.json",
+    "include": ["**/*.ts", "**/*.tsx"]
 }

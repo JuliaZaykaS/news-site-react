@@ -1,59 +1,57 @@
 // import { classNames } from "@/shared/lib/classNames/classNames";
 // import cls from "./CurrencySelect.module.scss";
 // import { Select } from "@/shared/ui/Select";
-import { useTranslation } from "react-i18next";
-import { useCallback, useMemo } from "react";
-import { Currency } from "../model/consts/currency";
-import { ListBox } from "@/shared/ui/Popups";
-import { typedMemo } from "@/shared/const/memo";
+import { useTranslation } from 'react-i18next';
+import { useCallback, useMemo } from 'react';
+import { Currency } from '../model/consts/currency';
+import { ListBox } from '@/shared/ui/Popups';
+import { typedMemo } from '@/shared/const/memo';
 
 interface CurrencySelectProps {
-  className?: string;
-  value?: Currency;
-  onChange?: (value: Currency) => void;
-  readonly?: boolean;
+    className?: string;
+    value?: Currency;
+    onChange?: (value: Currency) => void;
+    readonly?: boolean;
 }
 
-
 export const CurrencySelect = typedMemo((props: CurrencySelectProps) => {
-  const { className, value, onChange, readonly } = props;
-  const { t } = useTranslation();
+    const { className, value, onChange, readonly } = props;
+    const { t } = useTranslation();
 
-  const currencyOptions = useMemo(
-    () =>
-      Object.entries(Currency).map((val) => ({
-        value: val[0],
-        content: val[1],
-      })),
-    []
-  );
+    const currencyOptions = useMemo(
+        () =>
+            Object.entries(Currency).map((val) => ({
+                value: val[0],
+                content: val[1],
+            })),
+        [],
+    );
 
-  const onChangeSelect = useCallback(
-    (value: string) => {
-      onChange?.(value as Currency);
-    },
-    [onChange]
-  );
+    const onChangeSelect = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency);
+        },
+        [onChange],
+    );
 
-  return (
-    // <Select
-    //   className={classNames("", {}, [className])}
-    //   label={t("Валюта")}
-    //   options={currencyOptions}
-    //   value={value}
-    //   onChange={onChangeSelect}
-    //   readonly={readonly}
-    // />
-    <ListBox
-      className={className}
-      items={currencyOptions}
-      value={value}
-      defaultValue={t("Укажите валюту")}
-      label={t("Валюта")}
-      onChange={onChangeSelect}
-      readonly={readonly}
-      direction="top-right"
-    />
-
-  );
+    return (
+        // <Select
+        //   className={classNames("", {}, [className])}
+        //   label={t("Валюта")}
+        //   options={currencyOptions}
+        //   value={value}
+        //   onChange={onChangeSelect}
+        //   readonly={readonly}
+        // />
+        <ListBox
+            className={className}
+            items={currencyOptions}
+            value={value}
+            defaultValue={t('Укажите валюту')}
+            label={t('Валюта')}
+            onChange={onChangeSelect}
+            readonly={readonly}
+            direction="top-right"
+        />
+    );
 });

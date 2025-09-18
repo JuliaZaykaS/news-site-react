@@ -1,1 +1,1 @@
-export type { ArticleEditFormSchema } from "./model/types/articleEditForm"
+export type { ArticleEditFormSchema } from './model/types/articleEditForm';

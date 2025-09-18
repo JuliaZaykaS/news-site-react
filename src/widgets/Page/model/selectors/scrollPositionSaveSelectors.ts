@@ -1,15 +1,15 @@
-import { createSelector } from "@reduxjs/toolkit";
-import { StateSchema } from "@/app/providers/StoreProvider";
-import { ScrollPositionSchema } from "../types/ScrollPositionSave";
+import { createSelector } from '@reduxjs/toolkit';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ScrollPositionSchema } from '../types/ScrollPositionSave';
 
 export const getScrollPosition = (state: StateSchema): ScrollPositionSchema => {
-  return state.scrollPositionSave.scroll;
+    return state.scrollPositionSave.scroll;
 };
 
 export const getScrollPositionByPath = createSelector(
-  getScrollPosition,
+    getScrollPosition,
 
-  (state: StateSchema, path: string) => path,
+    (state: StateSchema, path: string) => path,
 
-  (scroll, path) => scroll[path] || 0
+    (scroll, path) => scroll[path] || 0,
 );

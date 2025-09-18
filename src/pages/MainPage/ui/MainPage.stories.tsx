@@ -1,26 +1,26 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from '@storybook/react';
 
-import MainPage from "./MainPage";
+import MainPage from './MainPage';
 // eslint-disable-next-line juliaz/layer-imports
-import "@/app/styles/index.scss";
-import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/shared/const/theme";
-import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import '@/app/styles/index.scss';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-  title: "pages/MainPage",
-  component: MainPage,
+    title: 'pages/MainPage',
+    component: MainPage,
 
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-  decorators:[StoreDecorator({})]
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [StoreDecorator({})],
 } as Meta<typeof MainPage>;
 
 const Template: StoryFn<typeof MainPage> = () => (
-  // const Template: ComponentStory<typeof MainPage> = (args) => (
-  // <MainPage {...args} />
-  <MainPage />
+    // const Template: ComponentStory<typeof MainPage> = (args) => (
+    // <MainPage {...args} />
+    <MainPage />
 );
 export const Normal = Template.bind({});
 Normal.args = {};

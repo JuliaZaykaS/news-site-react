@@ -1,6 +1,5 @@
-
-import { Project } from "ts-morph";
-import path from "path";
+import { Project } from 'ts-morph';
+import path from 'path';
 
 const project = new Project({});
 
@@ -28,10 +27,16 @@ const createReadmeForSlice = (slice: string) => {
 
     componentsDirectories?.forEach((directory) => {
         const readmeFilePath = `${directory.getPath()}/README.md`;
-        const readmeFile = directory.getSourceFile((f) => f.getBaseName() === 'README.md');
+        const readmeFile = directory.getSourceFile(
+            (f) => f.getBaseName() === 'README.md',
+        );
         if (!readmeFile) {
             const sourceCode = `## ${sliceMap[slice]} ${directory.getBaseName()} is for ...`;
-            const file = directory.createSourceFile(readmeFilePath, sourceCode, { overwrite: true });
+            const file = directory.createSourceFile(
+                readmeFilePath,
+                sourceCode,
+                { overwrite: true },
+            );
             file.save();
         }
     });

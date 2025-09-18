@@ -3,71 +3,77 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AvatarDropdown.module.scss';
 
-import { Dropdown } from "@/shared/ui/Popups";
-import { Avatar } from "@/shared/ui/Avatar";
+import { Dropdown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
+} from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
 
-
 interface AvatarDropdownProps {
-   className?: string;
+    className?: string;
 }
 
-
 export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
-   const { className } = props;
-   const { t } = useTranslation()
-   //  const dispatch = useDispatch();
+    const { className } = props;
+    const { t } = useTranslation();
+    //  const dispatch = useDispatch();
     const dispatch = useAppDispatch();
-  const isAdmin = useSelector(isUserAdmin)
-   const isManager = useSelector(isUserManager)
-  //  const [isAuthModal, setIsAuthModal] = useState(false);
-  const authData = useSelector(getUserAuthData);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    //  const [isAuthModal, setIsAuthModal] = useState(false);
+    const authData = useSelector(getUserAuthData);
 
+    const onLogout = useCallback(() => {
+        dispatch(userActions.logout());
+        // setIsAuthModal(false);
+    }, [dispatch]);
 
+    const isAdminPanelAvaliable = isAdmin || isManager;
 
-     const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-    // setIsAuthModal(false);
-  }, [dispatch]);
+    const navbarItems = [
+        ...(isAdminPanelAvaliable
+            ? [
+                  {
+                      content: t('Админка'),
+                      href: getRouteAdminPanel(),
+                  },
+              ]
+            : []),
+        {
+            content: t('Профиль'),
+            href: authData && getRouteProfile(authData.id),
+        },
+        {
+            content: t('Выйти'),
+            onClick: onLogout,
+        },
+    ];
 
+    if (!authData) {
+        return null;
+    }
 
-    const isAdminPanelAvaliable = isAdmin || isManager
-
-   const navbarItems = [
-    ...(isAdminPanelAvaliable ? [{
-      content: t("Админка"),
-      href: getRouteAdminPanel(),
-    }] : []),
-    {
-      content: t("Профиль"),
-      href: authData && getRouteProfile(authData.id),
-    },
-    {
-      content: t("Выйти"),
-      onClick: onLogout,
-    },
-
-   ]
-
-
-   if (!authData) {
-      return null
-   }
-
-   return (
-
-         <Dropdown
+    return (
+        <Dropdown
             className={classNames(cls.avatarDropdown, {}, [className])}
             items={navbarItems}
-            trigger={<Avatar src={authData.avatar || ""} alt={authData.username} size={30} fallbackInverted/>}
+            trigger={
+                <Avatar
+                    src={authData.avatar || ''}
+                    alt={authData.username}
+                    size={30}
+                    fallbackInverted
+                />
+            }
             // className={cls.dropdown}
-            direction={"bottom-left"}
-          />
-
-
-   );
-})
+            direction={'bottom-left'}
+        />
+    );
+});

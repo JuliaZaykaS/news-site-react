@@ -5,41 +5,37 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { http, HttpResponse } from 'msw';
 
 export default {
-   title: 'entities/Notification/NotificationsList',
-   component: NotificationsList,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
+    title: 'entities/Notification/NotificationsList',
+    component: NotificationsList,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as Meta<typeof NotificationsList>;
 
-const Template: StoryFn<typeof NotificationsList> = (args) => <NotificationsList { ...args } />;
+const Template: StoryFn<typeof NotificationsList> = (args) => (
+    <NotificationsList {...args} />
+);
 
 const items = [
-   {
-   id: "1",
-   title: "Уведомление",
-   description: "текст текст текст",
-
-},
-   {
-   id: "2",
-   title: "Уведомление",
-   description: "текст текст текст",
-
-},
-   {
-   id: "3",
-   title: "Уведомление",
-   description: "текст текст текст",
-
-},
-]
+    {
+        id: '1',
+        title: 'Уведомление',
+        description: 'текст текст текст',
+    },
+    {
+        id: '2',
+        title: 'Уведомление',
+        description: 'текст текст текст',
+    },
+    {
+        id: '3',
+        title: 'Уведомление',
+        description: 'текст текст текст',
+    },
+];
 
 export const Normal = Template.bind({});
-Normal.args = {
-
-};
-
+Normal.args = {};
 
 Normal.decorators = [StoreDecorator({})];
 
@@ -54,15 +50,12 @@ Normal.parameters = {
 
     //         ,
     //     },
-  // ],
-  msw: {
-      handlers: [
-        http.get(`${__API__}/notifications`, () => {
-          return HttpResponse.json(items, { status: 200 });
-        }),
-      ],
+    // ],
+    msw: {
+        handlers: [
+            http.get(`${__API__}/notifications`, () => {
+                return HttpResponse.json(items, { status: 200 });
+            }),
+        ],
     },
 };
-
-
-

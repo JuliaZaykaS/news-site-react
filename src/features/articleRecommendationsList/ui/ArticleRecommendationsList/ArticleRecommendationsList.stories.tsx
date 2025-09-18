@@ -11,10 +11,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleRecommendationsList>;
 
-const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
+const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => (
+    <ArticleRecommendationsList {...args} />
+);
 
 const article: Article = {
     id: '1',
@@ -26,12 +28,10 @@ const article: Article = {
     type: [],
     title: '123',
     subtitle: 'asfsa',
-}
-
+};
 
 export const Normal = Template.bind({});
-Normal.args = {
-};
+Normal.args = {};
 
 Normal.parameters = {
     // mockData: [
@@ -39,35 +39,40 @@ Normal.parameters = {
     //         url: `${__API__}/articles?_limit=3`  ,
     //         method: 'GET',
     //         status: 200,
-            // response: [
-            //     {
-            //     ...article, id: "1"
-            //     },
-            //     {
-            //     ...article, id: "2"
-            //     },
-            //     {
-            //     ...article, id: "3"
-            //     },
-            // ],
+    // response: [
+    //     {
+    //     ...article, id: "1"
+    //     },
+    //     {
+    //     ...article, id: "2"
+    //     },
+    //     {
+    //     ...article, id: "3"
+    //     },
+    // ],
     //     },
     // ],
     msw: {
-         handlers: [
-           http.get(`${__API__}/articles?_limit=3`, () => {
-             return HttpResponse.json([
-                {
-                ...article, id: "1"
-                },
-                {
-                ...article, id: "2"
-                },
-                {
-                ...article, id: "3"
-                },
-            ], { status: 200 });
-           }),
-         ],
-       },
+        handlers: [
+            http.get(`${__API__}/articles?_limit=3`, () => {
+                return HttpResponse.json(
+                    [
+                        {
+                            ...article,
+                            id: '1',
+                        },
+                        {
+                            ...article,
+                            id: '2',
+                        },
+                        {
+                            ...article,
+                            id: '3',
+                        },
+                    ],
+                    { status: 200 },
+                );
+            }),
+        ],
+    },
 };
-

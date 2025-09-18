@@ -1,13 +1,10 @@
 // import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // import { Rating } from "../types/Rating";
 
-
 // const initialState: RatingSchema = {
 export const initialState = {
-
     isLoading: false,
     error: undefined,
-
 };
 
 // export const RatingSlice = createSlice({

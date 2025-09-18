@@ -14,45 +14,44 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { typedMemo } from '@/shared/const/memo';
 
-
 interface ArticleDetailsCommentsProps {
-   className?: string;
-   articleId?: string;
+    className?: string;
+    articleId?: string;
 }
 
+export const ArticleDetailsComments = typedMemo(
+    (props: ArticleDetailsCommentsProps) => {
+        const { className, articleId } = props;
+        const { t } = useTranslation('article');
+        const dispatch = useAppDispatch();
 
-export const ArticleDetailsComments = typedMemo((props: ArticleDetailsCommentsProps) => {
-   const { className, articleId } = props;
-   const { t } = useTranslation("article")
-   const dispatch = useAppDispatch();
+        const comments = useSelector(getArticleDetailsComments.selectAll);
+        const commentsIsLoading = useSelector(
+            getArticleDetailsCommentsIsLoading,
+        );
 
-   const comments = useSelector(getArticleDetailsComments.selectAll);
-   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+        useInitialEffect(() => {
+            dispatch(fetchCommentsByArticleId(articleId));
+        });
 
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentForArticle(text));
+            },
+            [dispatch],
+        );
 
-
-   useInitialEffect(() => {
-      dispatch(fetchCommentsByArticleId(articleId));
-
-   });
-
-   const onSendComment = useCallback(
-      (text: string) => {
-         dispatch(addCommentForArticle(text));
-      },
-      [dispatch]
-   );
-
-   return (
-      <VStack gap={"8"} max className={classNames("", {}, [className])}>
-         <Text
-            title={t("Комментарии к статье")}
-            size={TextSize.L}
-         />
-         {/* <Suspense fallback="Идет загрузка"> */}
-            <AddNewCommentForm onSendComment={onSendComment} />
-         {/* </Suspense> */}
-         <CommentsList comments={comments} isLoading={commentsIsLoading} />
-      </VStack>
-   );
-})
+        return (
+            <VStack gap={'8'} max className={classNames('', {}, [className])}>
+                <Text title={t('Комментарии к статье')} size={TextSize.L} />
+                {/* <Suspense fallback="Идет загрузка"> */}
+                <AddNewCommentForm onSendComment={onSendComment} />
+                {/* </Suspense> */}
+                <CommentsList
+                    comments={comments}
+                    isLoading={commentsIsLoading}
+                />
+            </VStack>
+        );
+    },
+);

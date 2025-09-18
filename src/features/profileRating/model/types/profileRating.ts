@@ -3,10 +3,6 @@
 // }
 
 export interface ProfileRatingSchema {
-
     isLoading: boolean;
     error?: string;
-
 }
-
-

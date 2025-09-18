@@ -8,34 +8,30 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { typedMemo } from '@/shared/const/memo';
 
 interface NotificationItemProps {
-   className?: string;
-   item: Notification
+    className?: string;
+    item: Notification;
 }
 
-
 export const NotificationItem = typedMemo((props: NotificationItemProps) => {
-   const { className, item } = props;
-   const { t } = useTranslation()
+    const { className, item } = props;
+    const { t } = useTranslation();
 
-   const content = (
+    const content = (
+        <Card
+            className={classNames(cls.notificationItem, {}, [className])}
+            theme={CardTheme.OUTLINED}
+        >
+            <Text title={item.title} text={item.description} />
+        </Card>
+    );
 
-      <Card
-         className={classNames(cls.notificationItem, {}, [className])}
-         theme={CardTheme.OUTLINED}
-      >
-         <Text title={ item.title} text={item.description} />
+    if (item.href) {
+        return (
+            <AppLink to={item.href} target={'_blank'} className={cls.link}>
+                {content}
+            </AppLink>
+        );
+    }
 
-      </Card>
-   )
-
-   if (item.href) {
-      return (
-         <AppLink to={item.href} target={"_blank"} className={cls.link}>
-            {content }
-         </AppLink>
-
-)
-   }
-
-   return content
-})
+    return content;
+});

@@ -1,95 +1,93 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from "@/shared/const/theme";
+import { Theme } from '@/shared/const/theme';
 import { ListBox, ListBoxItem } from './ListBox';
 
 export default {
-   title: 'shared/ListBox',
-   component: ListBox,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-   decorators: [
-      // Story => <div style={{ padding: 200 }}><Story /></div>
-      (Story) => <div style={{ padding: 200 }}><Story /></div>
-   ]
+    title: 'shared/ListBox',
+    component: ListBox,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [
+        // Story => <div style={{ padding: 200 }}><Story /></div>
+        (Story) => (
+            <div style={{ padding: 200 }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as Meta<typeof ListBox>;
 
 const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
 
 const items: ListBoxItem[] = [
-   { value: 'RUB', content: "RUB", disabled: false },
-   { value: 'EUR', content: 'EUR', disabled: false },
-   { value: 'USD', content: 'USD', disabled: false },
-
-]
+    { value: 'RUB', content: 'RUB', disabled: false },
+    { value: 'EUR', content: 'EUR', disabled: false },
+    { value: 'USD', content: 'USD', disabled: false },
+];
 
 export const Normal = Template.bind({});
 Normal.args = {
-   items:items,
-   defaultValue: "Валюта"
+    items: items,
+    defaultValue: 'Валюта',
 };
-
 
 export const Dark = Template.bind({});
 Dark.args = {
-   items: items,
-   defaultValue: "Валюта"
+    items: items,
+    defaultValue: 'Валюта',
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = {
-   items: items,
-   defaultValue: "Валюта"
+    items: items,
+    defaultValue: 'Валюта',
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)]
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const DirectionTopRight = Template.bind({});
 DirectionTopRight.args = {
-   items: items,
-   defaultValue: "Валюта",
+    items: items,
+    defaultValue: 'Валюта',
 
-   direction: "top-right",
+    direction: 'top-right',
 };
 
 export const DirectionTopLeft = Template.bind({});
 DirectionTopLeft.args = {
-   items: items,
-   defaultValue: "Валюта",
+    items: items,
+    defaultValue: 'Валюта',
 
-   direction: "top-left",
+    direction: 'top-left',
 };
 
 export const DirectionBottomLeft = Template.bind({});
 DirectionBottomLeft.args = {
-   items: items,
-   defaultValue: "Валюта",
-   direction: "bottom-left",
+    items: items,
+    defaultValue: 'Валюта',
+    direction: 'bottom-left',
 };
 
 export const DirectionBottomRight = Template.bind({});
 DirectionBottomRight.args = {
-   items: items,
-   defaultValue: "Валюта",
-   direction: "bottom-right",
+    items: items,
+    defaultValue: 'Валюта',
+    direction: 'bottom-right',
 };
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-   items: items,
-   defaultValue: "Валюта",
-   label: "Укажите валюту",
-
+    items: items,
+    defaultValue: 'Валюта',
+    label: 'Укажите валюту',
 };
 
 export const Readonly = Template.bind({});
 Readonly.args = {
-   items: items,
-   defaultValue: "Валюта",
-   readonly: true,
-
+    items: items,
+    defaultValue: 'Валюта',
+    readonly: true,
 };
-
-

@@ -1,13 +1,10 @@
 // import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // import { profileRating, profileRatingSchema } from "../types/profileRating";
 
-
 // const initialState: profileRatingSchema = {
 export const initialState = {
-
     isLoading: false,
     error: undefined,
-
 };
 
 // export const profileRatingSlice = createSlice({

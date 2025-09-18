@@ -1,73 +1,72 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from '@storybook/react';
 // eslint-disable-next-line juliaz/layer-imports
-import "@/app/styles/index.scss";
-import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import { Theme } from "@/shared/const/theme";
-import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import { Currency } from "@/entities/Currency";
-import { Country } from "@/entities/Country";
+import '@/app/styles/index.scss';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 // import avatar from "shared/assets/tests/example.png";
-import ProfilePage from "./ProfilePage";
-import { Profile } from "@/entities/Profile";
+import ProfilePage from './ProfilePage';
+import { Profile } from '@/entities/Profile';
 const avatar =
-  "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg";
+    'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg';
 
 export default {
-  title: "pages/ProfilePage",
-  component: ProfilePage,
+    title: 'pages/ProfilePage',
+    component: ProfilePage,
 
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as Meta<typeof ProfilePage>;
 
 // const Template: ComponentStory<typeof AboutPage> = (args) => (
 const Template: StoryFn<typeof ProfilePage> = (args: object) => (
-  <ProfilePage {...args} />
+    <ProfilePage {...args} />
 );
 
 const profile: Profile = {
-  first: "Юлия",
-        lastname: "Зай",
-        age: 33,
-        currency: Currency.EUR,
-        country: Country.RUSSIA,
-        city: "Moscow",
-        username: "admin",
-        avatar: avatar,
-}
+    first: 'Юлия',
+    lastname: 'Зай',
+    age: 33,
+    currency: Currency.EUR,
+    country: Country.RUSSIA,
+    city: 'Moscow',
+    username: 'admin',
+    avatar: avatar,
+};
 
 export const Normal = Template.bind({});
 
 Normal.args = {};
 Normal.decorators = [
-  StoreDecorator({
-    profile: {
-      formData: profile,
-    },
-  }),
+    StoreDecorator({
+        profile: {
+            formData: profile,
+        },
+    }),
 ];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 
 Dark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({
-    profile: {
-      formData: profile,
-    },
-  }),
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        profile: {
+            formData: profile,
+        },
+    }),
 ];
 export const Orange = Template.bind({});
 Orange.args = {};
 
 Orange.decorators = [
-  ThemeDecorator(Theme.ORANGE),
-  StoreDecorator({
-    profile: {
-      formData: profile,
-    },
-  }),
+    ThemeDecorator(Theme.ORANGE),
+    StoreDecorator({
+        profile: {
+            formData: profile,
+        },
+    }),
 ];
-

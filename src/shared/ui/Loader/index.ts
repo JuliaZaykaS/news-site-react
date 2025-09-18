@@ -1,2 +1,2 @@
-import { Loader } from "./ui/Loader";
+import { Loader } from './ui/Loader';
 export { Loader };
