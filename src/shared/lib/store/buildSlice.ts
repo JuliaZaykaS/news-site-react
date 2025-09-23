@@ -1,4 +1,5 @@
 import {
+    ActionCreatorsMapObject,
     CreateSliceOptions,
     SliceCaseReducers,
     bindActionCreators,
@@ -16,9 +17,11 @@ export function buildSlice<
     const slice = createSlice(options);
     const useActions = (): typeof slice.actions => {
         const dispatch = useDispatch();
-        // @ts-ignore
+
         return useMemo(
-            () => bindActionCreators(slice.actions, dispatch),
+            () => bindActionCreators(
+                slice.actions as ActionCreatorsMapObject,
+                dispatch) as typeof slice.actions,
             [dispatch],
         );
     };
