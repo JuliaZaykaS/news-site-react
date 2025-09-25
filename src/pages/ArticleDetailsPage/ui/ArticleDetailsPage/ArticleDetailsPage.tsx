@@ -65,8 +65,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap={'16'} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails articleId={id} />
-                    {counter}
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {/* {counter}
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />} */}
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments articleId={id} />
                 </VStack>
