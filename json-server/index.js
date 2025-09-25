@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
 const https = require('https');
+const http = require('http');
 
 const options = {
     key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
@@ -29,6 +31,7 @@ server.post('/login', (req, res) => {
         const db = JSON.parse(
             fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
         );
+
         const { users = [] } = db;
 
         const userFromBd = users.find(
@@ -63,7 +66,7 @@ const HTTPS_PORT = 8443; // для https
 const HTTP_PORT = 8000; // для http
 
 const httpsServer = https.createServer(options, server);
-const httpServer = https.createServer(server);
+const httpServer = http.createServer(server);
 httpsServer.listen(HTTPS_PORT, () => {
     console.log(`server is running on ${HTTPS_PORT} port`);
 });

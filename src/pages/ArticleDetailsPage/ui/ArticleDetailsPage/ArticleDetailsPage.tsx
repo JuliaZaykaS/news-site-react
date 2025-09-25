@@ -18,6 +18,9 @@ import { ArticleRecommendationsList } from '@/features/articleRecommendationsLis
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 import { typedMemo } from '@/shared/const/memo';
+import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
+import { ReactNode } from 'react';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -33,6 +36,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+
+    const counter = toggleFeatures<ReactNode>({
+        name: 'isCounterEnabled',
+        on: () => <div>CounterRedesigned</div>,
+        off: () => <Counter />,
+    });
 
     // if (!id) {
     //   return (
@@ -54,7 +65,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap={'16'} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails articleId={id} />
-                    <ArticleRating articleId={id} />
+                    {counter}
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments articleId={id} />
                 </VStack>
