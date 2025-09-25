@@ -36,14 +36,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+    // const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    // const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
-    const counter = toggleFeatures<ReactNode>({
-        name: 'isCounterEnabled',
-        on: () => <div>CounterRedesigned</div>,
-        off: () => <Counter />,
-    });
+    // const counter = toggleFeatures<ReactNode>({
+    //     name: 'isCounterEnabled',
+    //     on: () => <div>CounterRedesigned</div>,
+    //     off: () => <Counter />,
+    // });
 
     // if (!id) {
     //   return (
