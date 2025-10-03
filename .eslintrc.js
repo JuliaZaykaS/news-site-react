@@ -82,6 +82,7 @@ module.exports = {
                     'tag',
                     'as',
                     'border',
+                    'feature'
                 ],
             },
         ],
@@ -93,7 +94,7 @@ module.exports = {
             },
         ],
         'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
-        // "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
+        "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
         // "eslint-plugin-juliaz/path-checker":"error",// неверные пути внутри модуля
         'react/jsx-max-props-per-line': ['error', { maximum: 3 }], // сколько атрибутов в jsx на 1 строке без переносов
 

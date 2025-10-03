@@ -18,9 +18,10 @@ import { ArticleRecommendationsList } from '@/features/articleRecommendationsLis
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 import { typedMemo } from '@/shared/const/memo';
-import { getFeatureFlag, toggleFeatures } from '@/shared/lib/features';
+import { getFeatureFlag, ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Counter } from '@/entities/Counter';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -67,7 +68,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetails articleId={id} />
                     {/* {counter}
                     {isArticleRatingEnabled && <ArticleRating articleId={id} />} */}
-                    <ArticleRating articleId={id} />
+                    <ToggleFeatures
+                        feature={'isArticleRatingEnabled'}
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Оценка статей скоро появится')}</Card>}
+                    />
+                    {/* <ArticleRating articleId={id} /> */}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments articleId={id} />
                 </VStack>

@@ -13,22 +13,28 @@ import { Navbar } from '@/widgets/Navbar';
 // import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
 // import { Modal } from "@/shared/ui/Modal";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
-import { getUserInited, userActions } from '@/entities/User';
+import { getUserInited, initAuthData } from '@/entities/User';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from './providers/router';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from '@/widgets/PageLoader';
+
 // import { useTranslation } from "react-i18next";
 
 export const App = () => {
     const { theme } = useTheme();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const inited = useSelector(getUserInited);
+
+
     useEffect(() => {
-        dispatch(userActions.initAuthData());
+        // dispatch(userActions.initAuthData());
+        dispatch(initAuthData());
     }, [dispatch]);
 
     // const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +52,10 @@ export const App = () => {
     //       throw new Error();
     //     }
     //   }, []);
+
+    if (!inited) {
+        return <PageLoader />
+    }
 
     return (
         <div className={classNames('app', {}, [theme])}>
