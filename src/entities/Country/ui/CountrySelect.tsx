@@ -4,7 +4,7 @@
 import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
 import { Country } from '../model/consts/country';
-import { ListBox } from '@/shared/ui/Popups';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 import { typedMemo } from '@/shared/const/memo';
 
 interface CountrySelectProps {

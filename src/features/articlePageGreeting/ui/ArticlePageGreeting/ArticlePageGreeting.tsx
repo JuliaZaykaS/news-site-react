@@ -2,12 +2,12 @@
 import { useTranslation } from 'react-i18next';
 
 import { useEffect, useState } from 'react';
-import { Modal } from '@/shared/ui/Modal';
+import { Modal } from '@/shared/ui/deprecated/Modal';
 import { typedMemo } from '@/shared/const/memo';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { isMobile } from 'react-device-detect'
 
 const ArticlePageGreeting = typedMemo(() => {

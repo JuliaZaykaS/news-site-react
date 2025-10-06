@@ -8,7 +8,7 @@ import { Currency } from '@/entities/Currency';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 
 import { ProfileCard } from '@/entities/Profile';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -28,7 +28,7 @@ import {
     DynamicModuleLoader,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { typedMemo } from '@/shared/const/memo';
 
 interface EditableProfileCardProps {

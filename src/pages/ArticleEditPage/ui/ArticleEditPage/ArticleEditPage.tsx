@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleEditPage.module.scss';
 import { Page } from '@/widgets/Page';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useParams } from 'react-router-dom';
 import { typedMemo } from '@/shared/const/memo';
 

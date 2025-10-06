@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { typedMemo } from '@/shared/const/memo';
 
 interface ArticleInfiniteListProps {

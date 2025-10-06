@@ -4,8 +4,8 @@ import cls from './ArticleViewSelector.module.scss';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import { ArticleViewType } from '@/entities/Article';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import { typedMemo } from '@/shared/const/memo';
 
 interface ArticleViewSelectorProps {

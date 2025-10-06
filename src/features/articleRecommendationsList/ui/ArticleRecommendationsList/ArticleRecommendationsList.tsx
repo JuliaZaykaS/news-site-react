@@ -2,9 +2,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 import { ArticlesList } from '@/entities/Article';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { useArticleRecommendationsList } from '../../api/articleReccomendationsApi';
 import { typedMemo } from '@/shared/const/memo';
 

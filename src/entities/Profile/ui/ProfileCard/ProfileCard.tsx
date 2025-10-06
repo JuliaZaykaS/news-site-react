@@ -6,17 +6,17 @@ import cls from './ProfileCard.module.scss';
 // import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useTranslation } from 'react-i18next';
 // import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
-import { Input } from '@/shared/ui/Input';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Profile } from '../../model/types/profile';
-import { Loader } from '@/shared/ui/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
-import { Avatar } from '@/shared/ui/Avatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 
 // import { useMemo } from "react";
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 
 interface ProfileCardProps {
     className?: string;

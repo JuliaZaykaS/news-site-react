@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleTextBlockComponent.module.scss';
 import { ArticleDetailsTextBlock } from '../../model/types/article';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { typedMemo } from '@/shared/const/memo';
 
 interface ArticleTextBlockComponentProps {

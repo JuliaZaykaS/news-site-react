@@ -71,7 +71,7 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: [
-                    'data-testId',
+                    // 'data-testId',
                     'data-testid',
                     'to',
                     'target',
@@ -82,7 +82,9 @@ module.exports = {
                     'tag',
                     'as',
                     'border',
-                    'feature'
+                    'feature',
+                    'color',
+                    'variant'
                 ],
             },
         ],

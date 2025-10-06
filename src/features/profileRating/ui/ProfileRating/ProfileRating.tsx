@@ -6,7 +6,7 @@ import {
     useAddArticleRating,
     useGetArticleRating,
 } from '../../api/profileRatingApi';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { RatingCard } from '@/entities/Rating';
 import { typedMemo } from '@/shared/const/memo';
 

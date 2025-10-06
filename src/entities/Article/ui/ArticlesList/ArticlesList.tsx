@@ -5,8 +5,8 @@ import cls from './ArticlesList.module.scss';
 import { Article } from '../../model/types/article';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
-import { Text } from '@/shared/ui/Text';
-import { TextSize } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleViewType } from '../../model/consts/articleConsts';
 import { typedMemo } from '@/shared/const/memo';
 
@@ -76,7 +76,7 @@ export const ArticlesList = typedMemo((props: ArticlesListProps) => {
     return (
         <div
             className={classNames(cls.articlesList, {}, [className, cls[view]])}
-            // data-testId={'ArticlesList'}
+        // data-testId={'ArticlesList'}
         >
             {articles.length > 0 ? articles.map(renderArticles) : null}
             {isLoading && getSkeletons(view)}

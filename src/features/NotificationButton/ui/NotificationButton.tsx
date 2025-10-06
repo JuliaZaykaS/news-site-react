@@ -3,13 +3,13 @@ import { useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationButton.module.scss';
 
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import NotificationIcon from '@/shared/assets/icons/bell.svg';
-import { Popover } from '@/shared/ui/Popups';
+import { Popover } from '@/shared/ui/deprecated/Popups';
 import { NotificationsList } from '@/entities/Notification';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { typedMemo } from '@/shared/const/memo';
 
 interface NotificationButtonProps {

@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AddNewCommentForm.module.scss';
-import { Input } from '@/shared/ui/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useSelector } from 'react-redux';
 import {
     // getNewCommentFormError,
@@ -18,7 +18,7 @@ import {
     DynamicModuleLoader,
     ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { typedMemo } from '@/shared/const/memo';
 
 interface AddNewCommentFormProps {

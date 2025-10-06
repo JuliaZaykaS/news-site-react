@@ -19,16 +19,16 @@ import {
     getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails';
 
-import { Text, TextAlign } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Icon } from '@/shared/ui/Icon';
-import { TextSize } from '@/shared/ui/Text';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleDetailsBlockType } from '../../model/consts/articleConsts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleDetailsBlock } from '../../model/types/article';
 import { typedMemo } from '@/shared/const/memo';
 

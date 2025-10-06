@@ -7,7 +7,7 @@ import { Page } from '@/widgets/Page';
 
 import { EditableProfileCard } from '@/features/editableProfileCard';
 
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ProfileRating } from '@/features/profileRating';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';

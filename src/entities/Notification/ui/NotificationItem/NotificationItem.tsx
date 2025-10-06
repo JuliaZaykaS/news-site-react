@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/Notification';
-import { Card, CardTheme } from '@/shared/ui/Card';
-import { Text } from '@/shared/ui/Text';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Card, CardTheme } from '@/shared/ui/deprecated/Card';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { typedMemo } from '@/shared/const/memo';
 
 interface NotificationItemProps {
