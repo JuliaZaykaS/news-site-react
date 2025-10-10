@@ -4,8 +4,10 @@
 import { useTranslation } from 'react-i18next';
 import { useCallback, useMemo } from 'react';
 import { Currency } from '../model/consts/currency';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CurrencySelectProps {
     className?: string;
@@ -35,23 +37,30 @@ export const CurrencySelect = typedMemo((props: CurrencySelectProps) => {
     );
 
     return (
-        // <Select
-        //   className={classNames("", {}, [className])}
-        //   label={t("Валюта")}
-        //   options={currencyOptions}
-        //   value={value}
-        //   onChange={onChangeSelect}
-        //   readonly={readonly}
-        // />
-        <ListBox
-            className={className}
-            items={currencyOptions}
-            value={value}
-            defaultValue={t('Укажите валюту')}
-            label={t('Валюта')}
-            onChange={onChangeSelect}
-            readonly={readonly}
-            direction="top-right"
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<ListBox
+                className={className}
+                items={currencyOptions}
+                value={value}
+                defaultValue={t('Укажите валюту')}
+                label={t('Валюта')}
+                onChange={onChangeSelect}
+                readonly={readonly}
+                direction="top-right"
+            />}
+            off={<ListBoxDeprecated
+                className={className}
+                items={currencyOptions}
+                value={value}
+                defaultValue={t('Укажите валюту')}
+                label={t('Валюта')}
+                onChange={onChangeSelect}
+                readonly={readonly}
+                direction="top-right"
+            />}
         />
+
+
     );
 });

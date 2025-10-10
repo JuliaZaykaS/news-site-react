@@ -28,7 +28,7 @@ import {
     DynamicModuleLoader,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { typedMemo } from '@/shared/const/memo';
 
 interface EditableProfileCardProps {

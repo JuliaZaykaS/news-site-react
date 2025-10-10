@@ -5,7 +5,7 @@ import cls from './ListBox.module.scss';
 
 import { Listbox as HListbox } from '@headlessui/react';
 import { Button } from '../../../Button/ui/Button';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 import { DropdownDirection } from '@/shared/types/ui';
 import popupCls from '../../styles/popup.module.scss';
 

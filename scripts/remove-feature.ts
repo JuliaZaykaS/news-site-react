@@ -118,11 +118,11 @@ files.forEach((sourceFile) => {
     sourceFile.forEachDescendant(node => {
         // ищем ноду с вызовом функции и находим нужную
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            replaceToggleFunction(node)
+            return replaceToggleFunction(node)
         }
         // ищем ноду, которая является jsx-элементом
         if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
-            replaceComponent(node);
+            return replaceComponent(node);
         }
     })
 });

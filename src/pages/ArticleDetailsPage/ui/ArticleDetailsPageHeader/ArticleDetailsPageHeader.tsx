@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { getCanEditArticle } from '../../model/selectors/article';
 // import { getUserAuthData } from "entities/User";
 import { getArticleDetailsData } from '@/entities/Article';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
 

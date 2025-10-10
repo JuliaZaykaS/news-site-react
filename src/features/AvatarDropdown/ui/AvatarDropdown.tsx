@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AvatarDropdown.module.scss';
 
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getUserAuthData,
@@ -15,6 +15,9 @@ import {
 import { useSelector } from 'react-redux';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -35,10 +38,10 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
         // setIsAuthModal(false);
     }, [dispatch]);
 
-    const isAdminPanelAvaliable = isAdmin || isManager;
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     const navbarItems = [
-        ...(isAdminPanelAvaliable
+        ...(isAdminPanelAvailable
             ? [
                 {
                     content: t('Админка'),
@@ -61,19 +64,36 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
     }
 
     return (
-        <Dropdown
-            className={classNames(cls.avatarDropdown, {}, [className])}
-            items={navbarItems}
-            trigger={
-                <Avatar
-                    src={authData.avatar || ''}
-                    alt={authData.username}
-                    size={30}
-                    fallbackInverted
-                />
-            }
-            // className={cls.dropdown}
-            direction={'bottom-left'}
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<Dropdown
+                className={classNames(cls.avatarDropdown, {}, [className])}
+                items={navbarItems}
+                trigger={
+                    <Avatar
+                        src={authData.avatar || ''}
+                        alt={authData.username}
+                        size={40}
+                    />
+                }
+                // className={cls.dropdown}
+                direction={'bottom-left'}
+            />}
+            off={<DropdownDeprecated
+                className={classNames(cls.avatarDropdown, {}, [className])}
+                items={navbarItems}
+                trigger={
+                    <AvatarDeprecated
+                        src={authData.avatar || ''}
+                        alt={authData.username}
+                        size={30}
+                        fallbackInverted
+                    />
+                }
+                // className={cls.dropdown}
+                direction={'bottom-left'}
+            />}
         />
+
     );
 });

@@ -1,10 +1,13 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
 
 import cls from './ArticlesListItem.module.scss';
 import { ArticleViewType } from '../../model/consts/articleConsts';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { typedMemo } from '@/shared/const/memo';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ArticleListItemSkeletonProps {
     className?: string;
@@ -15,10 +18,29 @@ export const ArticleListItemSkeleton = typedMemo(
     (props: ArticleListItemSkeletonProps) => {
         const { className, view } = props;
 
+        const Skeleton = toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => SkeletonRedesigned,
+            off: () => SkeletonDeprecated
+        })
+        const Card = toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => CardRedesigned,
+            off: () => CardDeprecated
+        })
+
+        const mainClass = toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cls.articlesListItemRedesigned,
+            off: () => cls.articlesListItem,
+        });
+
         if (view === ArticleViewType.LIST) {
             return (
                 <div
-                    className={classNames(cls.articlesListItem, {}, [
+                    className={classNames(
+                        mainClass,
+                        {}, [
                         className,
                         cls[view],
                     ])}
@@ -53,7 +75,7 @@ export const ArticleListItemSkeleton = typedMemo(
 
         return (
             <div
-                className={classNames(cls.articlesListItem, {}, [
+                className={classNames(mainClass, {}, [
                     className,
                     cls[view],
                 ])}

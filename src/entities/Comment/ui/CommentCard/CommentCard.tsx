@@ -8,7 +8,7 @@ import { Text } from '@/shared/ui/deprecated/Text';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { getRouteProfile } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
 

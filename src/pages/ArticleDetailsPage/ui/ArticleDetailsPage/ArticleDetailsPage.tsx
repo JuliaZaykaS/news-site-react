@@ -13,7 +13,7 @@ import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 // import { articleDetailsPageReducer } from "pages/ArticleDetailsPage/model/slices";
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';

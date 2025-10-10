@@ -1,0 +1,76 @@
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './Text.module.scss';
+import { typedMemo } from '@/shared/const/memo';
+
+export type TextVariant = 'primary' | 'error' | 'accent';
+
+export type TextAlign = 'right' | 'left' | 'center';
+
+export type TextSize = 's' | 'm' | 'l';
+
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';
+
+const mapSizeToClass: Record<TextSize, string> = {
+    s: 'size_s',
+    m: 'size_m',
+    l: 'size_l',
+};
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+    s: 'h3',
+    m: 'h2',
+    l: 'h1',
+};
+
+interface TextProps {
+    className?: string;
+    title?: string;
+    text?: string;
+    variant?: TextVariant;
+    align?: TextAlign;
+    size?: TextSize;
+    bold?: boolean;
+
+    'data-testid'?: string;
+}
+
+export const Text = typedMemo((props: TextProps) => {
+    const {
+        className,
+        title,
+        text,
+        variant = 'primary',
+        align = 'left',
+        size = "m",
+        'data-testid': dataTestId = 'Text',
+        bold,
+    } = props;
+
+    const HeaderTag = mapSizeToHeaderTag[size];
+    const sizeClass = mapSizeToClass[size];
+
+    const additionalClasses = [className, cls[variant], cls[align], sizeClass];
+
+    return (
+        <div
+            className={classNames(cls.text, { [cls.bold]: bold }, additionalClasses)}
+        >
+            {title && (
+                <HeaderTag
+                    className={cls.title}
+                    data-testid={`${dataTestId}.Header`}
+                >
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <p
+                    className={cls.textContent}
+                    data-testid={`${dataTestId}.Paragraph`}
+                >
+                    {text}
+                </p>
+            )}
+        </div>
+    );
+});

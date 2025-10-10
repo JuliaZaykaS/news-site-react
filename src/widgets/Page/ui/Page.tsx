@@ -32,7 +32,11 @@ export const Page = (props: PageProps) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     useInfiniteScroll({
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef
+        }),
         triggerRef,
         callback: onScrollEnd,
     });

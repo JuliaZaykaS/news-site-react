@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { ArticleDetailsType } from '@/entities/Article';
-import { TabItem, Tabs } from '@/shared/ui/deprecated/Tabs';
+import { TabItem, Tabs as TabsDeprecated } from '@/shared/ui/deprecated/Tabs';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 
 interface ArticleTypeTabsProps {
     className?: string;
@@ -19,16 +21,16 @@ export const ArticleTypeTabs = typedMemo((props: ArticleTypeTabsProps) => {
     const typeTabs = useMemo<TabItem[]>(
         () => [
             {
-                value: ArticleDetailsType.ECONOMICS,
-                content: t('Экономика'),
-            },
-            {
                 value: ArticleDetailsType.ALL,
                 content: t('Все'),
             },
             {
                 value: ArticleDetailsType.IT,
                 content: t('Айти'),
+            },
+            {
+                value: ArticleDetailsType.ECONOMICS,
+                content: t('Экономика'),
             },
             {
                 value: ArticleDetailsType.SCIENCE,
@@ -46,11 +48,21 @@ export const ArticleTypeTabs = typedMemo((props: ArticleTypeTabsProps) => {
     );
 
     return (
-        <Tabs
-            className={classNames('', {}, [className])}
-            tabs={typeTabs}
-            value={value}
-            onTabClick={onChangeType}
-        ></Tabs>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<Tabs
+                className={classNames('', {}, [className])}
+                tabs={typeTabs}
+                value={value}
+                onTabClick={onChangeType}
+                direction='column'
+            ></Tabs>}
+            off={<TabsDeprecated
+                className={classNames('', {}, [className])}
+                tabs={typeTabs}
+                value={value}
+                onTabClick={onChangeType}
+            ></TabsDeprecated>} />
+
     );
 });

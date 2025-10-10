@@ -1,5 +1,5 @@
 import cls from './AppLogo.module.scss';
-import { HStack } from '../../deprecated/Stack';
+import { HStack } from '../Stack';
 import AppSvg from '@/shared/assets/icons/app-image.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/const/memo';
@@ -16,13 +16,13 @@ export const AppLogo = typedMemo(({ className, size = 50 }: AppLogoProps) => {
             justify="center"
             className={classNames(cls.appLogoWrapper, {}, [className])}
         >
-            <div className={cls.gradientBig} />
-            <div className={cls.gradientSmall} />
             <AppSvg
                 className={cls.appLogo}
                 width={size}
                 height={size}
                 color={'black'} />
+            <div className={cls.gradientBig} />
+            <div className={cls.gradientSmall} />
         </HStack>
     );
 });

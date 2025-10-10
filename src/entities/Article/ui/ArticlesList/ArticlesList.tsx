@@ -9,6 +9,8 @@ import { Text } from '@/shared/ui/deprecated/Text';
 import { TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleViewType } from '../../model/consts/articleConsts';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticlesListProps {
     className?: string;
@@ -74,12 +76,24 @@ export const ArticlesList = typedMemo((props: ArticlesListProps) => {
     }
 
     return (
-        <div
-            className={classNames(cls.articlesList, {}, [className, cls[view]])}
-        // data-testId={'ArticlesList'}
-        >
-            {articles.length > 0 ? articles.map(renderArticles) : null}
-            {isLoading && getSkeletons(view)}
-        </div>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<HStack
+                gap='16'
+                wrap='wrap'
+                className={classNames(cls.articlesListRedesigned, {}, [className, cls[view]])}
+            // data-testId={'ArticlesList'}
+            >
+                {articles.length > 0 ? articles.map(renderArticles) : null}
+                {isLoading && getSkeletons(view)}
+            </HStack>}
+            off={<div
+                className={classNames(cls.articlesList, {}, [className, cls[view]])}
+            // data-testId={'ArticlesList'}
+            >
+                {articles.length > 0 ? articles.map(renderArticles) : null}
+                {isLoading && getSkeletons(view)}
+            </div>} />
+
     );
 });

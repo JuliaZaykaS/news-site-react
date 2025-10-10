@@ -8,10 +8,13 @@ import { Text } from '@/shared/ui/deprecated/Text';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
-import { isMobile } from 'react-device-detect'
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+// import { isMobile } from 'react-device-detect'
 
 const ArticlePageGreeting = typedMemo(() => {
     const { t } = useTranslation();
+
+    const isMobile = useDevice();
 
     const [isOpen, setIsOpen] = useState(false);
     const { isArticlesPageWasOpened } = useJsonSettings();

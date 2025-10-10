@@ -7,7 +7,7 @@ import {
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'outline';
+export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -19,6 +19,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean; // кнопка активна или нет
     children?: ReactNode;
     fullWidth?: boolean; // на всю ширину или нет
+    addonLeft?: ReactNode; // иконка слева
+    addonRight?: ReactNode; // иконка справа
 }
 
 // eslint-disable-next-line react/display-name
@@ -34,6 +36,8 @@ export const Button = forwardRef(
             size = 'm',
             disabled,
             fullWidth,
+            addonLeft,
+            addonRight,
             ...otherProps
         } = props;
 
@@ -41,6 +45,7 @@ export const Button = forwardRef(
             [cls.square]: square,
             [cls.disabled]: disabled,
             [cls.fullWidth]: fullWidth,
+            [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
         };
 
         return (
@@ -55,7 +60,9 @@ export const Button = forwardRef(
                 ref={ref}
                 {...otherProps}
             >
+                {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
                 {children}
+                {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
             </button>
         );
     },
