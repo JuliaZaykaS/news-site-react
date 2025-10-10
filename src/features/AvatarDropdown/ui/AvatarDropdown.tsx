@@ -13,7 +13,7 @@ import {
     userActions,
 } from '@/entities/User';
 import { useSelector } from 'react-redux';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile, getRouteSettings } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
@@ -49,6 +49,10 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
                 },
             ]
             : []),
+        {
+            content: t('Настройки'),
+            href: authData && getRouteSettings(),
+        },
         {
             content: t('Профиль'),
             href: authData && getRouteProfile(authData.id),
