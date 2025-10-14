@@ -62,7 +62,7 @@ export const App = () => {
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
-            on={<div className={classNames('app_redesigned', {}, [theme])}>
+            on={<div id={'app'} className={classNames('app_redesigned', {}, [theme])}>
                 <Suspense fallback={''}>
                     <MainLayout
                         header={<Navbar />}
@@ -73,7 +73,8 @@ export const App = () => {
 
                 </Suspense>
             </div>}
-            off={<div className={classNames('app', {}, [theme])}>
+            off={<div className={classNames('app', {}, [theme])}
+                id={'app'}>
                 <Suspense fallback={''}>
                     <Navbar />
                     {/* <button onClick={toggleModal}>toggle modal</button> */}

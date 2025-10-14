@@ -7,11 +7,13 @@ import { Page } from '@/widgets/Page';
 
 import { EditableProfileCard } from '@/features/editableProfileCard';
 
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ProfileRating } from '@/features/profileRating';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '@/entities/Profile';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ProfilePageProps {
     className?: string;
@@ -29,7 +31,11 @@ const ProfilePage = (props: ProfilePageProps) => {
     let profileRatingContent;
 
     if (!id) {
-        return <Text text={t('Профиль не найден')} />;
+        return <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<Text text={t('Профиль не найден')} />}
+            off={<TextDeprecated text={t('Профиль не найден')} />}
+        />;
     }
 
     if (userData?.id !== id && profileData) {

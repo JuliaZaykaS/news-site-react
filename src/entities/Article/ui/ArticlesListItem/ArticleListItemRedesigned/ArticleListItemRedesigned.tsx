@@ -23,7 +23,13 @@ export const ArticleListItemRedesigned = typedMemo((props: ArticlesListItemProps
 
    const userInfo = (
       <>
-         {article.user.avatar && <Avatar size={32} src={article.user.avatar} alt={article.user.username} />}
+         {article.user.avatar &&
+            <Avatar
+               size={32}
+               src={article.user.avatar}
+               alt={article.user.username}
+               className={cls.avatar}
+            />}
          <Text bold text={article.user.username} />
       </>
    );
@@ -120,9 +126,9 @@ export const ArticleListItemRedesigned = typedMemo((props: ArticlesListItemProps
             cls[view],
          ])}
       >
-         <Card className={cls.card} borderRadius="round">
+         <Card className={cls.card} borderRadius='partial' padding='0'>
             <AppImage
-               fallback={<Skeleton width={200} height={200} />}
+               fallback={<Skeleton width={'100%'} height={200} />}
                alt={article.title}
                src={article.img}
                className={cls.img}

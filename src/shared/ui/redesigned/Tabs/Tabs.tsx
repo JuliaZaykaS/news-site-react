@@ -2,7 +2,7 @@ import { ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Tabs.module.scss';
-import { Card, CardTheme } from '../Card/Card';
+import { Card } from '../Card/Card';
 import { typedMemo } from '@/shared/const/memo';
 import { Flex } from '../Stack';
 import { FlexDirection } from '../Stack/ui/Flex/Flex';
@@ -53,7 +53,7 @@ export const Tabs = typedMemo((props: TabsProps) => {
                         }
 
                         onClick={onClickTab(tab)}
-                        borderRadius='round'
+                        borderRadius='partial'
                     >
                         {tab.content}
                     </Card>

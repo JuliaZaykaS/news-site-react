@@ -8,7 +8,8 @@ import { Currency } from '@/entities/Currency';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { ProfileCard } from '@/entities/Profile';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -30,6 +31,7 @@ import {
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -134,12 +136,22 @@ export const EditableProfileCard = typedMemo(
 
         const validateErrorsMarkup = validateErrors?.map((error, index) => {
             return (
-                <Text
-                    theme={TextTheme.ERROR}
-                    text={validateErrorsTranslates[error]}
+                <ToggleFeatures
                     key={index}
-                    data-testid={'EditableProfileCard.Error'}
-                />
+                    feature={'isAppRedesigned'}
+                    on={<Text
+                        variant={'error'}
+                        text={validateErrorsTranslates[error]}
+                        key={index}
+                        data-testid={'EditableProfileCard.Error'}
+                    />}
+                    off={<TextDeprecated
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslates[error]}
+                        key={index}
+                        data-testid={'EditableProfileCard.Error'}
+                    />} />
+
             );
         });
 

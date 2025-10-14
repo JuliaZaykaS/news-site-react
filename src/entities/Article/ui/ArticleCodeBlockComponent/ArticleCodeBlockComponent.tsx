@@ -2,8 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCodeBlockComponent.module.scss';
 import { ArticleDetailsCodeBlock } from '../../model/types/article';
-import { Code } from '@/shared/ui/deprecated/Code';
+import { Code as CodeDeprecated } from '@/shared/ui/deprecated/Code';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Code } from '@/shared/ui/redesigned/Code';
 
 interface ArticleCodeBlockComponentProps {
     className?: string;
@@ -21,7 +23,12 @@ export const ArticleCodeBlockComponent = typedMemo(
                     className,
                 ])}
             >
-                <Code textCode={block?.code} />
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={<Code textCode={block?.code} />}
+                    off={<CodeDeprecated textCode={block?.code} />}
+                />
+
             </div>
         );
     },

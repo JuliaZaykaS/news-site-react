@@ -83,7 +83,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         return (
             <ToggleFeatures
                 feature={'isAppRedesigned'}
-                on={<Card max padding='24'>
+                on={<Card max padding='24' borderRadius='partial'>
                     <VStack gap='32'>
                         <HStack max justify='center'>
                             <Skeleton border={'100%'} width={128} height={128} />

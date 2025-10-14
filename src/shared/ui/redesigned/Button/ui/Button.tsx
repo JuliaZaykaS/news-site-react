@@ -8,6 +8,7 @@ import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -21,6 +22,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fullWidth?: boolean; // на всю ширину или нет
     addonLeft?: ReactNode; // иконка слева
     addonRight?: ReactNode; // иконка справа
+    color?: ButtonColor;
 }
 
 // eslint-disable-next-line react/display-name
@@ -38,6 +40,7 @@ export const Button = forwardRef(
             fullWidth,
             addonLeft,
             addonRight,
+            color = 'normal',
             ...otherProps
         } = props;
 
@@ -55,6 +58,7 @@ export const Button = forwardRef(
                     className,
                     cls[variant],
                     cls[size],
+                    cls[color],
                 ])}
                 disabled={disabled}
                 ref={ref}

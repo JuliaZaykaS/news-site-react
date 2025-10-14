@@ -28,6 +28,7 @@ const height = window.innerHeight - 100;
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
+
 const DrawerContent = typedMemo((props: DrawerProps) => {
     const { className, children, isOpen, onClose, lazy } = props;
     const { Spring, Gesture } = useAnimationLibs();
@@ -109,7 +110,7 @@ const DrawerContent = typedMemo((props: DrawerProps) => {
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(cls.drawer, mods, [
                     className,

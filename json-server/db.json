@@ -765,7 +765,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_orange_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -783,9 +783,10 @@
         "isCounterEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       }
     },
     {
@@ -908,6 +909,12 @@
       "rate": 4,
       "feedback": "chgfhhhhjghj",
       "id": "GBSSmBO"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "id": "w-tU2f_"
     }
   ],
   "profile-ratings": [

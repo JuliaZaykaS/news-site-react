@@ -2,8 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleTextBlockComponent.module.scss';
 import { ArticleDetailsTextBlock } from '../../model/types/article';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleTextBlockComponentProps {
     className?: string;
@@ -22,14 +24,27 @@ export const ArticleTextBlockComponent = typedMemo(
                 ])}
             >
                 {block.title && (
-                    <Text title={block.title} className={cls.title} />
+                    <ToggleFeatures
+                        feature={'isAppRedesigned'}
+                        on={<Text title={block.title} className={cls.title} />}
+                        off={<TextDeprecated title={block.title} className={cls.title} />} />
+
                 )}
                 {block.paragraphs.map((paragraph, index) => (
-                    <Text
-                        text={paragraph}
+                    <ToggleFeatures
                         key={index}
-                        className={cls.paragraph}
-                    />
+                        feature={'isAppRedesigned'}
+                        on={<Text
+                            text={paragraph}
+                            key={index}
+                            className={cls.paragraph}
+                        />}
+                        off={<TextDeprecated
+                            text={paragraph}
+                            key={index}
+                            className={cls.paragraph}
+                        />} />
+
                 ))}
             </div>
         );

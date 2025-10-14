@@ -33,7 +33,7 @@ export const ArticleDetailsPageHeader = typedMemo(
             if (article) {
                 navigate(getRouteArticleEdit(article.id));
             }
-        }, [article?.id, navigate]);
+        }, [article, navigate]);
 
         return (
             <HStack
