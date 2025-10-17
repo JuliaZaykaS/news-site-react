@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export type FlexJustify = 'center' | 'between' | 'start' | 'end';
 export type FlexAlign = 'start' | 'center' | 'end';
@@ -19,6 +19,7 @@ export interface FlexProps {
     max?: boolean;
     tag?: keyof HTMLElementTagNameMap;
     wrap?: FlexWrap;
+    style?: CSSProperties;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -75,6 +76,7 @@ export const Flex = (props: FlexProps) => {
         max,
         tag = 'div',
         wrap = 'nowrap',
+        style,
         ...otherProps
     } = props;
     const { t } = useTranslation();
@@ -95,7 +97,7 @@ export const Flex = (props: FlexProps) => {
     const Tag = mapTagType[tag];
 
     return (
-        <Tag className={classNames(cls.flex, mods, classes)} {...otherProps}>
+        <Tag className={classNames(cls.flex, mods, classes)} style={style} {...otherProps}>
             {children}
         </Tag>
     );

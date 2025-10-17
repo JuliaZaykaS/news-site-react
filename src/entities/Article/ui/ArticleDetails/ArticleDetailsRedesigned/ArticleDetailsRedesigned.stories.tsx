@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetailsRedesigned } from './ArticleDetailsRedesigned';
 
 export default {
@@ -7,9 +7,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof ArticleDetailsRedesigned>;
+} as Meta<typeof ArticleDetailsRedesigned>;
 
-const Template: ComponentStory<typeof ArticleDetailsRedesigned> = (args) => <ArticleDetailsRedesigned { ...args } />;
+const Template: StoryFn<typeof ArticleDetailsRedesigned> = (args) => <ArticleDetailsRedesigned {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

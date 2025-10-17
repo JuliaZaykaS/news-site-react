@@ -43,20 +43,30 @@ export const Dropdown = (props: DropdownProps) => {
             <Menu.Items className={classNames(cls.menu, {}, optionsClasses)}>
                 {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
-                        <Button
-                            className={classNames(
-                                cls.item,
-                                { [popupCls.active]: active },
-                                [],
-                            )}
-                            variant={'clear'}
-                            onClick={item.onClick}
-                            type={'button'}
+                        // <Button
+                        //     className={classNames(
+                        //         cls.item,
+                        //         { [popupCls.active]: active },
+                        //         [],
+                        //     )}
+                        //     variant={'clear'}
+                        //     onClick={item.onClick}
+                        //     type={'button'}
+                        //     disabled={item.disabled}
+                        //     key={`dropdown-key-${index}`}
+                        // >
+                        //     {item.content}
+                        // </Button>
+                        <button
+                            type="button"
                             disabled={item.disabled}
-                            key={`dropdown-key-${index}`}
+                            onClick={item.onClick}
+                            className={classNames(cls.item, {
+                                [popupCls.active]: active,
+                            }, [])}
                         >
                             {item.content}
-                        </Button>
+                        </button>
                     );
 
                     if (item.href) {

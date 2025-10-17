@@ -7,7 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Loader',
+    title: 'shared/deprecated/Loader',
     component: Loader,
 
     argTypes: {

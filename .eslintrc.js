@@ -104,7 +104,7 @@ module.exports = {
         'react/jsx-max-props-per-line': ['error', { maximum: 3 }], // сколько атрибутов в jsx на 1 строке без переносов
 
         'juliaz/path-checker': [2, { alias: '@' }], // неверные пути внутри модуля
-        'juliaz/path-checker': [2, { alias: '@' }], // неверные пути внутри модуля
+        // 'juliaz/path-checker': [2, { alias: '@' }], // неверные пути внутри модуля
         'juliaz/public-api-imports': [
             2,
             {

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticlesFilters } from './ArticlesFilters';
 
 export default {
@@ -7,9 +7,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof ArticlesFilters>;
+} as Meta<typeof ArticlesFilters>;
 
-const Template: ComponentStory<typeof ArticlesFilters> = (args) => <ArticlesFilters { ...args } />;
+const Template: StoryFn<typeof ArticlesFilters> = (args) => <ArticlesFilters {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

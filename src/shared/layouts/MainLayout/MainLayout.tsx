@@ -1,6 +1,6 @@
 import { typedMemo } from "@/shared/const/memo"
 import { classNames } from "@/shared/lib/classNames/classNames";
-import cls from './MainLayout.module.scss'
+import cls from './MainLayout.module.scss';
 import { ReactElement } from "react";
 
 interface MainLayoutProps {

@@ -765,10 +765,8 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
-        "isArticlesPageWasOpened": true
+        "isArticlesPageWasOpened": true,
+        "theme": "app_orange_theme"
       }
     },
     {

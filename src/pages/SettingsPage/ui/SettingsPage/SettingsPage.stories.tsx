@@ -1,7 +1,6 @@
-import React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { SettingsPage } from './SettingsPage';
+import SettingsPage from './SettingsPage';
 
 export default {
     title: 'pages/SettingsPage',

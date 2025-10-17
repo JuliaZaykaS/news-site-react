@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetailsDeprecated } from './ArticleDetailsDeprecated';
 
 export default {
@@ -7,9 +7,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof ArticleDetailsDeprecated>;
+} as Meta<typeof ArticleDetailsDeprecated>;
 
-const Template: ComponentStory<typeof ArticleDetailsDeprecated> = (args) => <ArticleDetailsDeprecated { ...args } />;
+const Template: StoryFn<typeof ArticleDetailsDeprecated> = (args) => <ArticleDetailsDeprecated { ...args } />;
 
 export const Normal = Template.bind({});
 Normal.args = {

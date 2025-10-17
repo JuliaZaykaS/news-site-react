@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Drawer } from './Drawer';
 
 export default {
-    title: 'shared/Drawer',
+    title: 'shared/deprecated/Drawer',
     component: Drawer,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -8,8 +8,8 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
 
 import { SidebarItem } from '../SidebarItem/SidebarItem';
-import { useSelector } from 'react-redux';
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+
+import { useSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { typedMemo } from '@/shared/const/memo';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -25,7 +25,8 @@ export const Sidebar = typedMemo((props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
     // const { t } = useTranslation();
-    const sidebarItemsList = useSelector(getSidebarItems);
+    // const sidebarItemsList = useSelector(getSidebarItems);
+    const sidebarItemsList = useSidebarItems();
 
     const onToggle = () => {
         console.log(collapsed);

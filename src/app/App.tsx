@@ -23,21 +23,31 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
+// import { ThemeProvider } from './providers/ThemeProvider';
+import { typedMemo } from '@/shared/const/memo';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
 // import { useTranslation } from "react-i18next";
 
-export const App = () => {
+// export const App = () => {
+const App = typedMemo(() => {
     const { theme } = useTheme();
 
     const dispatch = useAppDispatch();
 
     const inited = useSelector(getUserInited);
 
+    const toolbar = useAppToolbar()
+
 
     useEffect(() => {
         // dispatch(userActions.initAuthData());
-        dispatch(initAuthData());
-    }, [dispatch]);
+        if (!inited) {
+            dispatch(initAuthData());
+        }
+    }, [dispatch, inited]);
 
     // const [isOpen, setIsOpen] = useState(false);
 
@@ -56,7 +66,10 @@ export const App = () => {
     //   }, []);
 
     if (!inited) {
-        return <PageLoader />
+        return <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<div id={'app'} className={classNames('app_redesigned', {}, [theme])}><AppLoaderLayout /></div>}
+            off={<PageLoader />} />
     }
 
     return (
@@ -68,7 +81,7 @@ export const App = () => {
                         header={<Navbar />}
                         content={<AppRouter />}
                         sidebar={<Sidebar />}
-                        toolbar={<div>toolbar</div>}
+                        toolbar={toolbar}
                     />
 
                 </Suspense>
@@ -86,4 +99,7 @@ export const App = () => {
             </div>}
         />
     )
-};
+});
+
+// export default App;
+export default withTheme(App);

@@ -30,6 +30,7 @@ export const loginByUserName = createAsyncThunk<
         //     JSON.stringify(response.data),
         // );
 
+
         // записываем в стейт данные о пользователе
         dispatch(userActions.setAuthData(response.data));
         return response.data;

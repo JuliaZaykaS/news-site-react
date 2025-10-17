@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { CommentCard } from './CommentCard';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 export default {
     title: 'entities/Comment/CommentCard',
@@ -13,8 +14,7 @@ const Template: StoryFn<typeof CommentCard> = (args) => (
     <CommentCard {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {
+const normalArgs = {
     comment: {
         id: '1',
         text: 'Lorem ipsum dolor sit amet',
@@ -25,7 +25,15 @@ Normal.args = {
         },
     },
     isLoading: false,
-};
+}
+
+export const Normal = Template.bind({});
+Normal.args = normalArgs;
+
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = normalArgs;
+NormalRedesigned.decorators = [FeaturesFlagsDecorator({ isAppRedesigned: true })]
+
 
 export const Loading = Template.bind({});
 Loading.args = {

@@ -9,6 +9,7 @@ import { Country } from '@/entities/Country';
 import { ProfileCard } from './ProfileCard';
 import { Profile } from '../../model/types/profile';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 // import avatar from "shared/assets/tests/example.png";
 // const avatar = "static/media/src/shared/assets/tests/example.png";
 const avatar =
@@ -27,7 +28,6 @@ const Template: StoryFn<typeof ProfileCard> = (args) => (
     <ProfileCard {...args} />
 );
 
-export const Primary = Template.bind({});
 
 const profile: Profile = {
     first: 'Юлия',
@@ -40,9 +40,16 @@ const profile: Profile = {
     avatar: avatar,
 };
 
+export const Primary = Template.bind({});
 Primary.args = {
     data: profile,
 };
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = {
+    data: profile,
+};
+PrimaryRedesigned.decorators = [NewDesignDecorator]
 
 export const WithError = Template.bind({});
 WithError.args = {

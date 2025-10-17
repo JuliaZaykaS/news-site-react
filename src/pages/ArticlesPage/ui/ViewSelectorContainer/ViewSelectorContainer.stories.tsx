@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ViewSelectorContainer } from './ViewSelectorContainer';
 
 export default {
@@ -7,9 +7,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof ViewSelectorContainer>;
+} as Meta<typeof ViewSelectorContainer>;
 
-const Template: ComponentStory<typeof ViewSelectorContainer> = (args) => <ViewSelectorContainer { ...args } />;
+const Template: StoryFn<typeof ViewSelectorContainer> = (args) => <ViewSelectorContainer {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

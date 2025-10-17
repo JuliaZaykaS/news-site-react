@@ -71,7 +71,7 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
         <ToggleFeatures
             feature={'isAppRedesigned'}
             on={<Dropdown
-                className={classNames(cls.avatarDropdown, {}, [className])}
+                className={classNames('', {}, [className])}
                 items={navbarItems}
                 trigger={
                     <Avatar

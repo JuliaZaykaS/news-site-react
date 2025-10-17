@@ -25,6 +25,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 interface LoginFormProps {
     className?: string;
@@ -46,6 +47,8 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
     const password = useSelector(getLoginUserPassword);
     const error = useSelector(getLoginUserError);
     const isLoading = useSelector(getLoginUserIsLoading);
+
+    const forceUpdate = useForceUpdate();
 
     // const loginForm = useSelector(getLoginState);
     // const { userName, password, error, isLoading } = useSelector(getLoginState);
@@ -78,8 +81,9 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
         const result = await dispatch(loginByUserName({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
+            forceUpdate();
         }
-    }, [onSuccess, dispatch, password, username]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         <DynamicModuleLoader

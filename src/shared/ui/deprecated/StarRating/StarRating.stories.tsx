@@ -3,7 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { StarRating } from './StarRating';
 
 export default {
-    title: 'shared/StarRating',
+    title: 'shared/deprecated/StarRating',
     component: StarRating,
     argTypes: {
         backgroundColor: { control: 'color' },

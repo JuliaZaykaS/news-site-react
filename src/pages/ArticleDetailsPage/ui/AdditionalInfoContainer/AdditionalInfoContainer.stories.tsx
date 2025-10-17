@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { AdditionalInfoContainer } from './AdditionalInfoContainer';
 
 export default {
@@ -7,9 +7,9 @@ export default {
    argTypes: {
       backgroundColor: { control: 'color' },
    },
-} as ComponentMeta<typeof AdditionalInfoContainer>;
+} as Meta<typeof AdditionalInfoContainer>;
 
-const Template: ComponentStory<typeof AdditionalInfoContainer> = (args) => <AdditionalInfoContainer { ...args } />;
+const Template: StoryFn<typeof AdditionalInfoContainer> = (args) => <AdditionalInfoContainer {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
