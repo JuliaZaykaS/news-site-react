@@ -68,8 +68,18 @@ export default defineConfig(({ mode }) => {
             __VITE_TEST__: env.VITE_TEST === 'true' ? true : false,
         },
         server: {
-            host: '0.0.0.0', // слушать на всех интерфейсах
-            port: 5173,
+            // host: '0.0.0.0', // слушать на всех интерфейсах
+            // port: 5173,
+            proxy: {
+                '/images': {
+                    target: 'http://localhost:8000',
+                    changeOrigin: true,
+                },
+                // '/api': {
+                //     target: 'http://localhost:8000',
+                //     changeOrigin: true,
+                // },
+            },
         },
     };
 });

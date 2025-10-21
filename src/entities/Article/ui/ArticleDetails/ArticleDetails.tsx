@@ -24,7 +24,7 @@ export const ArticleDetails = typedMemo((props: ArticleDetailsProps) => {
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
-            on={<ArticleDetailsRedesigned />}
-            off={<ArticleDetailsDeprecated />} />
+            on={<ArticleDetailsRedesigned {...props} />}
+            off={<ArticleDetailsDeprecated {...props} />} />
     );
 });
