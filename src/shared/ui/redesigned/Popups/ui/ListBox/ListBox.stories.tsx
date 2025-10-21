@@ -1,17 +1,16 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 import { ListBox, ListBoxItem } from './ListBox';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/redesigned/ListBox',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        // Story => <div style={{ padding: 200 }}><Story /></div>
+        NewDesignDecorator,
         (Story) => (
             <div style={{ padding: 200 }}>
                 <Story />
@@ -22,7 +21,7 @@ export default {
 
 const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
 
-const items: ListBoxItem[] = [
+const items: ListBoxItem<string>[] = [
     { value: 'RUB', content: 'RUB', disabled: false },
     { value: 'EUR', content: 'EUR', disabled: false },
     { value: 'USD', content: 'USD', disabled: false },
@@ -34,25 +33,10 @@ Normal.args = {
     defaultValue: 'Валюта',
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-    items: items,
-    defaultValue: 'Валюта',
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Orange = Template.bind({});
-Orange.args = {
-    items: items,
-    defaultValue: 'Валюта',
-};
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
-
 export const DirectionTopRight = Template.bind({});
 DirectionTopRight.args = {
     items: items,
     defaultValue: 'Валюта',
-
     direction: 'top-right',
 };
 
@@ -60,7 +44,6 @@ export const DirectionTopLeft = Template.bind({});
 DirectionTopLeft.args = {
     items: items,
     defaultValue: 'Валюта',
-
     direction: 'top-left',
 };
 

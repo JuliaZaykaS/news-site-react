@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import ArticleEditPage from './ArticleEditPage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-// import { ArticleDetailsBlockType } from "entities/Article/model/types/article";
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'pages/ArticleEditPage',
@@ -25,6 +25,10 @@ const Template: StoryFn<typeof ArticleEditPage> = (args) => (
 // Edit.args = {};
 // Edit.decorators = [StoreDecorator({ articleDetails: { data: article } })];
 
-export const Create = Template.bind({});
-Create.args = {};
-// Create.decorators = [StoreDecorator({})];
+export const OldDesignCreate = Template.bind({});
+OldDesignCreate.args = {};
+
+export const NewDesignCreate = Template.bind({});
+NewDesignCreate.args = {};
+NewDesignCreate.decorators = [NewDesignDecorator];
+

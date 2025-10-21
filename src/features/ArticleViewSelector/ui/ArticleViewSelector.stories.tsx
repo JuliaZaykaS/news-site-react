@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { ArticleViewSelector } from './ArticleViewSelector';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/ArticleViewSelector',
@@ -13,5 +14,9 @@ const Template: StoryFn<typeof ArticleViewSelector> = (args) => (
     <ArticleViewSelector {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [NewDesignDecorator];

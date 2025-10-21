@@ -3,11 +3,12 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Avatar } from './Avatar';
 
 import AvatarImg from '@/shared/assets/tests/example.png';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/Avatar',
+    title: 'shared/redesigned/Avatar',
     component: Avatar,
-
+    decorators: NewDesignDecorator,
     argTypes: {
         backgroundColor: { control: 'color' },
     },

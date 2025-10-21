@@ -5,11 +5,12 @@ import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { Text } from './Text';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/Text',
+    title: 'shared/redesigned/Text',
     component: Text,
-
+    decorators: NewDesignDecorator,
     argTypes: {
         backgroundColor: { control: 'color' },
     },

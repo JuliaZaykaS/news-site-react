@@ -2,14 +2,14 @@ import type { Meta, StoryFn } from '@storybook/react';
 
 // eslint-disable-next-line juliaz/layer-imports
 import '@/app/styles/index.scss';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import Arrow from '@/shared/assets/tests/arrow-bottom.svg'
 import { Input } from './Input';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/Input',
+    title: 'shared/redesigned/Input',
     component: Input,
-
+    decorators: NewDesignDecorator,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -23,19 +23,20 @@ Primary.args = {
     placeholder: 'Type text',
     value: '123123',
 };
-export const Dark = Template.bind({});
 
-Dark.args = {
-    placeholder: 'text',
-    value: '123123',
+export const AddonLeft = Template.bind({});
+AddonLeft.args = {
+    addonLeft: <Arrow />,
+    placeholder: 'Type text',
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-export const Orange = Template.bind({});
-
-Orange.args = {
-    placeholder: 'text',
-    value: '123123',
+export const AddonRight = Template.bind({});
+AddonRight.args = {
+    addonRight: <Arrow />,
+    placeholder: 'Type text',
 };
 
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+export const WithLabel = Template.bind({});
+WithLabel.args = {
+    label: 'Type text',
+};

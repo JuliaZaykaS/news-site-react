@@ -52,8 +52,6 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
 
     return (
         <HStack gap={'4'}>
-            {/* {label && <span>{`${label}>`}</span>} */}
-
             {label && (
                 <span
                     className={classNames(

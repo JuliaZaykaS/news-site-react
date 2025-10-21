@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { UserRole } from '@/entities/User';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/AvatarDropdown',
@@ -22,27 +23,52 @@ const Template: StoryFn<typeof AvatarDropdown> = (args) => (
     <AvatarDropdown {...args} />
 );
 
-export const User = Template.bind({});
-User.args = {};
-
-User.decorators = [
+export const OldDesignUser = Template.bind({});
+OldDesignUser.args = {};
+OldDesignUser.decorators = [
     StoreDecorator({
         user: {
             authData: { id: '1', roles: [UserRole.USER] },
         },
     }),
 ];
-export const Admin = Template.bind({});
-Admin.args = {};
 
-Admin.decorators = [
+export const OldDesignAdmin = Template.bind({});
+OldDesignAdmin.args = {};
+OldDesignAdmin.decorators = [
     StoreDecorator({
         user: {
             authData: { id: '1', roles: [UserRole.ADMIN] },
         },
     }),
 ];
-export const NotAuth = Template.bind({});
-NotAuth.args = {};
 
-NotAuth.decorators = [StoreDecorator({})];
+export const OldDesignNotAuth = Template.bind({});
+OldDesignNotAuth.args = {};
+OldDesignNotAuth.decorators = [StoreDecorator({})];
+
+export const NewDesignUser = Template.bind({});
+NewDesignUser.args = {};
+NewDesignUser.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1', roles: [UserRole.USER] },
+        },
+    }),
+    NewDesignDecorator,
+];
+
+export const NewDesignAdmin = Template.bind({});
+NewDesignAdmin.args = {};
+NewDesignAdmin.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1', roles: [UserRole.ADMIN] },
+        },
+    }),
+    NewDesignDecorator,
+];
+
+export const NewDesignNotAuth = Template.bind({});
+NewDesignNotAuth.args = {};
+NewDesignNotAuth.decorators = [StoreDecorator({}), NewDesignDecorator];

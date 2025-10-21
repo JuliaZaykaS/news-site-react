@@ -73,7 +73,6 @@ export const UiDesignSwitcher = typedMemo((props: UiDesignSwitcherProps) => {
                     items={items}
                     onChange={onChange}
                 >
-
                 </ListBox>
             }
         </HStack>

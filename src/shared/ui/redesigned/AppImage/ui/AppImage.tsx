@@ -4,8 +4,6 @@ import {
     useLayoutEffect,
     useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { typedMemo } from '@/shared/const/memo';
 
@@ -24,7 +22,6 @@ export const AppImage = typedMemo((props: AppImageProps) => {
         errorFallback,
         ...otherProps
     } = props;
-    const { t } = useTranslation();
 
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -41,7 +38,7 @@ export const AppImage = typedMemo((props: AppImageProps) => {
             setIsLoading(false);
             setHasError(true);
         };
-    }, [src]);
+    }, [alt, src]);
 
     if (isLoading && fallback) {
         return fallback;

@@ -7,6 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'pages/AboutPage',
@@ -20,15 +21,18 @@ export default {
 
 const Template: StoryFn<typeof AboutPage> = () => <AboutPage />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
-// Normal.decorators = [StoreDecorator({})];
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
 
-export const Dark = Template.bind({});
-Dark.args = {};
+export const OldDesignDark = Template.bind({});
+OldDesignDark.args = {};
+OldDesignDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-export const Orange = Template.bind({});
-Orange.args = {};
+export const OldDesignOrange = Template.bind({});
+OldDesignOrange.args = {};
+OldDesignOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [NewDesignDecorator];
+

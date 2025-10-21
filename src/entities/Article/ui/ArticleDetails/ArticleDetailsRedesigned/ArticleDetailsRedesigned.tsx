@@ -67,6 +67,7 @@ export const ArticleDetailsRedesigned = typedMemo((props: ArticleDetailsProps) =
             title={t('Произошла ошибка при загрузке статьи')}
             text={error}
             align={'center'}
+            variant='error'
          />
       );
    }

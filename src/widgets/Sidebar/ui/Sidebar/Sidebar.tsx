@@ -29,8 +29,6 @@ export const Sidebar = typedMemo((props: SidebarProps) => {
     const sidebarItemsList = useSidebarItems();
 
     const onToggle = () => {
-        console.log(collapsed);
-
         setCollapsed((prev) => !prev);
     };
 
@@ -88,7 +86,6 @@ export const Sidebar = typedMemo((props: SidebarProps) => {
                 >
                     {collapsed ? '>' : '<'}
                 </Button>
-                {/* <nav className={cls.items}>{itemsList}</nav> */}
                 <VStack tag={'nav'} gap={'8'} className={cls.items}>
                     {itemsList}
                 </VStack>

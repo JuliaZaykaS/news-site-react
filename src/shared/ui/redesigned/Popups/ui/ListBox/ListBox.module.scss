@@ -1,13 +1,10 @@
-// .listBox {
-//     position: relative;
-// }
-
 .trigger {
     background: none;
     border: none;
     outline: none;
-    padding: 0;
+    // padding: 0;
     margin: 0;
+    padding: 0 16px;
 }
 
 .options {
@@ -25,7 +22,6 @@
 .labelDisabled {
     opacity: 0.7;
 }
-
 
 .selected {
     background: var(--light-bg-redesigned);

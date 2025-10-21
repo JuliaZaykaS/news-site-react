@@ -7,7 +7,7 @@ export default {
     name: '@storybook/react-vite',
     options: {}
   },
-   core: {
+  core: {
     builder: '@storybook/builder-vite', // 👈 The builder enabled here.
   },
   stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -18,18 +18,18 @@ export default {
     'storybook-addon-themes'
   ],
   staticDirs: ['../../public'], // 👈 указываем папку public
-    viteFinal: async (config) => {
-      return mergeConfig(config, {
-        plugins: [svgr(
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
+      plugins: [svgr(
         {
-            // Если хотите автоматический импорт без суффикса:
-            include: "**/*.svg",
-            svgrOptions: {
-                exportType: "default",
-                ref: true,
-                svgo: false,
-                titleProp: true,
-            },
+          // Если хотите автоматический импорт без суффикса:
+          include: "**/*.svg",
+          svgrOptions: {
+            exportType: "default",
+            ref: true,
+            svgo: false,
+            titleProp: true,
+          },
         }
       )],
       resolve: {
@@ -37,10 +37,11 @@ export default {
           '@': path.resolve(__dirname, '../../src'),
         },
       },
-       define: {
-         __API__: JSON.stringify('http://localhost:8000'), // 👈 твой API url
-         __IS_DEV__: true,
-         __PROJECT__: JSON.stringify("frontend"),
+      define: {
+        __API__: JSON.stringify('http://localhost:8000'), // 👈 твой API url
+        __IS_DEV__: true,
+        //  __PROJECT__: JSON.stringify("frontend"),
+        __PROJECT__: JSON.stringify("storybook"),
       },
       css: {
         preprocessorOptions: {

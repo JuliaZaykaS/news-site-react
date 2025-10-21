@@ -15,10 +15,7 @@ interface StarRatingProps {
 }
 
 const stars = [1, 2, 3, 4, 5];
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
+
 export const StarRating = typedMemo((props: StarRatingProps) => {
     const { className, onSelect, size = 30, selectedStars = 0 } = props;
     const { t } = useTranslation();

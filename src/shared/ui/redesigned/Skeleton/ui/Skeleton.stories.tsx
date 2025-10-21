@@ -2,13 +2,15 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { Skeleton } from './Skeleton';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/Skeleton',
+    title: 'shared/redesigned/Skeleton',
     component: Skeleton,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: NewDesignDecorator,
 } as Meta<typeof Skeleton>;
 
 const Template: StoryFn<typeof Skeleton> = (args) => <Skeleton {...args} />;

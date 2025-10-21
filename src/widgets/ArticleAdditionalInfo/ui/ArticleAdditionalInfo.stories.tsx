@@ -1,8 +1,9 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { ArticleAdditionalInfo } from './ArticleAdditionalInfo';
+import Avatar from '@/shared/assets/tests/example.png'
 
 export default {
-   title: 'shared/ArticleAdditionalInfo',
+   title: 'widgets/ArticleAdditionalInfo',
    component: ArticleAdditionalInfo,
    argTypes: {
       backgroundColor: { control: 'color' },
@@ -13,5 +14,10 @@ const Template: StoryFn<typeof ArticleAdditionalInfo> = (args) => <ArticleAdditi
 
 export const Normal = Template.bind({});
 Normal.args = {
-
+   author: {
+      id: '1',
+      username: 'User',
+      avatar: Avatar,
+   },
+   views: 10,
 };

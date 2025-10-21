@@ -1,7 +1,9 @@
 import { StyleDecorator } from "@/shared/config/storybook/StyleDecorator/StyleDecorator.tsx";
 import { RouterDecorator } from "@/shared/config/storybook/RouterDecorator/RouterDecorator.tsx";
 import { SuspenseDecorator } from "@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator.tsx";
 import { FeaturesFlagsDecorator } from "@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator.tsx";
+import { I18nextDecorator } from "@/shared/config/storybook/I18nextDecorator/I18nextDecorator.tsx";
 // import { TranslationDecorator } from "../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator.tsx";
 import { Theme } from "@/shared/const/theme.ts";
 import '@/app/styles/index.scss';
@@ -41,6 +43,8 @@ export const decorators = [
   SuspenseDecorator,
   mswDecorator,
   FeaturesFlagsDecorator({}),
+  ThemeDecorator(Theme.LIGHT),
+  I18nextDecorator,
   // (Story, context) => {
   //   const mockData = context.parameters.mockData?.map((mock: any) => ({
   //     ...mock,

@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { Card } from './Card';
-import { Text } from '../Text';
+import { Text } from '../../Text';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 

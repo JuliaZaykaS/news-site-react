@@ -1,11 +1,11 @@
 .articlesList {
-    .LIST {
+    &.LIST {
         .card {
             margin-bottom: 30px;
         }
     }
-    
-    .GRID {
+
+    &.GRID {
         display: flex;
         flex-wrap: wrap;
         gap: 30px;

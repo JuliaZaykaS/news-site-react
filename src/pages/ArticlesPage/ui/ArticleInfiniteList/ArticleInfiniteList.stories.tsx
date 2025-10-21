@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-// import withMock from "storybook-addon-mock";
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'pages/ArticlesPage/ArticleInfiniteList',
@@ -16,20 +16,12 @@ const Template: StoryFn<typeof ArticleInfiniteList> = (args) => (
     <ArticleInfiniteList {...args} />
 );
 
-// const article: Article = {
-//    id: '1',
-//    img: '',
-//    createdAt: '',
-//    views: 123,
-//    user: { id: '1', username: '123' },
-//    blocks: [],
-//    type: [],
-//    title: '123',
-//    subtitle: 'asfsa',
-// }
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [NewDesignDecorator];
 // Normal.decorators = [StoreDecorator({
 //    articlesPage: {
 //       ids: ["1"],

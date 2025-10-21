@@ -9,7 +9,6 @@ import { Text, TextSize, TextTheme } from './Text';
 export default {
     title: 'shared/deprecated/Text',
     component: Text,
-
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -38,14 +37,13 @@ Dark.args = {
     title: 'Title Lorem ipsum dolor sit amet, consectetur adipiscing',
     text: 'text description lorem ipsum dolor sit amet, consectetur adip',
 };
-
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
 export const Orange = Template.bind({});
 Orange.args = {
     title: 'Title Lorem ipsum dolor sit amet, consectetur adipiscing',
     text: 'text description lorem ipsum dolor sit amet, consectetur adip',
 };
-
 Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const Error = Template.bind({});
@@ -66,12 +64,12 @@ export const Size_M = Template.bind({});
 Size_M.args = {
     title: 'Title Lorem ipsum dolor sit amet, consectetur adipiscing',
     text: 'text description lorem ipsum dolor sit amet, consectetur adip',
-    size: TextSize.L,
+    size: TextSize.M,
 };
 
 export const Size_S = Template.bind({});
 Size_S.args = {
     title: 'Title Lorem ipsum dolor sit amet, consectetur adipiscing',
     text: 'text description lorem ipsum dolor sit amet, consectetur adip',
-    size: TextSize.L,
+    size: TextSize.S,
 };

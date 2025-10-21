@@ -12,8 +12,10 @@ import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleInfiniteListProps {
     className?: string;
@@ -31,7 +33,12 @@ export const ArticleInfiniteList = typedMemo(
 
         if (error) {
             return (
-                <Text title={t('Ошибка при загрузке статей')} text={error} />
+                <ToggleFeatures
+                    feature={'isArticleRatingEnabled'}
+                    on={<Text title={t('Ошибка при загрузке статей')} text={error} />}
+                    off={<TextDeprecated title={t('Ошибка при загрузке статей')} text={error} />}
+                />
+
             );
         }
 

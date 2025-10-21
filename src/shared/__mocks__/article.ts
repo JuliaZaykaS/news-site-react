@@ -1,37 +1,21 @@
-import type { Meta, StoryFn } from '@storybook/react';
+/* eslint-disable juliaz/layer-imports */
+/* eslint-disable max-len */
+import { Article, ArticleDetailsType, ArticleDetailsBlockType } from "@/entities/Article";
+import image from '../assets/tests/example.png';
+import jsImage from '../assets/tests/js_img.png';
 
-import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from '../../model/types/article';
-import {
-    ArticleDetailsBlockType,
-    ArticleDetailsType,
-} from '../../model/consts/articleConsts';
-
-export default {
-    title: 'entities/Article/ArticleDetails',
-    component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as Meta<typeof ArticleDetails>;
-
-const Template: StoryFn<typeof ArticleDetails> = (args) => (
-    <ArticleDetails {...args} />
-);
-
-const article: Article = {
+export const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: jsImage,
     views: 1022,
     createdAt: '26.02.2022',
     type: [ArticleDetailsType.IT],
     user: {
         id: '1',
         username: 'admin',
-        // avatar: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+        avatar: image,
     },
     blocks: [
         {
@@ -67,14 +51,15 @@ const article: Article = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({ articleDetails: { data: article } })];
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({ articleDetails: { isLoading: true } })];
-
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [StoreDecorator({ articleDetails: { error: 'error' } })];
+export const articleRecommendation: Article = {
+    id: '1',
+    img: image,
+    createdAt: '',
+    views: 123,
+    user: { id: '1', username: '123', avatar: image },
+    blocks: [],
+    type: [],
+    title: '123',
+    subtitle: 'asfsa',
+};

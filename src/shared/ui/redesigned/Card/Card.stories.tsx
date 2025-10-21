@@ -1,32 +1,51 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { Card } from './Card';
 import { Text } from '../Text';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/Card',
+    title: 'shared/redesigned/Card',
     component: Card,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: NewDesignDecorator,
 } as Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 
+const text = <Text title={'title'} text={'text'} />
+
 export const Normal = Template.bind({});
 Normal.args = {
-    children: <Text title={'title'} text={'text'} />,
+    children: text,
+    padding: '24'
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-    children: <Text title={'title'} text={'text'} />,
+export const BorderRadiusRound = Template.bind({});
+BorderRadiusRound.args = {
+    children: text,
+    borderRadius: 'round',
+    padding: '24'
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Orange = Template.bind({});
-Orange.args = {
-    children: <Text title={'title'} text={'text'} />,
+export const BorderRadiusPartial = Template.bind({});
+BorderRadiusPartial.args = {
+    children: text,
+    borderRadius: 'partial',
+    padding: '24'
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const Outlined = Template.bind({});
+Outlined.args = {
+    children: text,
+    variant: 'outlined',
+    padding: '24'
+};
+
+export const Light = Template.bind({});
+Light.args = {
+    children: text,
+    variant: 'light',
+    padding: '24'
+};

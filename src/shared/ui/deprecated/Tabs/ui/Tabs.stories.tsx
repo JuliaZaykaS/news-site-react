@@ -1,7 +1,6 @@
 import type { Meta } from '@storybook/react';
-import { Tabs } from './Tabs';
-// import { action } from "storybook/actions";
 import { action } from '@storybook/addon-actions';
+import { Tabs } from './Tabs';
 
 const meta = {
     title: 'shared/deprecated/Tabs',
@@ -12,8 +11,6 @@ const meta = {
 } as Meta<typeof Tabs>;
 
 export default meta;
-
-// type Story = StoryFn<typeof Tabs>;
 
 export const Normal = {
     args: {

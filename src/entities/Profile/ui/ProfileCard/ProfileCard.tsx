@@ -128,7 +128,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 on={<HStack
                     justify={'center'}
                     max
-                    className={classNames(cls.profileCard, mods, [
+                    className={classNames(cls.profileCardRedesigned, mods, [
                         className,
                         cls.error,
                     ])}

@@ -14,16 +14,27 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '@/entities/Profile';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { useEffect, useState } from 'react';
 
 interface ProfilePageProps {
     className?: string;
+    mockedId?: string; // для мокания в сторибуке
 }
 
 const ProfilePage = (props: ProfilePageProps) => {
-    const { className } = props;
+    const { className, mockedId } = props;
     const { t } = useTranslation('profile');
 
-    const { id } = useParams<{ id: string }>();
+    const params = useParams<{ id: string }>();
+    const [id, setId] = useState(params.id)
+
+    // const { id } = useParams<{ id: string }>();
+
+    useEffect(() => {
+        if (__PROJECT__ === 'storybook') {
+            setId(mockedId)
+        }
+    }, [mockedId]);
 
     const userData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);

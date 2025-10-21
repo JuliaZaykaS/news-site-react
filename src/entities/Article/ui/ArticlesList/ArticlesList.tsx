@@ -5,8 +5,8 @@ import cls from './ArticlesList.module.scss';
 import { Article } from '../../model/types/article';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleViewType } from '../../model/consts/articleConsts';
 import { typedMemo } from '@/shared/const/memo';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -64,14 +64,26 @@ export const ArticlesList = typedMemo((props: ArticlesListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div
-                className={classNames(cls.articlesList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
-                <Text title={t('Статьи не найдены')} size={TextSize.L} />
-            </div>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<div
+                    className={classNames(cls.articlesList, {}, [
+                        className,
+                        cls[view],
+                    ])}
+                >
+                    <Text title={t('Статьи не найдены')} size='l' />
+                </div>}
+                off={<div
+                    className={classNames(cls.articlesList, {}, [
+                        className,
+                        cls[view],
+                    ])}
+                >
+                    <TextDeprecated title={t('Статьи не найдены')} size={TextSize.L} />
+                </div>}
+            />
+
         );
     }
 

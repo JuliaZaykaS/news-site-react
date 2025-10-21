@@ -4,8 +4,8 @@ import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Drawer.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-import { Portal } from '../../redesigned/Portal/Portal';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Portal } from '../../../redesigned/Portal/Portal';
+import { Overlay } from '../../../redesigned/Overlay/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 import {

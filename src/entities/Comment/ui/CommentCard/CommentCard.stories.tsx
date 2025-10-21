@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { CommentCard } from './CommentCard';
 import { FeaturesFlagsDecorator } from '@/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Comment/CommentCard',
@@ -27,16 +28,15 @@ const normalArgs = {
     isLoading: false,
 }
 
-export const Normal = Template.bind({});
-Normal.args = normalArgs;
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = normalArgs;
 
-export const NormalRedesigned = Template.bind({});
-NormalRedesigned.args = normalArgs;
-NormalRedesigned.decorators = [FeaturesFlagsDecorator({ isAppRedesigned: true })]
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = normalArgs;
+NewDesignNormal.decorators = [FeaturesFlagsDecorator({ isAppRedesigned: true })]
 
-
-export const Loading = Template.bind({});
-Loading.args = {
+export const OldDesignLoading = Template.bind({});
+OldDesignLoading.args = {
     comment: {
         id: '1',
         text: 'Lorem ipsum dolor sit amet',
@@ -44,3 +44,14 @@ Loading.args = {
     },
     isLoading: true,
 };
+
+export const NewDesignLoading = Template.bind({});
+NewDesignLoading.args = {
+    comment: {
+        id: '1',
+        text: 'Lorem ipsum dolor sit amet',
+        user: { id: '1', username: 'Vasya' },
+    },
+    isLoading: true,
+};
+NewDesignLoading.decorators = [NewDesignDecorator]

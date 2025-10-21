@@ -3,17 +3,12 @@ import { Meta, StoryFn } from '@storybook/react';
 import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-// import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
+
 import { ProfileCard } from './ProfileCard';
-import { Profile } from '../../model/types/profile';
+
 import { Theme } from '@/shared/const/theme';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
-// import avatar from "shared/assets/tests/example.png";
-// const avatar = "static/media/src/shared/assets/tests/example.png";
-const avatar =
-    'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg';
+import { profile } from '@/shared/__mocks__/profile';
 
 export default {
     title: 'entities/Profile/ProfileCard',
@@ -28,49 +23,47 @@ const Template: StoryFn<typeof ProfileCard> = (args) => (
     <ProfileCard {...args} />
 );
 
-
-const profile: Profile = {
-    first: 'Юлия',
-    lastname: 'Зай',
-    age: 33,
-    currency: Currency.RUB,
-    country: Country.RUSSIA,
-    city: 'Moscow',
-    username: 'admin',
-    avatar: avatar,
-};
-
-export const Primary = Template.bind({});
-Primary.args = {
+export const OldDesignPrimary = Template.bind({});
+OldDesignPrimary.args = {
     data: profile,
 };
 
-export const PrimaryRedesigned = Template.bind({});
-PrimaryRedesigned.args = {
+export const NewDesignPrimary = Template.bind({});
+NewDesignPrimary.args = {
     data: profile,
 };
-PrimaryRedesigned.decorators = [NewDesignDecorator]
+NewDesignPrimary.decorators = [NewDesignDecorator]
 
-export const WithError = Template.bind({});
-WithError.args = {
+export const OldDesignWithError = Template.bind({});
+OldDesignWithError.args = {
     error: 'true',
 };
 
-export const Loading = Template.bind({});
-Loading.args = {
+export const NewDesignWithError = Template.bind({});
+NewDesignWithError.args = {
+    error: 'true',
+};
+NewDesignWithError.decorators = [NewDesignDecorator];
+
+export const OldDesignLoading = Template.bind({});
+OldDesignLoading.args = {
     isLoading: true,
 };
 
-export const Dark = Template.bind({});
+export const NewDesignLoading = Template.bind({});
+NewDesignLoading.args = {
+    isLoading: true,
+};
+NewDesignLoading.decorators = [NewDesignDecorator]
 
-Dark.args = {
+export const OldDesignDark = Template.bind({});
+OldDesignDark.args = {
     data: profile,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+OldDesignDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Orange = Template.bind({});
-
-Orange.args = {
+export const OldDesignOrange = Template.bind({});
+OldDesignOrange.args = {
     data: profile,
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+OldDesignOrange.decorators = [ThemeDecorator(Theme.ORANGE)];

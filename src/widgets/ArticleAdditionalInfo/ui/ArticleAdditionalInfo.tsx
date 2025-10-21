@@ -14,6 +14,7 @@ interface ArticleAdditionalInfoProps {
    createdAt: string;
    views: number;
    onEdit: () => void;
+   isCanEdit?: boolean;
 }
 
 export const ArticleAdditionalInfo = typedMemo((props: ArticleAdditionalInfoProps) => {
@@ -23,7 +24,9 @@ export const ArticleAdditionalInfo = typedMemo((props: ArticleAdditionalInfoProp
       createdAt,
       views,
       onEdit,
+      isCanEdit,
    } = props;
+
    const { t } = useTranslation('article');
 
    return (
@@ -35,9 +38,8 @@ export const ArticleAdditionalInfo = typedMemo((props: ArticleAdditionalInfoProp
             <Text text={author.username} bold />
             <Text text={createdAt} />
          </HStack>
-         <Button onClick={onEdit}>{t('Редактировать')}</Button>
+         <Button onClick={onEdit} disabled={!isCanEdit}>{t('Редактировать')}</Button>
          <Text text={t('{{count}} просмотров', { count: views })} />
-
       </VStack>
    );
 })

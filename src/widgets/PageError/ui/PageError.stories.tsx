@@ -1,9 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-// import "app/styles/index.scss";
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { PageError } from './PageError';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'widgets/PageError',
@@ -16,16 +16,20 @@ export default {
 
 const Template: StoryFn<typeof PageError> = (args) => <PageError {...args} />;
 
-export const Light = Template.bind({});
+export const OldDesignLight = Template.bind({});
+OldDesignLight.args = {};
+OldDesignLight.decorators = [ThemeDecorator(Theme.LIGHT)];
 
-Light.args = {};
-Light.decorators = [ThemeDecorator(Theme.LIGHT)];
+export const OldDesignDark = Template.bind({});
+OldDesignDark.args = {};
+OldDesignDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Dark = Template.bind({});
+export const OldDesignOrange = Template.bind({});
+OldDesignOrange.args = {};
+OldDesignOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-export const Orange = Template.bind({});
-
-Orange.args = {};
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+export const NewDesign = Template.bind({});
+NewDesign.args = {};
+NewDesign.decorators = [
+    NewDesignDecorator,
+];

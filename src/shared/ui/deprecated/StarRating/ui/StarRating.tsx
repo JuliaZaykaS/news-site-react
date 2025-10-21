@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
-import { Icon } from '../Icon';
+import { Icon } from '../../Icon';
 // import StarIcon from '../../assets/icons/star.svg';
-import StarIcon from '../../../assets/icons/star.svg';
+import StarIcon from '../../../../assets/icons/star.svg';
 import { typedMemo } from '@/shared/const/memo';
 
 interface StarRatingProps {

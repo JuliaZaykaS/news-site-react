@@ -5,11 +5,12 @@ import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { Modal } from './Modal';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'shared/Modal',
+    title: 'shared/redesigned/Modal',
     component: Modal,
-
+    decorators: NewDesignDecorator,
     argTypes: {
         backgroundColor: { control: 'color' },
     },

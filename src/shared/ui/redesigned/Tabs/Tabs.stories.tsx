@@ -1,19 +1,18 @@
 import type { Meta } from '@storybook/react';
 import { Tabs } from './Tabs';
-// import { action } from "storybook/actions";
 import { action } from '@storybook/addon-actions';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 const meta = {
-    title: 'shared/Tabs',
+    title: 'shared/redesigned/Tabs',
     component: Tabs,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: NewDesignDecorator,
 } as Meta<typeof Tabs>;
 
 export default meta;
-
-// type Story = StoryFn<typeof Tabs>;
 
 export const Normal = {
     args: {
