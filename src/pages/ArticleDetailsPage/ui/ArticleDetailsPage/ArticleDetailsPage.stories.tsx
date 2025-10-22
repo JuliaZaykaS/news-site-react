@@ -12,13 +12,15 @@ export default {
     },
 } as Meta<typeof ArticleDetailsPage>;
 
-const Template: StoryFn<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
-);
+const Template: StoryFn<typeof ArticleDetailsPage> = (
+    args,
+) => <ArticleDetailsPage {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};
-OldDesignNormal.decorators = [StoreDecorator({ articleDetails: { data: article } })];
+OldDesignNormal.decorators = [
+    StoreDecorator({ articleDetails: { data: article } }),
+];
 
 export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {};

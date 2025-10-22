@@ -18,16 +18,25 @@ describe('Пользователь заходит на страницу стат
 
     // Создали статью - протестировали все, что нужно - удалили статью
     it('И видит содержимое статьи', () => {
-        cy.getByTestId('ArticleDetails.Info').should('exist');
+        cy.getByTestId('ArticleDetails.Info').should(
+            'exist',
+        );
     });
     it('И видит список рекомендаций', () => {
-        cy.getByTestId('ArticleRecommendationsList').should('exist');
+        cy.getByTestId('ArticleRecommendationsList').should(
+            'exist',
+        );
     });
     it('И оставляет комментарий', () => {
         cy.getByTestId('ArticleDetails.Info'); // открыли страницу
-        cy.getByTestId('AddNewCommentForm').scrollIntoView(); // скролл до места с комментариями
+        cy.getByTestId(
+            'AddNewCommentForm',
+        ).scrollIntoView(); // скролл до места с комментариями
         cy.addComment('text'); // добавили комментарий
-        cy.getByTestId('CommentCard.Content').should('have.length', 1); // проверка, что комментарий не задублировался
+        cy.getByTestId('CommentCard.Content').should(
+            'have.length',
+            1,
+        ); // проверка, что комментарий не задублировался
     });
     it('И ставит оценку статье', () => {
         cy.intercept('GET', '**/articles/*', {
@@ -36,6 +45,9 @@ describe('Пользователь заходит на страницу стат
         cy.getByTestId('ArticleDetails.Info'); // открыли страницу
         cy.getByTestId('RatingCard').scrollIntoView(); // скролл до места с комментариями
         cy.setRate(4, 'feedback'); // добавили комментарий
-        cy.get('[data-selected=true]').should('have.length', 4);
+        cy.get('[data-selected=true]').should(
+            'have.length',
+            4,
+        );
     });
 });

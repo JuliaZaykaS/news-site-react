@@ -1,6 +1,12 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import {
+    PayloadAction,
+    createSlice,
+} from '@reduxjs/toolkit';
 import { User, UserSchema } from '../types/user';
-import { LOCAL_STORAGE_LAST_DESIGN_THEME_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import {
+    LOCAL_STORAGE_LAST_DESIGN_THEME_KEY,
+    USER_LOCALSTORAGE_KEY,
+} from '@/shared/const/localstorage';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { JsonSettings } from '../types/jsonSettings';
 import { saveJsonSettings } from '../services/saveJsonSettings';
@@ -15,16 +21,22 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         // записываем в стейт пользователя
-        setAuthData: (state, action: PayloadAction<User>) => {
+        setAuthData: (
+            state,
+            action: PayloadAction<User>,
+        ) => {
             state.authData = action.payload;
-            setFeatureFlags(action.payload.features)
+            setFeatureFlags(action.payload.features);
             localStorage.setItem(
                 USER_LOCALSTORAGE_KEY,
-                action.payload.id
-            )
+                action.payload.id,
+            );
             localStorage.setItem(
                 LOCAL_STORAGE_LAST_DESIGN_THEME_KEY,
-                action.payload.features?.isAppRedesigned ? 'new' : 'old')
+                action.payload.features?.isAppRedesigned
+                    ? 'new'
+                    : 'old',
+            );
         },
         // достаем данные о пользователе из локал сторадж
         // initAuthData: (state) => {
@@ -46,9 +58,13 @@ export const userSlice = createSlice({
         builder
             .addCase(
                 saveJsonSettings.fulfilled,
-                (state, action: PayloadAction<JsonSettings>) => {
+                (
+                    state,
+                    action: PayloadAction<JsonSettings>,
+                ) => {
                     if (state.authData) {
-                        state.authData.jsonSettings = action.payload;
+                        state.authData.jsonSettings =
+                            action.payload;
                     }
                 },
             )
@@ -60,16 +76,15 @@ export const userSlice = createSlice({
                     // }
                     // const parsedUser = JSON.parse(user) as User;
                     state.authData = action.payload;
-                    setFeatureFlags(action.payload.features);
+                    setFeatureFlags(
+                        action.payload.features,
+                    );
                     state._inited = true;
                 },
             )
-            .addCase(
-                initAuthData.rejected,
-                (state) => {
-                    state._inited = true;
-                },
-            )
+            .addCase(initAuthData.rejected, (state) => {
+                state._inited = true;
+            });
     },
 });
 

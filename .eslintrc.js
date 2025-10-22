@@ -11,6 +11,8 @@ module.exports = {
         'plugin:react/jsx-runtime',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        // 'prettier',
+        // 'plugin:prettier/recommended', // автоматически включает eslint-config-prettier
     ],
     parser: '@typescript-eslint/parser',
     overrides: [],
@@ -39,9 +41,6 @@ module.exports = {
     //   "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     // },
     rules: {
-        // "react/jsx-indent": [2, 4],
-        // "react/jsx-indent-props": [2, 4],
-        // indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
             {
@@ -50,7 +49,7 @@ module.exports = {
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off', // отключаем обычное правило ESLint
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -62,7 +61,11 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': [
             'warn',
             {
-                argsIgnorePattern: '^_',
+                vars: 'all',
+                args: 'after-used',
+                ignoreRestSiblings: true,
+                varsIgnorePattern: '^_', // игнорировать _переменные
+                argsIgnorePattern: '^_', // игнорировать _аргументы
             },
         ],
         'react/prop-types': 'warn',
@@ -138,6 +141,17 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off', // отключаем переводы в тестовых файлах
                 'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
+            },
+        },
+        // Для Cypress и деклараций типов
+        {
+            files: [
+                '**/cypress/**/*.ts',
+                '**/*.d.ts',
+            ],
+            rules: {
+                '@typescript-eslint/no-namespace': 'off',
             },
         },
     ],

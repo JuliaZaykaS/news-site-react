@@ -26,7 +26,10 @@ import {
 import { AppRoutesProps } from '@/shared/types/router';
 
 // объявляем сами роуты, маршрут для них и компоненты для отрисовки
-export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
+export const routeConfig: Record<
+    AppRoutes,
+    AppRoutesProps
+> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
         element: <MainPage />,

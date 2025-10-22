@@ -1,9 +1,12 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './UiDesignSwitcher.module.scss';
+
 import { typedMemo } from '@/shared/const/memo';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
-import { getFeatureFlag, updateFeatureFlag } from '@/shared/lib/features';
+import {
+    getFeatureFlag,
+    updateFeatureFlag,
+} from '@/shared/lib/features';
 import { useCallback, useMemo, useState } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from '@/entities/User';
@@ -17,64 +20,73 @@ interface UiDesignSwitcherProps {
     className?: string;
 }
 
-export const UiDesignSwitcher = typedMemo((props: UiDesignSwitcherProps) => {
-    const { className } = props;
-    const { t } = useTranslation('settings');
-    const dispatch = useAppDispatch()
-    const isAppRedesigned = getFeatureFlag('isAppRedesigned');
-    const authData = useSelector(getUserAuthData)
-    const forceUpdate = useForceUpdate();
+export const UiDesignSwitcher = typedMemo(
+    (props: UiDesignSwitcherProps) => {
+        const { className } = props;
+        const { t } = useTranslation('settings');
+        const dispatch = useAppDispatch();
+        const isAppRedesigned = getFeatureFlag(
+            'isAppRedesigned',
+        );
+        const authData = useSelector(getUserAuthData);
+        const forceUpdate = useForceUpdate();
 
-    const [isLoading, setIsLoading] = useState(false)
+        const [isLoading, setIsLoading] = useState(false);
 
-    const items = useMemo(() => {
-        return [
-            {
-                content: t('Новый'),
-                value: 'new',
+        const items = useMemo(() => {
+            return [
+                {
+                    content: t('Новый'),
+                    value: 'new',
+                },
+                {
+                    content: t('Старый'),
+                    value: 'old',
+                },
+            ];
+        }, [t]);
+
+        const onChange = useCallback(
+            async (value: string) => {
+                if (authData) {
+                    setIsLoading(true);
+
+                    await dispatch(
+                        updateFeatureFlag({
+                            userId: authData.id,
+                            newFeatures: {
+                                isAppRedesigned:
+                                    value === 'new'
+                                        ? true
+                                        : false,
+                            },
+                        }),
+                    ).unwrap();
+                    setIsLoading(false);
+                    forceUpdate();
+                }
             },
-            {
-                content: t('Старый'),
-                value: 'old',
-            },
-        ]
+            [authData, dispatch, forceUpdate],
+        );
 
-    }, [t])
-
-    const onChange = useCallback(
-        async (value: string) => {
-            if (authData) {
-                setIsLoading(true)
-
-                await dispatch(updateFeatureFlag({
-                    userId: authData.id,
-                    newFeatures: {
-                        isAppRedesigned: value === 'new' ? true : false,
-
-                    }
-                })).unwrap()
-                setIsLoading(false);
-                forceUpdate();
-            }
-        },
-        [authData, dispatch, forceUpdate],
-    )
-
-
-    return (
-        <HStack>
-            <Text text={t('Вариант интерфейса')} />
-            {isLoading
-                ? <Skeleton width={100} height={40} />
-                :
-                <ListBox
-                    className={classNames(cls.UiDesignSwitcher, {}, [className])}
-                    value={isAppRedesigned ? 'new' : 'old'}
-                    items={items}
-                    onChange={onChange}
-                >
-                </ListBox>
-            }
-        </HStack>
-    );
-});
+        return (
+            <HStack>
+                <Text text={t('Вариант интерфейса')} />
+                {isLoading ? (
+                    <Skeleton width={100} height={40} />
+                ) : (
+                    <ListBox
+                        className={classNames('', {}, [
+                            className,
+                        ])}
+                        value={
+                            isAppRedesigned ? 'new' : 'old'
+                        }
+                        items={items}
+                        onChange={onChange}
+                    ></ListBox>
+                )}
+            </HStack>
+        );
+    },
+);

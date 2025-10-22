@@ -4,7 +4,10 @@ import {
     ReactNode,
     forwardRef,
 } from 'react';
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -21,7 +24,8 @@ export enum ButtonSize {
     L = 'size_l',
     XL = 'size_xl',
 }
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+    extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     square?: boolean; // квадратная ли кнопка
@@ -39,7 +43,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // export const Button = memo((props: ButtonProps) => {
 // eslint-disable-next-line react/display-name
 export const Button = forwardRef(
-    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    (
+        props: ButtonProps,
+        ref: ForwardedRef<HTMLButtonElement>,
+    ) => {
         const {
             className,
             children,

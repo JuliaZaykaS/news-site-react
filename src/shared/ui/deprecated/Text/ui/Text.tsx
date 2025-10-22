@@ -22,11 +22,12 @@ export enum TextSize {
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';
 
-const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-    [TextSize.S]: 'h4',
-    [TextSize.M]: 'h3',
-    [TextSize.L]: 'h2',
-};
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> =
+    {
+        [TextSize.S]: 'h4',
+        [TextSize.M]: 'h3',
+        [TextSize.L]: 'h2',
+    };
 
 interface TextProps {
     className?: string;

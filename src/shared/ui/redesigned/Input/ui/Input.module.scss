@@ -12,7 +12,7 @@
 
     .addonLeft svg,
     .addonRight svg {
-        color: var(--accent-redesigned)
+        color: var(--accent-redesigned);
     }
 }
 
@@ -24,7 +24,7 @@
     background: none;
 
     &::placeholder {
-        color: var(--hint-redesigned)
+        color: var(--hint-redesigned);
     }
 }
 
@@ -39,7 +39,6 @@
 
 .withAddonLeft {
     padding-left: 8px;
-
 }
 
 .withAddonRight {

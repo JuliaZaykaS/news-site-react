@@ -10,12 +10,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as Meta<typeof AddNewCommentForm>;
 
-const Template: StoryFn<typeof AddNewCommentForm> = (args) => (
-    <AddNewCommentForm {...args} />
-);
+const Template: StoryFn<typeof AddNewCommentForm> = (
+    args,
+) => <AddNewCommentForm {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {
@@ -26,5 +26,4 @@ export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {
     onSendComment: action('onSendComment'),
 };
-NewDesignNormal.decorators = [NewDesignDecorator]
-
+NewDesignNormal.decorators = [NewDesignDecorator];

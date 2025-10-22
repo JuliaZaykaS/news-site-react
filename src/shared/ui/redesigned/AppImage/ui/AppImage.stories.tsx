@@ -12,7 +12,9 @@ export default {
     decorators: NewDesignDecorator,
 } as Meta<typeof AppImage>;
 
-const Template: StoryFn<typeof AppImage> = (args) => <AppImage {...args} />;
+const Template: StoryFn<typeof AppImage> = (args) => (
+    <AppImage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {
@@ -21,10 +23,10 @@ Normal.args = {
 
 export const Loading = Template.bind({});
 Loading.args = {
-    fallback: <div>Loading...</div>
+    fallback: <div>Loading...</div>,
 };
 
 export const Error = Template.bind({});
 Error.args = {
-    errorFallback: <div>Loading Error...</div>
+    errorFallback: <div>Loading Error...</div>,
 };

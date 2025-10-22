@@ -1,12 +1,19 @@
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 import { CSSProperties, ReactNode } from 'react';
 
-export type FlexJustify = 'center' | 'between' | 'start' | 'end';
+export type FlexJustify =
+    | 'center'
+    | 'between'
+    | 'start'
+    | 'end';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'column' | 'row';
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
-export type FlexWrap = 'wrap' | 'nowrap'
+export type FlexWrap = 'wrap' | 'nowrap';
 
 export interface FlexProps {
     className?: string;
@@ -63,7 +70,6 @@ const mapTagType: Record<string, TagType> = {
     main: 'main',
 };
 
-
 export const Flex = (props: FlexProps) => {
     const {
         className,
@@ -95,7 +101,11 @@ export const Flex = (props: FlexProps) => {
     const Tag = mapTagType[tag];
 
     return (
-        <Tag className={classNames(cls.flex, mods, classes)} style={style} {...otherProps}>
+        <Tag
+            className={classNames(cls.flex, mods, classes)}
+            style={style}
+            {...otherProps}
+        >
             {children}
         </Tag>
     );

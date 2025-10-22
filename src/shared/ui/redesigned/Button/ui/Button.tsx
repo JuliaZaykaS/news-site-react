@@ -4,7 +4,10 @@ import {
     ReactNode,
     forwardRef,
 } from 'react';
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
@@ -12,7 +15,8 @@ export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+    extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     variant?: ButtonVariant;
     square?: boolean; // квадратная ли кнопка
@@ -29,7 +33,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // export const Button = memo((props: ButtonProps) => {
 // eslint-disable-next-line react/display-name
 export const Button = forwardRef(
-    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    (
+        props: ButtonProps,
+        ref: ForwardedRef<HTMLButtonElement>,
+    ) => {
         const {
             className,
             children,
@@ -48,7 +55,8 @@ export const Button = forwardRef(
             [cls.square]: square,
             [cls.disabled]: disabled,
             [cls.fullWidth]: fullWidth,
-            [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
+            [cls.withAddon]:
+                Boolean(addonLeft) || Boolean(addonRight),
         };
 
         return (
@@ -64,9 +72,17 @@ export const Button = forwardRef(
                 ref={ref}
                 {...otherProps}
             >
-                {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
+                {addonLeft && (
+                    <div className={cls.addonLeft}>
+                        {addonLeft}
+                    </div>
+                )}
                 {children}
-                {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
+                {addonRight && (
+                    <div className={cls.addonRight}>
+                        {addonRight}
+                    </div>
+                )}
             </button>
         );
     },

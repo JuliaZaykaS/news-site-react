@@ -16,17 +16,18 @@ export default {
             <div style={{ height: '500px' }}>
                 <Story />
             </div>
-        )
-
+        ),
     ],
 } as Meta<typeof SettingsPage>;
 
-const Template: StoryFn<typeof SettingsPage> = (args) => <SettingsPage {...args} />;
+const Template: StoryFn<typeof SettingsPage> = (args) => (
+    <SettingsPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = StoreDecorator({
     user: {
-        authData: {}
-    }
+        authData: {},
+    },
 });

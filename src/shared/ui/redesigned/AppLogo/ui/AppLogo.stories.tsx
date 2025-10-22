@@ -11,8 +11,9 @@ export default {
     decorators: NewDesignDecorator,
 } as Meta<typeof AppLogo>;
 
-const Template: StoryFn<typeof AppLogo> = (args) => <AppLogo {...args} />;
+const Template: StoryFn<typeof AppLogo> = (args) => (
+    <AppLogo {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-

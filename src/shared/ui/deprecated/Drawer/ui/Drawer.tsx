@@ -1,5 +1,8 @@
 import { ReactNode, useCallback, useEffect } from 'react';
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Drawer.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
@@ -29,16 +32,21 @@ const height = window.innerHeight - 100;
  */
 
 const DrawerContent = typedMemo((props: DrawerProps) => {
-    const { className, children, isOpen, onClose, lazy } = props;
+    const { className, children, isOpen, onClose, lazy } =
+        props;
     const { Spring, Gesture } = useAnimationLibs();
 
     const { theme } = useTheme();
-    const { isClosing, isMounted, closeHandler } = useModal({
-        animationDelay: 300,
-        isOpen,
-        onClose,
-    });
-    const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
+    const { isClosing, isMounted, closeHandler } = useModal(
+        {
+            animationDelay: 300,
+            isOpen,
+            onClose,
+        },
+    );
+    const [{ y }, api] = Spring.useSpring(() => ({
+        y: height,
+    }));
 
     const openDrawer = useCallback(() => {
         api.start({
@@ -77,7 +85,10 @@ const DrawerContent = typedMemo((props: DrawerProps) => {
             // when the user releases the sheet, we check whether it passed
             // the threshold for it to close, or if we reset it to its open positino
             if (last) {
-                if (oy > height * 0.5 || (vy > 0.5 && dy > 0)) {
+                if (
+                    oy > height * 0.5 ||
+                    (vy > 0.5 && dy > 0)
+                ) {
                     close();
                 } else {
                     openDrawer();
@@ -105,10 +116,17 @@ const DrawerContent = typedMemo((props: DrawerProps) => {
         return null;
     }
 
-    const display = y.to((py) => (py < height ? 'block' : 'none'));
+    const display = y.to((py) =>
+        py < height ? 'block' : 'none',
+    );
 
     return (
-        <Portal element={document.getElementById('app') ?? document.body}>
+        <Portal
+            element={
+                document.getElementById('app') ??
+                document.body
+            }
+        >
             <div
                 className={classNames(cls.drawer, mods, [
                     className,

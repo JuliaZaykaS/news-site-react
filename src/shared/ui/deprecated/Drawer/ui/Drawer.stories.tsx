@@ -12,22 +12,22 @@ export default {
     },
 } as Meta<typeof Drawer>;
 
-const Template: StoryFn<typeof Drawer> = (args) => <Drawer {...args} />;
+const Template: StoryFn<typeof Drawer> = (args) => (
+    <Drawer {...args} />
+);
 
 const baseArgs = {
     isOpen: true,
-    children: <div>Drawer</div>
-}
+    children: <div>Drawer</div>,
+};
 
 export const Normal = Template.bind({});
 Normal.args = baseArgs;
 
 export const Dark = Template.bind({});
 Dark.args = baseArgs;
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = baseArgs;
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)]
-
-
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

@@ -26,12 +26,12 @@
     "Создание новой статьи": "Create new article",
     "Добро пожаловать на страницу статей": "Welcome to the articles page",
     "Здесь вы можете искать и просматривать статьи на различные темы": "Here you can search and view articles on various topics.",
-  "{{count}} просмотров_zero": "{{count}} views",
-  "{{count}} просмотров_one": "{{count}} view",
-  "{{count}} просмотров_other": "{{count}} views",
-   "Редактировать": "Edit",
-   "Оцените статью": "Rate this article",
-   "Оставьте свой отзыв о статье, это поможет улучшить качество": "Leave your feedback on the article, it will help improve the quality of the article.",
-   "Сортировать по:": "Sort by",
-   "Оценка статей скоро появится": "Article ratings coming soon"
+    "{{count}} просмотров_zero": "{{count}} views",
+    "{{count}} просмотров_one": "{{count}} view",
+    "{{count}} просмотров_other": "{{count}} views",
+    "Редактировать": "Edit",
+    "Оцените статью": "Rate this article",
+    "Оставьте свой отзыв о статье, это поможет улучшить качество": "Leave your feedback on the article, it will help improve the quality of the article.",
+    "Сортировать по:": "Sort by",
+    "Оценка статей скоро появится": "Article ratings coming soon"
 }

@@ -4,19 +4,23 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { article } from '@/shared/__mocks__/article';
 
 export default {
-   title: 'pages/ArticleDetailsPage/AdditionalInfoContainer',
-   component: AdditionalInfoContainer,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
+    title: 'pages/ArticleDetailsPage/AdditionalInfoContainer',
+    component: AdditionalInfoContainer,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as Meta<typeof AdditionalInfoContainer>;
 
-const Template: StoryFn<typeof AdditionalInfoContainer> = (args) => <AdditionalInfoContainer {...args} />;
+const Template: StoryFn<typeof AdditionalInfoContainer> = (
+    args,
+) => <AdditionalInfoContainer {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-   articleDetails: {
-      data: article
-   }
-})]
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

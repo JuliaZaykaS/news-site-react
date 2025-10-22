@@ -7,11 +7,15 @@ describe('getLoginUserName.test', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: { userName: '123' },
         };
-        expect(getLoginUserName(state as StateSchema)).toEqual('123');
+        expect(
+            getLoginUserName(state as StateSchema),
+        ).toEqual('123');
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getLoginUserName(state as StateSchema)).toEqual('');
+        expect(
+            getLoginUserName(state as StateSchema),
+        ).toEqual('');
     });
 });

@@ -1,7 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useTranslation } from 'react-i18next';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { useSelector } from 'react-redux';
@@ -52,29 +55,45 @@ export const EditableProfileCardHeader = (
         <ToggleFeatures
             feature={'isAppRedesigned'}
             on={
-                <Card padding='24' max borderRadius='partial'>
+                <Card
+                    padding="24"
+                    max
+                    borderRadius="partial"
+                >
                     <HStack
                         max
                         justify={'between'}
-                        className={classNames('', {}, [className])}
+                        className={classNames('', {}, [
+                            className,
+                        ])}
                     >
-                        <Text title={t('Профиль пользователя')} />
+                        <Text
+                            title={t(
+                                'Профиль пользователя',
+                            )}
+                        />
                         {canEdit && (
                             <>
                                 {readonly ? (
                                     <Button
                                         variant={'outline'}
                                         onClick={onEdit}
-                                        data-testid={'EditableProfileCardHeader.EditButton'}
+                                        data-testid={
+                                            'EditableProfileCardHeader.EditButton'
+                                        }
                                     >
                                         {t('Редактировать')}
                                     </Button>
                                 ) : (
                                     <HStack gap="8">
                                         <Button
-                                            variant={'outline'}
-                                            color='error'
-                                            onClick={onCancelEdit}
+                                            variant={
+                                                'outline'
+                                            }
+                                            color="error"
+                                            onClick={
+                                                onCancelEdit
+                                            }
                                             data-testid={
                                                 'EditableProfileCardHeader.CancelButton'
                                             }
@@ -83,9 +102,13 @@ export const EditableProfileCardHeader = (
                                         </Button>
 
                                         <Button
-                                            variant={'outline'}
-                                            color='success'
-                                            onClick={onSaveEdit}
+                                            variant={
+                                                'outline'
+                                            }
+                                            color="success"
+                                            onClick={
+                                                onSaveEdit
+                                            }
                                             data-testid={
                                                 'EditableProfileCardHeader.SaveButton'
                                             }
@@ -99,48 +122,64 @@ export const EditableProfileCardHeader = (
                     </HStack>
                 </Card>
             }
-            off={<HStack
-                max
-                justify={'between'}
-                className={classNames('', {}, [className])}
-            >
-                <TextDeprecated title={t('Профиль пользователя')} />
-                {canEdit && (
-                    <>
-                        {readonly ? (
-                            <ButtonDeprecated
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={onEdit}
-                                data-testid={'EditableProfileCardHeader.EditButton'}
-                            >
-                                {t('Редактировать')}
-                            </ButtonDeprecated>
-                        ) : (
-                            <HStack gap="8">
+            off={
+                <HStack
+                    max
+                    justify={'between'}
+                    className={classNames('', {}, [
+                        className,
+                    ])}
+                >
+                    <TextDeprecated
+                        title={t('Профиль пользователя')}
+                    />
+                    {canEdit && (
+                        <>
+                            {readonly ? (
                                 <ButtonDeprecated
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={onCancelEdit}
+                                    theme={
+                                        ButtonTheme.OUTLINE
+                                    }
+                                    onClick={onEdit}
                                     data-testid={
-                                        'EditableProfileCardHeader.CancelButton'
+                                        'EditableProfileCardHeader.EditButton'
                                     }
                                 >
-                                    {t('Отменить')}
+                                    {t('Редактировать')}
                                 </ButtonDeprecated>
+                            ) : (
+                                <HStack gap="8">
+                                    <ButtonDeprecated
+                                        theme={
+                                            ButtonTheme.OUTLINE_RED
+                                        }
+                                        onClick={
+                                            onCancelEdit
+                                        }
+                                        data-testid={
+                                            'EditableProfileCardHeader.CancelButton'
+                                        }
+                                    >
+                                        {t('Отменить')}
+                                    </ButtonDeprecated>
 
-                                <ButtonDeprecated
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onSaveEdit}
-                                    data-testid={
-                                        'EditableProfileCardHeader.SaveButton'
-                                    }
-                                >
-                                    {t('Сохранить')}
-                                </ButtonDeprecated>
-                            </HStack>
-                        )}
-                    </>
-                )}
-            </HStack>} />
-
+                                    <ButtonDeprecated
+                                        theme={
+                                            ButtonTheme.OUTLINE
+                                        }
+                                        onClick={onSaveEdit}
+                                        data-testid={
+                                            'EditableProfileCardHeader.SaveButton'
+                                        }
+                                    >
+                                        {t('Сохранить')}
+                                    </ButtonDeprecated>
+                                </HStack>
+                            )}
+                        </>
+                    )}
+                </HStack>
+            }
+        />
     );
 };

@@ -12,12 +12,14 @@ export default {
     decorators: NewDesignDecorator,
 } as Meta<typeof Drawer>;
 
-const Template: StoryFn<typeof Drawer> = (args) => <Drawer {...args} />;
+const Template: StoryFn<typeof Drawer> = (args) => (
+    <Drawer {...args} />
+);
 
 const baseArgs = {
     isOpen: true,
-    children: <div>Drawer</div>
-}
+    children: <div>Drawer</div>,
+};
 
 export const Normal = Template.bind({});
 Normal.args = baseArgs;

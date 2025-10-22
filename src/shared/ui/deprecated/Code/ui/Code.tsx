@@ -5,7 +5,10 @@ import cls from './Code.module.scss';
 // import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
 import copyIcon from '@/shared/assets/icons/copy.svg';
 // import { Icon } from "@/shared/ui/Icon";
-import { Button, ButtonTheme } from '../../Button/ui/Button';
+import {
+    Button,
+    ButtonTheme,
+} from '../../Button/ui/Button';
 import { Icon } from '../../Icon';
 import { typedMemo } from '@/shared/const/memo';
 
@@ -27,13 +30,20 @@ export const Code = typedMemo((props: CodeProps) => {
     }, [textCode]);
 
     return (
-        <pre className={classNames(cls.code, {}, [className])}>
+        <pre
+            className={classNames(cls.code, {}, [
+                className,
+            ])}
+        >
             <Button
                 theme={ButtonTheme.CLEAR}
                 className={cls.copyBtn}
                 onClick={onCopy}
             >
-                <Icon Svg={copyIcon} className={cls.copyIcon} />
+                <Icon
+                    Svg={copyIcon}
+                    className={cls.copyIcon}
+                />
             </Button>
             <code>{textCode}</code>
         </pre>

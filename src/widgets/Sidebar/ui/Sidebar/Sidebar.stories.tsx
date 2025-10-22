@@ -1,4 +1,8 @@
-import type { Decorator, Meta, StoryFn } from '@storybook/react';
+import type {
+    Decorator,
+    Meta,
+    StoryFn,
+} from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { Sidebar } from './Sidebar';
@@ -13,13 +17,15 @@ export default {
     },
 } as Meta<typeof Sidebar>;
 
-const Template: StoryFn<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: StoryFn<typeof Sidebar> = (args) => (
+    <Sidebar {...args} />
+);
 
 const NewDesignWrapperDecorator: Decorator = (Story) => (
     <div style={{ height: '500px' }}>
         <Story />
     </div>
-)
+);
 
 export const OldDesignLight = Template.bind({});
 OldDesignLight.args = {};

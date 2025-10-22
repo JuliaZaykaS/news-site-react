@@ -4,15 +4,17 @@ import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-   title: 'pages/ArticlesPage/FiltersContainer',
-   component: FiltersContainer,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-   decorators: [NewDesignDecorator]
+    title: 'pages/ArticlesPage/FiltersContainer',
+    component: FiltersContainer,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [NewDesignDecorator],
 } as Meta<typeof FiltersContainer>;
 
-const Template: StoryFn<typeof FiltersContainer> = (args) => <FiltersContainer {...args} />;
+const Template: StoryFn<typeof FiltersContainer> = (
+    args,
+) => <FiltersContainer {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

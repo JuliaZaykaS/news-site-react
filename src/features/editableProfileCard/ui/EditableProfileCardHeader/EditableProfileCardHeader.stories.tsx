@@ -13,9 +13,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof EditableProfileCardHeader>;
 
-const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => (
-    <EditableProfileCardHeader {...args} />
-);
+const Template: StoryFn<
+    typeof EditableProfileCardHeader
+> = (args) => <EditableProfileCardHeader {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};

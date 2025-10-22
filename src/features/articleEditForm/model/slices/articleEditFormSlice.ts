@@ -11,7 +11,7 @@ export const articleEditFormSlice = createSlice({
     name: 'articleEditForm',
     initialState,
     reducers: {},
-    extraReducers: (builder) => {
+    extraReducers: (_builder) => {
         //         builder
         //             .addCase(fetchProfileData.pending, (state) => {
         //                 state.error = undefined;
@@ -32,5 +32,7 @@ export const articleEditFormSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { actions: articleEditFormActions } = articleEditFormSlice;
-export const { reducer: articleEditFormReducer } = articleEditFormSlice;
+export const { actions: articleEditFormActions } =
+    articleEditFormSlice;
+export const { reducer: articleEditFormReducer } =
+    articleEditFormSlice;

@@ -1,4 +1,9 @@
-import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
+import {
+    MutableRefObject,
+    ReactNode,
+    useRef,
+    UIEvent,
+} from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Page.module.scss';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -23,17 +28,20 @@ export const Page = (props: PageProps) => {
     const { className, children, onScrollEnd } = props;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getScrollPositionByPath(state, pathname),
+    const scrollPosition = useSelector(
+        (state: StateSchema) =>
+            getScrollPositionByPath(state, pathname),
     );
 
-    const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const wrapperRef =
+        useRef() as MutableRefObject<HTMLElement>;
+    const triggerRef =
+        useRef() as MutableRefObject<HTMLDivElement>;
     useInfiniteScroll({
         wrapperRef: toggleFeatures({
             name: 'isAppRedesigned',
             on: () => undefined,
-            off: () => wrapperRef
+            off: () => wrapperRef,
         }),
         triggerRef,
         callback: onScrollEnd,
@@ -42,14 +50,19 @@ export const Page = (props: PageProps) => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
 
-    const onScrollPage = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(
-            scrollPositionSaveActions.setScrollPosition({
-                path: pathname,
-                position: e.currentTarget.scrollTop,
-            }),
-        );
-    }, 500);
+    const onScrollPage = useThrottle(
+        (e: UIEvent<HTMLDivElement>) => {
+            dispatch(
+                scrollPositionSaveActions.setScrollPosition(
+                    {
+                        path: pathname,
+                        position: e.currentTarget.scrollTop,
+                    },
+                ),
+            );
+        },
+        500,
+    );
 
     return (
         <main
@@ -57,15 +70,21 @@ export const Page = (props: PageProps) => {
                 toggleFeatures({
                     name: 'isAppRedesigned',
                     on: () => cls.pageRedesigned,
-                    off: () => cls.page
-                }), {}, [className])}
+                    off: () => cls.page,
+                }),
+                {},
+                [className],
+            )}
             ref={wrapperRef}
             onScroll={onScrollPage}
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd ? (
-                <div className={cls.trigger} ref={triggerRef}></div>
+                <div
+                    className={cls.trigger}
+                    ref={triggerRef}
+                ></div>
             ) : null}
         </main>
     );

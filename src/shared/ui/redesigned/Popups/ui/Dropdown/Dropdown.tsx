@@ -21,9 +21,17 @@ interface DropdownProps {
 }
 
 export const Dropdown = (props: DropdownProps) => {
-    const { className, trigger, items, direction = 'bottom-right' } = props;
+    const {
+        className,
+        trigger,
+        items,
+        direction = 'bottom-right',
+    } = props;
 
-    const optionsClasses = [popupCls[direction], popupCls.menu];
+    const optionsClasses = [
+        popupCls[direction],
+        popupCls.menu,
+    ];
 
     return (
         <Menu
@@ -33,20 +41,38 @@ export const Dropdown = (props: DropdownProps) => {
                 popupCls.popup,
             ])}
         >
-            <Menu.Button as={'div'} className={popupCls.trigger}>
+            <Menu.Button
+                as={'div'}
+                className={popupCls.trigger}
+            >
                 {trigger}
             </Menu.Button>
 
-            <Menu.Items className={classNames(cls.menu, {}, optionsClasses)}>
+            <Menu.Items
+                className={classNames(
+                    cls.menu,
+                    {},
+                    optionsClasses,
+                )}
+            >
                 {items.map((item, index) => {
-                    const content = ({ active }: { active: boolean }) => (
+                    const content = ({
+                        active,
+                    }: {
+                        active: boolean;
+                    }) => (
                         <button
                             type="button"
                             disabled={item.disabled}
                             onClick={item.onClick}
-                            className={classNames(cls.item, {
-                                [popupCls.active]: active,
-                            }, [])}
+                            className={classNames(
+                                cls.item,
+                                {
+                                    [popupCls.active]:
+                                        active,
+                                },
+                                [],
+                            )}
                         >
                             {item.content}
                         </button>

@@ -7,7 +7,6 @@ describe('Sidebar', () => {
     test('render in document', () => {
         // const SidebarWithTranslation = withTranslation()(Sidebar);
         // render(<SidebarWithTranslation />);
-
         // TODO проблема с заредизайненной кнопкой-иконкой
         // componentRender(<Sidebar />);
         // expect(screen.getByTestId('sidebar')).toBeInTheDocument();

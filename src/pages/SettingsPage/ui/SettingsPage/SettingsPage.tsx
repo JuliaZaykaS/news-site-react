@@ -11,18 +11,28 @@ interface SettingsPageProps {
     className?: string;
 }
 
-const SettingsPage = typedMemo((props: SettingsPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation('settings');
+const SettingsPage = typedMemo(
+    (props: SettingsPageProps) => {
+        const { className } = props;
+        const { t } = useTranslation('settings');
 
-    return (
-        <Page className={classNames(cls.SettingsPage, {}, [className])}>
-            <VStack gap='16'>
-                <Text title={t('Настройки пользователя')} />
-                <UiDesignSwitcher />
-            </VStack>
-        </Page>
-    );
-});
+        return (
+            <Page
+                className={classNames(
+                    cls.SettingsPage,
+                    {},
+                    [className],
+                )}
+            >
+                <VStack gap="16">
+                    <Text
+                        title={t('Настройки пользователя')}
+                    />
+                    <UiDesignSwitcher />
+                </VStack>
+            </Page>
+        );
+    },
+);
 
 export default SettingsPage;

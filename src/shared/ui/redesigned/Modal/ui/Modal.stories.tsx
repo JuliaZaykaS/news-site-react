@@ -16,7 +16,9 @@ export default {
     },
 } as Meta<typeof Modal>;
 
-const Template: StoryFn<typeof Modal> = (args) => <Modal {...args} />;
+const Template: StoryFn<typeof Modal> = (args) => (
+    <Modal {...args} />
+);
 
 export const Primary = Template.bind({});
 

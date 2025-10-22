@@ -67,10 +67,16 @@ export const ListBox = (props: ListBoxProps) => {
                 onChange={onChange}
             >
                 <HListbox.Button className={cls.trigger}>
-                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
+                    <Button disabled={readonly}>
+                        {value ?? defaultValue}
+                    </Button>
                 </HListbox.Button>
                 <HListbox.Options
-                    className={classNames(cls.options, {}, optionsClasses)}
+                    className={classNames(
+                        cls.options,
+                        {},
+                        optionsClasses,
+                    )}
                 >
                     {items.map((item) => (
                         <HListbox.Option
@@ -84,8 +90,10 @@ export const ListBox = (props: ListBoxProps) => {
                                     className={classNames(
                                         cls.item,
                                         {
-                                            [popupCls.active]: active,
-                                            [popupCls.disabled]: item.disabled,
+                                            [popupCls.active]:
+                                                active,
+                                            [popupCls.disabled]:
+                                                item.disabled,
                                         },
                                         [],
                                     )}

@@ -16,19 +16,34 @@ export const NotFoundPage = (props: NotFoundPageProps) => {
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
-            on={<Page
-                className={classNames(cls.pageNotFound, {}, [className])}
-                data-testid={'NotFoundPage'}
-            >
-                <Text title={t('Страница не найдена')} />
-            </Page>}
-            off={<Page
-                className={classNames(cls.pageNotFound, {}, [className])}
-                data-testid={'NotFoundPage'}
-            >
-                <TextDeprecated title={t('Страница не найдена')} />
-            </Page>}
+            on={
+                <Page
+                    className={classNames(
+                        cls.pageNotFound,
+                        {},
+                        [className],
+                    )}
+                    data-testid={'NotFoundPage'}
+                >
+                    <Text
+                        title={t('Страница не найдена')}
+                    />
+                </Page>
+            }
+            off={
+                <Page
+                    className={classNames(
+                        cls.pageNotFound,
+                        {},
+                        [className],
+                    )}
+                    data-testid={'NotFoundPage'}
+                >
+                    <TextDeprecated
+                        title={t('Страница не найдена')}
+                    />
+                </Page>
+            }
         />
-
     );
 };

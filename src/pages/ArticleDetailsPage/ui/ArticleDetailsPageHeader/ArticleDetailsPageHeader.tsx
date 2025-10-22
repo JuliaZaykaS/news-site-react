@@ -3,13 +3,19 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { useSelector } from 'react-redux';
 import { getCanEditArticle } from '../../model/selectors/article';
 
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import {
+    getRouteArticleEdit,
+    getRouteArticles,
+} from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
 
 interface ArticleDetailsPageHeaderProps {
@@ -24,9 +30,10 @@ export const ArticleDetailsPageHeader = typedMemo(
         const article = useSelector(getArticleDetailsData);
         const isCanEdit = useSelector(getCanEditArticle);
 
-        const onBackToArticlesListClick = useCallback(() => {
-            navigate(getRouteArticles());
-        }, [navigate]);
+        const onBackToArticlesListClick =
+            useCallback(() => {
+                navigate(getRouteArticles());
+            }, [navigate]);
 
         const onEditArticle = useCallback(() => {
             if (article) {
@@ -47,7 +54,10 @@ export const ArticleDetailsPageHeader = typedMemo(
                     {t('Назад к списку')}
                 </Button>
                 {isCanEdit && (
-                    <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+                    <Button
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onEditArticle}
+                    >
                         {t('Редактировать')}
                     </Button>
                 )}

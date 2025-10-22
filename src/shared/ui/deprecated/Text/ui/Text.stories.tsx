@@ -14,7 +14,9 @@ export default {
     },
 } as Meta<typeof Text>;
 
-const Template: StoryFn<typeof Text> = (args) => <Text {...args} />;
+const Template: StoryFn<typeof Text> = (args) => (
+    <Text {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

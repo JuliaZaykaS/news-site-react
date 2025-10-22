@@ -17,13 +17,18 @@ export default {
     },
 } as Meta<typeof LoginForm>;
 
-const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: StoryFn<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+);
 
 export const OldDesignPrimary = Template.bind({});
 OldDesignPrimary.args = {};
 OldDesignPrimary.decorators = [
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 
@@ -77,7 +82,10 @@ export const NewDesignPrimary = Template.bind({});
 NewDesignPrimary.args = {};
 NewDesignPrimary.decorators = [
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 

@@ -19,7 +19,9 @@ export default {
     ],
 } as Meta<typeof ListBox>;
 
-const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: StoryFn<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 const items: ListBoxItem<string>[] = [
     { value: 'RUB', content: 'RUB', disabled: false },

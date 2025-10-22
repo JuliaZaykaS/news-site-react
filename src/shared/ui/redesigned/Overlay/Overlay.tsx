@@ -12,7 +12,9 @@ export const Overlay = typedMemo((props: OverlayProps) => {
 
     return (
         <div
-            className={classNames(cls.overlay, {}, [className])}
+            className={classNames(cls.overlay, {}, [
+                className,
+            ])}
             onClick={onClose}
         ></div>
     );

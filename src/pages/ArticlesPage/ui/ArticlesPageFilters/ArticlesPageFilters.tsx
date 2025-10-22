@@ -1,4 +1,3 @@
-
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPageFilters.module.scss';
@@ -21,7 +20,8 @@ export const ArticlesPageFilters = typedMemo(
         const { className } = props;
         const { t } = useTranslation('article');
 
-        const { sort,
+        const {
+            sort,
             order,
             type,
             search,
@@ -30,12 +30,16 @@ export const ArticlesPageFilters = typedMemo(
             onChangeSort,
             onChangeType,
             onChangeSearch,
-            onChangeView
-        } = useArticleFilters()
+            onChangeView,
+        } = useArticleFilters();
 
         return (
             <div
-                className={classNames(cls.articlesPageFilters, {}, [className])}
+                className={classNames(
+                    cls.articlesPageFilters,
+                    {},
+                    [className],
+                )}
             >
                 <div className={cls.sortWrapper}>
                     <ArticleSortSelector

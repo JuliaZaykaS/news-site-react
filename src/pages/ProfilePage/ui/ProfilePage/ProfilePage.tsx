@@ -26,13 +26,13 @@ const ProfilePage = (props: ProfilePageProps) => {
     const { t } = useTranslation('profile');
 
     const params = useParams<{ id: string }>();
-    const [id, setId] = useState(params.id)
+    const [id, setId] = useState(params.id);
 
     // const { id } = useParams<{ id: string }>();
 
     useEffect(() => {
         if (__PROJECT__ === 'storybook') {
-            setId(mockedId)
+            setId(mockedId);
         }
     }, [mockedId]);
 
@@ -42,20 +42,30 @@ const ProfilePage = (props: ProfilePageProps) => {
     let profileRatingContent;
 
     if (!id) {
-        return <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<Text text={t('Профиль не найден')} />}
-            off={<TextDeprecated text={t('Профиль не найден')} />}
-        />;
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<Text text={t('Профиль не найден')} />}
+                off={
+                    <TextDeprecated
+                        text={t('Профиль не найден')}
+                    />
+                }
+            />
+        );
     }
 
     if (userData?.id !== id && profileData) {
-        profileRatingContent = <ProfileRating profileId={id} />;
+        profileRatingContent = (
+            <ProfileRating profileId={id} />
+        );
     }
 
     return (
         <Page
-            className={classNames(cls.profilePage, {}, [className])}
+            className={classNames(cls.profilePage, {}, [
+                className,
+            ])}
             data-testid={'ProfilePage'}
         >
             <EditableProfileCard id={id} />

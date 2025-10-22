@@ -1,5 +1,5 @@
-import { useJsonSettings } from "@/entities/User";
-import ThemeProvider from "./ThemeProvider";
+import { useJsonSettings } from '@/entities/User';
+import ThemeProvider from './ThemeProvider';
 
 // HOC
 // export const withTheme = (Component: React.ComponentType) => {
@@ -12,7 +12,9 @@ import ThemeProvider from "./ThemeProvider";
 //     }
 // }
 
-export const withTheme = (Component: React.ComponentType) => {
+export const withTheme = (
+    Component: React.ComponentType,
+) => {
     const WrappedWithTheme = () => {
         const { theme: defaultTheme } = useJsonSettings();
 

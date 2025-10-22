@@ -14,7 +14,10 @@ interface AddProfileRatingArg {
 
 const profileRatingApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        getProfileRating: build.query<Rating[], GetProfileRatingArg>({
+        getProfileRating: build.query<
+            Rating[],
+            GetProfileRatingArg
+        >({
             query: ({ userId, profileId }) => ({
                 url: '/profile-ratings',
                 params: {
@@ -23,7 +26,10 @@ const profileRatingApi = rtkApi.injectEndpoints({
                 },
             }),
         }),
-        addProfileRating: build.mutation<void, AddProfileRatingArg>({
+        addProfileRating: build.mutation<
+            void,
+            AddProfileRatingArg
+        >({
             query: (arg) => ({
                 url: '/profile-ratings',
                 method: 'POST',
@@ -33,5 +39,7 @@ const profileRatingApi = rtkApi.injectEndpoints({
     }),
 });
 
-export const useGetArticleRating = profileRatingApi.useGetProfileRatingQuery;
-export const useAddArticleRating = profileRatingApi.useAddProfileRatingMutation;
+export const useGetArticleRating =
+    profileRatingApi.useGetProfileRatingQuery;
+export const useAddArticleRating =
+    profileRatingApi.useAddProfileRatingMutation;

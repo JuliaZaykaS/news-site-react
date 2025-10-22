@@ -8,10 +8,14 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 interface StoreProviderProps {
     children?: ReactNode;
     initialState?: StateSchema;
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    asyncReducers?: DeepPartial<
+        ReducersMapObject<StateSchema>
+    >;
 }
 
-export const StoreProvider = (props: StoreProviderProps) => {
+export const StoreProvider = (
+    props: StoreProviderProps,
+) => {
     const { children, initialState, asyncReducers } = props;
     // const navigate = useNavigate();
 

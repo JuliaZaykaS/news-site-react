@@ -10,7 +10,9 @@ export default {
     },
 } as Meta<typeof RatingCard>;
 
-const Template: StoryFn<typeof RatingCard> = (args) => <RatingCard {...args} />;
+const Template: StoryFn<typeof RatingCard> = (args) => (
+    <RatingCard {...args} />
+);
 
 export const OldDesignNoRating = Template.bind({});
 OldDesignNoRating.args = {};

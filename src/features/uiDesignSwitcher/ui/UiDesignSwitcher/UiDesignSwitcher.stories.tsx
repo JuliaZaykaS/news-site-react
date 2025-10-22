@@ -9,10 +9,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as Meta<typeof UiDesignSwitcher>;
 
-const Template: StoryFn<typeof UiDesignSwitcher> = (args) => <UiDesignSwitcher {...args} />;
+const Template: StoryFn<typeof UiDesignSwitcher> = (
+    args,
+) => <UiDesignSwitcher {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

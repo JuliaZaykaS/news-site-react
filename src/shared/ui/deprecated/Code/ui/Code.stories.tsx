@@ -5,14 +5,16 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-  title: 'shared/deprecated/Code',
-  component: Code,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'shared/deprecated/Code',
+    component: Code,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as Meta<typeof Code>;
 
-const Template: StoryFn<typeof Code> = (args) => <Code {...args} />;
+const Template: StoryFn<typeof Code> = (args) => (
+    <Code {...args} />
+);
 
 const textCode = `export default {
   title: "shared/Code",
@@ -22,22 +24,21 @@ const textCode = `export default {
   },
 } as Meta<typeof Code>;
 
-const Template: StoryFn<typeof Code> = (args) => <Code {...args} />;`
+const Template: StoryFn<typeof Code> = (args) => <Code {...args} />;`;
 
 export const Normal = Template.bind({});
 Normal.args = {
-  textCode: textCode,
+    textCode: textCode,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-  textCode: textCode,
+    textCode: textCode,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = {
-  textCode: textCode,
+    textCode: textCode,
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)]
-
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

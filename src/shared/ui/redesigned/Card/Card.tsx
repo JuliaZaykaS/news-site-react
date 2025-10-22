@@ -8,7 +8,10 @@ export type CardVariant = 'normal' | 'outlined' | 'light';
 
 export type CardPadding = '0' | '8' | '16' | '24';
 
-export type CardBorderRadius = 'round' | 'normal' | 'partial';
+export type CardBorderRadius =
+    | 'round'
+    | 'normal'
+    | 'partial';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -24,7 +27,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
     '8': 'padding_8',
     '16': 'padding_16',
     '24': 'padding_24',
-}
+};
 export const Card = typedMemo((props: CardProps) => {
     const {
         className,
@@ -36,16 +39,20 @@ export const Card = typedMemo((props: CardProps) => {
         ...otherProps
     } = props;
 
-    const paddingClass = mapPaddingToClass[padding]
+    const paddingClass = mapPaddingToClass[padding];
 
     return (
         <div
-            className={classNames(cls.card, { [cls.max]: max }, [
-                className,
-                cls[variant],
-                cls[paddingClass],
-                cls[borderRadius],
-            ])}
+            className={classNames(
+                cls.card,
+                { [cls.max]: max },
+                [
+                    className,
+                    cls[variant],
+                    cls[paddingClass],
+                    cls[borderRadius],
+                ],
+            )}
             {...otherProps}
         >
             {children}

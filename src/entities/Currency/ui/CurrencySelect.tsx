@@ -16,51 +16,56 @@ interface CurrencySelectProps {
     readonly?: boolean;
 }
 
-export const CurrencySelect = typedMemo((props: CurrencySelectProps) => {
-    const { className, value, onChange, readonly } = props;
-    const { t } = useTranslation();
+export const CurrencySelect = typedMemo(
+    (props: CurrencySelectProps) => {
+        const { className, value, onChange, readonly } =
+            props;
+        const { t } = useTranslation();
 
-    const currencyOptions = useMemo(
-        () =>
-            Object.entries(Currency).map((val) => ({
-                value: val[0],
-                content: val[1],
-            })),
-        [],
-    );
+        const currencyOptions = useMemo(
+            () =>
+                Object.entries(Currency).map((val) => ({
+                    value: val[0],
+                    content: val[1],
+                })),
+            [],
+        );
 
-    const onChangeSelect = useCallback(
-        (value: string) => {
-            onChange?.(value as Currency);
-        },
-        [onChange],
-    );
+        const onChangeSelect = useCallback(
+            (value: string) => {
+                onChange?.(value as Currency);
+            },
+            [onChange],
+        );
 
-    return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<ListBox
-                className={className}
-                items={currencyOptions}
-                value={value}
-                defaultValue={t('Укажите валюту')}
-                label={t('Валюта')}
-                onChange={onChangeSelect}
-                readonly={readonly}
-                direction="top-right"
-            />}
-            off={<ListBoxDeprecated
-                className={className}
-                items={currencyOptions}
-                value={value}
-                defaultValue={t('Укажите валюту')}
-                label={t('Валюта')}
-                onChange={onChangeSelect}
-                readonly={readonly}
-                direction="top-right"
-            />}
-        />
-
-
-    );
-});
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <ListBox
+                        className={className}
+                        items={currencyOptions}
+                        value={value}
+                        defaultValue={t('Укажите валюту')}
+                        label={t('Валюта')}
+                        onChange={onChangeSelect}
+                        readonly={readonly}
+                        direction="top-right"
+                    />
+                }
+                off={
+                    <ListBoxDeprecated
+                        className={className}
+                        items={currencyOptions}
+                        value={value}
+                        defaultValue={t('Укажите валюту')}
+                        label={t('Валюта')}
+                        onChange={onChangeSelect}
+                        readonly={readonly}
+                        direction="top-right"
+                    />
+                }
+            />
+        );
+    },
+);

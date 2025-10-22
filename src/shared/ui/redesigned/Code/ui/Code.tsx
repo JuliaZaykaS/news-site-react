@@ -13,7 +13,6 @@ interface CodeProps {
     textCode: string;
 }
 
-
 export const Code = typedMemo((props: CodeProps) => {
     const { className, textCode } = props;
 
@@ -22,7 +21,11 @@ export const Code = typedMemo((props: CodeProps) => {
     }, [textCode]);
 
     return (
-        <pre className={classNames(cls.code, {}, [className])}>
+        <pre
+            className={classNames(cls.code, {}, [
+                className,
+            ])}
+        >
             <Icon
                 clickable
                 onClick={onCopy}

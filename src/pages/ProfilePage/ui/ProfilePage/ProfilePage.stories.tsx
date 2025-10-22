@@ -17,9 +17,9 @@ export default {
     },
 } as Meta<typeof ProfilePage>;
 
-const Template: StoryFn<typeof ProfilePage> = (args: object) => (
-    <ProfilePage {...args} />
-);
+const Template: StoryFn<typeof ProfilePage> = (
+    args: object,
+) => <ProfilePage {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = { mockedId: '1' };

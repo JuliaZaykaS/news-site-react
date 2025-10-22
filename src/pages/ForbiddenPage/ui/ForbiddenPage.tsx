@@ -11,26 +11,47 @@ interface ForbiddenPageProps {
     className?: string;
 }
 
-export const ForbiddenPage = typedMemo((props: ForbiddenPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
+export const ForbiddenPage = typedMemo(
+    (props: ForbiddenPageProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
 
-    return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<Page
-                className={classNames(cls.forbiddenPage, {}, [className])}
-                data-testid={'ForbiddenPage'}
-            >
-                <Text title={t('У вас нет доступа к этой странице')} />
-            </Page>}
-            off={<Page
-                className={classNames(cls.forbiddenPage, {}, [className])}
-                data-testid={'ForbiddenPage'}
-            >
-                <TextDeprecated title={t('У вас нет доступа к этой странице')} />
-            </Page>}
-        />
-
-    );
-});
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <Page
+                        className={classNames(
+                            cls.forbiddenPage,
+                            {},
+                            [className],
+                        )}
+                        data-testid={'ForbiddenPage'}
+                    >
+                        <Text
+                            title={t(
+                                'У вас нет доступа к этой странице',
+                            )}
+                        />
+                    </Page>
+                }
+                off={
+                    <Page
+                        className={classNames(
+                            cls.forbiddenPage,
+                            {},
+                            [className],
+                        )}
+                        data-testid={'ForbiddenPage'}
+                    >
+                        <TextDeprecated
+                            title={t(
+                                'У вас нет доступа к этой странице',
+                            )}
+                        />
+                    </Page>
+                }
+            />
+        );
+    },
+);

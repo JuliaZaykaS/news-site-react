@@ -1,1 +1,1 @@
-export { ScrollToTopButton } from "./ui/ScrollToTopButton";
+export { ScrollToTopButton } from './ui/ScrollToTopButton';

@@ -33,7 +33,9 @@ const reducers: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
+const ArticleDetailsPage = (
+    props: ArticleDetailsPageProps,
+) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
@@ -44,40 +46,68 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 feature={'isAppRedesigned'}
                 on={
                     <StickyContentLayout
-                        content={<Page
-                            className={classNames(cls.articleDetailsPage, {}, [className])}
-                        >
-                            <VStack gap={'16'} max>
-                                <DetailsContainer />
-                                <ArticleRating articleId={id} />
-                                <ArticleRecommendationsList />
-                                <ArticleDetailsComments articleId={id} />
-                            </VStack>
-                        </Page>}
+                        content={
+                            <Page
+                                className={classNames(
+                                    cls.articleDetailsPage,
+                                    {},
+                                    [className],
+                                )}
+                            >
+                                <VStack gap={'16'} max>
+                                    <DetailsContainer />
+                                    <ArticleRating
+                                        articleId={id}
+                                    />
+                                    <ArticleRecommendationsList />
+                                    <ArticleDetailsComments
+                                        articleId={id}
+                                    />
+                                </VStack>
+                            </Page>
+                        }
                         right={<AdditionalInfoContainer />}
                     />
-
                 }
                 off={
                     <Page
-                        className={classNames(cls.articleDetailsPage, {}, [className])}
+                        className={classNames(
+                            cls.articleDetailsPage,
+                            {},
+                            [className],
+                        )}
                     >
                         <VStack gap={'16'} max>
                             <ArticleDetailsPageHeader />
-                            <ArticleDetails articleId={id} />
+                            <ArticleDetails
+                                articleId={id}
+                            />
                             <ToggleFeatures
-                                feature={'isArticleRatingEnabled'}
-                                on={<ArticleRating articleId={id} />}
-                                off={<CardDeprecated>{t('Оценка статей скоро появится')}</CardDeprecated>}
+                                feature={
+                                    'isArticleRatingEnabled'
+                                }
+                                on={
+                                    <ArticleRating
+                                        articleId={id}
+                                    />
+                                }
+                                off={
+                                    <CardDeprecated>
+                                        {t(
+                                            'Оценка статей скоро появится',
+                                        )}
+                                    </CardDeprecated>
+                                }
                             />
                             <ArticleRecommendationsList />
-                            <ArticleDetailsComments articleId={id} />
+                            <ArticleDetailsComments
+                                articleId={id}
+                            />
                         </VStack>
                     </Page>
                 }
             />
         </DynamicModuleLoader>
-
     );
 };
 

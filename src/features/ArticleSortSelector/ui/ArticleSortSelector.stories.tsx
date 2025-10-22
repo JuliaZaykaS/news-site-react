@@ -11,9 +11,9 @@ export default {
     },
 } as Meta<typeof ArticleSortSelector>;
 
-const Template: StoryFn<typeof ArticleSortSelector> = (args) => (
-    <ArticleSortSelector {...args} />
-);
+const Template: StoryFn<typeof ArticleSortSelector> = (
+    args,
+) => <ArticleSortSelector {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};
@@ -21,12 +21,13 @@ OldDesignNormal.args = {};
 export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {
     sort: ArticleSortField.CREATED,
-    order: 'asc'
+    order: 'asc',
 };
-NewDesignNormal.decorators = [NewDesignDecorator,
+NewDesignNormal.decorators = [
+    NewDesignDecorator,
     (Story) => (
         <div style={{ padding: '200px' }}>
             <Story />
         </div>
-    )
+    ),
 ];

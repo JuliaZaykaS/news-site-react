@@ -14,19 +14,23 @@ interface SkeletonProps {
  * @deprecated
  */
 
-export const Skeleton = typedMemo((props: SkeletonProps) => {
-    const { className, height, width, border } = props;
+export const Skeleton = typedMemo(
+    (props: SkeletonProps) => {
+        const { className, height, width, border } = props;
 
-    const styles: CSSProperties = {
-        width,
-        height,
-        borderRadius: border,
-    };
+        const styles: CSSProperties = {
+            width,
+            height,
+            borderRadius: border,
+        };
 
-    return (
-        <div
-            className={classNames(cls.skeleton, {}, [className])}
-            style={styles}
-        ></div>
-    );
-});
+        return (
+            <div
+                className={classNames(cls.skeleton, {}, [
+                    className,
+                ])}
+                style={styles}
+            ></div>
+        );
+    },
+);

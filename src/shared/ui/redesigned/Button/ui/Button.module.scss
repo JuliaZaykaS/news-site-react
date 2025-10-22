@@ -10,7 +10,7 @@
 
         .addonLeft svg,
         .addonRight svg {
-            color: var(--accent-redesigned)
+            color: var(--accent-redesigned);
         }
     }
 }
@@ -26,20 +26,21 @@
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
+
     // padding: 8px 16px;
     border-radius: 34px;
 
- &.normal {
-background: var(--icon-redesigned);
-}
-&.success {
-    background: var(--save-redesigned);
-    
-}
-&.error {
-    background: var(--cancel-redesigned);
+    &.normal {
+        background: var(--icon-redesigned);
+    }
 
-}
+    &.success {
+        background: var(--save-redesigned);
+    }
+
+    &.error {
+        background: var(--cancel-redesigned);
+    }
 }
 
 .outline {
@@ -47,34 +48,30 @@ background: var(--icon-redesigned);
     background: none;
     border-radius: 34px;
 
-    //  &:hover {
-    //     border: 2px solid var(--accent-redesigned);
-    // }
-   
-
     &.normal {
-border: 2px solid var(--icon-redesigned);
- &:hover {
-        border: 2px solid var(--accent-redesigned);
-    }
-}
-&.success {
-    border: 2px solid var(--save-redesigned);
-     &:hover {
-        opacity: 0.8;
-    }
-    
-}
-&.error {
-    border: 2px solid var(--cancel-redesigned);
-     &:hover {
-         opacity: 0.8;
+        border: 2px solid var(--icon-redesigned);
 
+        &:hover {
+            border: 2px solid var(--accent-redesigned);
+        }
     }
 
-}
-}
+    &.success {
+        border: 2px solid var(--save-redesigned);
 
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
 
 .background {
     background: var(--bg-color);
@@ -131,11 +128,9 @@ border: 2px solid var(--icon-redesigned);
 
 .addonLeft svg,
 .addonRight svg {
-    color: var(--hint-redesigned)
+    color: var(--hint-redesigned);
 }
 
 .withAddon {
     padding: 0 16px;
-
 }
-

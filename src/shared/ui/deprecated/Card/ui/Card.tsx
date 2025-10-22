@@ -30,10 +30,11 @@ export const Card = typedMemo((props: CardProps) => {
 
     return (
         <div
-            className={classNames(cls.card, { [cls.max]: max }, [
-                className,
-                cls[theme],
-            ])}
+            className={classNames(
+                cls.card,
+                { [cls.max]: max },
+                [className, cls[theme]],
+            )}
             {...otherProps}
         >
             {children}

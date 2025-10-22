@@ -4,7 +4,11 @@ import {
     ReducersMapObject,
     combineReducers,
 } from '@reduxjs/toolkit';
-import { ReducerManager, StateSchema, StateSchemaKey } from './StateSchema';
+import {
+    ReducerManager,
+    StateSchema,
+    StateSchemaKey,
+} from './StateSchema';
 
 export function createReducerManager(
     initialReducers: ReducersMapObject<StateSchema>,
@@ -27,7 +31,9 @@ export function createReducerManager(
             // If any reducers have been removed, clean up their state first
             if (keysToRemove.length > 0) {
                 state = { ...state };
-                keysToRemove.forEach((key) => delete state[key]);
+                keysToRemove.forEach(
+                    (key) => delete state[key],
+                );
                 // for (let key: StateSchemaKey of keysToRemove) {
                 //   delete state[key];
                 // }

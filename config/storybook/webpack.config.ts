@@ -1,11 +1,18 @@
 import path from 'path';
-import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+import webpack, {
+    DefinePlugin,
+    RuleSetRule,
+} from 'webpack';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 import { BuildPaths } from '../build/types/config';
 
 // конфигурация нужна для настройки работы сторибук
 // который по умолчанию также как вебпак не умеет работать с css-модулями, картинками и тп
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({
+    config,
+}: {
+    config: webpack.Configuration;
+}) => {
     // опишем только то, где находится наш проект
     const paths: BuildPaths = {
         build: '',
@@ -33,7 +40,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.module?.rules?.push(buildCssLoaders(true)); // для стилей
 
     if (config.module) {
-        const rules = config?.module?.rules as RuleSetRule[];
+        const rules = config?.module
+            ?.rules as RuleSetRule[];
 
         config.module.rules = rules.map((rule) => {
             // config.module.rules = config.module.rules?.map((rule: RuleSetRule | "...") => {

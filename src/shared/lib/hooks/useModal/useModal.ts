@@ -14,11 +14,13 @@ interface useModalProps {
 }
 
 export function useModal(props: useModalProps) {
-    const { animationDelay, onClose, isOpen, lazy } = props;
+    const { animationDelay, onClose, isOpen } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timeRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     useEffect(() => {
         if (isOpen) {
@@ -48,11 +50,17 @@ export function useModal(props: useModalProps) {
 
     useEffect(() => {
         if (isOpen) {
-            window.addEventListener('keydown', onKeyDownClick);
+            window.addEventListener(
+                'keydown',
+                onKeyDownClick,
+            );
         }
         return () => {
             clearTimeout(timeRef.current);
-            window.removeEventListener('keydown', onKeyDownClick);
+            window.removeEventListener(
+                'keydown',
+                onKeyDownClick,
+            );
         };
     }, [isOpen, onKeyDownClick]);
 

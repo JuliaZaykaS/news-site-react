@@ -3,12 +3,18 @@ import cls from './ArticleViewSelector.module.scss';
 import GridIconDeprecated from '@/shared/assets/icons/grid.svg';
 import ListIconDeprecated from '@/shared/assets/icons/list.svg';
 import { ArticleViewType } from '@/entities/Article';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
-import ListIcon from '@/shared/assets/icons/burger.svg'
-import GridIcon from '@/shared/assets/icons/tile.svg'
+import ListIcon from '@/shared/assets/icons/burger.svg';
+import GridIcon from '@/shared/assets/icons/tile.svg';
 import { typedMemo } from '@/shared/const/memo';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import {
+    ToggleFeatures,
+    toggleFeatures,
+} from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { HStack } from '@/shared/ui/redesigned/Stack';
@@ -24,24 +30,27 @@ export const ArticleViewSelector = typedMemo(
     (props: ArticleViewSelectorProps) => {
         const { className, view, onViewClick } = props;
 
-        const viewTypes = useMemo(() => [
-            {
-                view: ArticleViewType.GRID,
-                icon: toggleFeatures({
-                    name: 'isAppRedesigned',
-                    on: () => GridIcon,
-                    off: () => GridIconDeprecated,
-                }),
-            },
-            {
-                view: ArticleViewType.LIST,
-                icon: toggleFeatures({
-                    name: 'isAppRedesigned',
-                    on: () => ListIcon,
-                    off: () => ListIconDeprecated,
-                }),
-            },
-        ], []);
+        const viewTypes = useMemo(
+            () => [
+                {
+                    view: ArticleViewType.GRID,
+                    icon: toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => GridIcon,
+                        off: () => GridIconDeprecated,
+                    }),
+                },
+                {
+                    view: ArticleViewType.LIST,
+                    icon: toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => ListIcon,
+                        off: () => ListIconDeprecated,
+                    }),
+                },
+            ],
+            [],
+        );
 
         const onClick = (newView: ArticleViewType) => {
             return () => {
@@ -52,49 +61,78 @@ export const ArticleViewSelector = typedMemo(
         return (
             <ToggleFeatures
                 feature={'isAppRedesigned'}
-                on={<Card
-                    className={classNames(cls.articleViewSelectorRedesigned, {}, [className])}
-                    borderRadius='round'
-                >
-                    <HStack gap='8'>
+                on={
+                    <Card
+                        className={classNames(
+                            cls.articleViewSelectorRedesigned,
+                            {},
+                            [className],
+                        )}
+                        borderRadius="round"
+                    >
+                        <HStack gap="8">
+                            {viewTypes.map((viewType) => {
+                                return (
+                                    <Icon
+                                        key={viewType.view}
+                                        Svg={viewType.icon}
+                                        className={classNames(
+                                            '',
+                                            {
+                                                [cls.notSelected]:
+                                                    viewType.view !==
+                                                    view,
+                                            },
+                                        )}
+                                        clickable
+                                        onClick={onClick(
+                                            viewType.view,
+                                        )}
+                                    />
+                                );
+                            })}
+                        </HStack>
+                    </Card>
+                }
+                off={
+                    <div
+                        className={classNames(
+                            cls.articleViewSelector,
+                            {},
+                            [className],
+                        )}
+                    >
                         {viewTypes.map((viewType) => {
                             return (
-                                <Icon
+                                <ButtonDeprecated
+                                    theme={
+                                        ButtonTheme.CLEAR
+                                    }
+                                    onClick={onClick(
+                                        viewType.view,
+                                    )}
                                     key={viewType.view}
-                                    Svg={viewType.icon}
-                                    className={classNames('', {
-                                        [cls.notSelected]: viewType.view !== view,
-                                    })}
-                                    clickable
-                                    onClick={onClick(viewType.view)}
-                                />
+                                    className={
+                                        cls.selectorBtn
+                                    }
+                                >
+                                    <IconDeprecated
+                                        Svg={viewType.icon}
+                                        className={classNames(
+                                            '',
+                                            {
+                                                [cls.notSelected]:
+                                                    viewType.view !==
+                                                    view,
+                                            },
+                                        )}
+                                    />
+                                </ButtonDeprecated>
                             );
                         })}
-                    </HStack>
-                </Card>}
-                off={<div
-                    className={classNames(cls.articleViewSelector, {}, [className])}
-                >
-                    {viewTypes.map((viewType) => {
-                        return (
-                            <ButtonDeprecated
-                                theme={ButtonTheme.CLEAR}
-                                onClick={onClick(viewType.view)}
-                                key={viewType.view}
-                                className={cls.selectorBtn}
-                            >
-                                <IconDeprecated
-                                    Svg={viewType.icon}
-                                    className={classNames('', {
-                                        [cls.notSelected]: viewType.view !== view,
-                                    })}
-                                />
-                            </ButtonDeprecated>
-                        );
-                    })}
-                </div>}
+                    </div>
+                }
             />
-
         );
     },
 );

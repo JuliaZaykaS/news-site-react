@@ -1,8 +1,6 @@
-// import { StateSchema } from "app/providers/StoreProvider";
-
-import { createSelector } from '@reduxjs/toolkit';
-import { CounterSchema } from '../../types/counterSchema/counterSchema';
-import { getCounter } from '../getCounter/getCounter';
+// import { createSelector } from '@reduxjs/toolkit';
+// import { CounterSchema } from '../../types/counterSchema/counterSchema';
+// import { getCounter } from '../getCounter/getCounter';
 import { buildSelector } from '@/shared/lib/store';
 
 //  простой вариант
@@ -15,6 +13,5 @@ import { buildSelector } from '@/shared/lib/store';
 // );
 // с использованием типизированного селектора
 // хук используем внутри компонентов, сам селектор внутри запросов через thunk
-export const [useCounterValue, getCounterValue] = buildSelector(
-    (state) => state.counter.value,
-);
+export const [useCounterValue, getCounterValue] =
+    buildSelector((state) => state.counter.value);

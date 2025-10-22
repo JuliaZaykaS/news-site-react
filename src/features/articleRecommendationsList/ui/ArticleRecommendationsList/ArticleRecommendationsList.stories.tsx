@@ -15,9 +15,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleRecommendationsList>;
 
-const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => (
-    <ArticleRecommendationsList {...args} />
-);
+const Template: StoryFn<
+    typeof ArticleRecommendationsList
+> = (args) => <ArticleRecommendationsList {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};

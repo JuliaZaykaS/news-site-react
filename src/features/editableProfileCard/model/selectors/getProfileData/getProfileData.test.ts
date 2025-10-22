@@ -20,10 +20,14 @@ describe('getProfileData.test', () => {
                 profile: data,
             },
         };
-        expect(getProfileData(state as StateSchema)).toEqual(data);
+        expect(
+            getProfileData(state as StateSchema),
+        ).toEqual(data);
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileData(state as StateSchema)).toEqual(undefined);
+        expect(
+            getProfileData(state as StateSchema),
+        ).toEqual(undefined);
     });
 });

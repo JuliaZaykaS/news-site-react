@@ -43,9 +43,15 @@ OldDesignNormal.parameters = {
     // ],
     msw: {
         handlers: [
-            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-                return HttpResponse.json([{ rate: 4 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 4 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };
@@ -78,9 +84,15 @@ OldDesignWithoutRate.parameters = {
     // ],
     msw: {
         handlers: [
-            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-                return HttpResponse.json([{ rate: 0 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 0 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };
@@ -100,9 +112,15 @@ NewDesignNormal.decorators = [
 NewDesignNormal.parameters = {
     msw: {
         handlers: [
-            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-                return HttpResponse.json([{ rate: 4 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 4 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };
@@ -122,9 +140,15 @@ NewDesignWithoutRate.decorators = [
 NewDesignWithoutRate.parameters = {
     msw: {
         handlers: [
-            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-                return HttpResponse.json([{ rate: 0 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 0 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };

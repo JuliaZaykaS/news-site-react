@@ -7,11 +7,15 @@ interface PageLoaderProps {
     className?: string;
 }
 
-export const PageLoader: React.FC<PageLoaderProps> = (props) => {
+export const PageLoader = (props: PageLoaderProps) => {
     const { className } = props;
 
     return (
-        <div className={classNames(cls.pageLoader, {}, [className])}>
+        <div
+            className={classNames(cls.pageLoader, {}, [
+                className,
+            ])}
+        >
             <Loader />
         </div>
     );

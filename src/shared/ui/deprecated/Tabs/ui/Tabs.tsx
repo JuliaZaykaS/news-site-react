@@ -32,7 +32,11 @@ export const Tabs = typedMemo((props: TabsProps) => {
     );
 
     return (
-        <div className={classNames(cls.tabs, {}, [className])}>
+        <div
+            className={classNames(cls.tabs, {}, [
+                className,
+            ])}
+        >
             {tabs.map((tab) => (
                 <Card
                     key={tab.value}

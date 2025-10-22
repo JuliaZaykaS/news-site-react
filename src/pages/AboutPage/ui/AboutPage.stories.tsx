@@ -19,7 +19,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof AboutPage>;
 
-const Template: StoryFn<typeof AboutPage> = () => <AboutPage />;
+const Template: StoryFn<typeof AboutPage> = () => (
+    <AboutPage />
+);
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};
@@ -35,4 +37,3 @@ OldDesignOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
 export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {};
 NewDesignNormal.decorators = [NewDesignDecorator];
-

@@ -12,7 +12,9 @@ export default {
     decorators: NewDesignDecorator,
 } as Meta<typeof Overlay>;
 
-const Template: StoryFn<typeof Overlay> = (args) => <Overlay {...args} />;
+const Template: StoryFn<typeof Overlay> = (args) => (
+    <Overlay {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

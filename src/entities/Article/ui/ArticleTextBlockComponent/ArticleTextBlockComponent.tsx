@@ -17,33 +17,55 @@ export const ArticleTextBlockComponent = typedMemo(
 
         return (
             <div
-                className={classNames(cls.articleTextBlockComponent, {}, [
-                    className,
-                ])}
+                className={classNames(
+                    cls.articleTextBlockComponent,
+                    {},
+                    [className],
+                )}
             >
                 {block.title && (
                     <ToggleFeatures
                         feature={'isAppRedesigned'}
-                        on={<Text title={block.title} className={cls.title} />}
-                        off={<TextDeprecated title={block.title} className={cls.title} />} />
-
+                        on={
+                            <Text
+                                title={block.title}
+                                className={cls.title}
+                            />
+                        }
+                        off={
+                            <TextDeprecated
+                                title={block.title}
+                                className={cls.title}
+                            />
+                        }
+                    />
                 )}
-                {block.paragraphs.map((paragraph, index) => (
-                    <ToggleFeatures
-                        key={index}
-                        feature={'isAppRedesigned'}
-                        on={<Text
-                            text={paragraph}
+                {block.paragraphs.map(
+                    (paragraph, index) => (
+                        <ToggleFeatures
                             key={index}
-                            className={cls.paragraph}
-                        />}
-                        off={<TextDeprecated
-                            text={paragraph}
-                            key={index}
-                            className={cls.paragraph}
-                        />} />
-
-                ))}
+                            feature={'isAppRedesigned'}
+                            on={
+                                <Text
+                                    text={paragraph}
+                                    key={index}
+                                    className={
+                                        cls.paragraph
+                                    }
+                                />
+                            }
+                            off={
+                                <TextDeprecated
+                                    text={paragraph}
+                                    key={index}
+                                    className={
+                                        cls.paragraph
+                                    }
+                                />
+                            }
+                        />
+                    ),
+                )}
             </div>
         );
     },

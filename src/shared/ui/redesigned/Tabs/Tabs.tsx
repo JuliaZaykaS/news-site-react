@@ -20,7 +20,13 @@ interface TabsProps {
 }
 
 export const Tabs = typedMemo((props: TabsProps) => {
-    const { className, tabs, value, onTabClick, direction = 'row' } = props;
+    const {
+        className,
+        tabs,
+        value,
+        onTabClick,
+        direction = 'row',
+    } = props;
 
     const onClickTab = useCallback(
         (tab: TabItem) => {
@@ -32,29 +38,33 @@ export const Tabs = typedMemo((props: TabsProps) => {
     );
 
     return (
-        <Flex className={classNames(cls.tabs, {}, [className])}
+        <Flex
+            className={classNames(cls.tabs, {}, [
+                className,
+            ])}
             direction={direction}
-            gap='8'
-            align='start'
+            gap="8"
+            align="start"
         >
             {tabs.map((tab) => {
-                const isSelected = tab.value === value
+                const isSelected = tab.value === value;
                 return (
                     <Card
                         key={tab.value}
-                        className={classNames(cls.tab, { [cls.selected]: isSelected }, [])}
+                        className={classNames(
+                            cls.tab,
+                            { [cls.selected]: isSelected },
+                            [],
+                        )}
                         variant={
-                            isSelected
-                                ? 'light'
-                                : 'normal'
+                            isSelected ? 'light' : 'normal'
                         }
-
                         onClick={onClickTab(tab)}
-                        borderRadius='partial'
+                        borderRadius="partial"
                     >
                         {tab.content}
                     </Card>
-                )
+                );
             })}
         </Flex>
     );

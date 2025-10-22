@@ -1,14 +1,21 @@
 // для обновления интерфейса, если данные по переключению feature-флагов не содержатся в state
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
 
 interface ForceUpdateContextType {
     value: boolean;
     forceUpdate: () => void;
 }
-const ForceUpdateContext = createContext<ForceUpdateContextType>({
-    value: true,
-    forceUpdate: () => { },
-});
+const ForceUpdateContext =
+    createContext<ForceUpdateContextType>({
+        value: true,
+        forceUpdate: () => {},
+    });
 
 export const useForceUpdate = () => {
     const { forceUpdate } = useContext(ForceUpdateContext);
@@ -16,7 +23,11 @@ export const useForceUpdate = () => {
     return forceUpdate;
 };
 
-export function ForceUpdateProvider({ children }: { children: ReactNode }) {
+export function ForceUpdateProvider({
+    children,
+}: {
+    children: ReactNode;
+}) {
     const [value, setValue] = useState(true);
 
     const forceUpdate = () => {
@@ -34,10 +45,9 @@ export function ForceUpdateProvider({ children }: { children: ReactNode }) {
         return null;
     }
 
-
     return (
-        <ForceUpdateContext.Provider value= { valueContext } >
-        { children }
+        <ForceUpdateContext.Provider value={valueContext}>
+            {children}
         </ForceUpdateContext.Provider>
-  );
+    );
 }

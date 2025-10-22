@@ -18,9 +18,9 @@ export default {
     ],
 } as Meta<typeof NotificationButton>;
 
-const Template: StoryFn<typeof NotificationButton> = (args) => (
-    <NotificationButton {...args} />
-);
+const Template: StoryFn<typeof NotificationButton> = (
+    args,
+) => <NotificationButton {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};
@@ -28,4 +28,7 @@ OldDesignNormal.decorators = [StoreDecorator({})];
 
 export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {};
-NewDesignNormal.decorators = [StoreDecorator({}), NewDesignDecorator];
+NewDesignNormal.decorators = [
+    StoreDecorator({}),
+    NewDesignDecorator,
+];

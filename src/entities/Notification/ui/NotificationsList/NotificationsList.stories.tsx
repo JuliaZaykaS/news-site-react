@@ -13,9 +13,9 @@ export default {
     },
 } as Meta<typeof NotificationsList>;
 
-const Template: StoryFn<typeof NotificationsList> = (args) => (
-    <NotificationsList {...args} />
-);
+const Template: StoryFn<typeof NotificationsList> = (
+    args,
+) => <NotificationsList {...args} />;
 
 const items = [
     {
@@ -53,7 +53,9 @@ OldDesignNormal.parameters = {
     msw: {
         handlers: [
             http.get(`${__API__}/notifications`, () => {
-                return HttpResponse.json(items, { status: 200 });
+                return HttpResponse.json(items, {
+                    status: 200,
+                });
             }),
         ],
     },
@@ -61,12 +63,17 @@ OldDesignNormal.parameters = {
 
 export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {};
-NewDesignNormal.decorators = [StoreDecorator({}), NewDesignDecorator];
+NewDesignNormal.decorators = [
+    StoreDecorator({}),
+    NewDesignDecorator,
+];
 NewDesignNormal.parameters = {
     msw: {
         handlers: [
             http.get(`${__API__}/notifications`, () => {
-                return HttpResponse.json(items, { status: 200 });
+                return HttpResponse.json(items, {
+                    status: 200,
+                });
             }),
         ],
     },

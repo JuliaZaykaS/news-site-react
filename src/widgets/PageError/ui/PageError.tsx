@@ -19,15 +19,42 @@ export const PageError = (props: PageErrorProps) => {
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
-            on={<div className={classNames(cls.pageError, {}, [className])}>
-                <p>{t('Произошла непредвиденная ошибка')}</p>
-                <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
-            </div>}
-            off={<div className={classNames(cls.pageError, {}, [className])}>
-                <p>{t('Произошла непредвиденная ошибка')}</p>
-                <ButtonDeprecated onClick={reloadPage}>{t('Обновить страницу')}</ButtonDeprecated>
-            </div>}
+            on={
+                <div
+                    className={classNames(
+                        cls.pageError,
+                        {},
+                        [className],
+                    )}
+                >
+                    <p>
+                        {t(
+                            'Произошла непредвиденная ошибка',
+                        )}
+                    </p>
+                    <Button onClick={reloadPage}>
+                        {t('Обновить страницу')}
+                    </Button>
+                </div>
+            }
+            off={
+                <div
+                    className={classNames(
+                        cls.pageError,
+                        {},
+                        [className],
+                    )}
+                >
+                    <p>
+                        {t(
+                            'Произошла непредвиденная ошибка',
+                        )}
+                    </p>
+                    <ButtonDeprecated onClick={reloadPage}>
+                        {t('Обновить страницу')}
+                    </ButtonDeprecated>
+                </div>
+            }
         />
-
     );
 };

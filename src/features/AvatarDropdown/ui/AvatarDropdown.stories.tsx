@@ -71,4 +71,7 @@ NewDesignAdmin.decorators = [
 
 export const NewDesignNotAuth = Template.bind({});
 NewDesignNotAuth.args = {};
-NewDesignNotAuth.decorators = [StoreDecorator({}), NewDesignDecorator];
+NewDesignNotAuth.decorators = [
+    StoreDecorator({}),
+    NewDesignDecorator,
+];

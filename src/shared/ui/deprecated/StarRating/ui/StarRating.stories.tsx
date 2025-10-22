@@ -12,16 +12,17 @@ export default {
     },
 } as Meta<typeof StarRating>;
 
-const Template: StoryFn<typeof StarRating> = (args) => <StarRating {...args} />;
+const Template: StoryFn<typeof StarRating> = (args) => (
+    <StarRating {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = {};
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)]
-
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

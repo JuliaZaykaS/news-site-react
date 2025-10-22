@@ -4,7 +4,10 @@ export {
     ArticleDetailsType,
     ArticleDetailsBlockType,
 } from './model/consts/articleConsts';
-export type { Article, ArticleDetailsSchema } from './model/types/article';
+export type {
+    Article,
+    ArticleDetailsSchema,
+} from './model/types/article';
 export {
     articleDetailsActions,
     articleDetailsReducer,

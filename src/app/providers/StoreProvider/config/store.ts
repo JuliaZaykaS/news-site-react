@@ -34,14 +34,17 @@ export function createReduxStore(
         [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
-    const reducerManager = createReducerManager(rootRedusers);
+    const reducerManager =
+        createReducerManager(rootRedusers);
 
     // const extraArg: ThunkExtraArg = { api: $api, navigate };
     const extraArg: ThunkExtraArg = { api: $api };
 
     // const store = configureStore<StateSchema>({
     const store = configureStore({
-        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
+        reducer: reducerManager.reduce as Reducer<
+            CombinedState<StateSchema>
+        >,
         devTools: __IS_DEV__, // отключаем девтулзы для продакшена
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) =>
@@ -59,4 +62,6 @@ export function createReduxStore(
 }
 
 // export type AppDispatch = typeof store.dispatch;
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+export type AppDispatch = ReturnType<
+    typeof createReduxStore
+>['dispatch'];

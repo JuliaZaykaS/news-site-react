@@ -12,9 +12,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleEditPage>;
 
-const Template: StoryFn<typeof ArticleEditPage> = (args) => (
-    <ArticleEditPage {...args} />
-);
+const Template: StoryFn<typeof ArticleEditPage> = (
+    args,
+) => <ArticleEditPage {...args} />;
 
 // export const Normal = Template.bind({});
 // Normal.args = {};
@@ -31,4 +31,3 @@ OldDesignCreate.args = {};
 export const NewDesignCreate = Template.bind({});
 NewDesignCreate.args = {};
 NewDesignCreate.decorators = [NewDesignDecorator];
-

@@ -5,24 +5,31 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/const/memo';
 
 interface AppLogoProps {
-    className?: string,
-    size?: number,
+    className?: string;
+    size?: number;
 }
 
-export const AppLogo = typedMemo(({ className, size = 50 }: AppLogoProps) => {
-    return (
-        <HStack
-            max
-            justify="center"
-            className={classNames(cls.appLogoWrapper, {}, [className])}
-        >
-            <AppSvg
-                className={cls.appLogo}
-                width={size}
-                height={size}
-                color={'black'} />
-            <div className={cls.gradientBig} />
-            <div className={cls.gradientSmall} />
-        </HStack>
-    );
-});
+export const AppLogo = typedMemo(
+    ({ className, size = 50 }: AppLogoProps) => {
+        return (
+            <HStack
+                max
+                justify="center"
+                className={classNames(
+                    cls.appLogoWrapper,
+                    {},
+                    [className],
+                )}
+            >
+                <AppSvg
+                    className={cls.appLogo}
+                    width={size}
+                    height={size}
+                    color={'black'}
+                />
+                <div className={cls.gradientBig} />
+                <div className={cls.gradientSmall} />
+            </HStack>
+        );
+    },
+);

@@ -3,9 +3,8 @@ import { Meta, StoryFn } from '@storybook/react';
 import { Button } from './Button';
 // eslint-disable-next-line juliaz/layer-imports
 import '@/app/styles/index.scss';
-import Arrow from '@/shared/assets/tests/arrow-bottom.svg'
+import Arrow from '@/shared/assets/tests/arrow-bottom.svg';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
-
 
 export default {
     title: 'shared/redesigned/Button',
@@ -16,7 +15,9 @@ export default {
     },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
+const Template: StoryFn<typeof Button> = (args) => (
+    <Button {...args} />
+);
 
 export const Filled = Template.bind({});
 Filled.args = {

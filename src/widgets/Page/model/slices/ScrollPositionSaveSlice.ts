@@ -1,4 +1,7 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import {
+    PayloadAction,
+    createSlice,
+} from '@reduxjs/toolkit';
 import { ScrollPositionSaveSchema } from '../types/ScrollPositionSave';
 
 const initialState: ScrollPositionSaveSchema = {
@@ -11,13 +14,19 @@ export const ScrollPositionSaveSlice = createSlice({
     reducers: {
         setScrollPosition: (
             state,
-            action: PayloadAction<{ path: string; position: number }>,
+            action: PayloadAction<{
+                path: string;
+                position: number;
+            }>,
         ) => {
-            state.scroll[action.payload.path] = action.payload.position;
+            state.scroll[action.payload.path] =
+                action.payload.position;
         },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { actions: scrollPositionSaveActions } = ScrollPositionSaveSlice;
-export const { reducer: scrollPositionSaveReducer } = ScrollPositionSaveSlice;
+export const { actions: scrollPositionSaveActions } =
+    ScrollPositionSaveSlice;
+export const { reducer: scrollPositionSaveReducer } =
+    ScrollPositionSaveSlice;

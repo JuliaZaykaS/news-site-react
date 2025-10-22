@@ -8,17 +8,20 @@ export interface ArticleDetailsBlockBase {
     id: string;
     type: ArticleDetailsBlockType;
 }
-export interface ArticleDetailsTextBlock extends ArticleDetailsBlockBase {
+export interface ArticleDetailsTextBlock
+    extends ArticleDetailsBlockBase {
     type: ArticleDetailsBlockType.TEXT;
     title?: string;
     paragraphs: string[];
 }
-export interface ArticleDetailsImageBlock extends ArticleDetailsBlockBase {
+export interface ArticleDetailsImageBlock
+    extends ArticleDetailsBlockBase {
     type: ArticleDetailsBlockType.IMAGE;
     src: string;
     title: string;
 }
-export interface ArticleDetailsCodeBlock extends ArticleDetailsBlockBase {
+export interface ArticleDetailsCodeBlock
+    extends ArticleDetailsBlockBase {
     type: ArticleDetailsBlockType.CODE;
     code: string;
 }

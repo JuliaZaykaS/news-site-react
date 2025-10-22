@@ -4,7 +4,9 @@ import { TestProvider } from '@/shared/lib/tests/componentRender/componentRender
 const USER_ID = '4';
 describe('EditableProfileCard.cy.tsx', () => {
     it('playground', () => {
-        cy.intercept('GET', '**/profile/*', { fixture: 'profile.json' });
+        cy.intercept('GET', '**/profile/*', {
+            fixture: 'profile.json',
+        });
         cy.mount(
             <TestProvider
                 options={{

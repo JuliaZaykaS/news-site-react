@@ -2,7 +2,10 @@
 // mods -  объект доп опций состояния компонента
 // additional - массив доп классов
 
-export type Mods = Record<string, boolean | string | undefined>;
+export type Mods = Record<
+    string,
+    boolean | string | undefined
+>;
 export function classNames(
     cls: string,
     mods: Mods = {}, // доп опции (? или ставить {} )

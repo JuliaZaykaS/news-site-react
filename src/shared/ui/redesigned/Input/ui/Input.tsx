@@ -1,6 +1,15 @@
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
-import { InputHTMLAttributes, ReactNode, useEffect, useRef, useState } from 'react';
+import {
+    InputHTMLAttributes,
+    ReactNode,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import { typedMemo } from '@/shared/const/memo';
 import { HStack } from '../../Stack';
 import { Text } from '../../Text';
@@ -25,7 +34,7 @@ interface InputProps extends HTMLInputProps {
     readonly?: boolean;
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
-    size?: InputSize,
+    size?: InputSize;
 }
 
 export const Input = typedMemo((props: InputProps) => {
@@ -54,7 +63,9 @@ export const Input = typedMemo((props: InputProps) => {
         }
     }, [autofocus]);
 
-    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeInput = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         onChange?.(e.target.value);
     };
 
@@ -73,31 +84,46 @@ export const Input = typedMemo((props: InputProps) => {
         [cls.withAddonRight]: Boolean(addonRight),
     };
 
-    const input = <div className={classNames(cls.inputWrapper, mods, [className, cls[size]])}>
-        {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
-        <input
-            ref={ref}
-            type={type}
-            className={cls.input}
-            value={value}
-            onChange={onChangeInput}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            readOnly={readonly}
-            placeholder={placeholder}
-            {...otherProps}
-        />
-        {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
-    </div>
+    const input = (
+        <div
+            className={classNames(cls.inputWrapper, mods, [
+                className,
+                cls[size],
+            ])}
+        >
+            {addonLeft && (
+                <div className={cls.addonLeft}>
+                    {addonLeft}
+                </div>
+            )}
+            <input
+                ref={ref}
+                type={type}
+                className={cls.input}
+                value={value}
+                onChange={onChangeInput}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                readOnly={readonly}
+                placeholder={placeholder}
+                {...otherProps}
+            />
+            {addonRight && (
+                <div className={cls.addonRight}>
+                    {addonRight}
+                </div>
+            )}
+        </div>
+    );
 
     if (label) {
         return (
-            <HStack max gap='8'>
+            <HStack max gap="8">
                 <Text text={label} />
                 {input}
             </HStack>
-        )
+        );
     }
 
-    return input
+    return input;
 });

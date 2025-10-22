@@ -10,14 +10,14 @@ export default {
     },
 } as Meta<typeof NotificationItem>;
 
-const Template: StoryFn<typeof NotificationItem> = (args) => (
-    <NotificationItem {...args} />
-);
+const Template: StoryFn<typeof NotificationItem> = (
+    args,
+) => <NotificationItem {...args} />;
 const baseNotification = {
     id: '1',
     title: 'Заголовок',
     description: 'текст текст текст',
-}
+};
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {
@@ -36,7 +36,7 @@ export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {
     item: baseNotification,
 };
-NewDesignNormal.decorators = [NewDesignDecorator]
+NewDesignNormal.decorators = [NewDesignDecorator];
 
 export const NewDesignWithHref = Template.bind({});
 NewDesignWithHref.args = {
@@ -45,5 +45,4 @@ NewDesignWithHref.args = {
         href: '#',
     },
 };
-NewDesignWithHref.decorators = [NewDesignDecorator]
-
+NewDesignWithHref.decorators = [NewDesignDecorator];

@@ -15,7 +15,9 @@ export default {
     },
 } as Meta<typeof Loader>;
 
-const Template: StoryFn<typeof Loader> = (args) => <Loader {...args} />;
+const Template: StoryFn<typeof Loader> = (args) => (
+    <Loader {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};

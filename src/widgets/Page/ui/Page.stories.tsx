@@ -13,7 +13,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof Page>;
 
-const Template: StoryFn<typeof Page> = (args) => <Page {...args} />;
+const Template: StoryFn<typeof Page> = (args) => (
+    <Page {...args} />
+);
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};

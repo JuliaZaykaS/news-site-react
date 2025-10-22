@@ -1,18 +1,22 @@
-import { ArticleViewType, ArticleSortField, ArticleDetailsType } from "@/entities/Article";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
-import { SortOrder } from "@/shared/types/sortOrder";
-import { useCallback } from "react";
-import { useSelector } from "react-redux";
+import {
+    ArticleViewType,
+    ArticleSortField,
+    ArticleDetailsType,
+} from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types/sortOrder';
+import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import {
     getArticlesPageView,
     getArticlesPageOrder,
     getArticlesPageSort,
     getArticlesPageSearch,
-    getArticlesPageType
-} from "../../model/selectors/articlesPageSelectors";
-import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
-import { articlesPageActions } from "../../model/slices/articlesPageSlice";
+    getArticlesPageType,
+} from '../../model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 export function useArticleFilters() {
     const dispatch = useAppDispatch();
@@ -79,5 +83,5 @@ export function useArticleFilters() {
         onChangeOrder,
         onChangeSearch,
         onChangeType,
-    }
+    };
 }

@@ -1,11 +1,12 @@
 .item {
     display: flex;
     align-items: center;
+
     .link {
         margin-left: 10px;
         opacity: 1;
     }
-    
+
     .icon {
         fill: var(--inverted-primary-color);
     }
@@ -28,6 +29,7 @@
 
 .collapsedRedesigned {
     padding: 0 8px;
+
     .link {
         opacity: 0;
         width: 0;
@@ -35,13 +37,12 @@
     }
 
     // &.itemRedesigned {
-        // padding: 0 8px;
+    // padding: 0 8px;
     // }
 }
 
-
 .active {
-    background: linear-gradient(89.97deg, rgba(94, 211, 243, 0.3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+    background: linear-gradient(89.97deg, rgb(94 211 243 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
     position: relative;
 
     &::before {

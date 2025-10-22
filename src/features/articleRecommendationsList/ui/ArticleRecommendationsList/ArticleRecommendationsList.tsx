@@ -2,7 +2,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 import { ArticlesList } from '@/entities/Article';
-import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import {
+    Text as TextDeprecated,
+    TextSize,
+} from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 
 import { VStack } from '@/shared/ui/redesigned/Stack';
@@ -37,8 +40,19 @@ export const ArticleRecommendationsList = typedMemo(
             >
                 <ToggleFeatures
                     feature={'isAppRedesigned'}
-                    on={<Text title={t('Рекомендации')} size={'l'} />}
-                    off={<TextDeprecated title={t('Рекомендации')} size={TextSize.L} />} />
+                    on={
+                        <Text
+                            title={t('Рекомендации')}
+                            size={'l'}
+                        />
+                    }
+                    off={
+                        <TextDeprecated
+                            title={t('Рекомендации')}
+                            size={TextSize.L}
+                        />
+                    }
+                />
 
                 <ArticlesList
                     articles={recommendations}

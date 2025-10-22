@@ -15,7 +15,10 @@ import { Navbar } from '@/widgets/Navbar';
 // import { Modal } from "@/shared/ui/Modal";
 import { useSelector } from 'react-redux';
 // import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
-import { getUserInited, initAuthData } from '@/entities/User';
+import {
+    getUserInited,
+    initAuthData,
+} from '@/entities/User';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from './providers/router';
@@ -39,8 +42,7 @@ const App = typedMemo(() => {
 
     const inited = useSelector(getUserInited);
 
-    const toolbar = useAppToolbar()
-
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         // dispatch(userActions.initAuthData());
@@ -66,39 +68,67 @@ const App = typedMemo(() => {
     //   }, []);
 
     if (!inited) {
-        return <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<div id={'app'} className={classNames('app_redesigned', {}, [theme])}><AppLoaderLayout /></div>}
-            off={<PageLoader />} />
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <div
+                        id={'app'}
+                        className={classNames(
+                            'app_redesigned',
+                            {},
+                            [theme],
+                        )}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
     }
 
     return (
         <ToggleFeatures
             feature={'isAppRedesigned'}
-            on={<div id={'app'} className={classNames('app_redesigned', {}, [theme])}>
-                <Suspense fallback={''}>
-                    <MainLayout
-                        header={<Navbar />}
-                        content={<AppRouter />}
-                        sidebar={<Sidebar />}
-                        toolbar={toolbar}
-                    />
-
-                </Suspense>
-            </div>}
-            off={<div className={classNames('app', {}, [theme])}
-                id={'app'}>
-                <Suspense fallback={''}>
-                    <Navbar />
-                    {/* <button onClick={toggleModal}>toggle modal</button> */}
-                    <div className="content-page">
-                        <Sidebar />
-                        <AppRouter />
-                    </div>
-                </Suspense>
-            </div>}
+            on={
+                <div
+                    id={'app'}
+                    className={classNames(
+                        'app_redesigned',
+                        {},
+                        [theme],
+                    )}
+                >
+                    <Suspense fallback={''}>
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={toolbar}
+                        />
+                    </Suspense>
+                </div>
+            }
+            off={
+                <div
+                    className={classNames('app', {}, [
+                        theme,
+                    ])}
+                    id={'app'}
+                >
+                    <Suspense fallback={''}>
+                        <Navbar />
+                        {/* <button onClick={toggleModal}>toggle modal</button> */}
+                        <div className="content-page">
+                            <Sidebar />
+                            <AppRouter />
+                        </div>
+                    </Suspense>
+                </div>
+            }
         />
-    )
+    );
 });
 
 // export default App;

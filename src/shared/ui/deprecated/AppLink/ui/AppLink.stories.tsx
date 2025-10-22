@@ -16,7 +16,9 @@ export default {
     },
 } as Meta<typeof AppLink>;
 
-const Template: StoryFn<typeof AppLink> = (args) => <AppLink {...args} />;
+const Template: StoryFn<typeof AppLink> = (args) => (
+    <AppLink {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

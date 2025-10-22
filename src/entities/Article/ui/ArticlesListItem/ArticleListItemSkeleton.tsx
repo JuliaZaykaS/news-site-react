@@ -7,7 +7,10 @@ import { ArticleViewType } from '../../model/consts/articleConsts';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { typedMemo } from '@/shared/const/memo';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import {
+    ToggleFeatures,
+    toggleFeatures,
+} from '@/shared/lib/features';
 
 interface ArticleListItemSkeletonProps {
     className?: string;
@@ -21,8 +24,8 @@ export const ArticleListItemSkeleton = typedMemo(
         const Skeleton = toggleFeatures({
             name: 'isAppRedesigned',
             on: () => SkeletonRedesigned,
-            off: () => SkeletonDeprecated
-        })
+            off: () => SkeletonDeprecated,
+        });
 
         const mainClass = toggleFeatures({
             name: 'isAppRedesigned',
@@ -34,7 +37,11 @@ export const ArticleListItemSkeleton = typedMemo(
             const cardContent = (
                 <>
                     <div className={cls.header}>
-                        <Skeleton border="50%" height={30} width={30} />
+                        <Skeleton
+                            border="50%"
+                            height={30}
+                            width={30}
+                        />
                         <Skeleton
                             width={150}
                             height={16}
@@ -46,8 +53,15 @@ export const ArticleListItemSkeleton = typedMemo(
                             className={cls.date}
                         />
                     </div>
-                    <Skeleton width={250} height={24} className={cls.title} />
-                    <Skeleton height={200} className={cls.img} />
+                    <Skeleton
+                        width={250}
+                        height={24}
+                        className={cls.title}
+                    />
+                    <Skeleton
+                        height={200}
+                        className={cls.img}
+                    />
                     <div className={cls.footer}>
                         <Skeleton height={36} width={200} />
                     </div>
@@ -63,12 +77,17 @@ export const ArticleListItemSkeleton = typedMemo(
                     <ToggleFeatures
                         feature="isAppRedesigned"
                         on={
-                            <CardRedesigned borderRadius="round" className={cls.card}>
+                            <CardRedesigned
+                                borderRadius="round"
+                                className={cls.card}
+                            >
                                 {cardContent}
                             </CardRedesigned>
                         }
                         off={
-                            <CardDeprecated className={cls.card}>
+                            <CardDeprecated
+                                className={cls.card}
+                            >
                                 {cardContent}
                             </CardDeprecated>
                         }
@@ -102,27 +121,40 @@ export const ArticleListItemSkeleton = typedMemo(
                 <div className={cls.infoWrapper}>
                     <Skeleton width={130} height={16} />
                 </div>
-                <Skeleton width={150} height={16} className={cls.title} />
+                <Skeleton
+                    width={150}
+                    height={16}
+                    className={cls.title}
+                />
             </>
         );
 
         return (
-            <div className={classNames(mainClass, {}, [className, cls[view]])}>
+            <div
+                className={classNames(mainClass, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <ToggleFeatures
                     feature="isAppRedesigned"
                     on={
-                        <CardRedesigned borderRadius="round" className={cls.card}>
+                        <CardRedesigned
+                            borderRadius="round"
+                            className={cls.card}
+                        >
                             {cardContent}
                         </CardRedesigned>
                     }
                     off={
-                        <CardDeprecated className={cls.card}>
+                        <CardDeprecated
+                            className={cls.card}
+                        >
                             {cardContent}
                         </CardDeprecated>
                     }
                 />
             </div>
         );
-
     },
 );

@@ -55,31 +55,48 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     left={<ViewSelectorContainer />}
                     content={
                         <Page
-                            className={classNames(cls.articlesPageRedesigned, {}, [className])}
+                            className={classNames(
+                                cls.articlesPageRedesigned,
+                                {},
+                                [className],
+                            )}
                             onScrollEnd={onLoadNextPart}
                             data-testid="ArticlesPage"
                         >
-                            <ArticleInfiniteList className={cls.list} />
+                            <ArticleInfiniteList
+                                className={cls.list}
+                            />
                             <ArticlePageGreeting />
                         </Page>
                     }
                     right={<FiltersContainer />}
                 />
             }
-            off={<Page
-                className={classNames(cls.articlesPage, {}, [className])}
-                onScrollEnd={onLoadNextPart}
-                data-testid="ArticlesPage"
-            >
-                <ArticlesPageFilters />
-                <ArticleInfiniteList className={cls.list} />
-                <ArticlePageGreeting />
-            </Page>}
+            off={
+                <Page
+                    className={classNames(
+                        cls.articlesPage,
+                        {},
+                        [className],
+                    )}
+                    onScrollEnd={onLoadNextPart}
+                    data-testid="ArticlesPage"
+                >
+                    <ArticlesPageFilters />
+                    <ArticleInfiniteList
+                        className={cls.list}
+                    />
+                    <ArticlePageGreeting />
+                </Page>
+            }
         />
-    )
+    );
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
             {content}
         </DynamicModuleLoader>
     );

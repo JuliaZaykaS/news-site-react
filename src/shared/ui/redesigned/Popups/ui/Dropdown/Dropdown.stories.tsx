@@ -13,7 +13,9 @@ export default {
     decorators: NewDesignDecorator,
 } as Meta<typeof Dropdown>;
 
-const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: StoryFn<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {

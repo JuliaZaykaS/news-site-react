@@ -8,7 +8,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { TextSize, Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import {
+    TextSize,
+    Text as TextDeprecated,
+} from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -27,7 +30,9 @@ export const ArticleDetailsComments = typedMemo(
         const { t } = useTranslation('article');
         const dispatch = useAppDispatch();
 
-        const comments = useSelector(getArticleDetailsComments.selectAll);
+        const comments = useSelector(
+            getArticleDetailsComments.selectAll,
+        );
         const commentsIsLoading = useSelector(
             getArticleDetailsCommentsIsLoading,
         );
@@ -44,13 +49,33 @@ export const ArticleDetailsComments = typedMemo(
         );
 
         return (
-            <VStack gap={'8'} max className={classNames('', {}, [className])}>
+            <VStack
+                gap={'8'}
+                max
+                className={classNames('', {}, [className])}
+            >
                 <ToggleFeatures
                     feature={'isAppRedesigned'}
-                    on={<Text title={t('Комментарии к статье')} size={'l'} />}
-                    off={<TextDeprecated title={t('Комментарии к статье')} size={TextSize.L} />}
+                    on={
+                        <Text
+                            title={t(
+                                'Комментарии к статье',
+                            )}
+                            size={'l'}
+                        />
+                    }
+                    off={
+                        <TextDeprecated
+                            title={t(
+                                'Комментарии к статье',
+                            )}
+                            size={TextSize.L}
+                        />
+                    }
                 />
-                <AddNewCommentForm onSendComment={onSendComment} />
+                <AddNewCommentForm
+                    onSendComment={onSendComment}
+                />
                 <CommentsList
                     comments={comments}
                     isLoading={commentsIsLoading}

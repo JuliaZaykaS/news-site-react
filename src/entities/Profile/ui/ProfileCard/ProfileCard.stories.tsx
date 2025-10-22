@@ -3,7 +3,6 @@ import { Meta, StoryFn } from '@storybook/react';
 import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-
 import { ProfileCard } from './ProfileCard';
 
 import { Theme } from '@/shared/const/theme';
@@ -32,7 +31,7 @@ export const NewDesignPrimary = Template.bind({});
 NewDesignPrimary.args = {
     data: profile,
 };
-NewDesignPrimary.decorators = [NewDesignDecorator]
+NewDesignPrimary.decorators = [NewDesignDecorator];
 
 export const OldDesignWithError = Template.bind({});
 OldDesignWithError.args = {
@@ -54,7 +53,7 @@ export const NewDesignLoading = Template.bind({});
 NewDesignLoading.args = {
     isLoading: true,
 };
-NewDesignLoading.decorators = [NewDesignDecorator]
+NewDesignLoading.decorators = [NewDesignDecorator];
 
 export const OldDesignDark = Template.bind({});
 OldDesignDark.args = {

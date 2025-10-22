@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 
 import cls from './Modal.module.scss';
 
@@ -21,13 +24,16 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
-    const { className, children, isOpen, onClose, lazy } = props;
+    const { className, children, isOpen, onClose, lazy } =
+        props;
 
-    const { isClosing, isMounted, closeHandler } = useModal({
-        animationDelay: ANIMATION_DELAY,
-        isOpen,
-        onClose,
-    });
+    const { isClosing, isMounted, closeHandler } = useModal(
+        {
+            animationDelay: ANIMATION_DELAY,
+            isOpen,
+            onClose,
+        },
+    );
 
     const { theme } = useTheme();
 
@@ -43,7 +49,12 @@ export const Modal = (props: ModalProps) => {
     }
 
     return (
-        <Portal element={document.getElementById('app') ?? document.body}>
+        <Portal
+            element={
+                document.getElementById('app') ??
+                document.body
+            }
+        >
             <div
                 className={classNames(cls.modal, mods, [
                     className,
@@ -53,12 +64,14 @@ export const Modal = (props: ModalProps) => {
                         name: 'isAppRedesigned',
                         on: () => cls.modalNew,
                         off: () => cls.modalOld,
-                    })
+                    }),
                 ])}
             >
                 <Overlay onClose={closeHandler} />
 
-                <div className={cls.content}>{children}</div>
+                <div className={cls.content}>
+                    {children}
+                </div>
             </div>
         </Portal>
     );

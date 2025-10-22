@@ -1,6 +1,14 @@
-import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import {
+    Mods,
+    classNames,
+} from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
-import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
+import {
+    InputHTMLAttributes,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import { typedMemo } from '@/shared/const/memo';
 
 //  если атрибуты совпадают со стандартными, то чтобы переопределить типы для стандартных атрибутов используем конструкцию Omit, где вторым аргументом указываем переопределяемые атрибуты
@@ -50,7 +58,9 @@ export const Input = typedMemo((props: InputProps) => {
         }
     }, [autofocus]);
 
-    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeInput = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
     };
@@ -75,9 +85,15 @@ export const Input = typedMemo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames(cls.inputWrapper, mods, [className])}>
+        <div
+            className={classNames(cls.inputWrapper, mods, [
+                className,
+            ])}
+        >
             {placeholder && (
-                <div className={cls.placeholder}>{`${placeholder}>`}</div>
+                <div
+                    className={cls.placeholder}
+                >{`${placeholder}>`}</div>
             )}
             <div className={cls.caretWrapper}>
                 <input
@@ -95,7 +111,9 @@ export const Input = typedMemo((props: InputProps) => {
                 {isCaretVisible && (
                     <span
                         className={cls.caret}
-                        style={{ left: `${caretPosition * 9}px` }}
+                        style={{
+                            left: `${caretPosition * 9}px`,
+                        }}
                     ></span>
                 )}
             </div>

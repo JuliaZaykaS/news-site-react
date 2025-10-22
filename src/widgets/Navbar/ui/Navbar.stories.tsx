@@ -14,14 +14,19 @@ export default {
     },
 } as Meta<typeof Navbar>;
 
-const Template: StoryFn<typeof Navbar> = (args) => <Navbar {...args} />;
+const Template: StoryFn<typeof Navbar> = (args) => (
+    <Navbar {...args} />
+);
 
 export const OldDesignLight = Template.bind({});
 OldDesignLight.args = {};
 OldDesignLight.decorators = [
     ThemeDecorator(Theme.LIGHT),
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 
@@ -30,7 +35,10 @@ OldDesignDark.args = {};
 OldDesignDark.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 
@@ -39,7 +47,10 @@ OldDesignOrange.args = {};
 OldDesignOrange.decorators = [
     ThemeDecorator(Theme.ORANGE),
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 
@@ -66,7 +77,10 @@ NewDesignLight.args = {};
 NewDesignLight.decorators = [
     NewDesignDecorator,
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 export const NewDesignLightWithAuth = Template.bind({});
@@ -80,5 +94,5 @@ NewDesignLightWithAuth.decorators = [
         <div style={{ marginLeft: '90%' }}>
             <Story />
         </div>
-    )
+    ),
 ];

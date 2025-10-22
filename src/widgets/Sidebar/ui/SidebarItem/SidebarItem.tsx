@@ -17,35 +17,52 @@ interface SidebarItemProps {
     collapsed: boolean;
 }
 
-export const SidebarItem = typedMemo((props: SidebarItemProps) => {
-    const { t } = useTranslation();
+export const SidebarItem = typedMemo(
+    (props: SidebarItemProps) => {
+        const { t } = useTranslation();
 
-    const { collapsed, item } = props;
-    const { path, text } = item;
-    const isAuth = useSelector(getUserAuthData);
-    if (item.authOnly && !isAuth) {
-        return null;
-    }
-    return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={
-                <AppLink
-                    to={path}
-                    className={classNames(cls.itemRedesigned, { [cls.collapsedRedesigned]: collapsed })}
-                    activeClassName={cls.active}
-                >
-                    <Icon Svg={item.Icon} />
-                    <span className={cls.link}>{t(text)}</span>
-                </AppLink>}
-            off={
-                <AppLinkDeprecated
-                    to={path}
-                    className={classNames(cls.item, { [cls.collapsed]: collapsed })}
-                    theme={AppLinkTheme.INVERTED}
-                >
-                    <item.Icon className={cls.icon} />
-                    <span className={cls.link}>{t(text)}</span>
-                </AppLinkDeprecated>} />
-    );
-});
+        const { collapsed, item } = props;
+        const { path, text } = item;
+        const isAuth = useSelector(getUserAuthData);
+        if (item.authOnly && !isAuth) {
+            return null;
+        }
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <AppLink
+                        to={path}
+                        className={classNames(
+                            cls.itemRedesigned,
+                            {
+                                [cls.collapsedRedesigned]:
+                                    collapsed,
+                            },
+                        )}
+                        activeClassName={cls.active}
+                    >
+                        <Icon Svg={item.Icon} />
+                        <span className={cls.link}>
+                            {t(text)}
+                        </span>
+                    </AppLink>
+                }
+                off={
+                    <AppLinkDeprecated
+                        to={path}
+                        className={classNames(cls.item, {
+                            [cls.collapsed]: collapsed,
+                        })}
+                        theme={AppLinkTheme.INVERTED}
+                    >
+                        <item.Icon className={cls.icon} />
+                        <span className={cls.link}>
+                            {t(text)}
+                        </span>
+                    </AppLinkDeprecated>
+                }
+            />
+        );
+    },
+);

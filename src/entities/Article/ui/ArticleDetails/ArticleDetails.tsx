@@ -9,21 +9,26 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleDetailsRedesigned } from './ArticleDetailsRedesigned/ArticleDetailsRedesigned';
 import { ArticleDetailsDeprecated } from './ArticleDetailsDeprecated/ArticleDetailsDeprecated';
 
-export const ArticleDetails = typedMemo((props: ArticleDetailsProps) => {
-    const { articleId } = props;
+export const ArticleDetails = typedMemo(
+    (props: ArticleDetailsProps) => {
+        const { articleId } = props;
 
-    const dispatch = useAppDispatch();
+        const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(articleId));
-        }
-    }, [articleId, dispatch]);
+        useEffect(() => {
+            if (__PROJECT__ !== 'storybook') {
+                dispatch(fetchArticleById(articleId));
+            }
+        }, [articleId, dispatch]);
 
-    return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<ArticleDetailsRedesigned {...props} />}
-            off={<ArticleDetailsDeprecated {...props} />} />
-    );
-});
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<ArticleDetailsRedesigned {...props} />}
+                off={
+                    <ArticleDetailsDeprecated {...props} />
+                }
+            />
+        );
+    },
+);

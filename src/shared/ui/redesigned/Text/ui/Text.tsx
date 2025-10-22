@@ -16,11 +16,12 @@ const mapSizeToClass: Record<TextSize, string> = {
     l: cls['size_l'],
 };
 
-const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-    s: 'h3',
-    m: 'h2',
-    l: 'h1',
-};
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> =
+    {
+        s: 'h3',
+        m: 'h2',
+        l: 'h1',
+    };
 
 interface TextProps {
     className?: string;
@@ -41,7 +42,7 @@ export const Text = typedMemo((props: TextProps) => {
         text,
         variant = 'primary',
         align = 'left',
-        size = "m",
+        size = 'm',
         'data-testid': dataTestId = 'Text',
         bold,
     } = props;
@@ -49,11 +50,20 @@ export const Text = typedMemo((props: TextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
     const sizeClass = mapSizeToClass[size];
 
-    const additionalClasses = [className, cls[variant], cls[align], sizeClass];
+    const additionalClasses = [
+        className,
+        cls[variant],
+        cls[align],
+        sizeClass,
+    ];
 
     return (
         <div
-            className={classNames(cls.text, { [cls.bold]: bold }, additionalClasses)}
+            className={classNames(
+                cls.text,
+                { [cls.bold]: bold },
+                additionalClasses,
+            )}
         >
             {title && (
                 <HeaderTag

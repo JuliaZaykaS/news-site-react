@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 
 // eslint-disable-next-line juliaz/layer-imports
 import '@/app/styles/index.scss';
-import Arrow from '@/shared/assets/tests/arrow-bottom.svg'
+import Arrow from '@/shared/assets/tests/arrow-bottom.svg';
 import { Input } from './Input';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
@@ -15,7 +15,9 @@ export default {
     },
 } as Meta<typeof Input>;
 
-const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
+const Template: StoryFn<typeof Input> = (args) => (
+    <Input {...args} />
+);
 
 export const Primary = Template.bind({});
 

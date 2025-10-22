@@ -10,9 +10,9 @@ export default {
     },
 } as Meta<typeof ArticleTypeTabs>;
 
-const Template: StoryFn<typeof ArticleTypeTabs> = (args) => (
-    <ArticleTypeTabs {...args} />
-);
+const Template: StoryFn<typeof ArticleTypeTabs> = (
+    args,
+) => <ArticleTypeTabs {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};

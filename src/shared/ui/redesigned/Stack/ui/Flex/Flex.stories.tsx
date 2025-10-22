@@ -9,7 +9,9 @@ export default {
     },
 } as Meta<typeof Flex>;
 
-const Template: StoryFn<typeof Flex> = (args) => <Flex {...args} />;
+const Template: StoryFn<typeof Flex> = (args) => (
+    <Flex {...args} />
+);
 
 export const Row = Template.bind({});
 Row.args = {

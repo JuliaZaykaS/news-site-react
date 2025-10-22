@@ -20,7 +20,10 @@ export default defineConfig(({ mode }) => {
                     ref: true,
                     svgo: false,
                     titleProp: true,
-                    plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+                    plugins: [
+                        '@svgr/plugin-svgo',
+                        '@svgr/plugin-jsx',
+                    ],
                     svgoConfig: {
                         plugins: [
                             {
@@ -63,9 +66,12 @@ export default defineConfig(({ mode }) => {
         },
         define: {
             __IS_DEV__: true,
-            __API__: JSON.stringify('http://localhost:8000'),
+            __API__: JSON.stringify(
+                'http://localhost:8000',
+            ),
             __PROJECT__: JSON.stringify('frontend'),
-            __VITE_TEST__: env.VITE_TEST === 'true' ? true : false,
+            __VITE_TEST__:
+                env.VITE_TEST === 'true' ? true : false,
         },
         server: {
             // host: '0.0.0.0', // слушать на всех интерфейсах

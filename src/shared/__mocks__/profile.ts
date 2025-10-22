@@ -1,8 +1,8 @@
 /* eslint-disable juliaz/layer-imports */
-import { Country } from "@/entities/Country";
-import { Currency } from "@/entities/Currency";
-import { Profile } from "@/entities/Profile";
-import avatar from "@/shared/assets/tests/example.png";
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Profile } from '@/entities/Profile';
+import avatar from '@/shared/assets/tests/example.png';
 
 export const profile: Profile = {
     id: '1',

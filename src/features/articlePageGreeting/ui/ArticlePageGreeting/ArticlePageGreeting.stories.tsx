@@ -10,9 +10,11 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({}), NewDesignDecorator]
+    decorators: [StoreDecorator({}), NewDesignDecorator],
 } as Meta<typeof ArticlePageGreeting>;
 
-const Template: StoryFn<typeof ArticlePageGreeting> = () => <ArticlePageGreeting />;
+const Template: StoryFn<
+    typeof ArticlePageGreeting
+> = () => <ArticlePageGreeting />;
 
 export const Normal = Template.bind({});

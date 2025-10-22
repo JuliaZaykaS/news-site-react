@@ -4,7 +4,9 @@ import { Theme } from '../../../const/theme';
 // import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localstorage';
 
 interface useThemeResult {
-    toggleTheme: (saveAction: (theme: Theme) => void) => void;
+    toggleTheme: (
+        saveAction: (theme: Theme) => void,
+    ) => void;
     theme: Theme;
 }
 export function useTheme(): useThemeResult {
@@ -15,7 +17,9 @@ export function useTheme(): useThemeResult {
         document.body.className = theme || Theme.LIGHT;
     }, [theme]);
 
-    const toggleTheme = (saveAction?: (theme: Theme) => void) => {
+    const toggleTheme = (
+        saveAction?: (theme: Theme) => void,
+    ) => {
         // const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         let newTheme: Theme;
         switch (theme) {
@@ -40,7 +44,7 @@ export function useTheme(): useThemeResult {
         setTheme?.(newTheme);
         // document.body.className = newTheme;
         // localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-        saveAction?.(newTheme)
+        saveAction?.(newTheme);
     };
     return { theme: theme || Theme.LIGHT, toggleTheme };
 }

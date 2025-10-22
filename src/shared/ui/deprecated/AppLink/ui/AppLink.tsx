@@ -22,7 +22,10 @@ interface AppLinkProps extends LinkProps {
 // export const AppLink = memo((props: AppLinkProps) => {
 // eslint-disable-next-line react/display-name
 export const AppLink = forwardRef(
-    (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    (
+        props: AppLinkProps,
+        ref: ForwardedRef<HTMLAnchorElement>,
+    ) => {
         const {
             className,
             to,
@@ -34,7 +37,10 @@ export const AppLink = forwardRef(
         return (
             <Link
                 to={to}
-                className={classNames(cls.appLink, {}, [className, cls[theme]])}
+                className={classNames(cls.appLink, {}, [
+                    className,
+                    cls[theme],
+                ])}
                 ref={ref}
                 {...otherProps}
             >

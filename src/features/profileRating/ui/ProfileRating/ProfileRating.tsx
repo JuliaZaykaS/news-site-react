@@ -15,63 +15,70 @@ export interface ProfileRatingProps {
     profileId: string;
 }
 
-const ProfileRating = typedMemo((props: ProfileRatingProps) => {
-    const { className, profileId } = props;
-    const { t } = useTranslation('profile');
-    const userData = useSelector(getUserAuthData);
+const ProfileRating = typedMemo(
+    (props: ProfileRatingProps) => {
+        const { className, profileId } = props;
+        const { t } = useTranslation('profile');
+        const userData = useSelector(getUserAuthData);
 
-    const { data, isLoading } = useGetArticleRating({
-        userId: userData?.id ?? '',
-        profileId,
-    });
-    const [addProfileRating] = useAddArticleRating();
+        const { data, isLoading } = useGetArticleRating({
+            userId: userData?.id ?? '',
+            profileId,
+        });
+        const [addProfileRating] = useAddArticleRating();
 
-    const rating = data?.[0];
+        const rating = data?.[0];
 
-    const handleAddArticleRating = useCallback(
-        (starsCount: number, feedback?: string) => {
-            try {
-                addProfileRating({
-                    userId: userData?.id ?? '',
-                    profileId,
-                    rate: starsCount,
+        const handleAddArticleRating = useCallback(
+            (starsCount: number, feedback?: string) => {
+                try {
+                    addProfileRating({
+                        userId: userData?.id ?? '',
+                        profileId,
+                        rate: starsCount,
+                        feedback,
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+            [profileId, addProfileRating, userData?.id],
+        );
+
+        const onAcceptRating = useCallback(
+            (starsCount: number, feedback?: string) => {
+                handleAddArticleRating(
+                    starsCount,
                     feedback,
-                });
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        [profileId, addProfileRating, userData?.id],
-    );
+                );
+            },
+            [handleAddArticleRating],
+        );
+        const onCancelRating = useCallback(
+            (starsCount: number) => {
+                handleAddArticleRating(starsCount);
+            },
+            [handleAddArticleRating],
+        );
 
-    const onAcceptRating = useCallback(
-        (starsCount: number, feedback?: string) => {
-            handleAddArticleRating(starsCount, feedback);
-        },
-        [handleAddArticleRating],
-    );
-    const onCancelRating = useCallback(
-        (starsCount: number) => {
-            handleAddArticleRating(starsCount);
-        },
-        [handleAddArticleRating],
-    );
+        if (isLoading) {
+            return <Skeleton width={'100%'} height={120} />;
+        }
 
-    if (isLoading) {
-        return <Skeleton width={'100%'} height={120} />;
-    }
-
-    return (
-        <RatingCard
-            className={className}
-            title={t('Оцените профиль')}
-            feedbackTitle={t('Оставьте свой отзыв о пользователе')}
-            hasFeedback
-            rate={rating?.rate}
-            onCancel={onCancelRating}
-            onAccept={onAcceptRating}
-        />
-    );
-});
+        return (
+            <RatingCard
+                className={className}
+                title={t('Оцените профиль')}
+                feedbackTitle={t(
+                    'Оставьте свой отзыв о пользователе',
+                )}
+                hasFeedback
+                rate={rating?.rate}
+                onCancel={onCancelRating}
+                onAccept={onAcceptRating}
+            />
+        );
+    },
+);
 
 export default ProfileRating;

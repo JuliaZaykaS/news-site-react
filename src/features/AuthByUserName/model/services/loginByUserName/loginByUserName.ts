@@ -14,28 +14,36 @@ export const loginByUserName = createAsyncThunk<
     User,
     LoginByUserNameProps,
     ThunkConfig<string>
->('login/loginByUserName', async ({ username, password }, thunkAPI) => {
-    const { extra, dispatch, rejectWithValue } = thunkAPI;
-    try {
-        const response = await extra.api.post<User>('/login', {
-            username,
-            password,
-        });
-        if (!response.data) {
-            throw new Error();
+>(
+    'login/loginByUserName',
+    async ({ username, password }, thunkAPI) => {
+        const { extra, dispatch, rejectWithValue } =
+            thunkAPI;
+        try {
+            const response = await extra.api.post<User>(
+                '/login',
+                {
+                    username,
+                    password,
+                },
+            );
+            if (!response.data) {
+                throw new Error();
+            }
+            // // записываем данные о пользователе в локал сторадж
+            // localStorage.setItem(
+            //     USER_LOCALSTORAGE_KEY,
+            //     JSON.stringify(response.data),
+            // );
+
+            // записываем в стейт данные о пользователе
+            dispatch(
+                userActions.setAuthData(response.data),
+            );
+            return response.data;
+        } catch (error) {
+            // return thunkAPI.rejectWithValue(i18n.t("Неверный логин или пароль"));
+            return rejectWithValue(`${error}`);
         }
-        // // записываем данные о пользователе в локал сторадж
-        // localStorage.setItem(
-        //     USER_LOCALSTORAGE_KEY,
-        //     JSON.stringify(response.data),
-        // );
-
-
-        // записываем в стейт данные о пользователе
-        dispatch(userActions.setAuthData(response.data));
-        return response.data;
-    } catch (error) {
-        // return thunkAPI.rejectWithValue(i18n.t("Неверный логин или пароль"));
-        return rejectWithValue(`${error}`);
-    }
-});
+    },
+);

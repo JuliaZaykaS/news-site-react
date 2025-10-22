@@ -1,4 +1,7 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import {
+    PayloadAction,
+    createSlice,
+} from '@reduxjs/toolkit';
 import { AddNewCommentFormSchema } from '../types/addNewCommentForm';
 
 const initialState: AddNewCommentFormSchema = {
@@ -36,5 +39,7 @@ export const addNewCommentFormSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { actions: addNewCommentFormActions } = addNewCommentFormSlice;
-export const { reducer: addNewCommentFormReducer } = addNewCommentFormSlice;
+export const { actions: addNewCommentFormActions } =
+    addNewCommentFormSlice;
+export const { reducer: addNewCommentFormReducer } =
+    addNewCommentFormSlice;

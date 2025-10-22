@@ -17,16 +17,21 @@ export const ArticleCodeBlockComponent = typedMemo(
 
         return (
             <div
-                className={classNames(cls.articleCodeBlockComponent, {}, [
-                    className,
-                ])}
+                className={classNames(
+                    cls.articleCodeBlockComponent,
+                    {},
+                    [className],
+                )}
             >
                 <ToggleFeatures
                     feature={'isAppRedesigned'}
                     on={<Code textCode={block?.code} />}
-                    off={<CodeDeprecated textCode={block?.code} />}
+                    off={
+                        <CodeDeprecated
+                            textCode={block?.code}
+                        />
+                    }
                 />
-
             </div>
         );
     },

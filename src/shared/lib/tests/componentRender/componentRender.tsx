@@ -1,7 +1,10 @@
-// import { DeepPartial } from "@reduxjs/toolkit";
+/* eslint-disable juliaz/layer-imports */
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { render } from '@testing-library/react';
-import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import {
+    StateSchema,
+    StoreProvider,
+} from '@/app/providers/StoreProvider';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 
@@ -14,7 +17,9 @@ import '@/app/styles/index.scss';
 export interface componentRenderOptions {
     route?: string;
     initialState?: DeepPartial<StateSchema>;
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    asyncReducers?: DeepPartial<
+        ReducersMapObject<StateSchema>
+    >;
     theme?: Theme;
 }
 
@@ -40,7 +45,9 @@ export function TestProvider(props: TestProviderProps) {
             >
                 <I18nextProvider i18n={i18nForTests}>
                     <ThemeProvider initialTheme={theme}>
-                        <div className={`app ${theme}`}>{children}</div>
+                        <div className={`app ${theme}`}>
+                            {children}
+                        </div>
                     </ThemeProvider>
                 </I18nextProvider>
             </StoreProvider>
@@ -53,5 +60,9 @@ export function componentRender(
     component: ReactNode,
     options: componentRenderOptions = {},
 ) {
-    return render(<TestProvider options={options}>{component}</TestProvider>);
+    return render(
+        <TestProvider options={options}>
+            {component}
+        </TestProvider>,
+    );
 }

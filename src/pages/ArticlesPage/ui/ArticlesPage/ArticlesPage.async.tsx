@@ -6,5 +6,7 @@ import ArticlesPage from './ArticlesPage';
 //     ? ArticlesPage // статический import для тестов
 //     : lazy(() => import('./ArticlesPage'));
 
-export const ArticlesPageAsync = lazy(() => import('./ArticlesPage'));
+export const ArticlesPageAsync = lazy(
+    () => import('./ArticlesPage'),
+);
 export default ArticlesPage;

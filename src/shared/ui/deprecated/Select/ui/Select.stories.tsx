@@ -13,7 +13,9 @@ export default {
     },
 } as Meta<typeof Select>;
 
-const Template: StoryFn<typeof Select> = (args) => <Select {...args} />;
+const Template: StoryFn<typeof Select> = (args) => (
+    <Select {...args} />
+);
 
 const selectOptions = [
     {
@@ -28,7 +30,7 @@ const selectOptions = [
         value: '789',
         content: '3 пункт',
     },
-]
+];
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -41,11 +43,11 @@ Dark.args = {
     label: 'Укажите название селекта',
     options: selectOptions,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = {
     label: 'Укажите название селекта',
     options: selectOptions,
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)]
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

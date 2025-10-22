@@ -5,24 +5,26 @@ import { article } from '@/shared/__mocks__/article';
 import { ArticleViewType } from '../../../model/consts/articleConsts';
 
 export default {
-   title: 'entities/Article/ArticlesListItem/ArticleListItemRedesigned',
-   component: ArticleListItemRedesigned,
-   argTypes: {
-      backgroundColor: { control: 'color' },
-   },
-   decorators: [NewDesignDecorator],
+    title: 'entities/Article/ArticlesListItem/ArticleListItemRedesigned',
+    component: ArticleListItemRedesigned,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [NewDesignDecorator],
 } as Meta<typeof ArticleListItemRedesigned>;
 
-const Template: StoryFn<typeof ArticleListItemRedesigned> = (args) => <ArticleListItemRedesigned {...args} />;
+const Template: StoryFn<
+    typeof ArticleListItemRedesigned
+> = (args) => <ArticleListItemRedesigned {...args} />;
 
 export const NewDesignGrid = Template.bind({});
 NewDesignGrid.args = {
-   article: article,
-   view: ArticleViewType.GRID,
+    article: article,
+    view: ArticleViewType.GRID,
 };
 
 export const NewDesignList = Template.bind({});
 NewDesignList.args = {
-   article: article,
-   view: ArticleViewType.LIST,
+    article: article,
+    view: ArticleViewType.LIST,
 };

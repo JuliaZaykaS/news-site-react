@@ -14,7 +14,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [StoreDecorator({})]
+    decorators: [StoreDecorator({})],
 } as Meta<typeof ThemeSwitcher>;
 
 const Template: StoryFn<typeof ThemeSwitcher> = (args) => (

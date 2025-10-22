@@ -13,7 +13,9 @@ export default {
     },
 } as Meta<typeof Dropdown>;
 
-const Template: StoryFn<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: StoryFn<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 const dropdownItems = [
     {
@@ -25,25 +27,25 @@ const dropdownItems = [
     {
         content: 'third',
     },
-]
+];
 
 export const Normal = Template.bind({});
 Normal.args = {
     trigger: <Button>Open</Button>,
     items: dropdownItems,
 };
-Normal.decorators = [ThemeDecorator(Theme.LIGHT)]
+Normal.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
     trigger: <Button>Open</Button>,
     items: dropdownItems,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Orange = Template.bind({});
 Orange.args = {
     trigger: <Button>Open</Button>,
     items: dropdownItems,
 };
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)]
+Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

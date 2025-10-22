@@ -19,6 +19,10 @@ class ErrorBoundary extends React.Component<
     }
 
     static getDerivedStateFromError(error: Error) {
+        console.log(
+            '🚀 ~ ErrorBoundary ~ getDerivedStateFromError ~ error:',
+            error,
+        );
         // Обновить состояние с тем, чтобы следующий рендер показал запасной UI.
         return { hasError: true };
     }

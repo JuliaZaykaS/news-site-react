@@ -5,18 +5,22 @@ import webpack from 'webpack'; //to access built-in plugins
 // import { buildLoaders } from "./config/build/buildLoaders";
 // import { buildResolves } from "./config/build/buildResolves";
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
+import {
+    BuildEnv,
+    BuildMode,
+    BuildPaths,
+} from './config/build/types/config';
 
 function getApiUrl(mode: BuildMode, apiUrl?: string) {
     if (apiUrl) {
-        return apiUrl
+        return apiUrl;
     }
 
     if (mode === 'production') {
-        return '/api'
+        return '/api';
     }
 
-    return 'http://localhost:8000'
+    return 'http://localhost:8000';
 }
 
 export default (env: BuildEnv) => {
@@ -24,10 +28,22 @@ export default (env: BuildEnv) => {
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'), // dirname - имя директории, где мы сейчас находимся, далее путь к папке и главному файлу
         build: path.resolve(__dirname, 'build'), // путь, куда сборка должна происходить,
-        html: path.resolve(__dirname, 'public', 'index.html'), // указываем, какой файл хтмл мы будет использовать в качестве шаблона,
+        html: path.resolve(
+            __dirname,
+            'public',
+            'index.html',
+        ), // указываем, какой файл хтмл мы будет использовать в качестве шаблона,
         src: path.resolve(__dirname, 'src'), // путь к папке src
-        locales: path.resolve(__dirname, 'public', 'locales'), // путь к папке с переводами
-        buildLocales: path.resolve(__dirname, 'build', 'locales'), // путь к папке для переводов в продакшн
+        locales: path.resolve(
+            __dirname,
+            'public',
+            'locales',
+        ), // путь к папке с переводами
+        buildLocales: path.resolve(
+            __dirname,
+            'build',
+            'locales',
+        ), // путь к папке для переводов в продакшн
     };
 
     const mode = env?.mode || 'development';
@@ -37,13 +53,14 @@ export default (env: BuildEnv) => {
     // const apiUrl = env?.apiUrl || 'http://localhost:8000';
     const apiUrl = getApiUrl(mode, env?.apiUrl);
 
-    const config: webpack.Configuration = buildWebpackConfig({
-        mode,
-        paths: paths,
-        isDev,
-        port: PORT,
-        apiUrl,
-        project: 'frontend',
-    });
+    const config: webpack.Configuration =
+        buildWebpackConfig({
+            mode,
+            paths: paths,
+            isDev,
+            port: PORT,
+            apiUrl,
+            project: 'frontend',
+        });
     return config;
 };

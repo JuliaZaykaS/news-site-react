@@ -26,14 +26,16 @@ const normalArgs = {
         },
     },
     isLoading: false,
-}
+};
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = normalArgs;
 
 export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = normalArgs;
-NewDesignNormal.decorators = [FeaturesFlagsDecorator({ isAppRedesigned: true })]
+NewDesignNormal.decorators = [
+    FeaturesFlagsDecorator({ isAppRedesigned: true }),
+];
 
 export const OldDesignLoading = Template.bind({});
 OldDesignLoading.args = {
@@ -54,4 +56,4 @@ NewDesignLoading.args = {
     },
     isLoading: true,
 };
-NewDesignLoading.decorators = [NewDesignDecorator]
+NewDesignLoading.decorators = [NewDesignDecorator];

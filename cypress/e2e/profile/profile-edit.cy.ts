@@ -12,7 +12,10 @@ describe('Пользователь заходит на страницу проф
         cy.resetProfile(profileId);
     });
     it('Профиль успешно загружается', () => {
-        cy.getByTestId('ProfileCard.FirstName').should('have.value', 'Тест');
+        cy.getByTestId('ProfileCard.FirstName').should(
+            'have.value',
+            'Тест',
+        );
     });
     it('Редактирует профиль', () => {
         const newFirstName = 'Тест новый';

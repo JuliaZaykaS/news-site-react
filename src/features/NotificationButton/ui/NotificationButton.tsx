@@ -7,7 +7,10 @@ import NotificationIconDeprecated from '@/shared/assets/icons/bell.svg';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { NotificationsList } from '@/entities/Notification';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { typedMemo } from '@/shared/const/memo';
@@ -37,42 +40,71 @@ export const NotificationButton = typedMemo(
             <ToggleFeatures
                 feature={'isAppRedesigned'}
                 on={
-                    <Icon Svg={NotificationIcon} clickable onClick={onOpenDrawer} />
+                    <Icon
+                        Svg={NotificationIcon}
+                        clickable
+                        onClick={onOpenDrawer}
+                    />
                 }
-                off={<ButtonDeprecated theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
-                    <IconDeprecated Svg={NotificationIconDeprecated} inverted />
-                </ButtonDeprecated>}
+                off={
+                    <ButtonDeprecated
+                        theme={ButtonTheme.CLEAR}
+                        onClick={onOpenDrawer}
+                    >
+                        <IconDeprecated
+                            Svg={NotificationIconDeprecated}
+                            inverted
+                        />
+                    </ButtonDeprecated>
+                }
             />
-
         );
 
         const content = isMobile ? (
             <>
                 {trigger}
 
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                <Drawer
+                    isOpen={isOpen}
+                    onClose={onCloseDrawer}
+                >
                     <NotificationsList />
                 </Drawer>
             </>
         ) : (
             <ToggleFeatures
                 feature={'isAppRedesigned'}
-                on={<Popover
-                    className={classNames(cls.notificationButton, {}, [className])}
-                    direction={'bottom-left'}
-                    trigger={trigger}
-                >
-                    <NotificationsList className={cls.notifications} />
-                </Popover>}
-                off={<PopoverDeprecated
-                    className={classNames(cls.notificationButton, {}, [className])}
-                    direction={'bottom-left'}
-                    trigger={trigger}
-                >
-                    <NotificationsList className={cls.notifications} />
-                </PopoverDeprecated>}
+                on={
+                    <Popover
+                        className={classNames(
+                            cls.notificationButton,
+                            {},
+                            [className],
+                        )}
+                        direction={'bottom-left'}
+                        trigger={trigger}
+                    >
+                        <NotificationsList
+                            className={cls.notifications}
+                        />
+                    </Popover>
+                }
+                off={
+                    <PopoverDeprecated
+                        className={classNames(
+                            cls.notificationButton,
+                            {},
+                            [className],
+                        )}
+                        direction={'bottom-left'}
+                        trigger={trigger}
+                    >
+                        <NotificationsList
+                            className={cls.notifications}
+                        />
+                    </PopoverDeprecated>
+                }
             />
-
         );
 
         return content;

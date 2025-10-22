@@ -11,15 +11,14 @@ export default {
     },
 } as Meta<typeof ArticleDetailsPageHeader>;
 
-const Template: StoryFn<typeof ArticleDetailsPageHeader> = (args) => (
-    <ArticleDetailsPageHeader {...args} />
-);
+const Template: StoryFn<typeof ArticleDetailsPageHeader> = (
+    args,
+) => <ArticleDetailsPageHeader {...args} />;
 
 const user = {
     id: '1',
     username: 'admin',
 };
-
 
 export const Reader = Template.bind({});
 Reader.args = {};

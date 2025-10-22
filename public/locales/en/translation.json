@@ -35,5 +35,6 @@
     "Введите текст комментария": "Enter your comment text",
     "Админка": "Admin panel",
     "Настройки": "Settings",
-    "У вас нет доступа к этой странице": "You do not have access to this page."
+    "У вас нет доступа к этой странице": "You do not have access to this page.",
+    "Ошибка загрузки комментариев": "Error loading comments"
 }

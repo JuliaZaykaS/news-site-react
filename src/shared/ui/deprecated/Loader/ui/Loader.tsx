@@ -10,11 +10,15 @@ interface LoaderProps {
  * @deprecated
  */
 
-export const Loader: React.FC<LoaderProps> = (props) => {
+export const Loader = (props: LoaderProps) => {
     const { className } = props;
 
     return (
-        <div className={classNames('lds-ripple', {}, [className])}>
+        <div
+            className={classNames('lds-ripple', {}, [
+                className,
+            ])}
+        >
             <div></div>
             <div></div>
         </div>

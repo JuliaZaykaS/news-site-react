@@ -4,19 +4,22 @@ import cls from './AppLink.module.scss';
 import { ForwardedRef, ReactNode, forwardRef } from 'react';
 
 //для списка тем ссылок
-export type AppLinkVariant = 'primary' | 'red'
+export type AppLinkVariant = 'primary' | 'red';
 
 interface AppLinkProps extends LinkProps {
     className?: string;
     variant?: AppLinkVariant;
     children?: ReactNode;
-    activeClassName?: string,
+    activeClassName?: string;
 }
 
 // export const AppLink = memo((props: AppLinkProps) => {
 // eslint-disable-next-line react/display-name
 export const AppLink = forwardRef(
-    (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+    (
+        props: AppLinkProps,
+        ref: ForwardedRef<HTMLAnchorElement>,
+    ) => {
         const {
             className,
             to,
@@ -30,7 +33,11 @@ export const AppLink = forwardRef(
             <NavLink
                 to={to}
                 className={({ isActive }) =>
-                    classNames(cls.appLink, { [activeClassName]: isActive }, [className, cls[variant]])
+                    classNames(
+                        cls.appLink,
+                        { [activeClassName]: isActive },
+                        [className, cls[variant]],
+                    )
                 }
                 ref={ref}
                 {...otherProps}

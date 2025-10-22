@@ -15,7 +15,9 @@ export default {
     },
 } as Meta<typeof Input>;
 
-const Template: StoryFn<typeof Input> = (args) => <Input {...args} />;
+const Template: StoryFn<typeof Input> = (args) => (
+    <Input {...args} />
+);
 
 export const Primary = Template.bind({});
 

@@ -12,9 +12,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleInfiniteList>;
 
-const Template: StoryFn<typeof ArticleInfiniteList> = (args) => (
-    <ArticleInfiniteList {...args} />
-);
+const Template: StoryFn<typeof ArticleInfiniteList> = (
+    args,
+) => <ArticleInfiniteList {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};

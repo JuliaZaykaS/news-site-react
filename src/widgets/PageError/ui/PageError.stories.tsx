@@ -14,7 +14,9 @@ export default {
     },
 } as Meta<typeof PageError>;
 
-const Template: StoryFn<typeof PageError> = (args) => <PageError {...args} />;
+const Template: StoryFn<typeof PageError> = (args) => (
+    <PageError {...args} />
+);
 
 export const OldDesignLight = Template.bind({});
 OldDesignLight.args = {};
@@ -30,6 +32,4 @@ OldDesignOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
 
 export const NewDesign = Template.bind({});
 NewDesign.args = {};
-NewDesign.decorators = [
-    NewDesignDecorator,
-];
+NewDesign.decorators = [NewDesignDecorator];

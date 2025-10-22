@@ -1,13 +1,22 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import {
+    loginActions,
+    loginReducer,
+} from '../../model/slice/loginSlice';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
-import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import {
+    Text as TextDeprecated,
+    TextTheme,
+} from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { getLoginUserName } from '../../model/selectors/getUserName/getLoginUserName';
 import { getLoginUserPassword } from '../../model/selectors/getUserPassword/getLoginUserPassword';
@@ -62,12 +71,20 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
     );
 
     const onLoginBtnClick = useCallback(async () => {
-        const result = await dispatch(loginByUserName({ username, password }));
+        const result = await dispatch(
+            loginByUserName({ username, password }),
+        );
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
             forceUpdate();
         }
-    }, [dispatch, username, password, onSuccess, forceUpdate]);
+    }, [
+        dispatch,
+        username,
+        password,
+        onSuccess,
+        forceUpdate,
+    ]);
 
     return (
         <DynamicModuleLoader
@@ -77,12 +94,23 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
             <ToggleFeatures
                 feature={'isAppRedesigned'}
                 on={
-                    <VStack gap='16' className={classNames(cls.loginForm, {}, [className])}>
-                        <Text title={t('Форма авторизации')} />
+                    <VStack
+                        gap="16"
+                        className={classNames(
+                            cls.loginForm,
+                            {},
+                            [className],
+                        )}
+                    >
+                        <Text
+                            title={t('Форма авторизации')}
+                        />
                         {error && (
                             <Text
                                 variant={'error'}
-                                text={t('Неверный логин или пароль')}
+                                text={t(
+                                    'Неверный логин или пароль',
+                                )}
                             />
                         )}
                         <Input
@@ -110,40 +138,52 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
                         </Button>
                     </VStack>
                 }
-                off={<div className={classNames(cls.loginForm, {}, [className])}>
-                    <TextDeprecated title={t('Форма авторизации')} />
-                    {error && (
-                        <TextDeprecated
-                            theme={TextTheme.ERROR}
-                            text={t('Неверный логин или пароль')}
-                        />
-                    )}
-                    <InputDeprecated
-                        type="text"
-                        className={cls.input}
-                        placeholder={t('Логин')}
-                        autofocus
-                        onChange={onLoginChange}
-                        value={username}
-                    ></InputDeprecated>
-                    <InputDeprecated
-                        type="text"
-                        className={cls.input}
-                        placeholder={t('Пароль')}
-                        onChange={onPasswordChange}
-                        value={password}
-                    ></InputDeprecated>
-
-                    <ButtonDeprecated
-                        className={cls.loginBtn}
-                        theme={ButtonTheme.OUTLINE}
-                        onClick={onLoginBtnClick}
-                        disabled={isLoading}
+                off={
+                    <div
+                        className={classNames(
+                            cls.loginForm,
+                            {},
+                            [className],
+                        )}
                     >
-                        {t('Войти')}
-                    </ButtonDeprecated>
-                </div>} />
+                        <TextDeprecated
+                            title={t('Форма авторизации')}
+                        />
+                        {error && (
+                            <TextDeprecated
+                                theme={TextTheme.ERROR}
+                                text={t(
+                                    'Неверный логин или пароль',
+                                )}
+                            />
+                        )}
+                        <InputDeprecated
+                            type="text"
+                            className={cls.input}
+                            placeholder={t('Логин')}
+                            autofocus
+                            onChange={onLoginChange}
+                            value={username}
+                        ></InputDeprecated>
+                        <InputDeprecated
+                            type="text"
+                            className={cls.input}
+                            placeholder={t('Пароль')}
+                            onChange={onPasswordChange}
+                            value={password}
+                        ></InputDeprecated>
 
+                        <ButtonDeprecated
+                            className={cls.loginBtn}
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onLoginBtnClick}
+                            disabled={isLoading}
+                        >
+                            {t('Войти')}
+                        </ButtonDeprecated>
+                    </div>
+                }
+            />
         </DynamicModuleLoader>
     );
 });

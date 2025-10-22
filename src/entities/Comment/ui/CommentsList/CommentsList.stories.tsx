@@ -35,17 +35,17 @@ export const NewDesignNormal = Template.bind({});
 NewDesignNormal.args = {
     comments: comments,
 };
-NewDesignNormal.decorators = [NewDesignDecorator]
+NewDesignNormal.decorators = [NewDesignDecorator];
 
 export const NewDesignLoading = Template.bind({});
 NewDesignLoading.args = {
     comments: comments,
     isLoading: true,
 };
-NewDesignLoading.decorators = [NewDesignDecorator]
+NewDesignLoading.decorators = [NewDesignDecorator];
 
 export const NewDesignNoComments = Template.bind({});
 NewDesignNoComments.args = {
     comments: [],
 };
-NewDesignNoComments.decorators = [NewDesignDecorator]
+NewDesignNoComments.decorators = [NewDesignDecorator];

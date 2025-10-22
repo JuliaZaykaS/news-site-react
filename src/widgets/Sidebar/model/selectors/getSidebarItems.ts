@@ -20,7 +20,7 @@ import { toggleFeatures } from '@/shared/lib/features';
 import { useSelector } from 'react-redux';
 
 export const useSidebarItems = () => {
-    const userData = useSelector(getUserAuthData)
+    const userData = useSelector(getUserAuthData);
     const sidebarItemsList: SidebarItemType[] = [
         {
             path: getRouteMain(),
@@ -29,7 +29,7 @@ export const useSidebarItems = () => {
                 name: 'isAppRedesigned',
                 on: () => MainIcon,
                 off: () => MainIconDeprecated,
-            })
+            }),
         },
         {
             path: getRouteAbout(),
@@ -38,7 +38,7 @@ export const useSidebarItems = () => {
                 name: 'isAppRedesigned',
                 on: () => AboutIcon,
                 off: () => AboutIconDeprecated,
-            })
+            }),
         },
     ];
 

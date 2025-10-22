@@ -6,7 +6,9 @@ export interface UseInfiniteScrollOptions {
     wrapperRef?: MutableRefObject<HTMLElement>;
 }
 
-export function useInfiniteScroll(opt: UseInfiniteScrollOptions) {
+export function useInfiniteScroll(
+    opt: UseInfiniteScrollOptions,
+) {
     const { callback, wrapperRef, triggerRef } = opt;
     //   const observer = useRef<IntersectionObserver | null>(null);
     // let observer: IntersectionObserver | null = null;
@@ -22,11 +24,14 @@ export function useInfiniteScroll(opt: UseInfiniteScrollOptions) {
                 threshold: 1.0,
             };
 
-            observer = new IntersectionObserver(([entry]) => {
-                if (entry.isIntersecting) {
-                    callback();
-                }
-            }, options);
+            observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        callback();
+                    }
+                },
+                options,
+            );
             observer.observe(triggerElement);
         }
         return () => {

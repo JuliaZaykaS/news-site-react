@@ -12,35 +12,68 @@ interface ArticleEditPageProps {
     className?: string;
 }
 
-const ArticleEditPage = typedMemo((props: ArticleEditPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation('article');
-    const { id } = useParams<{ id: string }>();
+const ArticleEditPage = typedMemo(
+    (props: ArticleEditPageProps) => {
+        const { className } = props;
+        const { t } = useTranslation('article');
+        const { id } = useParams<{ id: string }>();
 
-    const isEdit = Boolean(id);
+        const isEdit = Boolean(id);
 
-    return (
-        <ToggleFeatures
-            feature={'isAppRedesigned'}
-            on={<Page className={classNames(cls.articleEditPage, {}, [className])}>
-                {isEdit ? (
-                    <Text title={t('Редактирование статьи')} />
-                ) : (
-                    <Text title={t('Создание новой статьи')} />
-                )}
-                <Text />
-            </Page>}
-            off={<Page className={classNames(cls.articleEditPage, {}, [className])}>
-                {isEdit ? (
-                    <TextDeprecated title={t('Редактирование статьи')} />
-                ) : (
-                    <TextDeprecated title={t('Создание новой статьи')} />
-                )}
-                <Text />
-            </Page>}
-        />
-
-    );
-});
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <Page
+                        className={classNames(
+                            cls.articleEditPage,
+                            {},
+                            [className],
+                        )}
+                    >
+                        {isEdit ? (
+                            <Text
+                                title={t(
+                                    'Редактирование статьи',
+                                )}
+                            />
+                        ) : (
+                            <Text
+                                title={t(
+                                    'Создание новой статьи',
+                                )}
+                            />
+                        )}
+                        <Text />
+                    </Page>
+                }
+                off={
+                    <Page
+                        className={classNames(
+                            cls.articleEditPage,
+                            {},
+                            [className],
+                        )}
+                    >
+                        {isEdit ? (
+                            <TextDeprecated
+                                title={t(
+                                    'Редактирование статьи',
+                                )}
+                            />
+                        ) : (
+                            <TextDeprecated
+                                title={t(
+                                    'Создание новой статьи',
+                                )}
+                            />
+                        )}
+                        <Text />
+                    </Page>
+                }
+            />
+        );
+    },
+);
 
 export default ArticleEditPage;

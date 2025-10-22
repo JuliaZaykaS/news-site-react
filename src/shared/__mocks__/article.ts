@@ -1,6 +1,10 @@
 /* eslint-disable juliaz/layer-imports */
 /* eslint-disable max-len */
-import { Article, ArticleDetailsType, ArticleDetailsBlockType } from "@/entities/Article";
+import {
+    Article,
+    ArticleDetailsType,
+    ArticleDetailsBlockType,
+} from '@/entities/Article';
 import image from '../assets/tests/example.png';
 import jsImage from '../assets/tests/js_img.png';
 
@@ -50,7 +54,6 @@ export const article: Article = {
         },
     ],
 };
-
 
 export const articleRecommendation: Article = {
     id: '1',

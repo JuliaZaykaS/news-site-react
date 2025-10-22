@@ -10,9 +10,9 @@ export default {
     },
 } as Meta<typeof ArticleViewSelector>;
 
-const Template: StoryFn<typeof ArticleViewSelector> = (args) => (
-    <ArticleViewSelector {...args} />
-);
+const Template: StoryFn<typeof ArticleViewSelector> = (
+    args,
+) => <ArticleViewSelector {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {};

@@ -14,7 +14,9 @@ export default {
     },
 } as Meta<typeof Avatar>;
 
-const Template: StoryFn<typeof Avatar> = (args) => <Avatar {...args} />;
+const Template: StoryFn<typeof Avatar> = (args) => (
+    <Avatar {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {

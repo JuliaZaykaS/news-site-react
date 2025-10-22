@@ -12,9 +12,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleDetailsComments>;
 
-const Template: StoryFn<typeof ArticleDetailsComments> = (args) => (
-    <ArticleDetailsComments {...args} />
-);
+const Template: StoryFn<typeof ArticleDetailsComments> = (
+    args,
+) => <ArticleDetailsComments {...args} />;
 
 export const OldDesignNormal = Template.bind({});
 OldDesignNormal.args = {

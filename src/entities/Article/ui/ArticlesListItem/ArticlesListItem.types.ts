@@ -1,6 +1,6 @@
-import { HTMLAttributeAnchorTarget } from "react";
-import { ArticleViewType } from "../../model/consts/articleConsts";
-import { Article } from "../../model/types/article";
+import { HTMLAttributeAnchorTarget } from 'react';
+import { ArticleViewType } from '../../model/consts/articleConsts';
+import { Article } from '../../model/types/article';
 
 export interface ArticlesListItemProps {
     className?: string;
