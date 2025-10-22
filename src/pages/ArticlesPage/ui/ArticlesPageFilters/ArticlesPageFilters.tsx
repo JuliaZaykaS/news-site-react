@@ -38,7 +38,6 @@ export const ArticlesPageFilters = typedMemo(
                 className={classNames(cls.articlesPageFilters, {}, [className])}
             >
                 <div className={cls.sortWrapper}>
-                    {/* <Select label={t("Сортировать ПО")} options={[]} /> */}
                     <ArticleSortSelector
                         sort={sort}
                         order={order}

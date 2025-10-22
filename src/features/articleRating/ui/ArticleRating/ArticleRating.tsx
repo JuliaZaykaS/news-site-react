@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-// import { classNames } from '@/shared/lib/classNames/classNames';
 import { RatingCard } from '@/entities/Rating';
 import {
     useAddArticleRating,
@@ -18,7 +17,7 @@ export interface ArticleRatingProps {
 
 const ArticleRating = typedMemo((props: ArticleRatingProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const userData = useSelector(getUserAuthData);
 
@@ -67,9 +66,7 @@ const ArticleRating = typedMemo((props: ArticleRatingProps) => {
         <RatingCard
             className={className}
             title={t('Оцените статью')}
-            feedbackTitle={t(
-                'Оставьте свой отзыв о статье, это поможет улучшить качество',
-            )}
+            feedbackTitle={t('Оставьте свой отзыв о статье, это поможет улучшить качество')}
             hasFeedback
             rate={rating?.rate}
             onCancel={onCancelRating}

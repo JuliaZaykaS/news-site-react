@@ -41,7 +41,9 @@ export const RatingCard = typedMemo((props: RatingCardProps) => {
         hasFeedback,
         rate = 0,
     } = props;
+
     const { t } = useTranslation();
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
@@ -129,7 +131,6 @@ export const RatingCard = typedMemo((props: RatingCardProps) => {
                                 {modalContent}
                                 <HStack max gap={'16'} justify={'end'}>
                                     <Button
-                                        // theme={ButtonTheme.OUTLINE_RED}
                                         onClick={onCloseBtnClick}
                                         data-testid={'RatingCard.Close'}
                                     >

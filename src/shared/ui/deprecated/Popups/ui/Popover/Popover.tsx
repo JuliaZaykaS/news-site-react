@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Popover.module.scss';
 import { Popover as HPopover } from '@headlessui/react';
@@ -19,15 +18,9 @@ interface PopoverProps {
  */
 export const Popover = typedMemo((props: PopoverProps) => {
     const { className, trigger, direction = 'bottom-right', children } = props;
-    const { t } = useTranslation();
 
     const optionsClasses = [popupCls[direction]];
 
-    // return (
-    //    <div className={classNames(cls.popover, {}, [className])}>
-
-    //    </div>
-    // );
     return (
         <HPopover
             className={classNames(cls.popover, {}, [className, popupCls.popup])}

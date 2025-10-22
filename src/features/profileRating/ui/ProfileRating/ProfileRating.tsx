@@ -17,7 +17,7 @@ export interface ProfileRatingProps {
 
 const ProfileRating = typedMemo((props: ProfileRatingProps) => {
     const { className, profileId } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
     const userData = useSelector(getUserAuthData);
 
     const { data, isLoading } = useGetArticleRating({

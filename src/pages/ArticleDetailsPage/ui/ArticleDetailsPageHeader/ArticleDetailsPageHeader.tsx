@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useSelector } from 'react-redux';
 import { getCanEditArticle } from '../../model/selectors/article';
-// import { getUserAuthData } from "entities/User";
+
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
@@ -21,7 +21,6 @@ export const ArticleDetailsPageHeader = typedMemo(
         const { className } = props;
         const { t } = useTranslation('article');
         const navigate = useNavigate();
-        // const userData = useSelector(getUserAuthData);
         const article = useSelector(getArticleDetailsData);
         const isCanEdit = useSelector(getCanEditArticle);
 

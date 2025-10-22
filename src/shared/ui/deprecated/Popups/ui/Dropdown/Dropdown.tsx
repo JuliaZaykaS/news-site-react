@@ -1,5 +1,4 @@
 import { Fragment, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Dropdown.module.scss';
 import { Menu } from '@headlessui/react';
@@ -30,7 +29,6 @@ interface DropdownProps {
 export const Dropdown = (props: DropdownProps) => {
     const { className, trigger, items, direction = 'bottom-right' } = props;
 
-    const { t } = useTranslation();
     const optionsClasses = [popupCls[direction]];
 
     return (
@@ -44,7 +42,7 @@ export const Dropdown = (props: DropdownProps) => {
             <Menu.Button as={'div'} className={popupCls.trigger}>
                 {trigger}
             </Menu.Button>
-            {/* <Menu.Items className={classNames(cls.menu, {}, [cls[direction]])}> */}
+
             <Menu.Items className={classNames(cls.menu, {}, optionsClasses)}>
                 {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (

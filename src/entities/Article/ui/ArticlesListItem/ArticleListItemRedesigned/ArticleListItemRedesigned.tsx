@@ -40,18 +40,6 @@ export const ArticleListItemRedesigned = typedMemo((props: ArticlesListItemProps
       </HStack>
    );
 
-   // const types = <Text text={article.type.join(', ')} className={cls.types} />;
-   // const views = (
-   //    <HStack gap='8'>
-   //       <Icon Svg={EyeIcon} />
-   //       <Text text={String(article.views)} className={cls.views} />
-   //    </HStack>
-   // );
-
-   // const onReadMoreClick = useCallback(() => {
-   //   navigate(RoutePath.article_details + article.id);
-   // }, [article.id, navigate]);
-
    if (view === ArticleViewType.LIST) {
       const textBlock = article.blocks.find(
          (block) => block.type === ArticleDetailsBlockType.TEXT,
@@ -65,7 +53,6 @@ export const ArticleListItemRedesigned = typedMemo((props: ArticlesListItemProps
             ])}
             max
             padding='24'
-            // className={cls.card}
             data-testId={'ArticlesListItem'}
          >
             <VStack gap='16' max>

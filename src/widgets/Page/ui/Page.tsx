@@ -1,5 +1,4 @@
 import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Page.module.scss';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -22,7 +21,6 @@ interface PageProps extends TestProps {
 
 export const Page = (props: PageProps) => {
     const { className, children, onScrollEnd } = props;
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const scrollPosition = useSelector((state: StateSchema) =>

@@ -6,11 +6,9 @@ import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
-// import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
-// import { ReduxStoreWithManager } from "@/app/providers/StoreProvider";
 import { getLoginUserName } from '../../model/selectors/getUserName/getLoginUserName';
 import { getLoginUserPassword } from '../../model/selectors/getUserPassword/getLoginUserPassword';
 import { getLoginUserIsLoading } from '../../model/selectors/getUserIsLoading/getLoginUserIsLoading';
@@ -38,10 +36,9 @@ const initialReducers: ReducerList = {
 
 const LoginForm = typedMemo((props: LoginFormProps) => {
     const { className, onSuccess } = props;
+
     const { t } = useTranslation();
-    // const dispatch = useDispatch();
     const dispatch = useAppDispatch();
-    // const store = useStore() as ReduxStoreWithManager;
 
     const username = useSelector(getLoginUserName);
     const password = useSelector(getLoginUserPassword);
@@ -49,19 +46,6 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
     const isLoading = useSelector(getLoginUserIsLoading);
 
     const forceUpdate = useForceUpdate();
-
-    // const loginForm = useSelector(getLoginState);
-    // const { userName, password, error, isLoading } = useSelector(getLoginState);
-
-    // useEffect(() => {
-    //   store.reducerManager.add("loginForm", loginReducer);
-    //   dispatch({ type: "@INIT login" });
-    //   return () => {
-    //     store.reducerManager.remove("loginForm");
-    //     dispatch({ type: "@DESTROY login" });
-    //   };
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
 
     const onLoginChange = useCallback(
         (value: string) => {
@@ -87,8 +71,6 @@ const LoginForm = typedMemo((props: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader
-            // eslint-disable-next-line i18next/no-literal-string
-            // keyName="loginForm"
             reducers={initialReducers}
             removeAfterUnmount
         >

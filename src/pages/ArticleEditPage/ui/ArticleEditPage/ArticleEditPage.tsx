@@ -14,7 +14,7 @@ interface ArticleEditPageProps {
 
 const ArticleEditPage = typedMemo((props: ArticleEditPageProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
 
     const isEdit = Boolean(id);

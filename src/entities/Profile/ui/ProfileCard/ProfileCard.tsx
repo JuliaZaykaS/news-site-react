@@ -1,11 +1,6 @@
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
-// import { useSelector } from "react-redux";
-// import { getProfileData } from "../../../../features/editableProfileCard/model/selectors/getProfileData/getProfileData";
-// import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
-// import { getProfileError } from "../../model/selectors/getProfileError/getProfileError";
 import { useTranslation } from 'react-i18next';
-// import { Button, ButtonTheme } from "@/shared/ui/Button/ui/Button";
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
@@ -14,7 +9,6 @@ import { Loader as LoaderDeprecated } from '@/shared/ui/deprecated/Loader';
 
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 
-// import { useMemo } from "react";
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -61,23 +55,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
     const mods: Mods = {
         [cls.editing]: !readonly,
     };
-
-    // const countryOptions = useMemo(
-    //   () =>
-    //     Object.entries(Country).map((val) => ({
-    //       value: val[0],
-    //       content: val[1],
-    //     })),
-    //   []
-    // );
-    // const currencyOptions = useMemo(
-    //   () =>
-    //     Object.entries(Currency).map((val) => ({
-    //       value: val[0],
-    //       content: val[1],
-    //     })),
-    //   []
-    // );
 
     if (isLoading) {
         return (
@@ -252,7 +229,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 gap={'8'}
                 className={classNames(cls.profileCard, mods, [className])}
             >
-                {/* <div className={cls.data}> */}
                 {data?.avatar && (
                     <HStack justify={'center'} max className={cls.avatarWrapper}>
                         <AvatarDeprecated src={data?.avatar} alt={data?.username} />

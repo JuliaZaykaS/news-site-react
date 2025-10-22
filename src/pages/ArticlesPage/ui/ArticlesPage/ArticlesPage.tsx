@@ -1,9 +1,6 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
-// import { ArticlesList } from "@/entities/Article/ui/ArticlesList/ArticlesList";
-// import { Article, ArticleViewType } from "@/entities/Article";
 import {
     DynamicModuleLoader,
     ReducerList,
@@ -24,9 +21,6 @@ import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
-import { ArticlesFilters } from '@/widgets/ArticlesFilters';
-import { ArticleSortField, ArticleDetailsType } from '@/entities/Article';
-import { SortOrder } from '@/shared/types/sortOrder';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 interface ArticlesPageProps {
@@ -39,21 +33,12 @@ const reducers: ReducerList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
 
     const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
-        // if (!inited) {
-        //   dispatch(articlesPageActions.initState());
-        //   dispatch(
-        //     fetchArticlesList({
-        //       page: 1,
-        //     })
-        //   );
-        // }
     });
 
     const onLoadNextPart = useCallback(() => {

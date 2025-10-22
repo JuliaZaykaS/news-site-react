@@ -1,5 +1,4 @@
 import { ReactNode, useCallback, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Drawer.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
@@ -33,7 +32,6 @@ const DrawerContent = typedMemo((props: DrawerProps) => {
     const { className, children, isOpen, onClose, lazy } = props;
     const { Spring, Gesture } = useAnimationLibs();
 
-    const { t } = useTranslation();
     const { theme } = useTheme();
     const { isClosing, isMounted, closeHandler } = useModal({
         animationDelay: 300,
@@ -121,7 +119,6 @@ const DrawerContent = typedMemo((props: DrawerProps) => {
                 <Overlay onClose={closeHandler} />
 
                 <Spring.a.div
-                    // className={cls.content}
                     className={cls.sheet}
                     style={{
                         display,

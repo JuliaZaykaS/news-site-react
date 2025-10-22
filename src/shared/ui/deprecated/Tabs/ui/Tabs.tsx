@@ -1,5 +1,4 @@
 import { ReactNode, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Tabs.module.scss';
 import { Card, CardTheme } from '../../Card/ui/Card';
@@ -22,7 +21,6 @@ interface TabsProps {
  */
 export const Tabs = typedMemo((props: TabsProps) => {
     const { className, tabs, value, onTabClick } = props;
-    const { t } = useTranslation();
 
     const onClickTab = useCallback(
         (tab: TabItem) => {

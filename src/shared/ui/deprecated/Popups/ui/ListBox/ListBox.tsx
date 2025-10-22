@@ -1,5 +1,4 @@
 import { Fragment, ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ListBox.module.scss';
 
@@ -42,14 +41,11 @@ export const ListBox = (props: ListBoxProps) => {
         direction = 'bottom-left',
         label,
     } = props;
-    const { t } = useTranslation();
 
     const optionsClasses = [popupCls[direction]];
 
     return (
         <HStack gap={'4'}>
-            {/* {label && <span>{`${label}>`}</span>} */}
-
             {label && (
                 <span
                     className={classNames(

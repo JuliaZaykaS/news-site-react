@@ -1,5 +1,4 @@
 import { Fragment, ReactNode, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ListBox.module.scss';
 
@@ -16,8 +15,6 @@ export interface ListBoxItem<T extends string> {
     content: ReactNode;
     disabled?: boolean;
 }
-
-// type DropdownDirection = "top" | "bottom"
 
 interface ListBoxProps<T extends string> {
     className?: string;
@@ -41,7 +38,6 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
         direction = 'bottom-left',
         label,
     } = props;
-    const { t } = useTranslation();
 
     const optionsClasses = [popupCls[direction], popupCls.menu];
 
@@ -74,10 +70,6 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
             >
                 <HListbox.Button
                     as={Fragment}
-                // className={cls.trigger}
-                // disabled={readonly}
-                // variant='filled'
-                // addonRight={<Icon Svg={ArrowIcon} />}
                 >
                     <Button
                         className={cls.trigger}

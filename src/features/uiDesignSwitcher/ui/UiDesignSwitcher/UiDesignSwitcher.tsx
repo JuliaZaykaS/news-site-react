@@ -19,7 +19,7 @@ interface UiDesignSwitcherProps {
 
 export const UiDesignSwitcher = typedMemo((props: UiDesignSwitcherProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('settings');
     const dispatch = useAppDispatch()
     const isAppRedesigned = getFeatureFlag('isAppRedesigned');
     const authData = useSelector(getUserAuthData)

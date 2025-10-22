@@ -12,7 +12,7 @@ import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 // import { isMobile } from 'react-device-detect'
 
 const ArticlePageGreeting = typedMemo(() => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const isMobile = useDevice();
 

@@ -13,7 +13,7 @@ interface AdminPanelPageProps {
 
 const AdminPanelPage = typedMemo((props: AdminPanelPageProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('admin');
 
     return (
         <ToggleFeatures

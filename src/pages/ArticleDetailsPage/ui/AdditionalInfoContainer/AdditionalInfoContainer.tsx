@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { typedMemo } from "@/shared/const/memo";
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -17,7 +16,7 @@ interface AdditionalInfoContainerProps {
 
 export const AdditionalInfoContainer = typedMemo((props: AdditionalInfoContainerProps) => {
    const { className } = props;
-   const { t } = useTranslation('article');
+
    const article = useSelector(getArticleDetailsData);
    const navigate = useNavigate();
    const isCanEdit = useSelector(getCanEditArticle);

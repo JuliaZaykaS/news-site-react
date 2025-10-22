@@ -19,7 +19,7 @@ interface SidebarItemProps {
 
 export const SidebarItem = typedMemo((props: SidebarItemProps) => {
     const { t } = useTranslation();
-    //   return <div className={classNames(cls.sidebarItem, {}, [className])}></div>;
+
     const { collapsed, item } = props;
     const { path, text } = item;
     const isAuth = useSelector(getUserAuthData);
@@ -45,11 +45,7 @@ export const SidebarItem = typedMemo((props: SidebarItemProps) => {
                     theme={AppLinkTheme.INVERTED}
                 >
                     <item.Icon className={cls.icon} />
-                    {/* {icon} */}
                     <span className={cls.link}>{t(text)}</span>
                 </AppLinkDeprecated>} />
-
-
-
     );
 });

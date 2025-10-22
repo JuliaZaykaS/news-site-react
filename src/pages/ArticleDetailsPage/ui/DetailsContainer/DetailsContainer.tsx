@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { typedMemo } from "@/shared/const/memo";
 import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
@@ -12,7 +11,7 @@ interface DetailsContainerProps {
 
 export const DetailsContainer = typedMemo((props: DetailsContainerProps) => {
    const { className, mockedId } = props;
-   const { t } = useTranslation();
+
    // const { id } = useParams<{ id: string }>();
    const params = useParams<{ id: string }>();
    const [id, setId] = useState(params.id);

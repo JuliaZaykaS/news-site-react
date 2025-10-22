@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 import { CSSProperties, ReactNode } from 'react';
@@ -79,7 +78,6 @@ export const Flex = (props: FlexProps) => {
         style,
         ...otherProps
     } = props;
-    const { t } = useTranslation();
 
     const classes = [
         className,

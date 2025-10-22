@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleViewSelector.module.scss';
 import GridIconDeprecated from '@/shared/assets/icons/grid.svg';
@@ -21,34 +20,9 @@ interface ArticleViewSelectorProps {
     onViewClick: (view: ArticleViewType) => void;
 }
 
-// const viewTypes = toggleFeatures({
-//     name: 'isAppRedesigned',
-//     on: () => [
-//         {
-//             view: ArticleViewType.GRID,
-//             icon: GridIcon,
-//         },
-//         {
-//             view: ArticleViewType.LIST,
-//             icon: ListIcon,
-//         },
-//     ],
-//     off: () => [
-//         {
-//             view: ArticleViewType.GRID,
-//             icon: GridIconDeprecated,
-//         },
-//         {
-//             view: ArticleViewType.LIST,
-//             icon: ListIconDeprecated,
-//         },
-//     ]
-// });
-
 export const ArticleViewSelector = typedMemo(
     (props: ArticleViewSelectorProps) => {
         const { className, view, onViewClick } = props;
-        const { t } = useTranslation();
 
         const viewTypes = useMemo(() => [
             {

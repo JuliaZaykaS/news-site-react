@@ -1,4 +1,3 @@
-// import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationsList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
@@ -15,7 +14,6 @@ interface NotificationsListProps {
 
 export const NotificationsList = typedMemo((props: NotificationsListProps) => {
     const { className } = props;
-    // const { t } = useTranslation()
 
     const { data, isLoading } = useNotifications(null, {
         pollingInterval: 10000,

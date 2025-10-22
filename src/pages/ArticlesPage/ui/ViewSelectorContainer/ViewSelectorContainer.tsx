@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import { typedMemo } from "@/shared/const/memo";
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
@@ -11,7 +9,7 @@ interface ViewSelectorContainerProps {
 
 export const ViewSelectorContainer = typedMemo((props: ViewSelectorContainerProps) => {
    const { className } = props;
-   const { t } = useTranslation();
+
    const {
       view,
       onChangeView

@@ -913,6 +913,18 @@
       "articleId": "2",
       "rate": 3,
       "id": "w-tU2f_"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 1,
+      "id": "HhHyyYf"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 1,
+      "id": "bMVn4hE"
     }
   ],
   "profile-ratings": [

@@ -24,8 +24,7 @@ interface SidebarProps {
 export const Sidebar = typedMemo((props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
-    // const { t } = useTranslation();
-    // const sidebarItemsList = useSelector(getSidebarItems);
+
     const sidebarItemsList = useSidebarItems();
 
     const onToggle = () => {

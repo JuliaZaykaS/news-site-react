@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-// import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationButton.module.scss';
 
@@ -13,7 +12,6 @@ import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { typedMemo } from '@/shared/const/memo';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Button } from '@/shared/ui/redesigned/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 
@@ -24,7 +22,7 @@ interface NotificationButtonProps {
 export const NotificationButton = typedMemo(
     (props: NotificationButtonProps) => {
         const { className } = props;
-        // const { t } = useTranslation()
+
         const isMobile = useDevice();
         const [isOpen, setIsOpen] = useState(false);
 
@@ -80,18 +78,3 @@ export const NotificationButton = typedMemo(
         return content;
     },
 );
-
-{
-    /* <Popover
-            className={classNames(cls.notificationButton, {}, [className])}
-            direction={"bottom-left"}
-         trigger={tigger}>
-         {isMobile
-            ? (<Drawer isOpen={isOpen}  onClose={onCloseDrawer}>
-            <NotificationsList/>
-          </Drawer>)
-:
-            <NotificationsList className={cls.notifications} />
-         }
-            </Popover> */
-}

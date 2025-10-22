@@ -37,7 +37,7 @@ export const ArticlesFilters = typedMemo((props: ArticlesFiltersProps) => {
       onChangeTabType,
       onChangeSearch,
    } = props;
-   const { t } = useTranslation()
+   const { t } = useTranslation('article')
 
    return (
       <Card

@@ -59,7 +59,6 @@ const ProfilePage = (props: ProfilePageProps) => {
             data-testid={'ProfilePage'}
         >
             <EditableProfileCard id={id} />
-            {/* {userData?.id !== id && <ProfileRating profileId={id} />} */}
             {profileRatingContent}
         </Page>
     );

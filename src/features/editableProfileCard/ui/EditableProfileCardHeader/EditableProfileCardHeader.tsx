@@ -64,7 +64,6 @@ export const EditableProfileCardHeader = (
                                 {readonly ? (
                                     <Button
                                         variant={'outline'}
-                                        // color='normal'
                                         onClick={onEdit}
                                         data-testid={'EditableProfileCardHeader.EditButton'}
                                     >

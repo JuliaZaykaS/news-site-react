@@ -25,7 +25,6 @@ import { articleDetailsReducer } from '../../../model/slices/articleDetailsSlice
 
 import { renderBlocks } from '../renderBlocks';
 
-
 const reducers: ReducerList = {
    articleDetails: articleDetailsReducer,
 };
@@ -97,7 +96,6 @@ export const ArticleDetailsDeprecated = typedMemo((props: ArticleDetailsProps) =
                   <Text text={article?.createdAt} />
                </HStack>
             </VStack>
-            {/* <div className={cls.block}></div> */}
             {article?.blocks.map(renderBlocks)}
          </>
       );

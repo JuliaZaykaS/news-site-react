@@ -5,13 +5,7 @@
     "Комментарии отсутствуют": "No comments",
     "Введите текст комментария": "Enter your comment text",
     "Отправить": "Submit ",
-    "Читать далее": {
-        "": {
-            "": {
-                "": "Read more..."
-            }
-        }
-    },
+    "Читать далее...": "Read more...",
     "Назад к списку": "Back to list",
     "Ошибка при загрузке статей": "Error loading articles",
     "Сортировать ПО": "Sort by",
@@ -35,5 +29,9 @@
   "{{count}} просмотров_zero": "{{count}} views",
   "{{count}} просмотров_one": "{{count}} view",
   "{{count}} просмотров_other": "{{count}} views",
-   "Редактировать": "Edit"
+   "Редактировать": "Edit",
+   "Оцените статью": "Rate this article",
+   "Оставьте свой отзыв о статье, это поможет улучшить качество": "Leave your feedback on the article, it will help improve the quality of the article.",
+   "Сортировать по:": "Sort by",
+   "Оценка статей скоро появится": "Article ratings coming soon"
 }

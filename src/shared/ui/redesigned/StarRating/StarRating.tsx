@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import { Icon } from '../Icon';
-// import StarIcon from '../../assets/icons/star.svg';
 import StarIcon from '../../../assets/icons/star.svg';
 import { typedMemo } from '@/shared/const/memo';
 
@@ -18,7 +17,6 @@ const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = typedMemo((props: StarRatingProps) => {
     const { className, onSelect, size = 30, selectedStars = 0 } = props;
-    const { t } = useTranslation();
     const [isHovered, setIsHovered] = useState(false);
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
@@ -58,7 +56,6 @@ export const StarRating = typedMemo((props: StarRatingProps) => {
                 <Icon
                     Svg={StarIcon}
                     key={starNum}
-                    // className={classNames(cls.starIcon, mods, [])}
                     className={classNames(cls.starIcon, mods, [
                         currentStarsCount >= starNum ? cls.hovered : cls.normal,
                     ])}

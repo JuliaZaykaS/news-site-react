@@ -1,5 +1,4 @@
 
-import { useTranslation } from 'react-i18next';
 import { typedMemo } from "@/shared/const/memo";
 
 import { ArticlesFilters } from '@/widgets/ArticlesFilters';
@@ -11,7 +10,6 @@ interface FiltersContainerProps {
 
 export const FiltersContainer = typedMemo((props: FiltersContainerProps) => {
    const { className } = props;
-   const { t } = useTranslation();
 
    const { sort,
       order,

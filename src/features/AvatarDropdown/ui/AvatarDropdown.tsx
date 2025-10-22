@@ -25,17 +25,15 @@ interface AvatarDropdownProps {
 
 export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
     const { className } = props;
+
     const { t } = useTranslation();
-    //  const dispatch = useDispatch();
     const dispatch = useAppDispatch();
     const isAdmin = useSelector(isUserAdmin);
     const isManager = useSelector(isUserManager);
-    //  const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
-        // setIsAuthModal(false);
     }, [dispatch]);
 
     const isAdminPanelAvailable = isAdmin || isManager;
@@ -80,7 +78,6 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
                         size={40}
                     />
                 }
-                // className={cls.dropdown}
                 direction={'bottom-left'}
             />}
             off={<DropdownDeprecated
@@ -94,7 +91,6 @@ export const AvatarDropdown = typedMemo((props: AvatarDropdownProps) => {
                         fallbackInverted
                     />
                 }
-                // className={cls.dropdown}
                 direction={'bottom-left'}
             />}
         />

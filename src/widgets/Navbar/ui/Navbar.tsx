@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import cls from './Navbar.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
@@ -27,46 +26,17 @@ interface NavbarProps {
 }
 
 export const Navbar = typedMemo(({ className }: NavbarProps) => {
-    // const { theme } = useTheme();
-
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-    // const dispatch = useDispatch();
-    // const isAdmin = useSelector(isUserAdmin)
-    // const isManager = useSelector(isUserManager)
 
     const onCloseModal = useCallback(() => {
-        // setIsAuthModal((isAuthModal) => !isAuthModal);
         setIsAuthModal(false);
     }, []);
 
     const onShowModal = useCallback(() => {
         setIsAuthModal(true);
     }, []);
-
-    // const onLogout = useCallback(() => {
-    //   dispatch(userActions.logout());
-    //   setIsAuthModal(false);
-    // }, [dispatch]);
-
-    // const isAdminPanelAvaliable = isAdmin || isManager
-
-    // const navbarItems = [
-    //   ...(isAdminPanelAvaliable ? [{
-    //     content: t("Админка"),
-    //     href: RoutePath.admin_panel,
-    //   }] : []),
-    //   {
-    //     content: t("Профиль"),
-    //     href: RoutePath.profile + authData?.id,
-    //   },
-    //   {
-    //     content: t("Выйти"),
-    //     onClick: onLogout,
-    //   },
-
-    // ]
 
     const mainClass = toggleFeatures({
         name: 'isAppRedesigned',

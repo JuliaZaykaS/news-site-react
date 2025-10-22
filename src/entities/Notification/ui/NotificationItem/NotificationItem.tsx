@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/Notification';
@@ -18,7 +17,6 @@ interface NotificationItemProps {
 
 export const NotificationItem = typedMemo((props: NotificationItemProps) => {
     const { className, item } = props;
-    const { t } = useTranslation();
 
     const content = (
         <ToggleFeatures
@@ -50,7 +48,6 @@ export const NotificationItem = typedMemo((props: NotificationItemProps) => {
                     {content}
                 </AppLinkDeprecated>}
             />
-
         );
     }
 

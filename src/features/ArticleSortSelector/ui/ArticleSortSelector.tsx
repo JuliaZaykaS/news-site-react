@@ -55,17 +55,6 @@ export const ArticleSortSelector = typedMemo(
             [t],
         );
 
-        // const onChangeSortSelect = useCallback(() => {
-        //   return (sort: ArticleSortField) => {
-        //     onChangeSort(sort);
-        //   };
-        // }, [onChangeSort]);
-        // const onChangeOrderSelect = useCallback(() => {
-        //   return (order: SortOrder) => {
-        //     onChangeOrder(order);
-        //   };
-        // }, [onChangeOrder]);
-
         return (
             <ToggleFeatures
                 feature={'isAppRedesigned'}
@@ -75,19 +64,16 @@ export const ArticleSortSelector = typedMemo(
                     <VStack gap='8'>
                         <Text text={t('Сортировать по:')} />
                         <ListBox
-                            // label={t('Сортировать ПО')}
                             items={sortOptions}
                             onChange={onChangeSort}
                             value={sort}
                         />
                         <ListBox
-                            // label={t('по')}
                             items={orderOptions}
                             onChange={onChangeOrder}
                             value={order}
                         />
                     </VStack>
-                    {/* <Select label={t("по")} options={sortOptions} /> */}
                 </div>}
                 off={<div
                     className={classNames(cls.articleSortSelector, {}, [className])}
@@ -105,7 +91,6 @@ export const ArticleSortSelector = typedMemo(
                         value={order}
                         className={cls.order}
                     />
-                    {/* <Select label={t("по")} options={sortOptions} /> */}
                 </div>} />
 
         );

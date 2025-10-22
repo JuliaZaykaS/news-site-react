@@ -50,10 +50,7 @@ export const ArticleDetailsComments = typedMemo(
                     on={<Text title={t('Комментарии к статье')} size={'l'} />}
                     off={<TextDeprecated title={t('Комментарии к статье')} size={TextSize.L} />}
                 />
-
-                {/* <Suspense fallback="Идет загрузка"> */}
                 <AddNewCommentForm onSendComment={onSendComment} />
-                {/* </Suspense> */}
                 <CommentsList
                     comments={comments}
                     isLoading={commentsIsLoading}

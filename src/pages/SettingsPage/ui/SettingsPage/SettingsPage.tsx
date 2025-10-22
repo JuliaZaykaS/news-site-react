@@ -13,7 +13,7 @@ interface SettingsPageProps {
 
 const SettingsPage = typedMemo((props: SettingsPageProps) => {
     const { className } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('settings');
 
     return (
         <Page className={classNames(cls.SettingsPage, {}, [className])}>

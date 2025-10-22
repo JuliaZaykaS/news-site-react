@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
@@ -26,7 +25,6 @@ interface CommentCardProps {
 
 export const CommentCard = typedMemo((props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
-    const { t } = useTranslation();
 
     const Skeleton = toggleFeatures({
         name: 'isAppRedesigned',
@@ -110,7 +108,6 @@ export const CommentCard = typedMemo((props: CommentCardProps) => {
                     <Text title={comment.user.username} className={cls.username} />
                 </AppLinkDeprecated>
                 <TextDeprecated text={comment.text} className={cls.text} />
-                {/* {comment} */}
             </VStack>} />
 
     );
