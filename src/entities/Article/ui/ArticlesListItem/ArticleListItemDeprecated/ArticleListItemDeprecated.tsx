@@ -62,7 +62,7 @@ export const ArticleListItemDeprecated = typedMemo(
                         {},
                         [className, cls[view]],
                     )}
-                    data-testId={'ArticlesListItem'}
+                    data-testid={'ArticlesListItem'}
                 >
                     <Card className={cls.card}>
                         <div className={cls.header}>
@@ -141,7 +141,7 @@ export const ArticleListItemDeprecated = typedMemo(
                     {},
                     [className, cls[view]],
                 )}
-                data-testId={'ArticlesListItem'}
+                data-testid={'ArticlesListItem'}
             >
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>

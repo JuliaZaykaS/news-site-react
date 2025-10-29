@@ -1,21 +1,24 @@
-// import { fireEvent, screen } from '@testing-library/react';
-// import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
-// // eslint-disable-next-line max-len
-// import { Sidebar } from './Sidebar';
+import { fireEvent, screen } from '@testing-library/react';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
     test('render in document', () => {
         // const SidebarWithTranslation = withTranslation()(Sidebar);
         // render(<SidebarWithTranslation />);
-        // TODO проблема с заредизайненной кнопкой-иконкой
-        // componentRender(<Sidebar />);
-        // expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        componentRender(<Sidebar />);
+        expect(
+            screen.getByTestId('sidebar'),
+        ).toBeInTheDocument();
     });
     test('test toggle', () => {
-        // TODO проблема с заредизайненной кнопкой-иконкой
-        // componentRender(<Sidebar />);
-        // const toggleBtn = screen.getByTestId('sidebar-toggle');
-        // fireEvent.click(toggleBtn);
-        // expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+        componentRender(<Sidebar />);
+        const toggleBtn = screen.getByTestId(
+            'sidebar-toggle',
+        );
+        fireEvent.click(toggleBtn);
+        expect(screen.getByTestId('sidebar')).toHaveClass(
+            'collapsed',
+        );
     });
 });

@@ -21,6 +21,13 @@ const defaultArticle = {
             ],
         },
     ],
+    user: {
+        id: '4',
+        username: 'testuser',
+        password: '123',
+        roles: ['ADMIN'],
+        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+    },
 };
 export const createArticle = (article?: Article) => {
     return cy
@@ -43,6 +50,28 @@ export const removeArticle = (articleId: string) => {
     });
 };
 
+export const createArticleStore = (
+    currentArticle: Article,
+) => {
+    cy.window().its('store').as('store');
+
+    cy.window()
+        .its('store')
+        .invoke('getState')
+        .should((state) => {
+            expect(state.articleDetails).to.exist;
+        });
+
+    cy.window()
+        .its('store')
+        .then((store) => {
+            store.dispatch({
+                type: 'articleDetails/fetchArticleById/fulfilled',
+                payload: currentArticle,
+            });
+        });
+};
+
 declare global {
     namespace Cypress {
         interface Chainable {
@@ -51,6 +80,9 @@ declare global {
             ): Chainable<Article>;
             removeArticle(
                 articleId: string,
+            ): Chainable<void>;
+            createArticleStore(
+                article: Article,
             ): Chainable<void>;
         }
     }

@@ -1,5 +1,8 @@
+import { Article } from '@/entities/Article';
+
 let currentArticleId = '';
 let currentUser = '';
+let currentArticle: Article;
 
 describe('Пользователь заходит на страницу статьи', () => {
     beforeEach(() => {
@@ -8,8 +11,11 @@ describe('Пользователь заходит на страницу стат
         });
         cy.createArticle().then((article) => {
             currentArticleId = article.id;
+            currentArticle = article;
             cy.visit(`articles/${article.id}`);
         });
+
+        cy.createArticleStore(currentArticle);
     });
 
     afterEach(() => {
@@ -38,6 +44,7 @@ describe('Пользователь заходит на страницу стат
             1,
         ); // проверка, что комментарий не задублировался
     });
+
     it('И ставит оценку статье', () => {
         cy.intercept('GET', '**/articles/*', {
             fixture: 'article-details.json',

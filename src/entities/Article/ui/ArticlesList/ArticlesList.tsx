@@ -118,7 +118,7 @@ export const ArticlesList = typedMemo(
                             {},
                             [className, cls[view]],
                         )}
-                        // data-testId={'ArticlesList'}
+                        data-testid={'ArticlesList'}
                     >
                         {articles.length > 0
                             ? articles.map(renderArticles)
@@ -133,7 +133,7 @@ export const ArticlesList = typedMemo(
                             {},
                             [className, cls[view]],
                         )}
-                        // data-testId={'ArticlesList'}
+                        data-testid={'ArticlesList'}
                     >
                         {articles.length > 0
                             ? articles.map(renderArticles)

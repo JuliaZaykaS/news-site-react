@@ -18,7 +18,7 @@ export const login = (
         .then(({ body }) => {
             window.localStorage.setItem(
                 USER_LOCALSTORAGE_KEY,
-                JSON.stringify(body),
+                body.id,
             );
 
             return body;

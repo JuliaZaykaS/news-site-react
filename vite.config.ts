@@ -1,12 +1,12 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 // import svgr from '@svgr/plugin-svgo';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
     // Загружаем env-файл для текущего режима
-    const env = loadEnv(mode, process.cwd(), '');
+    // const env = loadEnv(mode, process.cwd(), '');
     return {
         plugins: [
             // // svgr({
@@ -70,21 +70,17 @@ export default defineConfig(({ mode }) => {
                 'http://localhost:8000',
             ),
             __PROJECT__: JSON.stringify('frontend'),
-            __VITE_TEST__:
-                env.VITE_TEST === 'true' ? true : false,
+            // __VITE_TEST__:
+            //     env.VITE_TEST === 'true' ? true : false,
         },
         server: {
-            // host: '0.0.0.0', // слушать на всех интерфейсах
-            // port: 5173,
+            host: '0.0.0.0', // слушать на всех интерфейсах
+            port: 5173,
             proxy: {
                 '/images': {
                     target: 'http://localhost:8000',
                     changeOrigin: true,
                 },
-                // '/api': {
-                //     target: 'http://localhost:8000',
-                //     changeOrigin: true,
-                // },
             },
         },
     };

@@ -81,7 +81,7 @@ export default {
         __IS_DEV__: true,
         __API__: '',
         __PROJECT__: 'jest',
-        __VITE_TEST__: true,
+        // __VITE_TEST__: true,
     },
 
     // Use this configuration option to add custom reporters to Jest

@@ -23,7 +23,7 @@ declare const __PROJECT__:
     | 'storybook'
     | 'jest'
     | 'frontend';
-declare const __VITE_TEST__: boolean;
+// declare const __VITE_TEST__: boolean;
 
 type DeepPartial<T> = T extends object
     ? {
@@ -34,3 +34,10 @@ type OptionalRecord<
     K extends string | number | symbol,
     T,
 > = { [P in K]?: T };
+
+interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Cypress?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store?: any;
+}

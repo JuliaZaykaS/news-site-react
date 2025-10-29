@@ -66,7 +66,7 @@ export const ArticleListItemRedesigned = typedMemo(
                     )}
                     max
                     padding="24"
-                    data-testId={'ArticlesListItem'}
+                    data-testid={'ArticlesListItem'}
                 >
                     <VStack gap="16" max>
                         <HStack gap="8" max>
