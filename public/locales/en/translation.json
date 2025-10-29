@@ -26,5 +26,15 @@
     "Создать статью": "Create article",
     "Cognitive News app": "Cognitive News app",
     "Укажите страну": "Choose country",
-    "Укажите валюту": "Choose currency"
+    "Укажите валюту": "Choose currency",
+    "Комментарии отсутствуют": "No comments",
+    "Ваш отзыв": "Your feedback",
+    "Спасибо за оценку": "Thank you for the review",
+    "Отправить": "Send",
+    "Закрыть": "Close",
+    "Введите текст комментария": "Enter your comment text",
+    "Админка": "Admin panel",
+    "Настройки": "Settings",
+    "У вас нет доступа к этой странице": "You do not have access to this page.",
+    "Ошибка загрузки комментариев": "Error loading comments"
 }

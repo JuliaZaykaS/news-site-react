@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { http, HttpResponse } from 'msw';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/ArticleRating',
@@ -15,19 +16,18 @@ const Template: StoryFn<typeof ArticleRating> = (args) => (
     <ArticleRating {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {
     articleId: '1',
 };
-Normal.decorators = [
+OldDesignNormal.decorators = [
     StoreDecorator({
         user: {
             authData: { id: '1' },
         },
     }),
 ];
-
-Normal.parameters = {
+OldDesignNormal.parameters = {
     //  mockData: [
     //      {
     //          url: `${__API__}/article-ratings?userId=1&articleId=1`  ,
@@ -43,25 +43,31 @@ Normal.parameters = {
     //  ],
     msw: {
         handlers: [
-            http.get(`${__API__}/article-ratings?userId=1&articleId=1`, () => {
-                return HttpResponse.json([{ rate: 4 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/article-ratings?userId=1&articleId=1`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 4 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };
-export const WithoutRate = Template.bind({});
-WithoutRate.args = {
+
+export const OldDesignWithoutRate = Template.bind({});
+OldDesignWithoutRate.args = {
     articleId: '1',
 };
-WithoutRate.decorators = [
+OldDesignWithoutRate.decorators = [
     StoreDecorator({
         user: {
             authData: { id: '1' },
         },
     }),
 ];
-
-WithoutRate.parameters = {
+OldDesignWithoutRate.parameters = {
     //  mockData: [
     //      {
     //          url: `${__API__}/article-ratings?userId=1&articleId=1`  ,
@@ -77,9 +83,71 @@ WithoutRate.parameters = {
     //  ],
     msw: {
         handlers: [
-            http.get(`${__API__}/article-ratings?userId=1&articleId=1`, () => {
-                return HttpResponse.json([{ rate: 0 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/article-ratings?userId=1&articleId=1`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 0 }],
+                        { status: 200 },
+                    );
+                },
+            ),
+        ],
+    },
+};
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {
+    articleId: '1',
+};
+NewDesignNormal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+    NewDesignDecorator,
+];
+NewDesignNormal.parameters = {
+    msw: {
+        handlers: [
+            http.get(
+                `${__API__}/article-ratings?userId=1&articleId=1`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 4 }],
+                        { status: 200 },
+                    );
+                },
+            ),
+        ],
+    },
+};
+
+export const NewDesignWithoutRate = Template.bind({});
+NewDesignWithoutRate.args = {
+    articleId: '1',
+};
+NewDesignWithoutRate.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+    NewDesignDecorator,
+];
+NewDesignWithoutRate.parameters = {
+    msw: {
+        handlers: [
+            http.get(
+                `${__API__}/article-ratings?userId=1&articleId=1`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 0 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };

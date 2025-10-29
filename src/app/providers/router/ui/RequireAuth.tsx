@@ -1,5 +1,12 @@
-import { UserRole, getRoleSelectors, getUserAuthData } from '@/entities/User';
-import { getRouteForbidden, getRouteMain } from '@/shared/const/router';
+import {
+    UserRole,
+    getRoleSelectors,
+    getUserAuthData,
+} from '@/entities/User';
+import {
+    getRouteForbidden,
+    getRouteMain,
+} from '@/shared/const/router';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -20,7 +27,8 @@ export function RequireAuth(props: RequireAuthProps) {
             return true;
         }
         return roles.some((requiredRole) => {
-            const hasRole = userRoles?.includes(requiredRole);
+            const hasRole =
+                userRoles?.includes(requiredRole);
             return hasRole;
         });
     }, [roles, userRoles]);
@@ -31,7 +39,11 @@ export function RequireAuth(props: RequireAuthProps) {
         // along to that page after they login, which is a nicer user experience
         // than dropping them off on the home page.
         return (
-            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+            <Navigate
+                to={getRouteMain()}
+                state={{ from: location }}
+                replace
+            />
         );
     }
 

@@ -1,107 +1,155 @@
-// import { Link } from "react-router-dom";
 import cls from './Navbar.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink';
-import { AppLinkTheme } from '@/shared/ui/AppLink';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 
 import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { LoginModal } from '@/features/AuthByUserName';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import {
+    Text as TextDeprecated,
+    TextTheme,
+} from '@/shared/ui/deprecated/Text';
 
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { typedMemo } from '@/shared/const/memo';
+import {
+    toggleFeatures,
+    ToggleFeatures,
+} from '@/shared/lib/features';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = typedMemo(({ className }: NavbarProps) => {
-    // const { theme } = useTheme();
+export const Navbar = typedMemo(
+    ({ className }: NavbarProps) => {
+        const { t } = useTranslation();
+        const [isAuthModal, setIsAuthModal] =
+            useState(false);
+        const authData = useSelector(getUserAuthData);
 
-    const { t } = useTranslation();
-    const [isAuthModal, setIsAuthModal] = useState(false);
-    const authData = useSelector(getUserAuthData);
-    // const dispatch = useDispatch();
-    // const isAdmin = useSelector(isUserAdmin)
-    // const isManager = useSelector(isUserManager)
+        const onCloseModal = useCallback(() => {
+            setIsAuthModal(false);
+        }, []);
 
-    const onCloseModal = useCallback(() => {
-        // setIsAuthModal((isAuthModal) => !isAuthModal);
-        setIsAuthModal(false);
-    }, []);
+        const onShowModal = useCallback(() => {
+            setIsAuthModal(true);
+        }, []);
 
-    const onShowModal = useCallback(() => {
-        setIsAuthModal(true);
-    }, []);
+        const mainClass = toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cls.navbarRedesigned,
+            off: () => cls.navbar,
+        });
 
-    // const onLogout = useCallback(() => {
-    //   dispatch(userActions.logout());
-    //   setIsAuthModal(false);
-    // }, [dispatch]);
-
-    // const isAdminPanelAvaliable = isAdmin || isManager
-
-    // const navbarItems = [
-    //   ...(isAdminPanelAvaliable ? [{
-    //     content: t("Админка"),
-    //     href: RoutePath.admin_panel,
-    //   }] : []),
-    //   {
-    //     content: t("Профиль"),
-    //     href: RoutePath.profile + authData?.id,
-    //   },
-    //   {
-    //     content: t("Выйти"),
-    //     onClick: onLogout,
-    //   },
-
-    // ]
-
-    if (authData) {
-        return (
-            <header className={classNames(cls.navbar, {}, [className])}>
-                <Text
-                    className={cls.appName}
-                    title={t('Cognitive News app')}
-                    theme={TextTheme.INVERTED}
+        if (authData) {
+            return (
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={
+                        <header
+                            className={classNames(
+                                mainClass,
+                                {},
+                                [className],
+                            )}
+                        >
+                            <HStack
+                                gap="16"
+                                className={cls.actions}
+                            >
+                                <NotificationButton />
+                                <AvatarDropdown />
+                            </HStack>
+                        </header>
+                    }
+                    off={
+                        <header
+                            className={classNames(
+                                cls.navbar,
+                                {},
+                                [className],
+                            )}
+                        >
+                            <TextDeprecated
+                                className={cls.appName}
+                                title={t(
+                                    'Cognitive News app',
+                                )}
+                                theme={TextTheme.INVERTED}
+                            />
+                            <AppLink
+                                to={getRouteArticleCreate()}
+                                theme={
+                                    AppLinkTheme.INVERTED
+                                }
+                                className={cls.createBtn}
+                            >
+                                {t('Создать статью')}
+                            </AppLink>
+                            <HStack
+                                gap="16"
+                                className={cls.actions}
+                            >
+                                <NotificationButton />
+                                <AvatarDropdown />
+                            </HStack>
+                        </header>
+                    }
                 />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.INVERTED}
-                    className={cls.createBtn}
-                >
-                    {t('Создать статью')}
-                </AppLink>
-                <HStack gap="16" className={cls.actions}>
-                    <NotificationButton />
-                    <AvatarDropdown />
-                </HStack>
+            );
+        }
+
+        return (
+            <header
+                className={classNames(mainClass, {}, [
+                    className,
+                ])}
+            >
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={
+                        <Button
+                            variant={'clear'}
+                            className={cls.links}
+                            onClick={onShowModal}
+                        >
+                            {t('Войти')}
+                        </Button>
+                    }
+                    off={
+                        <ButtonDeprecated
+                            theme={
+                                ButtonTheme.CLEAR_INVERTED
+                            }
+                            className={cls.links}
+                            onClick={onShowModal}
+                        >
+                            {t('Войти')}
+                        </ButtonDeprecated>
+                    }
+                />
+
+                {isAuthModal && (
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseModal}
+                    />
+                )}
             </header>
         );
-    }
-
-    return (
-        <header className={classNames(cls.navbar, {}, [className])}>
-            <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                className={cls.links}
-                onClick={onShowModal}
-            >
-                {t('Войти')}
-            </Button>
-
-            {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-            )}
-        </header>
-    );
-});
+    },
+);

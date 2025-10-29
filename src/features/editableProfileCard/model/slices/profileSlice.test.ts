@@ -1,6 +1,9 @@
 import { Currency } from '@/entities/Currency';
 
-import { profileActions, profileReducer } from './profileSlice';
+import {
+    profileActions,
+    profileReducer,
+} from './profileSlice';
 import { Country } from '@/entities/Country';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import {
@@ -21,7 +24,9 @@ const data = {
 
 describe('profileSlice.test', () => {
     test('test set readonly', () => {
-        const state: DeepPartial<ProfileSchema> = { readonly: false };
+        const state: DeepPartial<ProfileSchema> = {
+            readonly: false,
+        };
         expect(
             profileReducer(
                 state as ProfileSchema,
@@ -35,7 +40,10 @@ describe('profileSlice.test', () => {
             formData: { city: '' },
         };
         expect(
-            profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.cancelEdit(),
+            ),
         ).toEqual({
             readonly: true,
             validateError: undefined,
@@ -50,7 +58,9 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                profileActions.updateProfile({ city: 'NY' }),
+                profileActions.updateProfile({
+                    city: 'NY',
+                }),
             ),
         ).toEqual({
             formData: { city: 'NY' },
@@ -60,11 +70,16 @@ describe('profileSlice.test', () => {
     test('test update profile service pending', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
-            validateError: [ValidateProfileErrors.SERVER_ERROR],
+            validateError: [
+                ValidateProfileErrors.SERVER_ERROR,
+            ],
         };
 
         expect(
-            profileReducer(state as ProfileSchema, updateProfileData.pending),
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.pending,
+            ),
         ).toEqual({
             isLoading: true,
             validateError: undefined,

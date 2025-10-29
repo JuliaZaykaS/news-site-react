@@ -7,7 +7,9 @@ declare module '*.scss' {
 }
 
 declare module '*.svg' {
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+    const content: React.FunctionComponent<
+        React.SVGAttributes<SVGElement>
+    >;
     export default content;
 }
 
@@ -17,12 +19,25 @@ declare module '*.jpeg';
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
-declare const __PROJECT__: 'storybook' | 'jest' | 'frontend';
-declare const __VITE_TEST__: boolean;
+declare const __PROJECT__:
+    | 'storybook'
+    | 'jest'
+    | 'frontend';
+// declare const __VITE_TEST__: boolean;
 
 type DeepPartial<T> = T extends object
     ? {
           [P in keyof T]?: DeepPartial<T[P]>;
       }
     : T;
-type OptionalRecord<K extends string | number | symbol, T> = { [P in K]?: T };
+type OptionalRecord<
+    K extends string | number | symbol,
+    T,
+> = { [P in K]?: T };
+
+interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    Cypress?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    store?: any;
+}

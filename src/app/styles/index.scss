@@ -3,6 +3,7 @@
 @use "./themes/normal";
 @use "./themes/dark";
 @use "./themes/orange";
+
 /*
 // @import "./reset";
 // @import "./variables/global";
@@ -17,22 +18,19 @@
 //     // background: var(--bg-color);
 //     color: var(--primary-color);
 // }
-.app, .app_modal, .app_drawer {
-     font: var(--font-m);
-
-    color: var(--primary-color);
-}
-
-
 .app {
+    font: var(--font-m);
+    color: var(--primary-color);
     background: var(--bg-color);
-    // color: var(--primary-color);
-
-    // color: red;
-
     min-height: 100vh;
 }
 
+.app_redesigned {
+    background: var(--bg-redesigned);
+    min-height: 100vh;
+    font: var(--font-m-redesigned);
+    color: var(--text-redesigned);
+}
 
 .content-page {
     display: flex;
@@ -44,11 +42,26 @@
 }
 
 *::-webkit-scrollbar-thumb {
+    background-color: var(--icon-redesigned);  // цвет плашки
+    border-radius: 20px; // закругление плашки
+    border: 2px solid var(--accent-redesigned); // паддинг вокруг плашки
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--light-bg-redesigned); // цвет дорожки
+}
+
+.app *::-webkit-scrollbar {
+    width: 12px; // ширина скроллбара
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-thumb {
     background-color: var(--inverted-primary-color);  // цвет плашки
     border-radius: 20px; // закругление плашки
     border: 2px solid var(--primary-color); // паддинг вокруг плашки
 }
 
-*::-webkit-scrollbar-track {
+.app *::-webkit-scrollbar-track {
     background: var(--card-bg); // цвет дорожки
 }

@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { NotificationButton } from './NotificationButton';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/NotificationButton',
@@ -17,10 +18,17 @@ export default {
     ],
 } as Meta<typeof NotificationButton>;
 
-const Template: StoryFn<typeof NotificationButton> = (args) => (
-    <NotificationButton {...args} />
-);
+const Template: StoryFn<typeof NotificationButton> = (
+    args,
+) => <NotificationButton {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
+OldDesignNormal.decorators = [StoreDecorator({})];
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [
+    StoreDecorator({}),
+    NewDesignDecorator,
+];

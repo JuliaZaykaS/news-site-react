@@ -3,6 +3,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import { NotificationsList } from './NotificationsList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { http, HttpResponse } from 'msw';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Notification/NotificationsList',
@@ -12,9 +13,9 @@ export default {
     },
 } as Meta<typeof NotificationsList>;
 
-const Template: StoryFn<typeof NotificationsList> = (args) => (
-    <NotificationsList {...args} />
-);
+const Template: StoryFn<typeof NotificationsList> = (
+    args,
+) => <NotificationsList {...args} />;
 
 const items = [
     {
@@ -34,12 +35,10 @@ const items = [
     },
 ];
 
-export const Normal = Template.bind({});
-Normal.args = {};
-
-Normal.decorators = [StoreDecorator({})];
-
-Normal.parameters = {
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
+OldDesignNormal.decorators = [StoreDecorator({})];
+OldDesignNormal.parameters = {
     // mockData: [
     //     {
     //         url: `${__API__}/notifications`  ,
@@ -54,7 +53,27 @@ Normal.parameters = {
     msw: {
         handlers: [
             http.get(`${__API__}/notifications`, () => {
-                return HttpResponse.json(items, { status: 200 });
+                return HttpResponse.json(items, {
+                    status: 200,
+                });
+            }),
+        ],
+    },
+};
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [
+    StoreDecorator({}),
+    NewDesignDecorator,
+];
+NewDesignNormal.parameters = {
+    msw: {
+        handlers: [
+            http.get(`${__API__}/notifications`, () => {
+                return HttpResponse.json(items, {
+                    status: 200,
+                });
             }),
         ],
     },

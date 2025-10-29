@@ -1,5 +1,8 @@
 {
-    "i18n-ally.localesPaths": ["public/locales", "src/shared/config/i18n"],
+    "i18n-ally.localesPaths": [
+        "public/locales",
+        "src/shared/config/i18n"
+    ],
 
     "stylelint.enable": true,
     "css.validate": true,
@@ -15,5 +18,8 @@
     },
     "[scss]": {
         "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

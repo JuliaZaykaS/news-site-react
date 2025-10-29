@@ -6,16 +6,19 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlePage.test', () => {
     test('success ', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlePage, {
-            articlesPage: {
-                page: 2,
-                ids: [],
-                entities: {},
-                limit: 5,
-                isLoading: false,
-                hasMore: true,
+        const thunk = new TestAsyncThunk(
+            fetchNextArticlePage,
+            {
+                articlesPage: {
+                    page: 2,
+                    ids: [],
+                    entities: {},
+                    limit: 5,
+                    isLoading: false,
+                    hasMore: true,
+                },
             },
-        });
+        );
 
         await thunk.callThunk();
 
@@ -24,16 +27,19 @@ describe('fetchNextArticlePage.test', () => {
         expect(fetchArticlesList).toHaveBeenCalled();
     });
     test('fetchArticlesList not called ', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlePage, {
-            articlesPage: {
-                page: 2,
-                ids: [],
-                entities: {},
-                limit: 5,
-                isLoading: false,
-                hasMore: false,
+        const thunk = new TestAsyncThunk(
+            fetchNextArticlePage,
+            {
+                articlesPage: {
+                    page: 2,
+                    ids: [],
+                    entities: {},
+                    limit: 5,
+                    isLoading: false,
+                    hasMore: false,
+                },
             },
-        });
+        );
 
         await thunk.callThunk();
 
@@ -41,16 +47,19 @@ describe('fetchNextArticlePage.test', () => {
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });
     test('is loading ', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlePage, {
-            articlesPage: {
-                page: 2,
-                ids: [],
-                entities: {},
-                limit: 5,
-                isLoading: true,
-                hasMore: true,
+        const thunk = new TestAsyncThunk(
+            fetchNextArticlePage,
+            {
+                articlesPage: {
+                    page: 2,
+                    ids: [],
+                    entities: {},
+                    limit: 5,
+                    isLoading: true,
+                    hasMore: true,
+                },
             },
-        });
+        );
 
         await thunk.callThunk();
 

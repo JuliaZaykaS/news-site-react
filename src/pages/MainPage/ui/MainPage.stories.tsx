@@ -6,6 +6,7 @@ import '@/app/styles/index.scss';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'pages/MainPage',
@@ -18,19 +19,20 @@ export default {
 } as Meta<typeof MainPage>;
 
 const Template: StoryFn<typeof MainPage> = () => (
-    // const Template: ComponentStory<typeof MainPage> = (args) => (
-    // <MainPage {...args} />
     <MainPage />
 );
-export const Normal = Template.bind({});
-Normal.args = {};
-// Normal.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({});
-Dark.args = {};
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-export const Orange = Template.bind({});
-Orange.args = {};
+export const OldDesignDark = Template.bind({});
+OldDesignDark.args = {};
+OldDesignDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];
+export const OldDesignOrange = Template.bind({});
+OldDesignOrange.args = {};
+OldDesignOrange.decorators = [ThemeDecorator(Theme.ORANGE)];
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [NewDesignDecorator];

@@ -3,14 +3,20 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
+
+    .selectorBtn {
+        display: flex;
+        align-items: center;
+    }
+
+    .notSelected {
+        fill: var(--secondary-color);
+    }
 }
 
-.selectorBtn {
-
-    display: flex;
-    align-items: center;
-}
-
-.notSelected {
-    fill: var(--secondary-color) !important;
+.articleViewSelectorRedesigned {
+    .notSelected {
+        color: var(--light-bg-redesigned);
+        fill: var(--light-bg-redesigned);
+    }
 }

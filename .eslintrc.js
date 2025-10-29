@@ -11,6 +11,8 @@ module.exports = {
         'plugin:react/jsx-runtime',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        // 'prettier',
+        // 'plugin:prettier/recommended', // автоматически включает eslint-config-prettier
     ],
     parser: '@typescript-eslint/parser',
     overrides: [],
@@ -39,9 +41,6 @@ module.exports = {
     //   "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     // },
     rules: {
-        // "react/jsx-indent": [2, 4],
-        // "react/jsx-indent-props": [2, 4],
-        // indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
             {
@@ -50,7 +49,7 @@ module.exports = {
         ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off', // отключаем обычное правило ESLint
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -62,7 +61,11 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': [
             'warn',
             {
-                argsIgnorePattern: '^_',
+                vars: 'all',
+                args: 'after-used',
+                ignoreRestSiblings: true,
+                varsIgnorePattern: '^_', // игнорировать _переменные
+                argsIgnorePattern: '^_', // игнорировать _аргументы
             },
         ],
         'react/prop-types': 'warn',
@@ -71,7 +74,6 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: [
-                    'data-testId',
                     'data-testid',
                     'to',
                     'target',
@@ -82,6 +84,12 @@ module.exports = {
                     'tag',
                     'as',
                     'border',
+                    'feature',
+                    'color',
+                    'variant',
+                    'borderRadius',
+                    'size',
+                    'wrap',
                 ],
             },
         ],
@@ -93,12 +101,12 @@ module.exports = {
             },
         ],
         'react-hooks/rules-of-hooks': 'error', // Проверяем правила хуков
-        // "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
+        "react-hooks/exhaustive-deps": "error", // Проверяем зависимости эффекта
         // "eslint-plugin-juliaz/path-checker":"error",// неверные пути внутри модуля
         'react/jsx-max-props-per-line': ['error', { maximum: 3 }], // сколько атрибутов в jsx на 1 строке без переносов
 
         'juliaz/path-checker': [2, { alias: '@' }], // неверные пути внутри модуля
-        'juliaz/path-checker': [2, { alias: '@' }], // неверные пути внутри модуля
+        // 'juliaz/path-checker': [2, { alias: '@' }], // неверные пути внутри модуля
         'juliaz/public-api-imports': [
             2,
             {
@@ -132,6 +140,17 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off', // отключаем переводы в тестовых файлах
                 'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
+            },
+        },
+        // Для Cypress и деклараций типов
+        {
+            files: [
+                '**/cypress/**/*.ts',
+                '**/*.d.ts',
+            ],
+            rules: {
+                '@typescript-eslint/no-namespace': 'off',
             },
         },
     ],

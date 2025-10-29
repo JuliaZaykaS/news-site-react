@@ -31,6 +31,7 @@ Backend развернут с помощью json-server
 - `npm run lint:scss` - Проверка scss файлов style линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style линтером
 - `npm run test:unit` - Запуск unit тестов с jest
+- `npm run test:e2e` - Запуск e2e тестов с cypress
 - `npm run test:ui` - Запуск скриншотных тестов с loki
 - `npm run test:ui:ok` - Подтверждение новых скриншотов
 - `npm run test:ui:ci` - Запуск скриншотных тестов в CI
@@ -41,6 +42,7 @@ Backend развернут с помощью json-server
 - `npm run storybook:build` - Сборка storybook билда
 - `npm run prepare` - прекоммит хуки
 - `npm run generate:slice` - Скрипт для генерации FSD слайсов
+- `npm run remove-feature` - Скрипт для удаления части кода по feature флагу
 
 ----
 
@@ -137,14 +139,27 @@ Backend развернут с помощью json-server
 
 ### Работа с feature-flags
 
-Разрешено использование feature flags только с помощью хелпера toggleFeatures
+Разрешено использование feature flags только с помощью хелпера toggleFeatures или компонента ToggleFeatures
 
-в него передается объект с опциями
+В функцию toggleFeatures передается объект с опциями
 
 {
    name: название фича-флага,
    on: функция, которая отработает после Включения фичи
    of: функция, которая отработает после ВЫключения фичи
+}
+
+Для автоматического удаления фичи использовать скрипт remove-feature.ts,
+который принимает 2 аргумента
+1. Название удаляемого фича-флага
+2. Состояние (on\off)
+
+В компонент ToggleFeatures передается объект с опциями
+
+{
+   feature: название фича-флага,
+   on: компонент, который отрендерится после Включения фичи
+   of: компонент, который отрендерится после ВЫключения фичи
 }
 
 Для автоматического удаления фичи использовать скрипт remove-feature.ts,
@@ -183,6 +198,7 @@ Backend развернут с помощью json-server
 
 - [addNewCommentForm](/src/features/addNewCommentForm/README.md)
 - [articleEditForm](/src/features/articleEditForm/README.md)
+- [articlePageGreeting](/src/features/articlePageGreeting/README.md)
 - [articleRating](/src/features/articleRating/README.md)
 - [articleRecommendationsList](/src/features/articleRecommendationsList/README.md)
 - [ArticleSortSelector](/src/features/ArticleSortSelector/README.md)
@@ -195,6 +211,8 @@ Backend развернут с помощью json-server
 - [NotificationButton](/src/features/NotificationButton/README.md)
 - [profileRating](/src/features/profileRating/README.md)
 - [ThemeSwitcher](/src/features/ThemeSwitcher/README.md)
+- [scrollToTopButton](/src/features/scrollToTopButton/README.md)
+- [uiDesignSwitcher](/src/features/uiDesignSwitcher/README.md)
 
 ## Страницы (pages)
 
@@ -207,6 +225,7 @@ Backend развернут с помощью json-server
 - [MainPage](/src/pages/MainPage/README.md)
 - [NotFoundPage](/src/pages/NotFoundPage/README.md)
 - [ProfilePage](/src/pages/ProfilePage/README.md)
+- [SettingsPage](/src/pages/SettingsPage/README.md)
 
 
 ## Виджеты (widgets)
@@ -216,5 +235,8 @@ Backend развернут с помощью json-server
 - [PageError](/src/widgets/PageError/README.md)
 - [PageLoader](/src/widgets/PageLoader/README.md)
 - [Sidebar](/src/widgets/Sidebar/README.md)
+- [ScrollToolbar](/src/widgets/ScrollToolbar/README.md)
+- [ArticlesFilters](/src/widgets/ArticlesFilters/README.md)
+- [ArticleAdditionalInfo](/src/widgets/ArticleAdditionalInfo/README.md)
 
 

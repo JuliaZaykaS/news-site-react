@@ -17,7 +17,8 @@ interface AnimationContextPayload {
     isLoaded?: boolean;
 }
 
-const AnimationContext = createContext<AnimationContextPayload>({});
+const AnimationContext =
+    createContext<AnimationContextPayload>({});
 
 // обе библиотеки работают в тандеме и зависят друг от друга
 const getAsyncAnimationModules = async () => {
@@ -28,21 +29,29 @@ const getAsyncAnimationModules = async () => {
 };
 
 export const useAnimationLibs = () => {
-    return useContext(AnimationContext) as Required<AnimationContextPayload>;
+    return useContext(
+        AnimationContext,
+    ) as Required<AnimationContextPayload>;
 };
 
-export const AnimationProvider = ({ children }: { children: ReactNode }) => {
+export const AnimationProvider = ({
+    children,
+}: {
+    children: ReactNode;
+}) => {
     const SpringRef = useRef<SpringType>();
     const GestureRef = useRef<GestureType>();
 
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        getAsyncAnimationModules().then(([Spring, Gesture]) => {
-            SpringRef.current = Spring;
-            GestureRef.current = Gesture;
-            setIsLoaded(true);
-        });
+        getAsyncAnimationModules().then(
+            ([Spring, Gesture]) => {
+                SpringRef.current = Spring;
+                GestureRef.current = Gesture;
+                setIsLoaded(true);
+            },
+        );
     }, []);
 
     const value = useMemo(

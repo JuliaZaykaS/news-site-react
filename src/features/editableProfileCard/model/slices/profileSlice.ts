@@ -1,5 +1,9 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import {
+    PayloadAction,
+    createSlice,
+} from '@reduxjs/toolkit';
 
+// eslint-disable-next-line max-len
 import { fetchProfileData } from '../../../../features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
@@ -16,11 +20,20 @@ export const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
-        setReadonly: (state, action: PayloadAction<boolean>) => {
+        setReadonly: (
+            state,
+            action: PayloadAction<boolean>,
+        ) => {
             state.readonly = action.payload;
         },
-        updateProfile: (state, action: PayloadAction<Profile>) => {
-            state.formData = { ...state.formData, ...action.payload };
+        updateProfile: (
+            state,
+            action: PayloadAction<Profile>,
+        ) => {
+            state.formData = {
+                ...state.formData,
+                ...action.payload,
+            };
         },
         cancelEdit: (state) => {
             state.readonly = true;
@@ -42,10 +55,13 @@ export const profileSlice = createSlice({
                     state.profile = action.payload;
                 },
             )
-            .addCase(fetchProfileData.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            });
+            .addCase(
+                fetchProfileData.rejected,
+                (state, action) => {
+                    state.isLoading = false;
+                    state.error = action.payload;
+                },
+            );
         builder
             .addCase(updateProfileData.pending, (state) => {
                 state.validateError = undefined;
@@ -61,10 +77,13 @@ export const profileSlice = createSlice({
                     state.validateError = undefined;
                 },
             )
-            .addCase(updateProfileData.rejected, (state, action) => {
-                state.isLoading = false;
-                state.validateError = action.payload;
-            });
+            .addCase(
+                updateProfileData.rejected,
+                (state, action) => {
+                    state.isLoading = false;
+                    state.validateError = action.payload;
+                },
+            );
     },
 });
 

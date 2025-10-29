@@ -12,13 +12,17 @@ const files = project.getSourceFiles();
 // проходимся по всем файлам и производим замену стандартного абсолютного импорта на импорт с использованием алиаса
 files.forEach((sourceFile) => {
     // получаем все строки с импортами в данной файле
-    const importDeclarations = sourceFile.getImportDeclarations();
+    const importDeclarations =
+        sourceFile.getImportDeclarations();
     // проходимся по каждому импорту, и если это импорт наш внутренний, не какой-то библиотеки, то добавляем алиас
     importDeclarations.forEach((importDeclaration) => {
         // получаем сроку импорта, например shared/lib/hooks/useModal/useModal
-        const value = importDeclaration.getModuleSpecifierValue();
+        const value =
+            importDeclaration.getModuleSpecifierValue();
         if (isAbsolute(value)) {
-            importDeclaration.setModuleSpecifier(`@/${value}`);
+            importDeclaration.setModuleSpecifier(
+                `@/${value}`,
+            );
         }
     });
 });
@@ -36,5 +40,7 @@ function isAbsolute(value: string) {
         'features',
         'widgets',
     ];
-    return folderNamesArr.some((folderName) => value.startsWith(folderName));
+    return folderNamesArr.some((folderName) =>
+        value.startsWith(folderName),
+    );
 }

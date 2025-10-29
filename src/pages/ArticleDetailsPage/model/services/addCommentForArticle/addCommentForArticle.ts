@@ -12,33 +12,44 @@ export const addCommentForArticle = createAsyncThunk<
     Comment,
     string,
     ThunkConfig<string>
->('articleDetails/addCommentForArticle', async (text, thunkAPI) => {
-    const { extra, dispatch, rejectWithValue, getState } = thunkAPI;
+>(
+    'articleDetails/addCommentForArticle',
+    async (text, thunkAPI) => {
+        const {
+            extra,
+            dispatch,
+            rejectWithValue,
+            getState,
+        } = thunkAPI;
 
-    const userData = getUserAuthData(getState());
-    //   const text = getNewCommentFormText(getState());
-    const article = getArticleDetailsData(getState());
+        const userData = getUserAuthData(getState());
+        //   const text = getNewCommentFormText(getState());
+        const article = getArticleDetailsData(getState());
 
-    if (!userData || !text || !article) {
-        return rejectWithValue('no data');
-    }
-
-    try {
-        const response = await extra.api.post<Comment>(`/comments`, {
-            articleId: article.id,
-            userId: userData.id,
-            text,
-        });
-        if (!response.data) {
-            throw new Error();
+        if (!userData || !text || !article) {
+            return rejectWithValue('no data');
         }
 
-        // dispatch(addNewCommentFormActions.setText(""));
-        dispatch(fetchCommentsByArticleId(article.id));
+        try {
+            const response = await extra.api.post<Comment>(
+                `/comments`,
+                {
+                    articleId: article.id,
+                    userId: userData.id,
+                    text,
+                },
+            );
+            if (!response.data) {
+                throw new Error();
+            }
 
-        return response.data;
-    } catch (error) {
-        // return thunkAPI.rejectWithValue(i18n.t("Неверный логин или пароль"));
-        return rejectWithValue(`${error}`);
-    }
-});
+            // dispatch(addNewCommentFormActions.setText(""));
+            dispatch(fetchCommentsByArticleId(article.id));
+
+            return response.data;
+        } catch (error) {
+            // return thunkAPI.rejectWithValue(i18n.t("Неверный логин или пароль"));
+            return rejectWithValue(`${error}`);
+        }
+    },
+);

@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import ProfileRating from './ProfileRating';
 import { http, HttpResponse } from 'msw';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/ProfileRating',
@@ -15,19 +16,18 @@ const Template: StoryFn<typeof ProfileRating> = (args) => (
     <ProfileRating {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {
     profileId: '2',
 };
-Normal.decorators = [
+OldDesignNormal.decorators = [
     StoreDecorator({
         user: {
             authData: { id: '1' },
         },
     }),
 ];
-
-Normal.parameters = {
+OldDesignNormal.parameters = {
     // mockData: [
     //     {
     //         url: `${__API__}/profile-ratings?userId=1&profileId=2`  ,
@@ -43,17 +43,24 @@ Normal.parameters = {
     // ],
     msw: {
         handlers: [
-            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-                return HttpResponse.json([{ rate: 4 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 4 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };
-export const WithoutRate = Template.bind({});
-WithoutRate.args = {
+
+export const OldDesignWithoutRate = Template.bind({});
+OldDesignWithoutRate.args = {
     profileId: '1',
 };
-WithoutRate.decorators = [
+OldDesignWithoutRate.decorators = [
     StoreDecorator({
         user: {
             authData: { id: '1' },
@@ -61,7 +68,7 @@ WithoutRate.decorators = [
     }),
 ];
 
-WithoutRate.parameters = {
+OldDesignWithoutRate.parameters = {
     // mockData: [
     //     {
     //         url: `${__API__}/profile-ratings?userId=1&profileId=2`  ,
@@ -77,9 +84,71 @@ WithoutRate.parameters = {
     // ],
     msw: {
         handlers: [
-            http.get(`${__API__}/profile-ratings?userId=1&profileId=2`, () => {
-                return HttpResponse.json([{ rate: 0 }], { status: 200 });
-            }),
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 0 }],
+                        { status: 200 },
+                    );
+                },
+            ),
+        ],
+    },
+};
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {
+    profileId: '2',
+};
+NewDesignNormal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+    NewDesignDecorator,
+];
+NewDesignNormal.parameters = {
+    msw: {
+        handlers: [
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 4 }],
+                        { status: 200 },
+                    );
+                },
+            ),
+        ],
+    },
+};
+
+export const NewDesignWithoutRate = Template.bind({});
+NewDesignWithoutRate.args = {
+    profileId: '1',
+};
+NewDesignWithoutRate.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+    NewDesignDecorator,
+];
+NewDesignWithoutRate.parameters = {
+    msw: {
+        handlers: [
+            http.get(
+                `${__API__}/profile-ratings?userId=1&profileId=2`,
+                () => {
+                    return HttpResponse.json(
+                        [{ rate: 0 }],
+                        { status: 200 },
+                    );
+                },
+            ),
         ],
     },
 };

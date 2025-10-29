@@ -9,7 +9,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'features/LoginForm',
+    title: 'features/AuthByUserName/LoginForm',
     component: LoginForm,
 
     argTypes: {
@@ -17,20 +17,24 @@ export default {
     },
 } as Meta<typeof LoginForm>;
 
-const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: StoryFn<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+);
 
-export const Primary = Template.bind({});
-
-Primary.args = {};
-Primary.decorators = [
+export const OldDesignPrimary = Template.bind({});
+OldDesignPrimary.args = {};
+OldDesignPrimary.decorators = [
     StoreDecorator({
-        loginForm: { userName: 'userName', password: 'password' },
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
     }),
 ];
 
-export const WithError = Template.bind({});
-WithError.args = {};
-WithError.decorators = [
+export const OldDesignWithError = Template.bind({});
+OldDesignWithError.args = {};
+OldDesignWithError.decorators = [
     StoreDecorator({
         loginForm: {
             userName: 'userName',
@@ -39,18 +43,18 @@ WithError.decorators = [
         },
     }),
 ];
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [
+
+export const OldDesignLoading = Template.bind({});
+OldDesignLoading.args = {};
+OldDesignLoading.decorators = [
     StoreDecorator({
         loginForm: { isLoading: true },
     }),
 ];
 
-export const Dark = Template.bind({});
-
-Dark.args = {};
-Dark.decorators = [
+export const OldDesignDark = Template.bind({});
+OldDesignDark.args = {};
+OldDesignDark.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
         loginForm: {
@@ -60,10 +64,10 @@ Dark.decorators = [
         },
     }),
 ];
-export const Orange = Template.bind({});
 
-Orange.args = {};
-Orange.decorators = [
+export const OldDesignOrange = Template.bind({});
+OldDesignOrange.args = {};
+OldDesignOrange.decorators = [
     ThemeDecorator(Theme.ORANGE),
     StoreDecorator({
         loginForm: {
@@ -71,5 +75,36 @@ Orange.decorators = [
             password: 'password',
             error: 'error',
         },
+    }),
+];
+
+export const NewDesignPrimary = Template.bind({});
+NewDesignPrimary.args = {};
+NewDesignPrimary.decorators = [
+    StoreDecorator({
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+        },
+    }),
+];
+
+export const NewDesignWithError = Template.bind({});
+NewDesignWithError.args = {};
+NewDesignWithError.decorators = [
+    StoreDecorator({
+        loginForm: {
+            userName: 'userName',
+            password: 'password',
+            error: 'error',
+        },
+    }),
+];
+
+export const NewDesignLoading = Template.bind({});
+NewDesignLoading.args = {};
+NewDesignLoading.decorators = [
+    StoreDecorator({
+        loginForm: { isLoading: true },
     }),
 ];

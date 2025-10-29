@@ -14,5 +14,14 @@
     "Имя и фамилия обязательны": "INCORRECT_USER_DATA",
     "Некорректное название города": "INCORRECT_CITY",
     "Некорректно указан возраст": "INCORRECT_AGE",
-    "Ошибка сервера": "SERVER_ERROR"
+    "Ошибка сервера": "SERVER_ERROR",
+    "Имя": "Name",
+    "Фамилия": "Surname",
+    "Возраст": "Age",
+    "Имя пользователя": "User name",
+    "Аватар": "Avatar",
+    "Данные не указаны": "No data provided",
+    "Оцените профиль": "Rate the profile",
+    "Оставьте свой отзыв о пользователе": "Leave a review for this user",
+    "Профиль не найден": "Profile not found"
 }

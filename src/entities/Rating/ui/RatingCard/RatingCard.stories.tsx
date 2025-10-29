@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { RatingCard } from './RatingCard';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Rating/RatingCard',
@@ -9,7 +10,24 @@ export default {
     },
 } as Meta<typeof RatingCard>;
 
-const Template: StoryFn<typeof RatingCard> = (args) => <RatingCard {...args} />;
+const Template: StoryFn<typeof RatingCard> = (args) => (
+    <RatingCard {...args} />
+);
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const OldDesignNoRating = Template.bind({});
+OldDesignNoRating.args = {};
+
+export const OldDesignWithRating = Template.bind({});
+OldDesignWithRating.args = {
+    rate: 3,
+};
+
+export const NewDesignNoRating = Template.bind({});
+NewDesignNoRating.args = {};
+NewDesignNoRating.decorators = [NewDesignDecorator];
+
+export const NewDesignWithRating = Template.bind({});
+NewDesignWithRating.args = {
+    rate: 3,
+};
+NewDesignWithRating.decorators = [NewDesignDecorator];

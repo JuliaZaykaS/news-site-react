@@ -1,5 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { CommentsList } from './CommentsList';
+import { comments } from '@/shared/__mocks__/comments';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Comment/CommentsList',
@@ -13,38 +15,37 @@ const Template: StoryFn<typeof CommentsList> = (args) => (
     <CommentsList {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {
-    comments: [
-        {
-            id: '1',
-            text: 'Lorem ipsum dolor sit amet',
-            user: { id: '1', username: 'Vasya' },
-        },
-        {
-            id: '2',
-            text: 'Lorem ipsum dolor sit amet',
-            user: { id: '2', username: 'Petya' },
-        },
-    ],
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {
+    comments: comments,
 };
-export const Loading = Template.bind({});
-Loading.args = {
-    comments: [
-        {
-            id: '1',
-            text: 'Lorem ipsum dolor sit amet',
-            user: { id: '1', username: 'Vasya' },
-        },
-        {
-            id: '2',
-            text: 'Lorem ipsum dolor sit amet',
-            user: { id: '2', username: 'Petya' },
-        },
-    ],
+
+export const OldDesignLoading = Template.bind({});
+OldDesignLoading.args = {
+    comments: comments,
     isLoading: true,
 };
-export const NoComments = Template.bind({});
-NoComments.args = {
+
+export const OldDesignNoComments = Template.bind({});
+OldDesignNoComments.args = {
     comments: [],
 };
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {
+    comments: comments,
+};
+NewDesignNormal.decorators = [NewDesignDecorator];
+
+export const NewDesignLoading = Template.bind({});
+NewDesignLoading.args = {
+    comments: comments,
+    isLoading: true,
+};
+NewDesignLoading.decorators = [NewDesignDecorator];
+
+export const NewDesignNoComments = Template.bind({});
+NewDesignNoComments.args = {
+    comments: [],
+};
+NewDesignNoComments.decorators = [NewDesignDecorator];

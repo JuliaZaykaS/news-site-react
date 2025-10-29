@@ -3,7 +3,10 @@ import {
     ArticleDetailsBlockType,
 } from '../consts/articleConsts';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
-import { Article, ArticleDetailsSchema } from '../types/article';
+import {
+    Article,
+    ArticleDetailsSchema,
+} from '../types/article';
 import { articleDetailsReducer } from './articleDetailsSlice';
 
 const article: Article = {
@@ -77,7 +80,12 @@ describe('articleDetailsSlice.test', () => {
         expect(
             articleDetailsReducer(
                 state as ArticleDetailsSchema,
-                fetchArticleById.fulfilled(article, '1', '', ''),
+                fetchArticleById.fulfilled(
+                    article,
+                    '1',
+                    '',
+                    '',
+                ),
             ),
         ).toEqual({
             isLoading: false,

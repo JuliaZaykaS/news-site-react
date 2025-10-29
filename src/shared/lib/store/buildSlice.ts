@@ -5,7 +5,6 @@ import {
     bindActionCreators,
     createSlice,
 } from '@reduxjs/toolkit';
-import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
 import { useDispatch } from 'react-redux';
 import { useMemo } from 'react';
 
@@ -19,9 +18,11 @@ export function buildSlice<
         const dispatch = useDispatch();
 
         return useMemo(
-            () => bindActionCreators(
-                slice.actions as ActionCreatorsMapObject,
-                dispatch) as typeof slice.actions,
+            () =>
+                bindActionCreators(
+                    slice.actions as ActionCreatorsMapObject,
+                    dispatch,
+                ) as typeof slice.actions,
             [dispatch],
         );
     };
@@ -31,5 +32,3 @@ export function buildSlice<
         useActions,
     };
 }
-
-// <State, CaseReducers extends SliceCaseReducers<State>, Name extends string = string > (options: CreateSliceOptions<State, CaseReducers, Name>): Slice<State, CaseReducers, Name>

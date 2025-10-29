@@ -39,7 +39,8 @@ describe('AppRouter.test', () => {
             route: '/fggjkll',
         });
 
-        const page = await screen.findByTestId('NotFoundPage');
+        const page =
+            await screen.findByTestId('NotFoundPage');
         expect(page).toBeInTheDocument();
     });
 
@@ -60,7 +61,8 @@ describe('AppRouter.test', () => {
             },
         });
 
-        const page = await screen.findByTestId('ProfilePage');
+        const page =
+            await screen.findByTestId('ProfilePage');
         expect(page).toBeInTheDocument();
     });
 
@@ -72,7 +74,8 @@ describe('AppRouter.test', () => {
             },
         });
 
-        const page = await screen.findByTestId('ForbiddenPage');
+        const page =
+            await screen.findByTestId('ForbiddenPage');
 
         expect(page).toBeInTheDocument();
     });
@@ -81,11 +84,16 @@ describe('AppRouter.test', () => {
         componentRender(<AppRouter />, {
             route: getRouteAdminPanel(),
             initialState: {
-                user: { _inited: true, authData: { roles: [UserRole.ADMIN] } },
+                user: {
+                    _inited: true,
+                    authData: { roles: [UserRole.ADMIN] },
+                },
             },
         });
 
-        const page = await screen.findByTestId('AdminPanelPage');
+        const page = await screen.findByTestId(
+            'AdminPanelPage',
+        );
         expect(page).toBeInTheDocument();
     });
 });

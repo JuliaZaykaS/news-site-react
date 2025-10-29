@@ -3,7 +3,8 @@ import { http, HttpResponse } from 'msw';
 
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from '@/entities/Article';
+import { articleRecommendation } from '@/shared/__mocks__/article';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'features/ArticleRecommendationsList',
@@ -14,26 +15,13 @@ export default {
     decorators: [StoreDecorator({})],
 } as Meta<typeof ArticleRecommendationsList>;
 
-const Template: StoryFn<typeof ArticleRecommendationsList> = (args) => (
-    <ArticleRecommendationsList {...args} />
-);
+const Template: StoryFn<
+    typeof ArticleRecommendationsList
+> = (args) => <ArticleRecommendationsList {...args} />;
 
-const article: Article = {
-    id: '1',
-    img: '',
-    createdAt: '',
-    views: 123,
-    user: { id: '1', username: '123' },
-    blocks: [],
-    type: [],
-    title: '123',
-    subtitle: 'asfsa',
-};
-
-export const Normal = Template.bind({});
-Normal.args = {};
-
-Normal.parameters = {
+export const OldDesignNormal = Template.bind({});
+OldDesignNormal.args = {};
+OldDesignNormal.parameters = {
     // mockData: [
     //     {
     //         url: `${__API__}/articles?_limit=3`  ,
@@ -58,15 +46,44 @@ Normal.parameters = {
                 return HttpResponse.json(
                     [
                         {
-                            ...article,
+                            ...articleRecommendation,
                             id: '1',
                         },
                         {
-                            ...article,
+                            ...articleRecommendation,
                             id: '2',
                         },
                         {
-                            ...article,
+                            ...articleRecommendation,
+                            id: '3',
+                        },
+                    ],
+                    { status: 200 },
+                );
+            }),
+        ],
+    },
+};
+
+export const NewDesignNormal = Template.bind({});
+NewDesignNormal.args = {};
+NewDesignNormal.decorators = [NewDesignDecorator];
+NewDesignNormal.parameters = {
+    msw: {
+        handlers: [
+            http.get(`${__API__}/articles?_limit=3`, () => {
+                return HttpResponse.json(
+                    [
+                        {
+                            ...articleRecommendation,
+                            id: '1',
+                        },
+                        {
+                            ...articleRecommendation,
+                            id: '2',
+                        },
+                        {
+                            ...articleRecommendation,
                             id: '3',
                         },
                     ],

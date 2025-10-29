@@ -5,15 +5,32 @@ const path = require('path');
 const https = require('https');
 const http = require('http');
 
+// === SSL сертификаты ===
 const options = {
     key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
     cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
 };
-const server = jsonServer.create();
 
+// === Создаём сервер и маршруты ===
+const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
-server.use(jsonServer.defaults({}));
+// === Миддлвары: лог, CORS, статика ===
+const middlewares = jsonServer.defaults();
+server.use(middlewares);
+
+// === Отдача изображений ===
+// картинки будут доступны по пути: /images/имя_файла
+server.use(
+    '/images',
+    jsonServer.defaults({
+        static: path.resolve(__dirname, 'images'),
+    })
+);
+
+// server.use(jsonServer.defaults({}));
+
+// === Парсер тела запроса ===
 server.use(jsonServer.bodyParser);
 
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
@@ -52,6 +69,13 @@ server.post('/login', (req, res) => {
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
+    if (
+        req.url.startsWith('/images') ||
+        req.url.startsWith('/login') ||
+        req.method === 'GET' && req.url.includes('/favicon.ico')
+    ) {
+        return next();
+    }
     if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' });
     }
@@ -59,6 +83,7 @@ server.use((req, res, next) => {
     next();
 });
 
+// === Подключаем маршруты из db.json ===
 server.use(router);
 
 // запуск сервера

@@ -13,23 +13,43 @@ import { Navbar } from '@/widgets/Navbar';
 // import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 
 // import { Modal } from "@/shared/ui/Modal";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
-import { getUserInited, userActions } from '@/entities/User';
+import {
+    getUserInited,
+    initAuthData,
+} from '@/entities/User';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from './providers/router';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from './lib/useAppToolbar';
+// import { ThemeProvider } from './providers/ThemeProvider';
+import { typedMemo } from '@/shared/const/memo';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
+
 // import { useTranslation } from "react-i18next";
 
-export const App = () => {
+// export const App = () => {
+const App = typedMemo(() => {
     const { theme } = useTheme();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const inited = useSelector(getUserInited);
+
+    const toolbar = useAppToolbar();
+
     useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, [dispatch]);
+        // dispatch(userActions.initAuthData());
+        if (!inited) {
+            dispatch(initAuthData());
+        }
+    }, [dispatch, inited]);
 
     // const [isOpen, setIsOpen] = useState(false);
 
@@ -47,17 +67,69 @@ export const App = () => {
     //     }
     //   }, []);
 
-    return (
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback={''}>
-                <Navbar />
-                {/* <button onClick={toggleModal}>toggle modal</button> */}
+    if (!inited) {
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <div
+                        id={'app'}
+                        className={classNames(
+                            'app_redesigned',
+                            {},
+                            [theme],
+                        )}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
+    }
 
-                <div className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
+    return (
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <div
+                    id={'app'}
+                    className={classNames(
+                        'app_redesigned',
+                        {},
+                        [theme],
+                    )}
+                >
+                    <Suspense fallback={''}>
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={toolbar}
+                        />
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
+            }
+            off={
+                <div
+                    className={classNames('app', {}, [
+                        theme,
+                    ])}
+                    id={'app'}
+                >
+                    <Suspense fallback={''}>
+                        <Navbar />
+                        {/* <button onClick={toggleModal}>toggle modal</button> */}
+                        <div className="content-page">
+                            <Sidebar />
+                            <AppRouter />
+                        </div>
+                    </Suspense>
+                </div>
+            }
+        />
     );
-};
+});
+
+// export default App;
+export default withTheme(App);

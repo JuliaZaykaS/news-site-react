@@ -2,11 +2,16 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
 import { ArticlesList } from '@/entities/Article';
-import { Text, TextSize } from '@/shared/ui/Text';
+import {
+    Text as TextDeprecated,
+    TextSize,
+} from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-import { VStack } from '@/shared/ui/Stack';
-import { useArticleRecommendationsList } from '../../api/articleReccomendationsApi';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleRecommendationsListProps {
     className?: string;
@@ -33,7 +38,22 @@ export const ArticleRecommendationsList = typedMemo(
                 className={classNames('', {}, [className])}
                 data-testid={'ArticleRecommendationsList'}
             >
-                <Text title={t('Рекомендации')} size={TextSize.L} />
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={
+                        <Text
+                            title={t('Рекомендации')}
+                            size={'l'}
+                        />
+                    }
+                    off={
+                        <TextDeprecated
+                            title={t('Рекомендации')}
+                            size={TextSize.L}
+                        />
+                    }
+                />
+
                 <ArticlesList
                     articles={recommendations}
                     isLoading={isLoading}

@@ -1,10 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Modal } from '@/shared/ui/Modal';
+import { Modal } from '@/shared/ui/deprecated/Modal';
 import { LoginFormAsync as LoginForm } from '../LoginForm/LoginForm.async';
 import { Suspense } from 'react';
-import { Loader } from '@/shared/ui/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
 interface LoginModalProps {
     className?: string;

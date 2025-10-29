@@ -9,21 +9,31 @@ describe('Counter', () => {
         componentRender(<Counter />, {
             initialState: { counter: { value: 5 } },
         });
-        expect(screen.getByTestId('value-title')).toHaveTextContent('5');
+        expect(
+            screen.getByTestId('value-title'),
+        ).toHaveTextContent('5');
     });
     test('increment', () => {
         componentRender(<Counter />, {
             initialState: { counter: { value: 5 } },
         });
-        fireEvent.click(screen.getByTestId('increment-btn'));
-        expect(screen.getByTestId('value-title')).toHaveTextContent('6');
+        fireEvent.click(
+            screen.getByTestId('increment-btn'),
+        );
+        expect(
+            screen.getByTestId('value-title'),
+        ).toHaveTextContent('6');
     });
     test('decrement', () => {
         componentRender(<Counter />, {
             initialState: { counter: { value: 5 } },
         });
-        fireEvent.click(screen.getByTestId('decrement-btn'));
+        fireEvent.click(
+            screen.getByTestId('decrement-btn'),
+        );
 
-        expect(screen.getByTestId('value-title')).toHaveTextContent('4');
+        expect(
+            screen.getByTestId('value-title'),
+        ).toHaveTextContent('4');
     });
 });

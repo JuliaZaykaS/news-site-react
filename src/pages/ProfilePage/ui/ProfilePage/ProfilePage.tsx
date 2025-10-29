@@ -7,21 +7,34 @@ import { Page } from '@/widgets/Page';
 
 import { EditableProfileCard } from '@/features/editableProfileCard';
 
-import { Text } from '@/shared/ui/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ProfileRating } from '@/features/profileRating';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '@/entities/Profile';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useEffect, useState } from 'react';
 
 interface ProfilePageProps {
     className?: string;
+    mockedId?: string; // для мокания в сторибуке
 }
 
 const ProfilePage = (props: ProfilePageProps) => {
-    const { className } = props;
+    const { className, mockedId } = props;
     const { t } = useTranslation('profile');
 
-    const { id } = useParams<{ id: string }>();
+    const params = useParams<{ id: string }>();
+    const [id, setId] = useState(params.id);
+
+    // const { id } = useParams<{ id: string }>();
+
+    useEffect(() => {
+        if (__PROJECT__ === 'storybook') {
+            setId(mockedId);
+        }
+    }, [mockedId]);
 
     const userData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
@@ -29,20 +42,33 @@ const ProfilePage = (props: ProfilePageProps) => {
     let profileRatingContent;
 
     if (!id) {
-        return <Text text={t('Профиль не найден')} />;
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<Text text={t('Профиль не найден')} />}
+                off={
+                    <TextDeprecated
+                        text={t('Профиль не найден')}
+                    />
+                }
+            />
+        );
     }
 
     if (userData?.id !== id && profileData) {
-        profileRatingContent = <ProfileRating profileId={id} />;
+        profileRatingContent = (
+            <ProfileRating profileId={id} />
+        );
     }
 
     return (
         <Page
-            className={classNames(cls.profilePage, {}, [className])}
+            className={classNames(cls.profilePage, {}, [
+                className,
+            ])}
             data-testid={'ProfilePage'}
         >
             <EditableProfileCard id={id} />
-            {/* {userData?.id !== id && <ProfileRating profileId={id} />} */}
             {profileRatingContent}
         </Page>
     );

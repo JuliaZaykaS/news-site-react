@@ -1,0 +1,71 @@
+import {
+    ImgHTMLAttributes,
+    ReactElement,
+    useLayoutEffect,
+    useState,
+} from 'react';
+
+import { typedMemo } from '@/shared/const/memo';
+import { updateUrlStaticMediaFromDB } from '@/shared/lib/url/updateUrlStaticMediaFromDB/updateUrlStaticMediaFromDB';
+
+interface AppImageProps
+    extends ImgHTMLAttributes<HTMLImageElement> {
+    className?: string;
+    fallback?: ReactElement;
+    errorFallback?: ReactElement;
+}
+
+export const AppImage = typedMemo(
+    (props: AppImageProps) => {
+        const {
+            className,
+            src,
+            alt = 'image',
+            fallback,
+            errorFallback,
+            ...otherProps
+        } = props;
+
+        const [isLoading, setIsLoading] = useState(true);
+        const [hasError, setHasError] = useState(false);
+
+        // вызывается до того, как компонент вмонтируется
+        useLayoutEffect(() => {
+            const img = new Image();
+            // img.src = src ?? '';
+            img.src = src
+                ? updateUrlStaticMediaFromDB(src)
+                : '';
+            img.alt = alt;
+            img.onload = () => {
+                setIsLoading(false);
+            };
+            img.onerror = () => {
+                setIsLoading(false);
+                setHasError(true);
+            };
+        }, [alt, src]);
+
+        if (isLoading && fallback) {
+            return fallback;
+        }
+
+        if (hasError && errorFallback) {
+            return errorFallback;
+        }
+
+        return (
+            <img
+                className={className}
+                // src={src}
+                src={
+                    src
+                        ? updateUrlStaticMediaFromDB(src)
+                        : ''
+                }
+                alt={alt}
+                {...otherProps}
+            />
+        );
+    },
+);

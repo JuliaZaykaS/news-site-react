@@ -5,6 +5,10 @@
         "block-opening-brace-space-before": "always",
         "no-empty-first-line": true,
         "selector-class-pattern": null,
-        "no-empty-source": true
+        "no-empty-source": true,
+        "no-descending-specificity": [
+            true,
+            { "severity": "warning" }
+        ]
     }
 }

@@ -8,11 +8,16 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 interface StoreProviderProps {
     children?: ReactNode;
     initialState?: StateSchema;
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    asyncReducers?: DeepPartial<
+        ReducersMapObject<StateSchema>
+    >;
 }
 
-export const StoreProvider = (props: StoreProviderProps) => {
+export const StoreProvider = (
+    props: StoreProviderProps,
+) => {
     const { children, initialState, asyncReducers } = props;
+
     // const navigate = useNavigate();
 
     const store = createReduxStore(
@@ -20,6 +25,11 @@ export const StoreProvider = (props: StoreProviderProps) => {
         asyncReducers as ReducersMapObject<StateSchema>,
         // navigate
     );
+
+    // доступ к стор для cypress
+    if (window.Cypress) {
+        window.store = store; // 👈 Добавляем store в window, если запущен Cypress
+    }
 
     return <Provider store={store}>{children}</Provider>;
 };

@@ -1,7 +1,10 @@
 /* eslint-disable react/display-name */
 // import { ReducersMapObject } from "@reduxjs/toolkit";
 import { StoryFn } from '@storybook/react';
-import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import {
+    StateSchema,
+    StoreProvider,
+} from '@/app/providers/StoreProvider';
 // import { articleDetailsReducer } from "@/entities/Article";
 
 import { ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -28,7 +31,10 @@ export const StoreDecorator =
     (StoryComponent: StoryFn) => (
         <StoreProvider
             initialState={state as StateSchema}
-            asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            asyncReducers={{
+                ...defaultAsyncReducers,
+                ...asyncReducers,
+            }}
         >
             <StoryComponent />
         </StoreProvider>

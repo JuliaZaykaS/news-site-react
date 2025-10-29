@@ -1,9 +1,6 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
-// import { ArticlesList } from "@/entities/Article/ui/ArticlesList/ArticlesList";
-// import { Article, ArticleViewType } from "@/entities/Article";
 import {
     DynamicModuleLoader,
     ReducerList,
@@ -20,6 +17,11 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { typedMemo } from '@/shared/const/memo';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 interface ArticlesPageProps {
     className?: string;
@@ -31,21 +33,12 @@ const reducers: ReducerList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
 
     const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
-        // if (!inited) {
-        //   dispatch(articlesPageActions.initState());
-        //   dispatch(
-        //     fetchArticlesList({
-        //       page: 1,
-        //     })
-        //   );
-        // }
     });
 
     const onLoadNextPart = useCallback(() => {
@@ -54,16 +47,57 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         }
     }, [dispatch]);
 
+    const content = (
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <StickyContentLayout
+                    left={<ViewSelectorContainer />}
+                    content={
+                        <Page
+                            className={classNames(
+                                cls.articlesPageRedesigned,
+                                {},
+                                [className],
+                            )}
+                            onScrollEnd={onLoadNextPart}
+                            data-testid="ArticlesPage"
+                        >
+                            <ArticleInfiniteList
+                                className={cls.list}
+                            />
+                            <ArticlePageGreeting />
+                        </Page>
+                    }
+                    right={<FiltersContainer />}
+                />
+            }
+            off={
+                <Page
+                    className={classNames(
+                        cls.articlesPage,
+                        {},
+                        [className],
+                    )}
+                    onScrollEnd={onLoadNextPart}
+                    data-testid="ArticlesPage"
+                >
+                    <ArticlesPageFilters />
+                    <ArticleInfiniteList
+                        className={cls.list}
+                    />
+                    <ArticlePageGreeting />
+                </Page>
+            }
+        />
+    );
+
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                className={classNames(cls.articlesPage, {}, [className])}
-                onScrollEnd={onLoadNextPart}
-                data-testid="ArticlesPage"
-            >
-                <ArticlesPageFilters />
-                <ArticleInfiniteList className={cls.list} />
-            </Page>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
+            {content}
         </DynamicModuleLoader>
     );
 };

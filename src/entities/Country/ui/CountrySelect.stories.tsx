@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { CountrySelect } from './CountrySelect';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
     title: 'entities/Country/CountrySelect',
@@ -9,7 +10,6 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        // Story => <div style={{ padding: 200 }}><Story /></div>
         (Story) => (
             <div style={{ padding: 300 }}>
                 <Story />
@@ -22,5 +22,9 @@ const Template: StoryFn<typeof CountrySelect> = (args) => (
     <CountrySelect {...args} />
 );
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const OldDesignPrimary = Template.bind({});
+OldDesignPrimary.args = {};
+
+export const NewDesignPrimary = Template.bind({});
+NewDesignPrimary.args = {};
+NewDesignPrimary.decorators = [NewDesignDecorator];

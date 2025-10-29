@@ -21,9 +21,16 @@ const createReadmeForSlice = (slice: string) => {
         return;
     }
 
-    const slicePaths = path.resolve(__dirname, '..', '..', 'src', `${slice}`);
+    const slicePaths = path.resolve(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        `${slice}`,
+    );
     const sliceDirectory = project.getDirectory(slicePaths);
-    const componentsDirectories = sliceDirectory?.getDirectories();
+    const componentsDirectories =
+        sliceDirectory?.getDirectories();
 
     componentsDirectories?.forEach((directory) => {
         const readmeFilePath = `${directory.getPath()}/README.md`;

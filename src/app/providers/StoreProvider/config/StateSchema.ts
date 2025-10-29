@@ -59,7 +59,8 @@ export interface ReducerManager {
 }
 
 // тип для редьюсер-менеджера
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+export interface ReduxStoreWithManager
+    extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager;
 }
 

@@ -8,7 +8,11 @@ import { Currency } from '@/entities/Currency';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-import { Text, TextTheme } from '@/shared/ui/Text';
+import {
+    Text as TextDeprecated,
+    TextTheme,
+} from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import { ProfileCard } from '@/entities/Profile';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -28,8 +32,9 @@ import {
     DynamicModuleLoader,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { typedMemo } from '@/shared/const/memo';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -57,9 +62,13 @@ export const EditableProfileCard = typedMemo(
             }
         });
 
-        const validateErrors = useSelector(getProfileValidateErrors);
+        const validateErrors = useSelector(
+            getProfileValidateErrors,
+        );
         const validateErrorsTranslates = {
-            [ValidateProfileErrors.SERVER_ERROR]: t('Ошибка сервера'),
+            [ValidateProfileErrors.SERVER_ERROR]: t(
+                'Ошибка сервера',
+            ),
             [ValidateProfileErrors.INCORRECT_AGE]: t(
                 'Некорректно указан возраст',
             ),
@@ -69,26 +78,35 @@ export const EditableProfileCard = typedMemo(
             [ValidateProfileErrors.INCORRECT_USER_DATA]: t(
                 'Имя и фамилия обязательны',
             ),
-            [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
+            [ValidateProfileErrors.NO_DATA]: t(
+                'Данные не указаны',
+            ),
         };
 
         const onChangeFirstName = useCallback(
             (value?: string) => {
-                dispatch(profileActions.updateProfile({ first: value || '' }));
+                dispatch(
+                    profileActions.updateProfile({
+                        first: value || '',
+                    }),
+                );
             },
             [dispatch],
         );
         const onChangeLastName = useCallback(
             (value?: string) => {
                 dispatch(
-                    profileActions.updateProfile({ lastname: value || '' }),
+                    profileActions.updateProfile({
+                        lastname: value || '',
+                    }),
                 );
             },
             [dispatch],
         );
         const onChangeAge = useCallback(
             (value?: string) => {
-                const regex = /^(?:1(?:00?|\d)|[2-5]\d|[0-9]\d?)$/;
+                const regex =
+                    /^(?:1(?:00?|\d)|[2-5]\d|[0-9]\d?)$/;
                 const newValue = value && regex.exec(value);
 
                 dispatch(
@@ -101,63 +119,117 @@ export const EditableProfileCard = typedMemo(
         );
         const onChangeCurrency = useCallback(
             (value?: Currency) => {
-                dispatch(profileActions.updateProfile({ currency: value }));
+                dispatch(
+                    profileActions.updateProfile({
+                        currency: value,
+                    }),
+                );
             },
             [dispatch],
         );
         const onChangeCountry = useCallback(
             (value?: Country) => {
-                dispatch(profileActions.updateProfile({ country: value }));
+                dispatch(
+                    profileActions.updateProfile({
+                        country: value,
+                    }),
+                );
             },
             [dispatch],
         );
         const onChangeCity = useCallback(
             (value?: string) => {
-                dispatch(profileActions.updateProfile({ city: value || '' }));
+                dispatch(
+                    profileActions.updateProfile({
+                        city: value || '',
+                    }),
+                );
             },
             [dispatch],
         );
         const onChangeAvatar = useCallback(
             (value?: string) => {
-                dispatch(profileActions.updateProfile({ avatar: value || '' }));
+                dispatch(
+                    profileActions.updateProfile({
+                        avatar: value || '',
+                    }),
+                );
             },
             [dispatch],
         );
         const onChangeUserName = useCallback(
             (value?: string) => {
                 dispatch(
-                    profileActions.updateProfile({ username: value || '' }),
+                    profileActions.updateProfile({
+                        username: value || '',
+                    }),
                 );
             },
             [dispatch],
         );
 
-        const validateErrorsMarkup = validateErrors?.map((error, index) => {
-            return (
-                <Text
-                    theme={TextTheme.ERROR}
-                    text={validateErrorsTranslates[error]}
-                    key={index}
-                    data-testid={'EditableProfileCard.Error'}
-                />
-            );
-        });
+        const validateErrorsMarkup = validateErrors?.map(
+            (error, index) => {
+                return (
+                    <ToggleFeatures
+                        key={index}
+                        feature={'isAppRedesigned'}
+                        on={
+                            <Text
+                                variant={'error'}
+                                text={
+                                    validateErrorsTranslates[
+                                        error
+                                    ]
+                                }
+                                key={index}
+                                data-testid={
+                                    'EditableProfileCard.Error'
+                                }
+                            />
+                        }
+                        off={
+                            <TextDeprecated
+                                theme={TextTheme.ERROR}
+                                text={
+                                    validateErrorsTranslates[
+                                        error
+                                    ]
+                                }
+                                key={index}
+                                data-testid={
+                                    'EditableProfileCard.Error'
+                                }
+                            />
+                        }
+                    />
+                );
+            },
+        );
 
         return (
-            <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <DynamicModuleLoader
+                reducers={reducers}
+                removeAfterUnmount
+            >
                 <VStack
                     gap={'16'}
                     max
-                    className={classNames('', {}, [className])}
+                    className={classNames('', {}, [
+                        className,
+                    ])}
                 >
                     <EditableProfileCardHeader />
-                    {validateErrors?.length && validateErrorsMarkup}
+                    {validateErrors?.length &&
+                        validateErrorsMarkup}
                     <ProfileCard
                         data={formData}
                         isLoading={isLoading}
                         error={error}
                         readonly={readonly}
-                        onChangeFirstName={onChangeFirstName}
+                        onChangeFirstName={
+                            onChangeFirstName
+                        }
                         onChangeLastName={onChangeLastName}
                         onChangeAge={onChangeAge}
                         onChangeCurrency={onChangeCurrency}

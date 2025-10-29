@@ -27,7 +27,14 @@ export default {
     moduleDirectories: ['node_modules'],
 
     // An array of file extensions your modules use
-    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+    moduleFileExtensions: [
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+        'json',
+        'node',
+    ],
 
     // настройки для абсолютных импортов
     modulePaths: ['<rootDir>src'],
@@ -40,10 +47,14 @@ export default {
     roots: ['<rootDir>'],
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
+    testMatch: [
+        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
 
     // для @testing-library/jest-dom
-    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+    setupFilesAfterEnv: [
+        '<rootDir>config/jest/setupTests.ts',
+    ],
 
     // для обработки css-файлов
     moduleNameMapper: {
@@ -51,7 +62,10 @@ export default {
         //   "<rootDir>/__mocks__/fileMock.js",
         // '^@/(.*)$': '<rootDir>src/$1',
         '\\.(s?css)$': 'identity-obj-proxy',
-        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'), // для обаботки свг-иконок
+        '\\.svg': path.resolve(
+            __dirname,
+            'jestEmptyComponent.tsx',
+        ), // для обаботки свг-иконок
         // "^@/**/\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"), // для обаботки свг-иконок
         '^@/(.*)$': '<rootDir>src/$1',
         // '^@/shared(.*)$': '<rootDir>/src/shared$1',
@@ -67,7 +81,7 @@ export default {
         __IS_DEV__: true,
         __API__: '',
         __PROJECT__: 'jest',
-        __VITE_TEST__: true,
+        // __VITE_TEST__: true,
     },
 
     // Use this configuration option to add custom reporters to Jest

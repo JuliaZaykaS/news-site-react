@@ -18,7 +18,7 @@ export const login = (
         .then(({ body }) => {
             window.localStorage.setItem(
                 USER_LOCALSTORAGE_KEY,
-                JSON.stringify(body),
+                body.id,
             );
 
             return body;
@@ -32,8 +32,13 @@ export const getByTestId = (testId: string) => {
 declare global {
     namespace Cypress {
         interface Chainable {
-            login(username?: string, password?: string): Chainable<User>;
-            getByTestId(testId: string): ReturnType<typeof cy.get>;
+            login(
+                username?: string,
+                password?: string,
+            ): Chainable<User>;
+            getByTestId(
+                testId: string,
+            ): ReturnType<typeof cy.get>;
         }
     }
 }

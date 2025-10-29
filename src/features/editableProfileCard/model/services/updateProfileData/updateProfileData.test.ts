@@ -18,12 +18,17 @@ const data = {
 
 describe('updateProfileData.test', () => {
     test('success get profile', async () => {
-        const thunk = new TestAsyncThunk(updateProfileData, {
-            profile: {
-                formData: data,
+        const thunk = new TestAsyncThunk(
+            updateProfileData,
+            {
+                profile: {
+                    formData: data,
+                },
             },
-        });
-        thunk.api.put.mockReturnValue(Promise.resolve({ data: data }));
+        );
+        thunk.api.put.mockReturnValue(
+            Promise.resolve({ data: data }),
+        );
         const result = await thunk.callThunk();
 
         expect(thunk.api.put).toHaveBeenCalled();
@@ -32,24 +37,34 @@ describe('updateProfileData.test', () => {
     });
 
     test('error', async () => {
-        const thunk = new TestAsyncThunk(updateProfileData, {
-            profile: {
-                formData: data,
+        const thunk = new TestAsyncThunk(
+            updateProfileData,
+            {
+                profile: {
+                    formData: data,
+                },
             },
-        });
-        thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
+        );
+        thunk.api.put.mockReturnValue(
+            Promise.resolve({ status: 403 }),
+        );
         const result = await thunk.callThunk();
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([ValidateProfileErrors.SERVER_ERROR]);
+        expect(result.payload).toEqual([
+            ValidateProfileErrors.SERVER_ERROR,
+        ]);
     });
     test('validate error', async () => {
-        const thunk = new TestAsyncThunk(updateProfileData, {
-            profile: {
-                formData: { ...data, first: '' },
+        const thunk = new TestAsyncThunk(
+            updateProfileData,
+            {
+                profile: {
+                    formData: { ...data, first: '' },
+                },
             },
-        });
+        );
 
         const result = await thunk.callThunk();
 
