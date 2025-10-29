@@ -6,6 +6,7 @@ import {
 } from 'react';
 
 import { typedMemo } from '@/shared/const/memo';
+import { updateUrlStaticMediaFromDB } from '@/shared/lib/url/updateUrlStaticMediaFromDB/updateUrlStaticMediaFromDB';
 
 interface AppImageProps
     extends ImgHTMLAttributes<HTMLImageElement> {
@@ -31,7 +32,10 @@ export const AppImage = typedMemo(
         // вызывается до того, как компонент вмонтируется
         useLayoutEffect(() => {
             const img = new Image();
-            img.src = src ?? '';
+            // img.src = src ?? '';
+            img.src = src
+                ? updateUrlStaticMediaFromDB(src)
+                : '';
             img.alt = alt;
             img.onload = () => {
                 setIsLoading(false);
@@ -53,7 +57,12 @@ export const AppImage = typedMemo(
         return (
             <img
                 className={className}
-                src={src}
+                // src={src}
+                src={
+                    src
+                        ? updateUrlStaticMediaFromDB(src)
+                        : ''
+                }
                 alt={alt}
                 {...otherProps}
             />

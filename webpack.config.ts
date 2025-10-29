@@ -10,17 +10,29 @@ import {
     BuildMode,
     BuildPaths,
 } from './config/build/types/config';
+import dotenv from 'dotenv';
 
-function getApiUrl(mode: BuildMode, apiUrl?: string) {
-    if (apiUrl) {
-        return apiUrl;
-    }
+// function getApiUrl(mode: BuildMode, apiUrl?: string) {
+//     if (apiUrl) {
+//         return apiUrl;
+//     }
 
-    if (mode === 'production') {
-        return '/api';
-    }
+//     if (mode === 'production') {
+//         return '/api';
+//     }
 
-    return 'http://localhost:8000';
+//     return 'http://localhost:8000';
+// }
+
+// Загружаем .env.{env}
+function getApiUrl(mode: BuildMode) {
+    // mode === 'production'
+    //     ? dotenv.config({ path: path.resolve(__dirname, `.env`) })
+    //     : dotenv.config({ path: path.resolve(__dirname, `.env.${mode}`) });
+    dotenv.config({
+        path: path.resolve(__dirname, `.env.${mode}`),
+    });
+    return JSON.stringify(process.env.API_URL);
 }
 
 export default (env: BuildEnv) => {
@@ -51,7 +63,8 @@ export default (env: BuildEnv) => {
     const PORT = env?.port || 3000;
     // const PORT = env?.port || 5173; // для cypress
     // const apiUrl = env?.apiUrl || 'http://localhost:8000';
-    const apiUrl = getApiUrl(mode, env?.apiUrl);
+    // const apiUrl = getApiUrl(mode, env?.apiUrl);
+    const apiUrl = getApiUrl(mode);
 
     const config: webpack.Configuration =
         buildWebpackConfig({
